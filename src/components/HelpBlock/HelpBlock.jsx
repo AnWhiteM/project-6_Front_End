@@ -1,8 +1,20 @@
+import { useState } from "react";
+import ModalHelp from "../ModalHelp/ModalHelp";
+
 export default function HelpBlock() {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   return (
     <div>
       <div>
-        <img src="../../../public/Kaktus.png" alt="Kaktus" />
+        <img src="../../img/1x-sidebar-plant.png" alt="Kaktus" />
       </div>
       <div>
         <p>
@@ -15,8 +27,11 @@ export default function HelpBlock() {
         </p>
       </div>
       <div>
-        <img src="../../../public/help-circle.png" alt="Icon Help Circle" />
-        <p>Need help?</p>
+        <svg>
+          <use href="../../img/icons.svg/icon-arrow-circle"></use>
+        </svg>
+        <p onClick={openModal}>Need help?</p>
+        {modalOpen && <ModalHelp isOpen={modalOpen} closeModal={closeModal} />}
       </div>
     </div>
   );

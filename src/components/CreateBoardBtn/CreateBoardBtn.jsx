@@ -4,6 +4,7 @@ import BoardModal from "../BoardModal/BoardModal";
 import svg from "../../img/icons.svg";
 
 import css from "./CreateBoardBtn.module.css";
+import Modal from "react-modal";
 
 export default function CreateBoardBtn() {
   const [isModalOpen, setIsModalOpen] = useState(false);

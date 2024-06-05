@@ -1,5 +1,9 @@
 import { useState } from "react";
 import CreateBoardForm from "../CreateBoardForm/CreateBoardForm";
+import BoardModal from "../BoardModal/BoardModal";
+import svg from "../../img/icons.svg";
+
+import css from "./CreateBoardBtn.module.css";
 
 export default function CreateBoardBtn() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,13 +20,15 @@ export default function CreateBoardBtn() {
     <>
       <p>Create a new board</p>
       <button type="button" onClick={openModal}>
-        <img src="../../../public/plus.png" alt="icon plus" />
+        <svg className={css.icon} width="20px" height="20px">
+          <use href={svg + "#icon-plus"}></use>
+        </svg>
       </button>
 
       {isModalOpen && (
-        <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <BoardModal isOpen={isModalOpen} onClose={closeModal}>
           <CreateBoardForm onClose={closeModal} />
-        </Modal>
+        </BoardModal>
       )}
     </>
   );

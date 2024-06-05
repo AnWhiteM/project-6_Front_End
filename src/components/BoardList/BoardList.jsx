@@ -5,7 +5,7 @@ export default function CreateTask() {
     <>
       <h2>My boards</h2>
       <CreateBoardBtn />
-      {allBoards.length !== 0 && <ButtonList />}
+      {/* {allBoards.length !== 0 && <ButtonList />} */}
     </>
   );
 }

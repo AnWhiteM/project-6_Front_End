@@ -1,5 +1,5 @@
 import Logo from "../Logo/Logo";
-import CreateTask from "../CreateTask/CreateTask";
+import CreateBoardBtn from "../CreateBoardBtn/CreateBoardBtn";
 import ProjectOffice from "../ProjectOffice/ProjectOffice";
 import NeonLightProject from "../NeonLightProject/NeonLightProject";
 import HelpBlock from "../HelpBlock/HelpBlock";
@@ -11,7 +11,7 @@ export default function AppBar() {
   return (
     <div className={css.container}>
       <Logo />
-      <CreateTask />
+      <CreateBoardBtn />
       <ProjectOffice />
       <NeonLightProject />
       <HelpBlock />

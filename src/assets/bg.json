@@ -1,29 +1,178 @@
 [
   {
     "id": 1,
-    "mob": "../img/1x-mob/1x-mobFont-unsplash 26.png",
-    "mob2x": "../img/2x-mob/2x-mobFont-unsplash 26.png",
-    "tab": "../img/1x-tab/1x-tabFont-unsplash 11.png",
-    "tab2x": "../img/2x-tab/2x-tabFont--U-unsplash 11-min.png",
-    "desc": "../img/1x-desk/1x-deskFont--U-unsplash 10desk-font-min.png",
-    "desc2x": "../img/2x-desk/2x-deskFont--U-unsplash 1-1-min.png"
+    "mini": "../img/1x-mini fonts/1x-miniFont-default.png",
+    "mini2x": "../img/2x-mini fonts/2x-miniFont-default.png",
+    "mob": "../img/1x-mini fonts/1x-miniFont-default.png",
+    "mob2x": "../img/2x-mini fonts/2x-miniFont-default.png",
+    "tab": "../img/1x-mini fonts/1x-miniFont-default.png",
+    "tab2x": "../img/2x-mini fonts/2x-miniFont-default.png",
+    "desc": "../img/1x-mini fonts/1x-miniFont-default.png",
+    "desc2x": "../img/2x-mini fonts/2x-miniFont-default.png"
   },
   {
     "id": 2,
-    "mob": "../img/1x-mob/1x-mobFont-unsplash 26.png",
-    "mob2x": "../img/2x-mob/2x-mobFont-unsplash 26.png",
-    "tab": "../img/1x-tab/1x-tabFont-unsplash 11.png",
-    "tab2x": "../img/2x-tab/2x-tabFont--U-unsplash 11-min.png",
-    "desc": "../img/1x-desk/1x-deskFont--U-unsplash 10desk-font-min.png",
-    "desc2x": "../img/2x-desk/2x-deskFont--U-unsplash 1-1-min.png"
+    "mini": "../img/1x-mini fonts/1x-miniFont-1.png",
+    "mini2x": "../img/2x-mini fonts/2x-miniFont-1.png",
+    "mob": "../img/1x-mob/1x-mobFont-1.png",
+    "mob2x": "../img/2x-mob/2x-mobFont-1.png",
+    "tab": "../img/1x-tab/1x-tabFont-1.png",
+    "tab2x": "../img/2x-tab/2x-tabFont-1.png",
+    "desc": "../img/1x-desk/1x-deskFont-1.png",
+    "desc2x": "../img/2x-desk/2x-deskFont-1.png"
   },
   {
     "id": 3,
-    "mob": "../img/1x-mob/1x-mobFont-unsplash 26.png",
-    "mob2x": "../img/2x-mob/2x-mobFont-unsplash 26.png",
-    "tab": "../img/1x-tab/1x-tabFont-unsplash 11.png",
-    "tab2x": "../img/2x-tab/2x-tabFont--U-unsplash 11-min.png",
-    "desc": "../img/1x-desk/1x-deskFont--U-unsplash 10desk-font-min.png",
-    "desc2x": "../img/2x-desk/2x-deskFont--U-unsplash 1-1-min.png"
+    "mini": "../img/1x-mini fonts/1x-miniFont-2.png",
+    "mini2x": "../img/2x-mini fonts/2x-miniFont-2.png",
+    "mob": "../img/1x-mob/1x-mobFont-2.png",
+    "mob2x": "../img/2x-mob/2x-mobFont-2.png",
+    "tab": "../img/1x-tab/1x-tabFont-2.png",
+    "tab2x": "../img/2x-tab/2x-tabFont-2.png",
+    "desc": "../img/1x-desk/1x-deskFont-2.png",
+    "desc2x": "../img/2x-desk/2x-deskFont-2.png"
+  },
+  {
+    "id": 4,
+    "mini": "../img/1x-mini fonts/1x-miniFont-3.png",
+    "mini2x": "../img/2x-mini fonts/2x-miniFont-3.png",
+    "mob": "../img/1x-mob/1x-mobFont-3.png",
+    "mob2x": "../img/2x-mob/2x-mobFont-3.png",
+    "tab": "../img/1x-tab/1x-tabFont-3.png",
+    "tab2x": "../img/2x-tab/2x-tabFont-3.png",
+    "desc": "../img/1x-desk/1x-deskFont-3.png",
+    "desc2x": "../img/2x-desk/2x-deskFont-3.png"
+  },
+  {
+    "id": 5,
+    "mini": "../img/1x-mini fonts/1x-miniFont-4.png",
+    "mini2x": "../img/2x-mini fonts/2x-miniFont-4.png",
+    "mob": "../img/1x-mob/1x-mobFont-4.png",
+    "mob2x": "../img/2x-mob/2x-mobFont-4.png",
+    "tab": "../img/1x-tab/1x-tabFont-4.png",
+    "tab2x": "../img/2x-tab/2x-tabFont-4.png",
+    "desc": "../img/1x-desk/1x-deskFont-4.png",
+    "desc2x": "../img/2x-desk/2x-deskFont-4.png"
+  },
+  {
+    "id": 6,
+    "mini": "../img/1x-mini fonts/1x-miniFont-5.png",
+    "mini2x": "../img/2x-mini fonts/2x-miniFont-5.png",
+    "mob": "../img/1x-mob/1x-mobFont-5.png",
+    "mob2x": "../img/2x-mob/2x-mobFont-5.png",
+    "tab": "../img/1x-tab/1x-tabFont-5.png",
+    "tab2x": "../img/2x-tab/2x-tabFont-5.png",
+    "desc": "../img/1x-desk/1x-deskFont-5.png",
+    "desc2x": "../img/2x-desk/2x-deskFont-5.png"
+  },
+  {
+    "id": 7,
+    "mini": "../img/1x-mini fonts/1x-miniFont-6.png",
+    "mini2x": "../img/2x-mini fonts/2x-miniFont-6.png",
+    "mob": "../img/1x-mob/1x-mobFont-6.png",
+    "mob2x": "../img/2x-mob/2x-mobFont-6.png",
+    "tab": "../img/1x-tab/1x-tabFont-6.png",
+    "tab2x": "../img/2x-tab/2x-tabFont-6.png",
+    "desc": "../img/1x-desk/1x-deskFont-6.png",
+    "desc2x": "../img/2x-desk/2x-deskFont-6.png"
+  },
+  {
+    "id": 8,
+    "mini": "../img/1x-mini fonts/1x-miniFont-7.png",
+    "mini2x": "../img/2x-mini fonts/2x-miniFont-7.png",
+    "mob": "../img/1x-mob/1x-mobFont-7.png",
+    "mob2x": "../img/2x-mob/2x-mobFont-7.png",
+    "tab": "../img/1x-tab/1x-tabFont-7.png",
+    "tab2x": "../img/2x-tab/2x-tabFont-7.png",
+    "desc": "../img/1x-desk/1x-deskFont-7.png",
+    "desc2x": "../img/2x-desk/2x-deskFont-7.png"
+  },
+  {
+    "id": 9,
+    "mini": "../img/1x-mini fonts/1x-miniFont-8.png",
+    "mini2x": "../img/2x-mini fonts/2x-miniFont-8.png",
+    "mob": "../img/1x-mob/1x-mobFont-8.png",
+    "mob2x": "../img/2x-mob/2x-mobFont-8.png",
+    "tab": "../img/1x-tab/1x-tabFont-8.png",
+    "tab2x": "../img/2x-tab/2x-tabFont-8.png",
+    "desc": "../img/1x-desk/1x-deskFont-8.png",
+    "desc2x": "../img/2x-desk/2x-deskFont-8.png"
+  },
+  {
+    "id": 10,
+    "mini": "../img/1x-mini fonts/1x-miniFont-9.png",
+    "mini2x": "../img/2x-mini fonts/2x-miniFont-9.png",
+    "mob": "../img/1x-mob/1x-mobFont-9.png",
+    "mob2x": "../img/2x-mob/2x-mobFont-9.png",
+    "tab": "../img/1x-tab/1x-tabFont-9.png",
+    "tab2x": "../img/2x-tab/2x-tabFont-9.png",
+    "desc": "../img/1x-desk/1x-deskFont-9.png",
+    "desc2x": "../img/2x-desk/2x-deskFont-9.png"
+  },
+  {
+    "id": 11,
+    "mini": "../img/1x-mini fonts/1x-miniFont-10.png",
+    "mini2x": "../img/2x-mini fonts/2x-miniFont-10.png",
+    "mob": "../img/1x-mob/1x-mobFont-10.png",
+    "mob2x": "../img/2x-mob/2x-mobFont-10.png",
+    "tab": "../img/1x-tab/1x-tabFont-10.png",
+    "tab2x": "../img/2x-tab/2x-tabFont-10.png",
+    "desc": "../img/1x-desk/1x-deskFont-10.png",
+    "desc2x": "../img/2x-desk/2x-deskFont-10.png"
+  },
+  {
+    "id": 12,
+    "mini": "../img/1x-mini fonts/1x-miniFont-11.png",
+    "mini2x": "../img/2x-mini fonts/2x-miniFont-11.png",
+    "mob": "../img/1x-mob/1x-mobFont-11.png",
+    "mob2x": "../img/2x-mob/2x-mobFont-11.png",
+    "tab": "../img/1x-tab/1x-tabFont-11.png",
+    "tab2x": "../img/2x-tab/2x-tabFont-11.png",
+    "desc": "../img/1x-desk/1x-deskFont-11.png",
+    "desc2x": "../img/2x-desk/2x-deskFont-11.png"
+  },
+  {
+    "id": 13,
+    "mini": "../img/1x-mini fonts/1x-miniFont-12.png",
+    "mini2x": "../img/2x-mini fonts/2x-miniFont-12.png",
+    "mob": "../img/1x-mob/1x-mobFont-12.png",
+    "mob2x": "../img/2x-mob/2x-mobFont-12.png",
+    "tab": "../img/1x-tab/1x-tabFont-12.png",
+    "tab2x": "../img/2x-tab/2x-tabFont-12.png",
+    "desc": "../img/1x-desk/1x-deskFont-12.png",
+    "desc2x": "../img/2x-desk/2x-deskFont-12.png"
+  },
+  {
+    "id": 14,
+    "mini": "../img/1x-mini fonts/1x-miniFont-13.png",
+    "mini2x": "../img/2x-mini fonts/2x-miniFont-13.png",
+    "mob": "../img/1x-mob/1x-mobFont-13.png",
+    "mob2x": "../img/2x-mob/2x-mobFont-13.png",
+    "tab": "../img/1x-tab/1x-tabFont-13.png",
+    "tab2x": "../img/2x-tab/2x-tabFont-13.png",
+    "desc": "../img/1x-desk/1x-deskFont-13.png",
+    "desc2x": "../img/2x-desk/2x-deskFont-13.png"
+  },
+  {
+    "id": 15,
+    "mini": "../img/1x-mini fonts/1x-miniFont-14.png",
+    "mini2x": "../img/2x-mini fonts/2x-miniFont-14.png",
+    "mob": "../img/1x-mob/1x-mobFont-14.png",
+    "mob2x": "../img/2x-mob/2x-mobFont-14.png",
+    "tab": "../img/1x-tab/1x-tabFont-14.png",
+    "tab2x": "../img/2x-tab/2x-tabFont-14.png",
+    "desc": "../img/1x-desk/1x-deskFont-14.png",
+    "desc2x": "../img/2x-desk/2x-deskFont-14.png"
+  },
+  {
+    "id": 16,
+    "mini": "../img/1x-mini fonts/1x-miniFont-15.png",
+    "mini2x": "../img/2x-mini fonts/2x-miniFont-15.png",
+    "mob": "../img/1x-mob/1x-mobFont-15.png",
+    "mob2x": "../img/2x-mob/2x-mobFont-15.png",
+    "tab": "../img/1x-tab/1x-tabFont-15.png",
+    "tab2x": "../img/2x-tab/2x-tabFont-15.png",
+    "desc": "../img/1x-desk/1x-deskFont-15.png",
+    "desc2x": "../img/2x-desk/2x-deskFont-15.png"
   }
 ]

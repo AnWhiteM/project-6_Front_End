@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Modal from "react-modal";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -6,7 +6,6 @@ import * as Yup from "yup";
 import svg from "../../img/icons.svg";
 import bgData from "../../assets/bg.json";
 
-// Example arrays for icons and backgrounds
 const icons = [
   "icon-i-1-project",
   "icon-i-2",
@@ -43,6 +42,16 @@ export default function BoardModal({ isOpen, onClose, initialTitle = "" }) {
 
   const submitHandler = (values, actions) => {
     console.log(values);
+
+    // // Local storage - start
+    // let storedData = JSON.parse(localStorage.getItem("boardData")) || [];
+
+    // storedData.push(values);
+
+    // localStorage.setItem("boardData", JSON.stringify(storedData));
+
+    // // Local storage - end
+
     actions.resetForm();
     onClose();
   };
@@ -104,11 +113,11 @@ export default function BoardModal({ isOpen, onClose, initialTitle = "" }) {
                   >
                     <img
                       srcSet={`${bg.mob} 375w, ${bg.tab} 768w, ${bg.desc} 1180w`}
-                      sizes="(max-width: 767px) 375px, (mim-width: 768px) 768px, (mim-width: 1440px) 1180px"
-                      src={bg.mob}
+                      sizes="(max-width: 767px) 375px, (min-width: 768px) 768px, (min-width: 1440px) 1180px"
+                      src={bg.mini}
                       alt={bg.id}
-                      width="100%"
-                      height="auto"
+                      width="28px"
+                      height="28px"
                     />
                   </button>
                 ))}

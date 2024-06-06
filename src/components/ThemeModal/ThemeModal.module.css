@@ -1,0 +1,52 @@
+.backdrop {
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  height: 100vw;
+  z-index: 999;
+}
+
+.themeModal {
+  border-radius: 8px;
+  position: absolute;
+  right: 155px;
+  top: 50px;
+  z-index: 1000;
+}
+
+.list {
+  align-items: flex-start;
+  border: 1px solid #bedbb0;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px hsla(0, 0%, 7%, 0.1);
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  list-style: none;
+  padding: 18px;
+  padding-right: 44px;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.btnActive {
+  color: #bedbb0;
+}
+
+.btnInactive {
+  color: #161616;
+}
+
+.transition {
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+}
+.menuContainer {
+  width: 94px;
+}

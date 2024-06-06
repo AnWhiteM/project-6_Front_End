@@ -24,7 +24,7 @@ dist-ssr
 *.sw?
 
 # Pullrequests List
-pullreques-list.txt
+pullrequest-list.txt
 
 # NotesDev
 .notes/

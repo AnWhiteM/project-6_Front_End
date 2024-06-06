@@ -1,10 +1,8 @@
 import { useState } from "react";
-import CreateBoardForm from "../CreateBoardForm/CreateBoardForm";
-import BoardModal from "../BoardModal/BoardModal";
+import CreateBoardModal from "../CreateBoardModal/CreateBoardModal";
 import svg from "../../img/icons.svg";
 
 import css from "./CreateBoardBtn.module.css";
-import Modal from "react-modal";
 
 export default function CreateBoardBtn() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,9 +25,7 @@ export default function CreateBoardBtn() {
       </button>
 
       {isModalOpen && (
-        <BoardModal isOpen={isModalOpen} onClose={closeModal}>
-          <CreateBoardForm onClose={closeModal} />
-        </BoardModal>
+        <CreateBoardModal isOpen={isModalOpen} onClose={closeModal} />
       )}
     </>
   );

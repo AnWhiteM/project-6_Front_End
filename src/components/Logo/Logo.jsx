@@ -1,8 +1,16 @@
+import { Link } from "react-router-dom";
+
+import svg from "../../img/icons.svg";
+
 export default function Logo() {
   return (
     <div>
-      {/* deleted path to undefined logo pic */}
-      <p> Task Pro</p>
+      {/* <Link to="/home">
+        <svg>
+          <use href={svg + "#icon-logo"}></use>
+        </svg>
+      </Link>
+      <h2>Task Pro</h2> */}
     </div>
   );
 }

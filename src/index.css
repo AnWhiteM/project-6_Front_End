@@ -1,18 +1,147 @@
-a {
-  text-decoration: inherit;
+/**
+  |============================
+  | VARIABLES
+  |============================
+*/
+:root {
+  /* colors */
+  --black: #121212;
+  --white: #fff;
+
+  /* others */
+  --indent: 20px;
+  --items: 2;
+  --animation: 350ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+html {
+  scroll-behavior: smooth;
+}
+/**
+  |============================
+  | FONTS
+  |============================
+*/
+
+/* Poppins - Thin - 100 */
+@font-face {
+  font-display: swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 100;
+  src: url('./fonts/Poppins-Thin\ -\ 100.ttf') format('ttf');
+}
+
+/* Poppins - ExtraLight - 200 */
+@font-face {
+  font-display: swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 200;
+  src: url('./fonts/Poppins-ExtraLight\ -\ 200.ttf') format('ttf');
+}
+
+/* Poppins - Light - 300 */
+@font-face {
+  font-display: swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  src: url('./fonts/Poppins-Light\ -\ 300.ttf') format('ttf');
+}
+
+/* Poppins - Regular - 400 */
+@font-face {
+  font-display: swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/Poppins-Regular\ -\ 400.ttf') format('ttf');
+}
+
+
+/* Poppins - Medium - 500 */
+@font-face {
+  font-display: swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./fonts/Poppins-Medium\ -\ 500.ttf') format('ttf');
+}
+
+/* Poppins - SemiBold - 600 */
+@font-face {
+  font-display: swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./fonts/Poppins-SemiBold\ -\ 600.ttf') format('ttf');
+}
+
+/* Poppins - Bold - 700 */
+@font-face {
+  font-display: swap;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./fonts/Poppins-Bold\ -\ 700.ttf') format('ttf');
+}
+
+
 body {
-  padding: 15px;
-  color: #1b1b1b;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--white);
+  background-color: var(--black);
 }
 
-ul,
-li {
-  list-style-type: none;
-  padding-left: 0;
+.link {
+  text-decoration: none;
+  color: currentColor;
 }
 
-img {
-  display: block;
-  width: 100%;
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Phone screen */
+.container {
+  min-width: 320px;
+  max-width: 375px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Tablet screen */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+/* Desctop screens */
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+  }
+}
+
+/* Приховані елементи */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }

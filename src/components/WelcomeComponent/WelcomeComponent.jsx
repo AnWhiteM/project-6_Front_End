@@ -11,6 +11,9 @@ export const WelcomeComponent = () => {
 
   return (
     <div>
+      <svg width="20" height="20">
+        <use href="../../img/icons.svg#icon-logo"></use>
+      </svg>
       <h1>Welcome</h1>
       <svg  width="20" height="20">
               <use

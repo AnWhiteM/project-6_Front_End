@@ -1,7 +1,7 @@
 export default function Logo() {
   return (
     <div>
-      <img src="../../../public/icon.png " alt="logo icon" />
+      {/* deleted path to undefined logo pic */}
       <p> Task Pro</p>
     </div>
   );

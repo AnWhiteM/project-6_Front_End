@@ -5,6 +5,7 @@ import * as Yup from "yup";
 
 import svg from "../../img/icons.svg";
 import bgData from "../../assets/bg.json";
+import css from "../EditBoardModal/EditBoardModal.module.css";
 
 const icons = [
   "icon-i-1-project",
@@ -26,7 +27,11 @@ const titleValidationSchema = Yup.object().shape({
     .required("Required field"),
 });
 
-export default function CreateBoardModal({ isOpen, onClose, initialTitle = "" }) {
+export default function CreateBoardModal({
+  isOpen,
+  onClose,
+  initialTitle = "",
+}) {
   const [selectedIcon, setSelectedIcon] = useState(icons[0]);
   const [selectedBg, setSelectedBg] = useState("");
 
@@ -125,7 +130,14 @@ export default function CreateBoardModal({ isOpen, onClose, initialTitle = "" })
               </div>
             </div>
             <div>
-              <button type="submit">Create</button>
+              <button type="submit">
+                <span className={css.iconWrapper}>
+                  <svg className={css.iconPlus} width="14px" height="14px">
+                    <use href={svg + "#icon-plus"}></use>
+                  </svg>
+                </span>
+                Create
+              </button>
             </div>
           </Form>
         )}

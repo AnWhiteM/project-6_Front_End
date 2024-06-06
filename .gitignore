@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Pullrequests List
+pullreques-list.txt
+
+# NotesDev
+.notes/

@@ -12,6 +12,11 @@ export const WelcomeComponent = () => {
   return (
     <div>
       <h1>Welcome</h1>
+      <svg  width="20" height="20">
+              <use
+                href="./images/icons.svg#icon-login"
+              ></use>
+              </svg>
       <button onClick={handleToggle}>
         {isLogin ? "Switch to Registration" : "Switch to Login"}
       </button>

@@ -26,7 +26,7 @@ const titleValidationSchema = Yup.object().shape({
     .required("Required field"),
 });
 
-export default function BoardModal({ isOpen, onClose, initialTitle = "" }) {
+export default function CreateBoardModal({ isOpen, onClose, initialTitle = "" }) {
   const [selectedIcon, setSelectedIcon] = useState(icons[0]);
   const [selectedBg, setSelectedBg] = useState("");
 
@@ -43,14 +43,15 @@ export default function BoardModal({ isOpen, onClose, initialTitle = "" }) {
   const submitHandler = (values, actions) => {
     console.log(values);
 
-    // // Local storage - start
-    // let storedData = JSON.parse(localStorage.getItem("boardData")) || [];
+    // Local storage - start
+    const storedData = JSON.parse(localStorage.getItem("boardData"));
 
-    // storedData.push(values);
+    const updatedData = Array.isArray(storedData)
+      ? [...storedData, values]
+      : [values];
 
-    // localStorage.setItem("boardData", JSON.stringify(storedData));
-
-    // // Local storage - end
+    localStorage.setItem("boardData", JSON.stringify(updatedData));
+    // Local storage - end
 
     actions.resetForm();
     onClose();

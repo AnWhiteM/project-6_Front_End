@@ -1,0 +1,21 @@
+.link {
+    color: #bedbb0;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.text {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 129%;
+    text-align: center;
+    width: 486px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

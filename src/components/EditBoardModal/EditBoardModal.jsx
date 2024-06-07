@@ -56,8 +56,8 @@ export default function EditBoardModal({
         return {
           ...board,
           title: values.title,
-          icon: values.icon,
-          background: values.background,
+          icon: selectedIcon,
+          background: selectedBg,
         };
       }
       return board;

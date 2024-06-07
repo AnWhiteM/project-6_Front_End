@@ -22,35 +22,47 @@ export default function Header() {
   {
     return (
       <>
-        <div className={css.headerWrapper}>
+        <div className={`${css.headerWrapper} ${css.container}`}>
           <header className={css.headerLayout}>
             <div>
-              <button
-                className={css.button}
-                onClick={() => {
-                  setShowModal(!showModal);
-                }}
-              >
-                Theme
-                <svg width="16" height="16" stroke="currentColor">
-                  <use href="/src/img/icons.svg#chevron-down-icon"></use>
-                </svg>
-              </button>
+              <div className={css.hidden}>
+                <button className={css.burger}>
+                  <svg width="24" height="24">
+                    <use
+                      href="/src/img/icons.svg#icon-burger-menu"
+                      stroke="currentColor"
+                    ></use>
+                  </svg>
+                </button>
+              </div>
             </div>
-            {showModal && <ThemeModal closeMenuModal={closeMenuModal} />}
 
-            <div className={css.layout}>
-              <p>UserName</p>
-              <button className={css.button} onClick={() => openModal()}>
-                <span className={`${css.avatarSmall} ${css.avatar}`} />
-              </button>
+            <div className={css.position}>
+              <div>
+                <button
+                  className={css.button}
+                  onClick={() => {
+                    setShowModal(!showModal);
+                  }}
+                >
+                  Theme
+                  <svg width="16" height="16" stroke="currentColor">
+                    <use href="/src/img/icons.svg#chevron-down-icon"></use>
+                  </svg>
+                </button>
+              </div>
+              {showModal && <ThemeModal closeMenuModal={closeMenuModal} />}
+              <div className={css.layout}>
+                <p className={css.text}>UserName</p>
+                <button className={css.button} onClick={() => openModal()}>
+                  <span className={`${css.avatarSmall} ${css.avatar}`} />
+                </button>
+              </div>
+              {isModalOpen && <UserEditModal onClose={closeModal} />}
             </div>
-            {isModalOpen && <UserEditModal onClose={closeModal} />}
           </header>
         </div>
       </>
     );
   }
 }
-
-//  <img src="/src/img/user.jpg" alt="default photo" width="32" height="32" className={css.avatar} />;

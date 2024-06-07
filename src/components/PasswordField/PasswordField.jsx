@@ -9,9 +9,6 @@ const PasswordField = () => {
     setShowPassword(!showPassword);
   };
 
-  console.log(
-    `/src/img/icons${showPassword ? ".svg#eye-slash-icon" : ".svg#eye-icon"}`
-  );
   return (
     <div className={css.passwordField}>
       <Field
@@ -34,7 +31,3 @@ const PasswordField = () => {
 };
 
 export default PasswordField;
-
-// href={`/src/img/sprite ${
-//             showPassword ? "(1).svg#eye-slash-icon" : "(1).svg#eye-icon"
-//           }`}

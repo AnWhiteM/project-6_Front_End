@@ -2,7 +2,7 @@ import { useState } from "react";
 import css from "../ThemeModal/ThemeModal.module.css";
 
 export default function ThemeModal({ closeMenuModal }) {
-  const [theme, setTheme] = useState("Light");
+  const [theme, setTheme] = useState("Dark");
 
   const handleThemeChange = (selectedTheme) => {
     setTheme(selectedTheme);

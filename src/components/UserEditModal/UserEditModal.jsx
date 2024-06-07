@@ -29,7 +29,10 @@ export default function UserEditModal({ onClose }) {
   return (
     <>
       <div className={css.backdrop} onClick={() => onClose()}>
-        <div className={css.container} onClick={(e) => handleMenuClick(e)}>
+        <div
+          className={`${css.container} ${css.cont}`}
+          onClick={(e) => handleMenuClick(e)}
+        >
           <div className={css.wrap}>
             <button className={css.closeBtn} onClick={() => onClose()}>
               <svg width="18" height="18" stroke="currentColor">
@@ -37,7 +40,7 @@ export default function UserEditModal({ onClose }) {
               </svg>
             </button>
           </div>
-          <p>Edit Profile</p>
+          <p className={css.txt}>Edit Profile</p>
           <div className={css.avatarContainer}>
             <span className={`${css.avatarBig} ${css.avatar}`} />
             {/* <img src="/src/img/user.jpg" alt="avatar" width="68" height="68"></img> */}

@@ -1,3 +1,8 @@
+.container {
+  min-width: 320px;
+  max-width: 375px;
+}
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -6,17 +11,15 @@
   height: 100vw;
 }
 
-.container {
-  background-color: #ffffff;
-  width: 400px;
-  height: 440px;
+.cont {
+  background-color: #161616;
+  max-width: 335px;
+  max-height: 440px;
   border: 1px solid #bedbb0;
   border-radius: 8px;
   box-shadow: 0 4px 16px hsla(0, 0%, 7%, 0.1);
   padding: 24px;
-  position: fixed;
-  right: 32px;
-  top: 60px;
+  margin: 0 auto;
 }
 
 .wrap {
@@ -25,15 +28,19 @@
   right: 14px;
   cursor: pointer;
 }
+
 .closeBtn {
   width: 18px;
   height: 18px;
 }
 
-.text {
+.txt {
+  color: var(--white);
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
-  font-family: "Courier New", Courier, monospace;
-  margin: 0px;
+  font-style: normal;
+  font-weight: 500;
+  margin: 0;
 }
 
 .avatarContainer {
@@ -45,7 +52,9 @@
   border-radius: 8px;
   margin-top: 24px;
 }
+
 .closeBtn {
+  color: var(--white);
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -70,8 +79,8 @@
   border-radius: 8px;
   border: 1px solid rgba(190, 219, 176, 0.5);
   background-color: inherit;
-  color: rgb(22, 22, 22);
-  font-family: Poppins;
+  color: var(--white);
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 400;
   outline: none;
@@ -101,19 +110,20 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  margin-top: 24px;
+  margin-top: 32px;
 }
 
 .btn {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
   align-items: center;
   background-color: #bedbb0;
   border: none;
   border-radius: 8px;
   color: black;
   cursor: pointer;
-
-  font-size: 14px;
-  font-weight: 500;
   gap: 8px;
   line-height: 21px;
   padding-bottom: 11px;
@@ -125,7 +135,7 @@
 .eye {
   background-color: transparent;
   border: none;
-  color: #ffffff;
+  color: var(--white);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -141,8 +151,48 @@
   display: block;
   cursor: pointer;
   border-radius: 5px;
-  background-image: url(/src/img/userWhite.jpg);
+  background-image: url(/src/img/deftAvBlack.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+@media screen and (min-width: 375px) {
+  .wrap {
+    right: 34px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .cont {
+    position: fixed;
+    right: 20px;
+    /* top: 60px; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    max-height: 440px;
+    width: 400px;
+  }
+  .container {
+    max-width: 768px;
+  }
+
+  .wrap {
+    right: 14px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+  .avatarContainer {
+    margin-top: 14px;
+  }
+}
+
+@media screen and (min-width: 1180px) {
+  .wrap {
+    right: 14px;
+  }
+  .cont {
+    top: 60px;
+  }
 }

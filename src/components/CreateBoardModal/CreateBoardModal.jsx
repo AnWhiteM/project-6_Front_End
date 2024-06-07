@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-import css from "./BoardModal.module.css";
+import css from "../EditBoardModal/EditBoardModal.module.css";
 import svg from "../../img/icons.svg";
 import bgData from "../../assets/bg.json";
 
@@ -28,7 +28,11 @@ const titleValidationSchema = Yup.object().shape({
     .required("Required field"),
 });
 
-export default function CreateBoardModal({ isOpen, onClose, initialTitle = "" }) {
+export default function CreateBoardModal({
+  isOpen,
+  onClose,
+  initialTitle = "",
+}) {
   const [selectedIcon, setSelectedIcon] = useState(icons[0]);
   const [selectedBg, setSelectedBg] = useState("");
 

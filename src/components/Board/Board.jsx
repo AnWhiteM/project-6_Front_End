@@ -4,7 +4,7 @@ import EditBoardModal from "../EditBoardModal/EditBoardModal";
 import svg from "../../img/icons.svg";
 import css from "./Board.module.css";
 
-export default function Board({ title, icon }) {
+export default function Board({ title, icon, background }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -14,6 +14,15 @@ export default function Board({ title, icon }) {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+// local storage - start - тут буде dispatch
+const deleteHandler = () => {
+  const storedData = JSON.parse(localStorage.getItem("boardData"));
+  const updatedData = storedData.filter((board) => board.title !== title);
+  localStorage.setItem("boardData", JSON.stringify(updatedData));
+};
+// / local storage - start
+
 
   return (
     <li>
@@ -25,12 +34,18 @@ export default function Board({ title, icon }) {
       <div>
       <h3>{title}</h3>
       <button type="button" onClick={openModal}>
-        <svg className={css.icon} width="20px" height="20px">
+        <svg className={css.icon} width="16px" height="16px">
           <use href={svg + "#icon-pencil"}></use>
         </svg>
       </button>
       {isModalOpen && (
-        <EditBoardModal isOpen={isModalOpen} onClose={closeModal} />
+       <EditBoardModal
+       isOpen={isModalOpen}
+       onClose={closeModal}
+       title={title}
+       icon={icon}
+       background={background}
+     />
       )}
       </div>
     </li>

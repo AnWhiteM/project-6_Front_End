@@ -22,7 +22,12 @@ export default function BoardList() {
         {boards &&
           boards.length > 0 &&
           boards.map((board, index) => (
-            <Board key={index} title={board.title} icon={board.icon} />
+            <Board
+              key={index}
+              title={board.title}
+              icon={board.icon}
+              background={board.background}
+            />
           ))}
       </ul>
     </>

@@ -1,0 +1,81 @@
+.icon {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.419);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  border-radius: 8px;
+  padding: 20px;
+  width: 335px;
+  height: 355px;
+  border: 1px solid rgba(255, 255, 255, 1);
+}
+.form {
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+.input {
+  padding: 12px 8px;
+  border-radius: 8px;
+  width: 287px;
+  height: 49px;
+  margin-bottom: 14px;
+  background-color: #121212;
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 1);
+}
+.inputText {
+  padding: 12px 8px;
+  border-radius: 8px;
+  width: 287px;
+  height: 120px;
+  color: inherit;
+  background-color: #121212;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255, 255, 255, 1);
+  box-sizing: border-box; /* Ensures padding is included in height */
+  resize: none;
+}
+.errorMessage {
+  color: red;
+  font-size: 8px;
+  margin-top: 1px;
+}
+.button {
+  padding: 8px 16px;
+  background-color: rgba(190, 219, 176, 1);
+  color: rgba(22, 22, 22, 1);
+  border: none;
+  width: 287px;
+  height: 49px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.input::placeholder,
+.inputText::placeholder {
+  line-height: 1.5;
+  vertical-align: top;
+}

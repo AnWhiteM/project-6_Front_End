@@ -1,0 +1,68 @@
+.close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.419);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #121212;
+  border-radius: 8px;
+  padding: 20px;
+  width: 335px;
+  height: 355px;
+  border: 1px solid rgba(255, 255, 255, 1);
+}
+.input {
+  padding: 12px 8px;
+  border-radius: 8px;
+  width: 287px;
+  height: 49px;
+  background-color: #121212;
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 1);
+  margin-bottom: 24px;
+}
+.iconList {
+  background: none;
+}
+.button {
+  padding: 8px 16px;
+  background-color: rgba(190, 219, 176, 1);
+  color: rgba(22, 22, 22, 1);
+  border: none;
+  width: 287px;
+  height: 49px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.containerButton {
+  width: 24px;
+  height: 24px;
+  background-color: #121212;
+  position: relative;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.buttonIcone {
+  fill: none;
+  stroke: rgba(255, 255, 255, 1);
+}

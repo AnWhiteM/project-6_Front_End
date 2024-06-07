@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import css from "../EditBoardModal/EditBoardModal.module.css";
 import svg from "../../img/icons.svg";
 import bgData from "../../assets/bg.json";
-
+import clsx from "clsx";
 
 const icons = [
   "icon-i-1-project",
@@ -34,7 +34,7 @@ export default function CreateBoardModal({
   initialTitle = "",
 }) {
   const [selectedIcon, setSelectedIcon] = useState(icons[0]);
-  const [selectedBg, setSelectedBg] = useState("");
+  const [selectedBg, setSelectedBg] = useState(bgData[0].id);
 
   const handleIconSelect = (icon, setFieldValue) => {
     setSelectedIcon(icon);
@@ -49,12 +49,12 @@ export default function CreateBoardModal({
   const submitHandler = (values, actions) => {
     console.log(values);
 
-      // Local storage - start
+    // Local storage - start
     const storedData = JSON.parse(localStorage.getItem("boardData"));
 
     const updatedData = Array.isArray(storedData)
-    ? [...storedData, values]
-    : [values];
+      ? [...storedData, values]
+      : [values];
 
     localStorage.setItem("boardData", JSON.stringify(updatedData));
     // Local storage - end
@@ -65,17 +65,18 @@ export default function CreateBoardModal({
 
   return (
     <Modal
-      portalClassName={css.portal}
       overlayClassName={css.overlay}
       className={css.modal}
       isOpen={isOpen}
       onRequestClose={onClose}
       contentLabel="Create new board"
     >
-      <h2>New board</h2>
-      <svg className={css.close} onClick={onClose} width="18px" height="18px">
-        <use href={svg + "#x-close"}></use>
-      </svg>
+      <h2 className={css.title}>New board</h2>
+      <button className={css.btnClose} type="button" onClick={onClose}>
+        <svg className={css.iconClose} width="18px" height="18px">
+          <use href={svg + "#x-close"}></use>
+        </svg>
+      </button>
 
       <Formik
         initialValues={{
@@ -96,54 +97,75 @@ export default function CreateBoardModal({
                 placeholder="Title"
                 required
               />
-              <ErrorMessage component="span" name="title" />
+              <ErrorMessage
+                className={css.error}
+                component="span"
+                name="title"
+              />
             </div>
             <div>
-              <label>Icons</label>
-              <div className={css.iconList}>
-                {icons.map((icon, index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    className={selectedIcon === icon ? "selected" : ""}
-                    onClick={() => handleIconSelect(icon, setFieldValue)}
-                  >
-                    <svg width="18px" height="18px">
-                      <use href={`${svg}#${icon}`} />
-                    </svg>
-                  </button>
-                ))}
+              <div>
+                <p className={css.listName}>Icons</p>
+                <ul className={css.iconList}>
+                  {icons.map((icon, index) => (
+                    <li key={index}>
+                      <label className={css.iconLabel}>
+                        <Field
+                          className={clsx(css.radioInput, css.visuallyHidden)}
+                          type="radio"
+                          name="icon"
+                          value={icon}
+                          checked={selectedIcon === icon}
+                          onChange={() => handleIconSelect(icon, setFieldValue)}
+                        />
+                        <svg
+                          className={css.userIcon}
+                          width="18px"
+                          height="18px"
+                        >
+                          <use href={`${svg}#${icon}`} />
+                        </svg>
+                      </label>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
             <div>
-              <label> Background</label>
-              <div className="backgroundList">
-                {bgData.map((bg) => (
-                  <button
-                    key={bg.id}
-                    type="button"
-                    className={selectedBg === bg.id ? "selected" : ""}
-                    onClick={() => handleBgSelect(bg.id, setFieldValue)}
-                  >
-                    <img
-                      srcSet={`${bg.mob} 375w, ${bg.tab} 768w, ${bg.desc} 1180w`}
-                      sizes="(max-width: 767px) 375px, (min-width: 768px) 768px, (min-width: 1440px) 1180px"
-                      src={bg.mini}
-                      alt={bg.id}
-                      width="28px"
-                      height="28px"
-                    />
-                  </button>
-                ))}
+              <div>
+                <p className={css.listName}>Backgrounds</p>
+                <ul className={css.bgList}>
+                  {bgData.map((bg) => (
+                    <li key={bg.id}>
+                      <label className={css.backgroundLabel}>
+                        <Field
+                          className={clsx(css.radioInput, css.visuallyHidden)}
+                          type="radio"
+                          name="background"
+                          value={bg.id}
+                          checked={selectedBg === bg.id}
+                          onChange={() => handleBgSelect(bg.id, setFieldValue)}
+                        />
+                        <img
+                          className={css.userBg}
+                          src={bg.mini}
+                          alt={bg.id}
+                          width="28px"
+                          height="28px"
+                        />
+                      </label>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
             <div>
-              <button className={css.button} type="submit">
-                <div className={css.containerButton}>
-                  <svg className={css.buttonIcone} width="14px" height="14px">
+              <button className={css.confirmBtn} type="submit">
+                <span className={css.iconWrapper}>
+                  <svg className={css.iconPlus} width="14px" height="14px">
                     <use href={svg + "#icon-plus"}></use>
                   </svg>
-                </div>
+                </span>
                 Create
               </button>
             </div>

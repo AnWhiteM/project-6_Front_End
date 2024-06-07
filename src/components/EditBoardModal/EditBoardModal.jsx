@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Modal from "react-modal";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 import svg from "../../img/icons.svg";
 import bgData from "../../assets/bg.json";
+import css from "./EditBoardModal.module.css";
 
-// Example arrays for icons and backgrounds
 const icons = [
   "icon-i-1-project",
   "icon-i-2",
@@ -27,9 +27,15 @@ const titleValidationSchema = Yup.object().shape({
     .required("Required field"),
 });
 
-export default function BoardModal({ isOpen, onClose, initialTitle = "" }) {
-  const [selectedIcon, setSelectedIcon] = useState(icons[0]);
-  const [selectedBg, setSelectedBg] = useState("");
+export default function EditBoardModal({
+  isOpen,
+  onClose,
+  title,
+  icon,
+  background,
+}) {
+  const [selectedIcon, setSelectedIcon] = useState(icon);
+  const [selectedBg, setSelectedBg] = useState(background);
 
   const handleIconSelect = (icon, setFieldValue) => {
     setSelectedIcon(icon);
@@ -42,18 +48,30 @@ export default function BoardModal({ isOpen, onClose, initialTitle = "" }) {
   };
 
   const submitHandler = (values, actions) => {
-    console.log(values);
+    // Local storage - start
+    const storedData = JSON.parse(localStorage.getItem("boardData"));
+
+    const updatedData = storedData.map((board) => {
+      if (board.title === title) {
+        return {
+          ...board,
+          title: values.title,
+          icon: values.icon,
+          background: values.background,
+        };
+      }
+      return board;
+    });
+
+    localStorage.setItem("boardData", JSON.stringify(updatedData));
+    // Local storage - end
+
     actions.resetForm();
     onClose();
   };
-
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onClose}
-      contentLabel="Create new board"
-    >
-      <h2>New board</h2>
+    <Modal isOpen={isOpen} onRequestClose={onClose} contentLabel="Edit board">
+      <h2>Edit board</h2>
       <button type="button" onClick={onClose}>
         <svg width="18px" height="18px">
           <use href={svg + "#x-close"}></use>
@@ -61,9 +79,9 @@ export default function BoardModal({ isOpen, onClose, initialTitle = "" }) {
       </button>
       <Formik
         initialValues={{
-          title: initialTitle,
-          icon: selectedIcon,
-          background: selectedBg,
+          title: title,
+          icon: icon,
+          background: background,
         }}
         validationSchema={titleValidationSchema}
         onSubmit={submitHandler}
@@ -77,12 +95,12 @@ export default function BoardModal({ isOpen, onClose, initialTitle = "" }) {
             </div>
             <div>
               <label>Choose an Icon:</label>
-              <div className="iconList">
+              <div>
                 {icons.map((icon, index) => (
                   <button
                     key={index}
                     type="button"
-                    className={selectedIcon === icon ? "selected" : ""}
+                    // className={selectedIcon === icon ? "selected" : ""}
                     onClick={() => handleIconSelect(icon, setFieldValue)}
                   >
                     <svg width="24px" height="24px">
@@ -94,28 +112,35 @@ export default function BoardModal({ isOpen, onClose, initialTitle = "" }) {
             </div>
             <div>
               <label>Choose a Background:</label>
-              <div className="backgroundList">
+              <div>
                 {bgData.map((bg) => (
                   <button
                     key={bg.id}
                     type="button"
-                    className={selectedBg === bg.id ? "selected" : ""}
+                    // className={selectedBg === bg.id ? "selected" : ""}
                     onClick={() => handleBgSelect(bg.id, setFieldValue)}
                   >
                     <img
                       srcSet={`${bg.mob} 375w, ${bg.tab} 768w, ${bg.desc} 1180w`}
-                      sizes="(max-width: 767px) 375px, (mim-width: 768px) 768px, (mim-width: 1440px) 1180px"
-                      src={bg.mob}
+                      sizes="(max-width: 767px) 375px, (min-width: 768px) 768px, (min-width: 1440px) 1180px"
+                      src={bg.mini}
                       alt={bg.id}
-                      width="100%"
-                      height="auto"
+                      width="28px"
+                      height="28px"
                     />
                   </button>
                 ))}
               </div>
             </div>
             <div>
-              <button type="submit">Create</button>
+              <button type="submit">
+                <span className={css.iconWrapper}>
+                  <svg className={css.iconPlus} width="14px" height="14px">
+                    <use href={svg + "#icon-plus"}></use>
+                  </svg>
+                </span>
+                Edit
+              </button>
             </div>
           </Form>
         )}

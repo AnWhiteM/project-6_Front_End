@@ -1,5 +1,6 @@
 import css from "./App.module.css";
 import clsx from "clsx";
+import { Toaster } from "react-hot-toast";
 import { WelcomeComponent } from "../WelcomeComponent/WelcomeComponent";
 import SideBar from "../SideBar/SideBar";
 
@@ -11,6 +12,7 @@ export const App = () => {
         {/* <AppBar /> */}
       </header>
       <SideBar />
+      <Toaster position="top-right" />
     </div>
   );
 };

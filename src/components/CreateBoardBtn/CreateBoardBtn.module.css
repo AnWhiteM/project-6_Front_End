@@ -1,3 +1,26 @@
 .icon {
   stroke: #121212;
 }
+
+.container {
+  width: 197px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 14px;
+}
+
+.text {
+  width: 76px;
+  height: 42px;
+}
+.button {
+  width: 40px;
+  height: 36px;
+  background-color: rgba(190, 219, 176, 1);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

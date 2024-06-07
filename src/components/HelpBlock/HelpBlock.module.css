@@ -1,0 +1,37 @@
+.container {
+  width: 197px;
+  height: 238px;
+  background-color: rgba(31, 31, 31, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: 14px;
+}
+.colorLogo {
+  color: rgba(190, 219, 176, 1);
+  text-decoration: none;
+}
+.img {
+  margin-left: 14px;
+}
+.text {
+  margin-bottom: 14px;
+  margin-top: 18px;
+  margin-left: 14px;
+  font-size: 14px;
+}
+.containerIcon {
+  display: flex;
+  align-items: center;
+  margin: 0px;
+  width: 100%;
+  margin-left: 14px;
+}
+.icon {
+  fill: none;
+  stroke: rgba(255, 255, 255, 1);
+  margin-right: 8px;
+}
+.textHelp {
+  margin: 0px;
+}

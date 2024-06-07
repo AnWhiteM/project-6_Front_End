@@ -1,0 +1,65 @@
+.backdrop {
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  height: 100vw;
+  z-index: 999;
+}
+
+.themeModal {
+  border-radius: 8px;
+  position: absolute;
+  right: 130px;
+  top: 49px;
+  z-index: 1000;
+  background-color: #161616;
+}
+
+.list {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  align-items: flex-start;
+  border: 1px solid #bedbb0;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px hsla(0, 0%, 7%, 0.1);
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  list-style: none;
+  padding: 18px;
+  padding-right: 44px;
+  line-height: 1.7;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.btnActive {
+  color: #bedbb0;
+}
+
+.btnInactive {
+  color: var(--white);
+}
+
+.transition {
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+}
+.menuContainer {
+  width: 94px;
+}
+
+@media screen and (min-width: 768px) {
+  .themeModal {
+    right: 133px;
+    top: 50px;
+  }
+}

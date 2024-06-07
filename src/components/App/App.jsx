@@ -4,6 +4,7 @@ import { Toaster } from "react-hot-toast";
 import { WelcomeComponent } from "../WelcomeComponent/WelcomeComponent";
 import SideBar from "../SideBar/SideBar";
 import Header from "../Header/Header";
+import { ScreensPage } from "../ScreensPage/ScreensPage";
 
 export const App = () => {
   return (
@@ -16,6 +17,7 @@ export const App = () => {
         </header>
 
         <SideBar />
+        <ScreensPage/>
         <Toaster position="top-right" />
       </div>
     </>

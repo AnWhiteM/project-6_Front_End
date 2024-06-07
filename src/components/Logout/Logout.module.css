@@ -1,0 +1,15 @@
+.icon {
+  fill: none;
+  stroke: rgba(190, 219, 176, 1);
+}
+
+.container {
+  width: 105px;
+  height: 32px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 24px;
+  margin-left: 24px;
+  margin-top: 24px;
+}

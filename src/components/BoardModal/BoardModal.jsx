@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
+import css from "./BoardModal.module.css";
 import svg from "../../img/icons.svg";
 import bgData from "../../assets/bg.json";
 
@@ -49,16 +50,18 @@ export default function BoardModal({ isOpen, onClose, initialTitle = "" }) {
 
   return (
     <Modal
+      portalClassName={css.portal}
+      overlayClassName={css.overlay}
+      className={css.modal}
       isOpen={isOpen}
       onRequestClose={onClose}
       contentLabel="Create new board"
     >
       <h2>New board</h2>
-      <button type="button" onClick={onClose}>
-        <svg width="18px" height="18px">
-          <use href={svg + "#x-close"}></use>
-        </svg>
-      </button>
+      <svg className={css.close} onClick={onClose} width="18px" height="18px">
+        <use href={svg + "#x-close"}></use>
+      </svg>
+
       <Formik
         initialValues={{
           title: initialTitle,
@@ -71,13 +74,18 @@ export default function BoardModal({ isOpen, onClose, initialTitle = "" }) {
         {({ setFieldValue }) => (
           <Form>
             <div>
-              <label htmlFor="title">Title</label>
-              <Field name="title" placeholder="Title" required />
+              <label htmlFor="title"></label>
+              <Field
+                className={css.input}
+                name="title"
+                placeholder="Title"
+                required
+              />
               <ErrorMessage component="span" name="title" />
             </div>
             <div>
-              <label>Choose an Icon:</label>
-              <div className="iconList">
+              <label>Icons</label>
+              <div className={css.iconList}>
                 {icons.map((icon, index) => (
                   <button
                     key={index}
@@ -85,7 +93,7 @@ export default function BoardModal({ isOpen, onClose, initialTitle = "" }) {
                     className={selectedIcon === icon ? "selected" : ""}
                     onClick={() => handleIconSelect(icon, setFieldValue)}
                   >
-                    <svg width="24px" height="24px">
+                    <svg width="18px" height="18px">
                       <use href={`${svg}#${icon}`} />
                     </svg>
                   </button>
@@ -93,7 +101,7 @@ export default function BoardModal({ isOpen, onClose, initialTitle = "" }) {
               </div>
             </div>
             <div>
-              <label>Choose a Background:</label>
+              <label> Background</label>
               <div className="backgroundList">
                 {bgData.map((bg) => (
                   <button
@@ -115,7 +123,14 @@ export default function BoardModal({ isOpen, onClose, initialTitle = "" }) {
               </div>
             </div>
             <div>
-              <button type="submit">Create</button>
+              <button className={css.button} type="submit">
+                <div className={css.containerButton}>
+                  <svg className={css.buttonIcone} width="14px" height="14px">
+                    <use href={svg + "#icon-plus"}></use>
+                  </svg>
+                </div>
+                Create
+              </button>
             </div>
           </Form>
         )}

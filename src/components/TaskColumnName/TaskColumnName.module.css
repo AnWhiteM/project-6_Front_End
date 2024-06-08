@@ -1,0 +1,42 @@
+.taskColumn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #121212; 
+    border-radius: 8px;
+    padding: 20px 18px;
+    color: #fff;
+    max-width: 335px;
+}
+
+.columnName {
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+    color: #fff;
+}
+
+.icons {
+    display: flex;
+    gap: 8px;
+}
+
+.iconButton {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    fill: none;
+  stroke: rgba(255, 255, 255, 0.5);
+}
+
+.icon:hover,
+.icon:focus {
+  filter: drop-shadow(0 0 5.5px #bedbb0);
+  stroke: #bedbb0;
+}

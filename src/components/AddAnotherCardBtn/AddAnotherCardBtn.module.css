@@ -1,30 +1,4 @@
-/* .container {
-  display: flex;
-}
-.btn {
-    padding: 14px 78px;
-    border-radius: 8px;
-    border: none;
-    background-color: #BEDBB0;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 14px;
-    letter-spacing: -0.02em;
-    color: #161616;
-  }
-
-  .iconFont{
-    background-color: #161616;
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-  }
-
-  .icon {
-    stroke: #fff;
-  } */
-
-  .btn{
+.btn{
     display: flex;
     align-items: center;
     background-color: #BEDBB0; 
@@ -33,10 +7,16 @@
     padding: 14px 78px;
     cursor: pointer;
     font-size: 14px;
-    color: #161616; 
+    color: #161616;
+    min-width: 335px;
   }
 
-  .iconBox{
+  .btn:hover,
+  .btn:focus {
+    background-color: #9DC888; 
+  }
+
+.iconBox{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,6 +28,6 @@
     font-size: 16px;
   }
 
-  .icon{
+.icon{
     stroke: #fff;
   }

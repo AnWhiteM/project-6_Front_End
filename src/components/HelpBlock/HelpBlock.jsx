@@ -36,7 +36,7 @@ export default function HelpBlock() {
       </div>
       <div className={css.containerIcon}>
         <svg className={css.icon} width="20px" height="20px">
-          <use className={css.icon} href={svg + "#icon-arrow-right"}></use>
+          <use className={css.icon} href={svg + "#icon-help-circle"}></use>
         </svg>
         <p className={css.textHelp} onClick={openModal}>
           Need help?

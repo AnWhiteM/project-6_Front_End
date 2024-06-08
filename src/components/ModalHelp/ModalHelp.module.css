@@ -20,7 +20,6 @@
   border-radius: 8px;
   padding: 20px;
   width: 335px;
-  height: 355px;
   border: 1px solid rgba(255, 255, 255, 1);
 }
 .form {
@@ -31,38 +30,65 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.title {
+  margin-bottom: 24px;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px;
 }
+
 .input {
-  padding: 12px 8px;
+  margin-bottom: 14px;
+}
+.input,
+.inputText {
+  padding: 14px 18px;
   border-radius: 8px;
   width: 287px;
   height: 49px;
-  margin-bottom: 14px;
   background-color: #121212;
   color: inherit;
-  border: 1px solid rgba(255, 255, 255, 1);
+  border: 1px solid #bedbb0;
+  outline: none;
+  opacity: 0.4;
 }
+
+.input:hover,
+.input:focus,
+.inputText:hover,
+.inputText:focus {
+  opacity: 1;
+}
+
+.input::placeholder {
+  font-size: 14px;
+  letter-spacing: -0.02em;
+}
+
 .inputText {
-  padding: 12px 8px;
-  border-radius: 8px;
+  margin-bottom: 24px;
   width: 287px;
   height: 120px;
-  color: inherit;
-  background-color: #121212;
-  margin-bottom: 24px;
-  border: 1px solid rgba(255, 255, 255, 1);
-  box-sizing: border-box; /* Ensures padding is included in height */
   resize: none;
 }
+
+.inputText::placeholder {
+  text-align: start;
+}
+
 .errorMessage {
-  color: red;
+  color: orange;
   font-size: 8px;
-  margin-top: 1px;
+  margin-top: 8px;
 }
 .button {
   padding: 8px 16px;
@@ -70,12 +96,17 @@
   color: rgba(22, 22, 22, 1);
   border: none;
   width: 287px;
-  height: 49px;
   border-radius: 8px;
   cursor: pointer;
 }
-.input::placeholder,
-.inputText::placeholder {
-  line-height: 1.5;
-  vertical-align: top;
+
+.button:hover,
+.button:focus {
+  background-color: #9dc888;
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    width: 350px;
+  }
 }

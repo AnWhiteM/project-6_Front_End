@@ -1,3 +1,40 @@
 .icon {
-    stroke: #121212;
-  }
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.5);
+}
+
+.icon:hover,
+.icon:focus {
+  filter: drop-shadow(0 0 5.5px #bedbb0);
+  stroke: #bedbb0;
+}
+
+.liItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.titleWrapper {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+li div .titleIcon {
+  stroke: #ffff;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btns {
+}
+
+.btn {
+  background: transparent;
+  border: none;
+}

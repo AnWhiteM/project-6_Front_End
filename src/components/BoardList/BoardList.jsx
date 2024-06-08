@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import CreateBoardBtn from "../CreateBoardBtn/CreateBoardBtn";
 import Board from "../Board/Board";
 
+import css from "./BoardList.module.css";
+
 export default function BoardList() {
   const [boards, setBoards] = useState([]);
 
@@ -11,11 +13,12 @@ export default function BoardList() {
   }, []);
   return (
     <>
-      <h2>My boards</h2>
+      <h3 className={css.title}>My boards</h3>
+
       <CreateBoardBtn />
-      {/* {allBoards.length !== 0 && <ButtonList />} */}
-      <ul>
-      {boards.map((board, index) => (
+
+      <ul className={css.list}>
+        {boards.map((board, index) => (
           <Board
             key={index}
             title={board.title}

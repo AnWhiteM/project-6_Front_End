@@ -108,6 +108,12 @@ body {
   margin: 0;
 }
 
+ul,
+li {
+  list-style: none;
+  padding-left: 0;
+}
+
 /* Phone screen */
 .container {
   min-width: 320px;

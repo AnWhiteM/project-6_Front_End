@@ -40,7 +40,7 @@ export default function ModalHelp({ isOpen, closeModal }) {
         validationSchema={ValidEditionSchema}
       >
         <Form autoComplete="off">
-          <p>Need help</p>
+          <p className={css.title}>Need help</p>
           <svg
             className={css.icon}
             onClick={closeModal}
@@ -64,7 +64,9 @@ export default function ModalHelp({ isOpen, closeModal }) {
             className={css.inputText}
             type="text"
             name="text"
-            placeholder=" Comment "
+            placeholder="Comment"
+            rows="5"
+            component="textarea"
           />
           <ErrorMessage
             name="text"

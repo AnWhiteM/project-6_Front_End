@@ -1,0 +1,10 @@
+.title {
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+
+@media screen and (min-width: 768px) {
+}

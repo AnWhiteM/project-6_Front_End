@@ -7,6 +7,10 @@
   /* colors */
   --black: #121212;
   --white: #fff;
+  --green: #bedbb0;
+  --blue: #8fa1d0;
+  --red: #e09cb5;
+  --violet: #5255bc;
 
   /* others */
   --indent: 20px;
@@ -26,70 +30,68 @@ html {
 /* Poppins - Thin - 100 */
 @font-face {
   font-display: swap;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 100;
-  src: url('/src/fonts/Poppins-Thin\ -\ 100.ttf') format('ttf');
+  src: url("/src/fonts/Poppins-Thin\ -\ 100.ttf") format("ttf");
 }
 
 /* Poppins - ExtraLight - 200 */
 @font-face {
   font-display: swap;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 200;
-  src: url('/src/fonts/Poppins-ExtraLight\ -\ 200.ttf') format('ttf');
+  src: url("/src/fonts/Poppins-ExtraLight\ -\ 200.ttf") format("ttf");
 }
 
 /* Poppins - Light - 300 */
 @font-face {
   font-display: swap;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 300;
-  src: url('/src/fonts/Poppins-Light\ -\ 300.ttf') format('ttf');
+  src: url("/src/fonts/Poppins-Light\ -\ 300.ttf") format("ttf");
 }
 
 /* Poppins - Regular - 400 */
 @font-face {
   font-display: swap;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
-  src: url('/src/fonts/Poppins-Regular\ -\ 400.ttf') format('ttf');
+  src: url("/src/fonts/Poppins-Regular\ -\ 400.ttf") format("ttf");
 }
-
 
 /* Poppins - Medium - 500 */
 @font-face {
   font-display: swap;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
-  src: url('/src/fonts/Poppins-Medium\ -\ 500.ttf') format('ttf');
+  src: url("/src/fonts/Poppins-Medium\ -\ 500.ttf") format("ttf");
 }
 
 /* Poppins - SemiBold - 600 */
 @font-face {
   font-display: swap;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  src: url('/src/fonts/Poppins-SemiBold\ -\ 600.ttf') format('ttf');
+  src: url("/src/fonts/Poppins-SemiBold\ -\ 600.ttf") format("ttf");
 }
 
 /* Poppins - Bold - 700 */
 @font-face {
   font-display: swap;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
-  src: url('/src/fonts/Poppins-Bold\ -\ 700.ttf') format('ttf');
+  src: url("/src/fonts/Poppins-Bold\ -\ 700.ttf") format("ttf");
 }
 
-
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: var(--white);
   background-color: var(--black);
 }
@@ -103,6 +105,12 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+ul,
+li {
+  list-style: none;
+  padding-left: 0;
 }
 
 /* Phone screen */

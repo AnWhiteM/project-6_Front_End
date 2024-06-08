@@ -1,3 +1,4 @@
+import { AddAnotherCardBtn } from "../AddAnotherCardBtn/AddAnotherCardBtn"
 import { AddColumnBtn } from "../AddColumnBtn/AddColumnBtn"
 import { DashboardMessage } from "../DashboardMessage/DashboardMessage"
 
@@ -6,6 +7,7 @@ export const MainDashboard = () => {
         <div>
             <DashboardMessage/>
             {/* <AddColumnBtn/> */}
+            <AddAnotherCardBtn />
         </div>
     )
 }

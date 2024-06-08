@@ -7,11 +7,10 @@
   /* colors */
   --black: #121212;
   --white: #fff;
-  --green: #BEDBB0;
-  --blue: #8FA1D0;
-  --red: #E09CB5;
-  --violet: #5255BC;
-  
+  --green: #bedbb0;
+  --blue: #8fa1d0;
+  --red: #e09cb5;
+  --violet: #5255bc;
 
   /* others */
   --indent: 20px;

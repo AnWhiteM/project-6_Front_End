@@ -5,19 +5,18 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-left: 14px;
+  padding: 14px;
+  margin-bottom: 24px;
+  border-radius: 8px;
 }
 .colorLogo {
   color: rgba(190, 219, 176, 1);
   text-decoration: none;
 }
-.img {
-  margin-left: 14px;
-}
+
 .text {
+  font-size: 12px;
   margin-bottom: 14px;
-  margin-top: 18px;
-  margin-left: 14px;
   font-size: 14px;
 }
 .containerIcon {
@@ -25,7 +24,6 @@
   align-items: center;
   margin: 0px;
   width: 100%;
-  margin-left: 14px;
 }
 .icon {
   fill: none;
@@ -34,4 +32,11 @@
 }
 .textHelp {
   margin: 0px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .text {
+    font-size: 14px;
+  }
 }

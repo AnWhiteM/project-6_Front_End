@@ -3,24 +3,39 @@
 }
 
 .container {
+  margin-bottom: 40px;
   width: 197px;
-  height: 70px;
+  padding: 14px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .text {
   width: 76px;
-  height: 42px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.28px;
 }
 .button {
-  width: 40px;
-  height: 36px;
+  padding: 8px 10px;
   background-color: rgba(190, 219, 176, 1);
   border-radius: 6px;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.button:hover,
+.button:focus {
+  background: #9dc888;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 212px;
+  }
 }

@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import svg from "../../img/icons.svg";
 import bgData from "../../assets/bg.json";
 import css from "./EditBoardModal.module.css";
+import clsx from "clsx";
 
 const icons = [
   "icon-i-1-project",
@@ -34,8 +35,8 @@ export default function EditBoardModal({
   icon,
   background,
 }) {
-  const [selectedIcon, setSelectedIcon] = useState(icon);
-  const [selectedBg, setSelectedBg] = useState(background);
+  const [selectedIcon, setSelectedIcon] = useState(icon || icons[0]);
+  const [selectedBg, setSelectedBg] = useState(background || bgData[0].id);
 
   const handleIconSelect = (icon, setFieldValue) => {
     setSelectedIcon(icon);
@@ -69,11 +70,18 @@ export default function EditBoardModal({
     actions.resetForm();
     onClose();
   };
+
   return (
-    <Modal isOpen={isOpen} onRequestClose={onClose} contentLabel="Edit board">
-      <h2>Edit board</h2>
-      <button type="button" onClick={onClose}>
-        <svg width="18px" height="18px">
+    <Modal
+      overlayClassName={css.overlay}
+      className={css.modal}
+      isOpen={isOpen}
+      onRequestClose={onClose}
+      contentLabel="Edit board"
+    >
+      <h2 className={css.title}>Edit board</h2>
+      <button className={css.btnClose} type="button" onClick={onClose}>
+        <svg className={css.iconClose} width="18px" height="18px">
           <use href={svg + "#x-close"}></use>
         </svg>
       </button>
@@ -89,51 +97,77 @@ export default function EditBoardModal({
         {({ setFieldValue }) => (
           <Form>
             <div>
-              <label htmlFor="title">Title</label>
-              <Field name="title" placeholder="Title" required />
-              <ErrorMessage component="span" name="title" />
+              <label htmlFor="title"></label>
+              <Field
+                className={css.input}
+                name="title"
+                placeholder="Title"
+                required
+              />
+              <ErrorMessage
+                className={css.error}
+                component="span"
+                name="title"
+              />
             </div>
             <div>
-              <label>Choose an Icon:</label>
               <div>
-                {icons.map((icon, index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    // className={selectedIcon === icon ? "selected" : ""}
-                    onClick={() => handleIconSelect(icon, setFieldValue)}
-                  >
-                    <svg width="24px" height="24px">
-                      <use href={`${svg}#${icon}`} />
-                    </svg>
-                  </button>
-                ))}
+                <p className={css.listName}>Icons</p>
+                <ul className={css.iconList}>
+                  {icons.map((icon, index) => (
+                    <li key={index}>
+                      <label className={css.iconLabel}>
+                        <Field
+                          className={clsx(css.radioInput, css.visuallyHidden)}
+                          type="radio"
+                          name="icon"
+                          value={icon}
+                          checked={selectedIcon === icon}
+                          onChange={() => handleIconSelect(icon, setFieldValue)}
+                        />
+                        <svg
+                          className={css.userIcon}
+                          width="18px"
+                          height="18px"
+                        >
+                          <use href={`${svg}#${icon}`} />
+                        </svg>
+                      </label>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
             <div>
-              <label>Choose a Background:</label>
               <div>
-                {bgData.map((bg) => (
-                  <button
-                    key={bg.id}
-                    type="button"
-                    // className={selectedBg === bg.id ? "selected" : ""}
-                    onClick={() => handleBgSelect(bg.id, setFieldValue)}
-                  >
-                    <img
-                      srcSet={`${bg.mob} 375w, ${bg.tab} 768w, ${bg.desc} 1180w`}
-                      sizes="(max-width: 767px) 375px, (min-width: 768px) 768px, (min-width: 1440px) 1180px"
-                      src={bg.mini}
-                      alt={bg.id}
-                      width="28px"
-                      height="28px"
-                    />
-                  </button>
-                ))}
+                <p className={css.listName}>Backgrounds</p>
+                <ul className={css.bgList}>
+                  {bgData.map((bg) => (
+                    <li key={bg.id}>
+                      <label className={css.backgroundLabel}>
+                        <Field
+                          className={clsx(css.radioInput, css.visuallyHidden)}
+                          type="radio"
+                          name="background"
+                          value={bg.id}
+                          checked={selectedBg === bg.id}
+                          onChange={() => handleBgSelect(bg.id, setFieldValue)}
+                        />
+                        <img
+                          className={css.userBg}
+                          src={bg.mini}
+                          alt={bg.id}
+                          width="28px"
+                          height="28px"
+                        />
+                      </label>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
             <div>
-              <button type="submit">
+              <button className={css.confirmBtn} type="submit">
                 <span className={css.iconWrapper}>
                   <svg className={css.iconPlus} width="14px" height="14px">
                     <use href={svg + "#icon-plus"}></use>

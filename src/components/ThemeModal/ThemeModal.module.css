@@ -13,6 +13,7 @@
   top: 49px;
   z-index: 1000;
   background-color: #161616;
+  border: 1px solid #bedbb0;
 }
 
 .list {
@@ -21,7 +22,7 @@
   font-style: normal;
   font-weight: 400;
   align-items: flex-start;
-  border: 1px solid #bedbb0;
+
   border-radius: 8px;
   box-shadow: 0 4px 16px hsla(0, 0%, 7%, 0.1);
   display: inline-flex;

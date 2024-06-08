@@ -1,0 +1,20 @@
+.createCardModalCloseBtn {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+}
+
+.createCardModalContainer {
+    margin: 24px;
+    background-color: #151515;
+    border: 1px solid #BEDBB080;
+    border-radius: 20px;
+}
+
+.createCardModalText {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    letter-spacing: -0.02em;
+    text-align: left;
+}

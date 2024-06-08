@@ -36,9 +36,8 @@ export const CreateColumn = (isOpen, isClose) => {
                 }}>
                     <Form autoComplete="off">
                         <Field type='text' name='columnname' />
-
+                        <button type="submit">Add</button>
                     </Form>
-
             </Formik>
         </div>
 

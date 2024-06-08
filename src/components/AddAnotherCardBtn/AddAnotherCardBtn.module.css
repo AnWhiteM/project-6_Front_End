@@ -1,0 +1,33 @@
+.btn{
+    display: flex;
+    align-items: center;
+    background-color: #BEDBB0; 
+    border: none;
+    border-radius: 8px;
+    padding: 14px 78px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #161616;
+    min-width: 335px;
+  }
+
+  .btn:hover,
+  .btn:focus {
+    background-color: #9DC888; 
+  }
+
+.iconBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#161616; 
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    font-size: 16px;
+  }
+
+.icon{
+    stroke: #fff;
+  }

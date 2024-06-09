@@ -4,7 +4,6 @@ import { WelcomeComponent } from "../WelcomeComponent/WelcomeComponent";
 export const App = () => {
   const isLoggedIn = true;
   return <>
-  <WelcomeComponent />
-  {/* {isLoggedIn ? <Layout /> : <WelcomeComponent />} */}
+  {isLoggedIn ? <Layout /> : <WelcomeComponent />}
   </>;
 };

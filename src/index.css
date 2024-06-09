@@ -26,6 +26,7 @@ html {
   | FONTS
   |============================
 */
+@import url(./fonts.css);
 
 /* Poppins - Thin - 100 */
 @font-face {

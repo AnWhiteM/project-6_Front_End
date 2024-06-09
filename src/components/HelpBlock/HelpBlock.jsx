@@ -25,7 +25,7 @@ export default function HelpBlock() {
           />
           <img
             className={css.img}
-            src="/img/1x-sidebar-plant.png"
+            src="../../../public/img/1x-sidebar-plant.png"
             alt="Kaktus"
           />
         </picture>

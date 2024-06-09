@@ -16,11 +16,19 @@ export default function HelpBlock() {
   return (
     <div className={css.container}>
       <div>
-        <img
-          className={css.img}
-          src="../../../public/1x-sidebar-plant.png"
-          alt="Kaktus"
-        />
+        <picture>
+          <source
+            srcSet={`
+               /img/1x-sidebar-plant.png   54w,
+               /img/2x-sidebar-plant.png 108w`}
+            sizes="(min-width: 1440px) 54px, (min-width: 1280px) 54px, (min-width: 768px) 54px, (min-width: 320px) 54px"
+          />
+          <img
+            className={css.img}
+            src="/img/1x-sidebar-plant.png"
+            alt="Kaktus"
+          />
+        </picture>
       </div>
       <div>
         <p className={css.text}>

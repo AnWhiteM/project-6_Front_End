@@ -1,8 +1,10 @@
+import { useRef } from "react";
 import { Field, Form, Formik } from "formik";
 import { ErrorMessage } from "formik";
 import * as Yup from "yup";
 import css from "../UserEditModal/UserEditModal.module.css";
 import PasswordField from "../PasswordField/PasswordField";
+import svg from "../../img/icons.svg";
 
 const ValidationSchema = Yup.object().shape({
   name: Yup.string()
@@ -17,13 +19,26 @@ const ValidationSchema = Yup.object().shape({
 });
 
 export default function UserEditModal({ onClose }) {
+  const fileInputRef = useRef(null);
+
   const handleSubmit = (values, actions) => {
-    console.log(values);
     actions.resetForm();
   };
 
   const handleMenuClick = (ev) => {
     ev.stopPropagation();
+  };
+
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      console.log("Selected file:", file.name);
+      // добавить логику для загрузки файла на сервер или обновления аватара
+    }
   };
 
   return (
@@ -36,20 +51,28 @@ export default function UserEditModal({ onClose }) {
           <div className={css.wrap}>
             <button className={css.closeBtn} onClick={() => onClose()}>
               <svg width="18" height="18" stroke="currentColor">
-                <use href="/src/img/icons.svg#icon-x-close"></use>
+                <use href={svg + "#icon-x-close"}></use>
               </svg>
             </button>
           </div>
           <p className={css.txt}>Edit Profile</p>
           <div className={css.avatarContainer}>
             <span className={`${css.avatarBig} ${css.avatar}`} />
-            {/* <img src="/src/img/user.jpg" alt="avatar" width="68" height="68"></img> */}
-            {/* <input type="file" id="upload" accept="image/*" /> */}
 
-            <button className={css.plusBtn}>
+            <button
+              type="button"
+              className={css.plusBtn}
+              onClick={() => handleButtonClick()}
+            >
               <svg width="10" height="10" stroke="currentColor">
-                <use href="/src/img/icons.svg#icon-plus"></use>
+                <use href={svg + "#icon-plus"}></use>
               </svg>
+              <input
+                type="file"
+                ref={fileInputRef}
+                style={{ display: "none" }}
+                onChange={(e) => handleFileChange(e)}
+              />
             </button>
           </div>
           <div>

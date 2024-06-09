@@ -13,7 +13,7 @@
   top: 49px;
   z-index: 1000;
   background-color: #161616;
-  border: 1px solid #bedbb0;
+  border: 1px solid var(--green);
 }
 
 .list {
@@ -41,7 +41,7 @@
 }
 
 .btnActive {
-  color: #bedbb0;
+  color: var(--green);
 }
 
 .btnInactive {

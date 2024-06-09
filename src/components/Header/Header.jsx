@@ -2,6 +2,7 @@ import css from "../Header/Header.module.css";
 import { useState } from "react";
 import UserEditModal from "../UserEditModal/UserEditModal";
 import ThemeModal from "../ThemeModal/ThemeModal";
+import svg from "../../img/icons.svg";
 
 export default function Header({ openSideBar, sideBarOpen }) {
   const [showModal, setShowModal] = useState(false);
@@ -26,6 +27,7 @@ export default function Header({ openSideBar, sideBarOpen }) {
           <header className={css.headerLayout}>
             <div>
               <div className={css.hidden}>
+
                 {!sideBarOpen && (
                   <button className={css.burger} onClick={openSideBar}>
                     <svg width="24" height="24">
@@ -36,6 +38,7 @@ export default function Header({ openSideBar, sideBarOpen }) {
                     </svg>
                   </button>
                 )}
+                
               </div>
             </div>
 
@@ -49,7 +52,7 @@ export default function Header({ openSideBar, sideBarOpen }) {
                 >
                   Theme
                   <svg width="16" height="16" stroke="currentColor">
-                    <use href="/src/img/icons.svg#chevron-down-icon"></use>
+                    <use href={svg + "#chevron-down-icon"}></use>
                   </svg>
                 </button>
               </div>

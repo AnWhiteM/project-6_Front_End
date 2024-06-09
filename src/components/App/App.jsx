@@ -1,9 +1,8 @@
-import { Layout } from "../Layout/Layout";
+import { HomePage } from "../HomePage/HomePage";
 import { WelcomeComponent } from "../WelcomeComponent/WelcomeComponent";
 
 export const App = () => {
   const isLoggedIn = true;
-  return <>
-  {isLoggedIn ? <Layout /> : <WelcomeComponent />}
-  </>;
+  return <>{isLoggedIn ? <HomePage /> : <WelcomeComponent />}</>;
+
 };

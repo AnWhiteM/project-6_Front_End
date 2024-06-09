@@ -1,14 +1,32 @@
 .createColumnModalCloseBtn {
     position: fixed;
     top: 18px;
-    left: 18px;
+    right: 18px;
+}
+
+.createColumnModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 335px;
+    height: 221px;
+    background: #000000;
+    border: 1px solid #bedbb080;
+    border-radius: 20px;
+}
+
+.createColumnModalOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.419);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .createColumnModalContainer {
     margin: 24px;
-    background-color: #151515;
-    border: 1px solid #BEDBB080;
-    border-radius: 20px;
 }
 
 .createColumnModalText {

@@ -3,7 +3,7 @@ import css from "./AddColumnBtn.module.css";
 import { useState } from "react";
 
 export const AddColumnBtn = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   function openColumnCreateModal() {
     setIsOpen(true)
@@ -16,7 +16,9 @@ export const AddColumnBtn = () => {
   return (
     <div>
       <button className={css.btn} onClick={openColumnCreateModal}>Add another column</button>
-      <CreateColumn isOpen={isOpen} isClose={closeColumnCreateModal} />
+      {isOpen && (
+        <CreateColumn isOpen={isOpen} isClose={closeColumnCreateModal} />
+      )}
     </div>
   );
 };

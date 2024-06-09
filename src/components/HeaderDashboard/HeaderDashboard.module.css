@@ -6,6 +6,12 @@
     margin-left: 24px;
 }
 
+@media screen and (max-width: 375px) {
+    .dashboardName {
+        font-size: 14px;
+    }
+}
+
 .dashboardName {
     font-weight: 500;
     font-size: 18px;

@@ -10,7 +10,7 @@ export const MainDashboard = () => {
         {/* <Card/> */}
       <DashboardMessage />
       {/* <AddColumnBtn/> */}
-      <TaskColumn />
+      {/* <TaskColumn /> */}
     </div>
   );
 };

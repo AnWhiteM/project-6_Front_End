@@ -18,10 +18,14 @@ export default function SideBar() {
 
   return (
     <div className={css.container}>
-      <Logo />
-      <BoardList />
-      <HelpBlock />
-      <Logout />
+      <div>
+        <Logo />
+        <BoardList />
+      </div>
+      <div className={css.bottomSection}>
+        <HelpBlock />
+        <Logout />
+      </div>
     </div>
   );
 }

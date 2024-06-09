@@ -1,8 +1,16 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 225px;
+  height: 100%;
+  padding: 14px;
   background-color: rgba(18, 18, 18, 1);
   color: rgba(255, 255, 255, 1);
-  width: 225px;
-  padding: 14px;
+}
+
+.bottomSection {
+  margin-top: auto;
 }
 
 @media screen and (min-width: 768px) {

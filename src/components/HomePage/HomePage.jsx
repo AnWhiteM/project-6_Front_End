@@ -3,17 +3,26 @@ import SideBar from "../SideBar/SideBar";
 import Header from "../Header/Header";
 import { ScreensPage } from "../ScreensPage/ScreensPage";
 import { Toaster } from "react-hot-toast";
+import { useState } from "react";
 
 export const HomePage = () => {
+  const [sideBarOpen, setSideBarOpen] = useState(true);
+
+  const toggleSideBar = () => {
+    setSideBarOpen(!sideBarOpen);
+  };
+
   return (
     <>
       <div className={css.container}>
-        <div className={css.sideB}>
-          <SideBar />
-        </div>
+        {sideBarOpen && (
+          <div className={css.sideB}>
+            <SideBar />
+          </div>
+        )}
         <div className={css.mainCont}>
           <div>
-            <Header />
+            <Header toggleSideBar={toggleSideBar} />
           </div>
           <div>
             <ScreensPage />

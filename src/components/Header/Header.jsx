@@ -3,7 +3,7 @@ import { useState } from "react";
 import UserEditModal from "../UserEditModal/UserEditModal";
 import ThemeModal from "../ThemeModal/ThemeModal";
 
-export default function Header() {
+export default function Header({ toggleSideBar }) {
   const [showModal, setShowModal] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -26,7 +26,7 @@ export default function Header() {
           <header className={css.headerLayout}>
             <div>
               <div className={css.hidden}>
-                <button className={css.burger}>
+                <button className={css.burger} onClick={toggleSideBar}>
                   <svg width="24" height="24">
                     <use
                       href="/src/img/icons.svg#icon-burger-menu"

@@ -19,10 +19,10 @@
 .createCardModalRadio4 + label::before {
     content: '';
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-    background-color: #1f1f1f; 
+    background-color: #000000; 
     transition: border-color 0.3s, background-color 0.3s;
     cursor: pointer;
 }
@@ -32,36 +32,28 @@
 }
 
 .createCardModalRadio2 + label::before {
-    background-color: #A1D08F; 
+    background-color: #E09CB5;
 }
 
 .createCardModalRadio3 + label::before {
-    background-color: #D08FA1; 
+    background-color: #BEDBB0;
 }
 
 .createCardModalRadio4 + label::before {
-    background-color: #D0A18F; 
+    background-color: #FFFFFF4D;
 }
 
-.createCardModalRadio1:checked + label::after,
-.createCardModalRadio2:checked + label::after,
-.createCardModalRadio3:checked + label::after,
-.createCardModalRadio4:checked + label::after {
-    content: '';
-    position: absolute;
-    left: 4px;
-    top: 4px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #fff;
+.createCardModalRadio1:focus + label::before {
+    border: 1px solid #8FA1D0;
 }
-
-.createCardModalRadio1:focus + label::before,
-.createCardModalRadio2:focus + label::before,
-.createCardModalRadio3:focus + label::before,
+.createCardModalRadio2:focus + label::before {
+    border: 1px solid #E09CB5;
+}
+.createCardModalRadio3:focus + label::before {
+    border: 1px solid #BEDBB0;
+}
 .createCardModalRadio4:focus + label::before {
-    box-shadow: 0 0 0 3px rgba(190, 219, 176, 0.5);
+    border: 1px solid #FFFFFF4D;
 }  
  
 .createCardModalCloseBtn {

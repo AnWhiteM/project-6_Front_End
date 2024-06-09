@@ -1,7 +1,13 @@
 import { HomePage } from "../HomePage/HomePage";
+// import SideBar from "../SideBar/SideBar";
 import { WelcomeComponent } from "../WelcomeComponent/WelcomeComponent";
 
 export const App = () => {
   const isLoggedIn = true;
-  return <>{isLoggedIn ? <HomePage /> : <WelcomeComponent />}</>;
+  return (
+    <>
+      {/* <SideBar /> */}
+      {isLoggedIn ? <HomePage /> : <WelcomeComponent />}
+    </>
+  );
 };

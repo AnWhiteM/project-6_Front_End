@@ -1,6 +1,6 @@
 import { useState } from "react";
 // import CreateBoardModal from "../CreateBoardModal/CreateBoardModal";
-import { CreateColumn } from "../CreateColumn/CreateColumn";
+import { CreateCard } from "../CreateCard/CreateCard";
 import svg from "../../img/icons.svg";
 import css from "./CreateBoardBtn.module.css";
 
@@ -26,7 +26,7 @@ export default function CreateBoardBtn() {
 
       {isModalOpen && (
         // <CreateBoardModal isOpen={isModalOpen} onClose={closeModal} />
-        <CreateColumn isOpen={isModalOpen} isClose={closeModal} />
+        <CreateCard isOpen={isModalOpen} isClose={closeModal} />
       )}
     </div>
   );

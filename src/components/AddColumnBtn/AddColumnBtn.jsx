@@ -1,4 +1,4 @@
-import { CreateColumn } from "../CreateColumn/CreateColumn";
+import { CreateColumn } from "../CreateColumnModal/CreateColumnModal";
 import css from "./AddColumnBtn.module.css";
 import { useState } from "react";
 

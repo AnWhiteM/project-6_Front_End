@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import css from "./CreateColumn.module.css";
+import css from "./CreateColumnModal.module.css";
 import * as Yup from 'yup';
 import { Form, Formik, Field } from "formik";
 import svg from "../../img/icons.svg";

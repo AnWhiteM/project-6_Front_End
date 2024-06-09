@@ -1,54 +1,40 @@
-import { useState } from "react";
-
+import { Formik, Form, Field} from 'formik';
+import { register } from '../../redux/auth/operations';
+import { useDispatch } from 'react-redux';
 export const RegistrationForm = () => {
-  const [login, setLogin] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
-  const handleLoginChange = (e) => {
-    setLogin(e.target.value);
+  const handleSubmit = (values, actions) => {
+    dispatch(register(values));
+    actions.resetForm();
   };
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Login: ${login}, Email: ${email}, Password: ${password}`);
-  };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>
-          Login:
-          <input type="text" value={login} onChange={handleLoginChange} />
-        </label>
-      </div>
-      <div>
-        <label>
-          Email:
-          <input type="email" value={email} onChange={handleEmailChange} />
-        </label>
-      </div>
-      <div>
-        <label>
-          Password:
-          <input
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </label>
-      </div>
-      <div>
-        <button type="submit">Submit</button>
-      </div>
-    </form>
+    <div>
+      
+      <Formik
+      
+      initialValues={{ 
+        name: '', 
+        email: '', 
+        password: '', 
+      }}
+      onSubmit={handleSubmit}
+      >
+            <Form>
+              <label>Enter your name</label>
+              <Field type="name" name="name"/>
+
+                <label>Enter your Email</label>
+                <Field type="email" name="email"/>
+
+                <label>Create a password</label>
+                <Field type="password" name="password"/>
+
+                <button type="submit">Register Now</button>
+          </Form>
+        </Formik>
+    </div>
   );
 };

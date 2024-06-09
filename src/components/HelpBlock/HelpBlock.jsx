@@ -18,14 +18,14 @@ export default function HelpBlock() {
       <div>
         <picture>
           <source
-            srcSet="
-                ../../../public/img/1x-sidebar-plant.png   54w,
-                ../../../public/img/2x-sidebar-plant.png 108w"
+            srcSet={`
+               /img/1x-sidebar-plant.png   54w,
+               /img/2x-sidebar-plant.png 108w`}
             sizes="(min-width: 1440px) 54px, (min-width: 1280px) 54px, (min-width: 768px) 54px, (min-width: 320px) 54px"
           />
           <img
             className={css.img}
-            src="../../../public/img/1x-sidebar-plant.png"
+            src="/img/1x-sidebar-plant.png"
             alt="Kaktus"
           />
         </picture>

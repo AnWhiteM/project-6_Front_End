@@ -32,19 +32,19 @@ export const CreateCard = ({ isOpen, isClose }) => {
                         <label>Label color
                             <div className={css.createCardModalRadioContainer}>
                                 <div>
-                                    <Field type="radio" id="createCardModalRadio1" name="color" />
+                                    <Field type="radio" className={css.createCardModalRadio1} id="createCardModalRadio1" name="color" />
                                     <label htmlFor="createCardModalRadio1" className="radio-label"></label>
                                 </div>
                                 <div>
-                                    <Field type="radio" id="createCardModalRadio2" name="color" />
+                                    <Field type="radio" className={css.createCardModalRadio2} id="createCardModalRadio2" name="color" />
                                     <label htmlFor="createCardModalRadio2" className="radio-label"></label>
                                 </div>
                                 <div>
-                                    <Field type="radio" id="createCardModalRadio3" name="color" />
+                                    <Field type="radio" className={css.createCardModalRadio3} id="createCardModalRadio3" name="color" />
                                     <label htmlFor="createCardModalRadio3" className="radio-label"></label>
                                 </div>
                                 <div>
-                                    <Field type="radio" id="createCardModalRadio4" name="color" />
+                                    <Field type="radio" className={css.createCardModalRadio4} id="createCardModalRadio4" name="color" />
                                     <label htmlFor="createCardModalRadio4" className="radio-label"></label>
                                 </div>
                             </div>

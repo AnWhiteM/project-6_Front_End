@@ -4,7 +4,7 @@ import UserEditModal from "../UserEditModal/UserEditModal";
 import ThemeModal from "../ThemeModal/ThemeModal";
 import svg from "../../img/icons.svg";
 
-export default function Header({ toggleSideBar }) {
+export default function Header({ openSideBar, sideBarOpen }) {
   const [showModal, setShowModal] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -27,14 +27,18 @@ export default function Header({ toggleSideBar }) {
           <header className={css.headerLayout}>
             <div>
               <div className={css.hidden}>
-                <button className={css.burger} onClick={toggleSideBar}>
-                  <svg width="24" height="24">
-                    <use
-                      href={svg + "#icon-burger-menu"}
-                      stroke="currentColor"
-                    ></use>
-                  </svg>
-                </button>
+
+                {!sideBarOpen && (
+                  <button className={css.burger} onClick={openSideBar}>
+                    <svg width="24" height="24">
+                      <use
+                        href="/src/img/icons.svg#icon-burger-menu"
+                        stroke="currentColor"
+                      ></use>
+                    </svg>
+                  </button>
+                )}
+                
               </div>
             </div>
 

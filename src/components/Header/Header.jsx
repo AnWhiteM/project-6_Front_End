@@ -2,6 +2,7 @@ import css from "../Header/Header.module.css";
 import { useState } from "react";
 import UserEditModal from "../UserEditModal/UserEditModal";
 import ThemeModal from "../ThemeModal/ThemeModal";
+import svg from "../../img/icons.svg";
 
 export default function Header() {
   const [showModal, setShowModal] = useState(false);
@@ -29,7 +30,7 @@ export default function Header() {
                 <button className={css.burger}>
                   <svg width="24" height="24">
                     <use
-                      href="/src/img/icons.svg#icon-burger-menu"
+                      href={svg + "#icon-burger-menu"}
                       stroke="currentColor"
                     ></use>
                   </svg>
@@ -47,7 +48,7 @@ export default function Header() {
                 >
                   Theme
                   <svg width="16" height="16" stroke="currentColor">
-                    <use href="/src/img/icons.svg#chevron-down-icon"></use>
+                    <use href={svg + "#chevron-down-icon"}></use>
                   </svg>
                 </button>
               </div>

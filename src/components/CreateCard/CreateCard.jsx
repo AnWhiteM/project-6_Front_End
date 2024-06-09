@@ -31,17 +31,24 @@ export const CreateCard = ({ isOpen, isClose }) => {
                         <Field as='textarea' name='carddescription' className={css.createCardModalInput2} placeholder="Description" />
                         <label>Label color
                             <div className={css.createCardModalRadioContainer}>
-                                <Field type="radio" id="color1" name="color" className={css.createCardModalRadio1} />
-                                <label htmlFor="color1"></label>
-                                <Field type="radio" id="color2" name="color" className={css.createCardModalRadio2} />
-                                <label htmlFor="color2"></label>
-                                <Field type="radio" id="color3" name="color" className={css.createCardModalRadio3} />
-                                <label htmlFor="color3"></label>
-                                <Field type="radio" id="color4" name="color" className={css.createCardModalRadio4} />
-                                <label htmlFor="color4"></label>
+                                <div>
+                                    <Field type="radio" id="createCardModalRadio1" name="color" />
+                                    <label htmlFor="createCardModalRadio1" className="radio-label"></label>
+                                </div>
+                                <div>
+                                    <Field type="radio" id="createCardModalRadio2" name="color" />
+                                    <label htmlFor="createCardModalRadio2" className="radio-label"></label>
+                                </div>
+                                <div>
+                                    <Field type="radio" id="createCardModalRadio3" name="color" />
+                                    <label htmlFor="createCardModalRadio3" className="radio-label"></label>
+                                </div>
+                                <div>
+                                    <Field type="radio" id="createCardModalRadio4" name="color" />
+                                    <label htmlFor="createCardModalRadio4" className="radio-label"></label>
+                                </div>
                             </div>
                         </label>
-
                         
                         <button type="submit" className={css.createCardModalSubmit} onClick={() => isClose()}>
                             <span className={css.createCardModalSpan}>

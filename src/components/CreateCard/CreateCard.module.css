@@ -24,6 +24,7 @@
     border-radius: 50%;
     background-color: #1f1f1f; 
     transition: border-color 0.3s, background-color 0.3s;
+    cursor: pointer;
 }
 
 .createCardModalRadio1 + label::before {

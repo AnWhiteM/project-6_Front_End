@@ -7,22 +7,21 @@
 }
 
 .themeModal {
-  border-radius: 8px;
   position: absolute;
   right: 130px;
   top: 49px;
   z-index: 1000;
-  background-color: #161616;
-  border: 1px solid var(--green);
 }
 
 .list {
+  max-width: 100px;
+  max-height: 107px;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   align-items: flex-start;
-
+  border: 1px solid var(--green);
   border-radius: 8px;
   box-shadow: 0 4px 16px hsla(0, 0%, 7%, 0.1);
   display: inline-flex;
@@ -32,6 +31,8 @@
   padding: 18px;
   padding-right: 44px;
   line-height: 1.7;
+  background-color: #161616;
+  margin: 0;
 }
 
 .btn {

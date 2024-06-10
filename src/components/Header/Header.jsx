@@ -27,18 +27,16 @@ export default function Header({ openSideBar, sideBarOpen }) {
           <header className={css.headerLayout}>
             <div>
               <div className={css.hidden}>
-
                 {!sideBarOpen && (
                   <button className={css.burger} onClick={openSideBar}>
                     <svg width="24" height="24">
                       <use
-                        href="/src/img/icons.svg#icon-burger-menu"
+                        href={svg + "#icon-burger-menu"}
                         stroke="currentColor"
                       ></use>
                     </svg>
                   </button>
                 )}
-                
               </div>
             </div>
 

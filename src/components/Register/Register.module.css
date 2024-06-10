@@ -2,7 +2,6 @@
     background-color: var(--black);
   padding: 20px;
   border-radius: 10px;
-
 }
 .navList{
     display: flex;

@@ -7,8 +7,8 @@ export default function Login() {
         <div className={css.box}>
             <div className={css.nav}>
                 <ul className={css.navList}>
-                    <li><NavLink to = "/register"> Registration </NavLink></li>
-                    <li><NavLink to = "/login" className={css.active}> Log in </NavLink></li>
+                    <li><NavLink to = "/auth/register"> Registration </NavLink></li>
+                    <li><NavLink to = "/auth/login" className={css.active}> Log in </NavLink></li>
                 </ul>
             </div>
             <LoginForm />

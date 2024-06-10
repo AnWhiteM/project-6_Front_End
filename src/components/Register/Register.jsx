@@ -7,8 +7,8 @@ export default function Register() {
         <div className={css.box}>
             <div className={css.nav}>
                 <ul className={css.navList}>
-                    <li><NavLink to = "/register" className={css.active}> Registration </NavLink></li>
-                    <li><NavLink to = "/login"> Log in </NavLink></li>
+                    <li><NavLink to = "/auth/register" className={css.active}> Registration </NavLink></li>
+                    <li><NavLink to = "/auth/login"> Log in </NavLink></li>
                 </ul>
             </div>
             <RegistrationForm />

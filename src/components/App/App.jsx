@@ -1,24 +1,13 @@
 import { HomePage } from "../HomePage/HomePage";
-import { LoginPage } from "../LoginPage/LoginPage";
-import { Route, Routes } from 'react-router-dom';
-import Login from "../Login/Login";
-import Register from "../Register/Register";
-
+// import SideBar from "../SideBar/SideBar";
+import { WelcomeComponent } from "../WelcomeComponent/WelcomeComponent";
 
 export const App = () => {
-  
+  const isLoggedIn = true;
   return (
-  <>
-  <Routes>
-        <Route index element={<LoginPage />} />
-        <Route path="/welcome" element={<LoginPage />} />
-        <Route path="/auth/register" element={<Register />} />
-        <Route path="/auth/login" element={<Login />} />
-        <Route path="/home" element={<HomePage />} />
-    </Routes>
-  
-  </>
-  )
-  
-
+    <>
+      {/* <SideBar /> */}
+      {isLoggedIn ? <HomePage /> : <WelcomeComponent />}
+    </>
+  );
 };

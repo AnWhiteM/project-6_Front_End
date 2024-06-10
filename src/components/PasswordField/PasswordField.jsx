@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Field } from "formik";
 import css from "../PasswordField/PasswordField.module.css";
+import svg from "../../img/icons.svg";
 
 const PasswordField = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,9 +21,7 @@ const PasswordField = () => {
       <button className={css.eye} onClick={togglePasswordVisibility}>
         <svg width="18" height="18" stroke="currentColor">
           <use
-            href={`/src/img/icons${
-              showPassword ? ".svg#eye-slash-icon" : ".svg#eye-icon"
-            }`}
+            href={`${svg}${showPassword ? "#eye-slash-icon" : "#eye-icon"}`}
           ></use>
         </svg>
       </button>

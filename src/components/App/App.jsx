@@ -10,6 +10,7 @@ export const App = () => {
   return (
   <>
   <Routes>
+        <Route index element={<LoginPage />} />
         <Route path="/welcome" element={<LoginPage />} />
         <Route path="/auth/register" element={<Register />} />
         <Route path="/auth/login" element={<Login />} />

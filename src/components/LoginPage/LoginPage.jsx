@@ -15,7 +15,7 @@ export const LoginPage = () => {
     <div className={css.box}>
       {!(isRegistering || isLoggingIn) && (
         <>
-      <img src="../../../public/img/2x-deskTab-man.png" alt="programmer" />
+      <img className= {css.img} src="../../../public/img/2x-deskTab-man.png" alt="programmer" />
       <div className={css.title}>
       <svg width="48" height="48">
         <use href={svg + "#icon-logo"}></use>

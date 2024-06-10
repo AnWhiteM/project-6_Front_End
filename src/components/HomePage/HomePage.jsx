@@ -4,13 +4,22 @@ import Header from "../Header/Header";
 import { ScreensPage } from "../ScreensPage/ScreensPage";
 import { Toaster } from "react-hot-toast";
 import { useState, useEffect } from "react";
+import clsx from "clsx";
 
 export const HomePage = () => {
-  const [sideBarOpen, setSideBarOpen] = useState(true);
+  const [sideBarOpen, setSideBarOpen] = useState(false);
   const [screenSize, setScreenSize] = useState({ width: window.innerWidth });
 
-  const toggleSideBar = () => {
-    setSideBarOpen(!sideBarOpen);
+  const openSideBar = () => {
+    if (!sideBarOpen) {
+      setSideBarOpen(true);
+    }
+  };
+
+  const closeSideBar = () => {
+    if (sideBarOpen) {
+      setSideBarOpen(false);
+    }
   };
 
   const resizeHandler = () => {
@@ -32,9 +41,13 @@ export const HomePage = () => {
             <SideBar />
           </div>
         )}
+
         <div className={css.mainCont}>
+          {sideBarOpen && (
+            <div className={css.overlay} onClick={closeSideBar}></div>
+          )}
           <div>
-            <Header toggleSideBar={toggleSideBar} />
+            <Header openSideBar={openSideBar} sideBarOpen={sideBarOpen} />
           </div>
           <div>
             <ScreensPage />

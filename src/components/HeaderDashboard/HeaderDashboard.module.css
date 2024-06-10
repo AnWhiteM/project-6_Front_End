@@ -19,6 +19,12 @@
     }
 }
 
+@media screen and (min-width: 1440px) {
+    .header{
+        margin-bottom: 10px;
+    }
+  }
+
 .dashboardName {
     font-weight: 500;
     font-size: 18px;

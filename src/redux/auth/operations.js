@@ -44,3 +44,38 @@ export const logOut = createAsyncThunk("/auth/logout", async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+/*
+ * GET @ /
+ * headers: Authorization: Bearer token
+ */
+
+export const getUserInfo = createAsyncThunk(
+  "user/getUserInfo",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get("/");
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+/*
+ * Put @ /
+ * headers: Authorization: Bearer token
+ * body: {name, email, password }
+ */
+export const updateUserInfo = createAsyncThunk(
+  "user/updateUserInfo",
+  async (userData, thunkAPI) => {
+    try {
+      console.log(userData);
+      const response = await axios.put("/", userData);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

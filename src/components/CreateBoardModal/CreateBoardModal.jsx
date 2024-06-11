@@ -2,7 +2,7 @@ import { useState } from "react";
 import Modal from "react-modal";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-
+import { useDispatch } from "react-redux";
 import { addBoard } from "../../redux/boards/operations";
 
 import css from "../EditBoardModal/EditBoardModal.module.css";

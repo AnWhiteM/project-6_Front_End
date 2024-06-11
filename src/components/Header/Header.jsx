@@ -1,10 +1,14 @@
-import css from "../Header/Header.module.css";
 import { useState } from "react";
 import UserEditModal from "../UserEditModal/UserEditModal";
 import ThemeModal from "../ThemeModal/ThemeModal";
 import svg from "../../img/icons.svg";
+import css from "../Header/Header.module.css";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../redux/auth/selectror";
 
-export default function Header({ toggleSideBar }) {
+export default function Header({ openSideBar, sideBarOpen }) {
+  const user = useSelector(selectUser);
+
   const [showModal, setShowModal] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -27,14 +31,16 @@ export default function Header({ toggleSideBar }) {
           <header className={css.headerLayout}>
             <div>
               <div className={css.hidden}>
-                <button className={css.burger} onClick={toggleSideBar}>
-                  <svg width="24" height="24">
-                    <use
-                      href={svg + "#icon-burger-menu"}
-                      stroke="currentColor"
-                    ></use>
-                  </svg>
-                </button>
+                {!sideBarOpen && (
+                  <button className={css.burger} onClick={openSideBar}>
+                    <svg width="24" height="24">
+                      <use
+                        href={svg + "#icon-burger-menu"}
+                        stroke="currentColor"
+                      ></use>
+                    </svg>
+                  </button>
+                )}
               </div>
             </div>
 
@@ -54,7 +60,7 @@ export default function Header({ toggleSideBar }) {
               </div>
               {showModal && <ThemeModal closeMenuModal={closeMenuModal} />}
               <div className={css.layout}>
-                <p className={css.text}>UserName</p>
+                <p className={css.text}>{user.name}</p>
                 <button className={css.button} onClick={() => openModal()}>
                   <span className={`${css.avatarSmall} ${css.avatar}`} />
                 </button>

@@ -1,27 +1,36 @@
 import { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../redux/auth/selectror";
 import { Field, Form, Formik } from "formik";
 import { ErrorMessage } from "formik";
+import PasswordField from "../PasswordField/PasswordField";
+import { updateUserInfo } from "../../redux/auth/operations";
 import * as Yup from "yup";
 import css from "../UserEditModal/UserEditModal.module.css";
-import PasswordField from "../PasswordField/PasswordField";
 import svg from "../../img/icons.svg";
 
 const ValidationSchema = Yup.object().shape({
   name: Yup.string()
-    .min(3, "Too Short!")
-    .max(50, "Too Long!")
+    .min(4, "Too Short!")
+    .max(64, "Too Long!")
     .required("Required"),
   email: Yup.string().email("Must be a valid email!").required("Required"),
   password: Yup.string()
-    .min(7, "Too short")
-    .max(256, "Too long")
+    .min(8, "Too short")
+    .max(64, "Too long")
     .required("Required"),
 });
 
 export default function UserEditModal({ onClose }) {
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+
   const fileInputRef = useRef(null);
 
   const handleSubmit = (values, actions) => {
+    // отправляем операцию aпдейтюзера и передаем ей обьект с данными имя мыло пароль
+    dispatch(updateUserInfo(values));
     actions.resetForm();
   };
 
@@ -78,8 +87,8 @@ export default function UserEditModal({ onClose }) {
           <div>
             <Formik
               initialValues={{
-                name: "",
-                email: "",
+                name: user.name || "",
+                email: user.email || "",
                 password: "",
               }}
               onSubmit={handleSubmit}

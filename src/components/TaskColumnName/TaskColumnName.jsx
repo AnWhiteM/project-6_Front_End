@@ -1,6 +1,7 @@
 import css from "./TaskColumnName.module.css";
 import svg from "../../img/icons.svg";
 import { useSelector} from "react"
+import { EditColumn } from "../../EditColumnModal/EditColumnModal.jsx"
 
 export const TaskColumnName = () => {
   const [isOpen, setIsOpen] = useSelector(false);
@@ -28,7 +29,8 @@ export const TaskColumnName = () => {
         </svg>
         </button>
       </div>
-      <EditCard isOpen={openModal} isClose={closeModal} title={"To Do"} />
+      {isOpen &&
+        <EditCard isOpen={openModal} isClose={closeModal} title={"To Do"} />}
     </div>
   );
 };

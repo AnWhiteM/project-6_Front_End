@@ -1,42 +1,41 @@
-import { useState } from "react";
-export const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+import { Formik, Form, Field} from 'formik';
+import { logIn } from '../../redux/auth/operations';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import css from "./LoginForm.module.css"
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+export default function LoginForm() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleSubmit = async (values, actions) => {
+    try {
+      await dispatch(logIn(values));
+      navigate("/home")
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
+    actions.resetForm();
   };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Email: ${email}, Password: ${password}`);
-  };
-
+ 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>
-          Email:
-          <input type="email" value={email} onChange={handleEmailChange} />
-        </label>
-      </div>
-      <div>
-        <label>
-          Password:
-          <input
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </label>
-      </div>
-      <div>
-        <button type="submit">Submit</button>
-      </div>
-    </form>
+    <div>
+      <Formik
+         initialValues={{ 
+          email: '',
+          password: '',
+        }}
+        onSubmit={handleSubmit}
+      >
+            <Form className={css.form}>
+                <label>Enter your Email</label>
+                <Field type="email" name="email"/>
+
+                <label>Confirm a password</label>
+                <Field type="password" name="password"/>
+
+                <button type="submit">Log In Now</button>
+          </Form>
+        </Formik>
+    </div>
   );
-};
+}

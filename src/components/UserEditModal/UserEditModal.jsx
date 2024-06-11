@@ -1,5 +1,7 @@
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../redux/auth/selectror";
 import { Field, Form, Formik } from "formik";
 import { ErrorMessage } from "formik";
 import PasswordField from "../PasswordField/PasswordField";
@@ -21,6 +23,7 @@ const ValidationSchema = Yup.object().shape({
 });
 
 export default function UserEditModal({ onClose }) {
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
   const fileInputRef = useRef(null);
@@ -84,8 +87,8 @@ export default function UserEditModal({ onClose }) {
           <div>
             <Formik
               initialValues={{
-                name: "",
-                email: "",
+                name: user.name || "",
+                email: user.email || "",
                 password: "",
               }}
               onSubmit={handleSubmit}

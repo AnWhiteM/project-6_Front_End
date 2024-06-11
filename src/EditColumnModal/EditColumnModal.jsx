@@ -6,7 +6,7 @@ import svg from "../../img/icons.svg";
 
 Modal.setAppElement('#root');
 
-export const EditColumn = ({ isOpen, isClose, modalName }) => {
+export const EditColumn = ({ isOpen, isClose, title }) => {
     const columnModalValidation = Yup.object().shape({
         columnname: Yup.string().min(3, 'Too short!').max(20, 'Too long!').required('Required!')
     });

@@ -2,12 +2,10 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { register } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
 import css from "./RegistrationForm.module.css";
-import svg from "../../img/icons.svg";
+// import svg from "../../img/icons.svg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
-
-
 
 const ValidationSchema = Yup.object().shape({
   name: Yup.string()
@@ -31,7 +29,6 @@ export const RegistrationForm = () => {
     navigate("/auth/login");
     actions.resetForm();
   };
-
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = (event) => {
@@ -58,12 +55,8 @@ export const RegistrationForm = () => {
             placeholder="Enter your name"
             className={css.input}
           />
-          <ErrorMessage
-            name="name"
-            component="span"
-            className={css.error}       
-          />
-          
+          <ErrorMessage name="name" component="span" className={css.error} />
+
           <label htmlFor="email" />
           <Field
             type="email"
@@ -71,11 +64,7 @@ export const RegistrationForm = () => {
             placeholder="Enter your email"
             className={css.input}
           />
-          <ErrorMessage
-            name="email"
-            component="span"
-            className={css.error}       
-          />
+          <ErrorMessage name="email" component="span" className={css.error} />
           <label htmlFor="password" />
           <div>
             <Field
@@ -85,10 +74,10 @@ export const RegistrationForm = () => {
               placeholder="Create a password"
             />
             <ErrorMessage
-            name="password"
-            component="span"
-            className={css.error}       
-          />
+              name="password"
+              component="span"
+              className={css.error}
+            />
             <button
               type="button "
               className={css.eye}

@@ -3,13 +3,12 @@ import Modal from "react-modal";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-// import { addBoard } from "../../redux/boards/operations";
+import { addBoard } from "../../redux/boards/operations";
 
 import css from "../EditBoardModal/EditBoardModal.module.css";
 import svg from "../../img/icons.svg";
 import bgData from "../../assets/bg.json";
 import clsx from "clsx";
-
 
 const icons = [
   "icon-i-1-project",
@@ -39,15 +38,15 @@ export default function CreateBoardModal({
   const [selectedIcon, setSelectedIcon] = useState(icons[0]);
   const [selectedBg, setSelectedBg] = useState(bgData[0].id);
 
-  //  const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const handleSubmit = (values, actions) => {
-  //   const newBoard = {
-  //     // Значення які будемо передавати на редакс
-  //   };
-  //   actions.resetForm();
-  //   dispatch(addBoard(newBoard));
-  // };
+  const handleSubmit = (values, actions) => {
+    const newBoard = {
+      // Значення які будемо передавати на редакс
+    };
+    actions.resetForm();
+    dispatch(addBoard(newBoard));
+  };
 
   const handleIconSelect = (icon, setFieldValue) => {
     setSelectedIcon(icon);

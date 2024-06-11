@@ -1,10 +1,14 @@
-import css from "../Header/Header.module.css";
 import { useState } from "react";
 import UserEditModal from "../UserEditModal/UserEditModal";
 import ThemeModal from "../ThemeModal/ThemeModal";
 import svg from "../../img/icons.svg";
+import css from "../Header/Header.module.css";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../redux/auth/selectror";
 
 export default function Header({ openSideBar, sideBarOpen }) {
+  const user = useSelector(selectUser);
+
   const [showModal, setShowModal] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -56,7 +60,7 @@ export default function Header({ openSideBar, sideBarOpen }) {
               </div>
               {showModal && <ThemeModal closeMenuModal={closeMenuModal} />}
               <div className={css.layout}>
-                <p className={css.text}>UserName</p>
+                <p className={css.text}>{user.name}</p>
                 <button className={css.button} onClick={() => openModal()}>
                   <span className={`${css.avatarSmall} ${css.avatar}`} />
                 </button>

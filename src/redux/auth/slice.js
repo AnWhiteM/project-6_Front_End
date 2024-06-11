@@ -4,7 +4,7 @@ import {
   logOut,
   register,
   updateUserInfo,
-  getUserInfo,
+  // getUserInfo,
 } from "./operations";
 
 const authSlice = createSlice({
@@ -65,23 +65,23 @@ const authSlice = createSlice({
         state.loading = false;
         state.error = true;
       })
-      .addCase(getUserInfo.pending, (state) => {
-        state.loading = true;
-        state.error = false;
-      })
-      .addCase(getUserInfo.fulfilled, (state, action) => {
-        state.loading = false;
-        // state.user = action.payload;
-        state.user.name = action.payload.name;
-        state.user.email = action.payload.email;
-        state.user.theme = action.payload.theme;
-        state.user.avatarURL = action.payload.avatarURL;
-        state.isLoggedIn = true;
-      })
-      .addCase(getUserInfo.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-      })
+      // .addCase(getUserInfo.pending, (state) => {
+      //   state.loading = true;
+      //   state.error = false;
+      // })
+      // .addCase(getUserInfo.fulfilled, (state, action) => {
+      //   state.loading = false;
+      //   // state.user = action.payload;
+      //   state.user.name = action.payload.name;
+      //   state.user.email = action.payload.email;
+      //   state.user.theme = action.payload.theme;
+      //   state.user.avatarURL = action.payload.avatarURL;
+      //   state.isLoggedIn = true;
+      // })
+      // .addCase(getUserInfo.rejected, (state, action) => {
+      //   state.loading = false;
+      //   state.error = action.payload;
+      // })
       .addCase(updateUserInfo.pending, (state) => {
         state.loading = true;
         state.error = false;

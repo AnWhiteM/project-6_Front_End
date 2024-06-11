@@ -1,24 +1,48 @@
-import { Formik, Form, Field} from 'formik';
-import { logIn } from '../../redux/auth/operations';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import css from "./LoginForm.module.css"
-import svg from "../../img/icons.svg";
-import { useState } from 'react';
+
+import { Formik, Form, Field } from "formik";
+import { logIn } from "../../redux/auth/operations";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import css from "./LoginForm.module.css";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { selectError } from "../../redux/auth/selectror";
+
+
 
 export default function LoginForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const handleSubmit = async (values, actions) => {
-    try {
-      await dispatch(logIn(values));
-      navigate("/home")
-    } catch (error) {
-      console.error("Login failed:", error);
-    }
+
+  const error = useSelector(selectError);
+  const [submittedWithError, setSubmittedWithError] = useState(false);
+
+  // const handleSubmit = async (values, actions) => {
+  //   try {
+  //     await dispatch(logIn(values));
+  //     navigate("/home")
+  //   } catch (error) {
+  //     console.error("Login failed:", error);
+  //   }
+  //   actions.resetForm();
+  // };
+
+  const handleSubmit = (values, actions) => {
+    dispatch(logIn(values));
+    navigate("/home");
     actions.resetForm();
   };
 
+  useEffect(() => {
+    if (error && submittedWithError) {
+      toast.error(`Ops, somthing wrong, Try Again!`);
+    }
+  }, [error, submittedWithError]);
+
+  const handleFormSubmit = (values, actions) => {
+    setSubmittedWithError(true);
+    handleSubmit(values, actions);
+  };
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -27,14 +51,15 @@ export default function LoginForm() {
     setShowPassword(!showPassword);
   };
  
+
   return (
     <div>
       <Formik
-         initialValues={{ 
-          email: '',
-          password: '',
+        initialValues={{
+          email: "",
+          password: "",
         }}
-        onSubmit={handleSubmit}
+        onSubmit={handleFormSubmit}
       >
             <Form className={css.form}>
               <label htmlFor="email"/>

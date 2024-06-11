@@ -4,7 +4,6 @@ import Header from "../Header/Header";
 import { ScreensPage } from "../ScreensPage/ScreensPage";
 import { Toaster } from "react-hot-toast";
 import { useState, useEffect } from "react";
-import clsx from "clsx";
 
 export const HomePage = () => {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -36,21 +35,26 @@ export const HomePage = () => {
   return (
     <>
       <div className={css.container}>
-        {(screenSize.width >= 1440 || sideBarOpen) && (
+        {screenSize.width >= 1440 && (
           <div className={css.sideB}>
             <SideBar />
           </div>
         )}
 
         <div className={css.mainCont}>
-          {sideBarOpen && (
-            <div className={css.overlay} onClick={closeSideBar}></div>
+          {screenSize.width < 1440 && sideBarOpen && (
+            <>
+              <div className={css.overlay} onClick={closeSideBar}></div>
+              <div className={css.sideBfixed}>
+                <SideBar />
+              </div>
+            </>
           )}
           <div>
             <Header openSideBar={openSideBar} sideBarOpen={sideBarOpen} />
           </div>
           <div>
-            <ScreensPage />
+            <ScreensPage className={css.screen} />
           </div>
         </div>
         <Toaster position="top-right" />

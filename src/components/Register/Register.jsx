@@ -4,6 +4,7 @@ import css from "./Register.module.css"
 
 export default function Register() {
     return(
+        <div className={css.cont}>
         <div className={css.box}>
             <div className={css.nav}>
                 <ul className={css.navList}>
@@ -13,6 +14,6 @@ export default function Register() {
             </div>
             <RegistrationForm />
         </div>
-
+        </div>
     )
 }

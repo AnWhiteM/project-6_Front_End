@@ -24,19 +24,33 @@ export const register = createAsyncThunk(
   }
 );
 
+// export const logIn = createAsyncThunk(
+//   "auth/login",
+//   async (userInfo, thunkAPI) => {
+//     try {
+//       const response = await axios.post("/auth/login", userInfo);
+//       setAuthHeader(response.data.token);
+//       await thunkAPI.dispatch(getUserInfo());
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
 export const logIn = createAsyncThunk(
   "auth/login",
   async (userInfo, thunkAPI) => {
     try {
       const response = await axios.post("/auth/login", userInfo);
       setAuthHeader(response.data.token);
-      await thunkAPI.dispatch(getUserInfo());
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+
 export const logOut = createAsyncThunk("/auth/logout", async (_, thunkAPI) => {
   try {
     await axios.post("/auth/logout");
@@ -51,17 +65,17 @@ export const logOut = createAsyncThunk("/auth/logout", async (_, thunkAPI) => {
  * headers: Authorization: Bearer token
  */
 
-export const getUserInfo = createAsyncThunk(
-  "user/getUserInfo",
-  async (_, thunkAPI) => {
-    try {
-      const response = await axios.get("/");
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
+// export const getUserInfo = createAsyncThunk(
+//   "user/getUserInfo",
+//   async (_, thunkAPI) => {
+//     try {
+//       const response = await axios.get("/");
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 /*
  * Put @ /

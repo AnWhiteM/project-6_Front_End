@@ -1,4 +1,4 @@
-import svg from "../../img/icons.svg";
+aimport svg from "../../img/icons.svg";
 import css from "./Logout.module.css";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";

@@ -5,6 +5,7 @@ import {
   register,
   updateUserInfo,
   // getUserInfo,
+  refreshUser,
 } from "./operations";
 
 const authSlice = createSlice({
@@ -95,6 +96,21 @@ const authSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
         state.error = true;
+      })
+      .addCase(refreshUser.pending, (state) => {
+        state.isRefreshing = true;
+        state.loading = false;
+        state.error = true;
+      })
+      .addCase(refreshUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(refreshUser.rejected, (state) => {
+        state.loading = false;
+        state.error = true;
+        state.isRefreshing = false;
       }),
 });
 export const authReducer = authSlice.reducer;

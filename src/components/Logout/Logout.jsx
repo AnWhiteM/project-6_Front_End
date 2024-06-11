@@ -13,7 +13,7 @@ export default function Logout() {
     try {
       await dispatch(logOut()).unwrap();
       toast.success("Ти вийшов)");
-      navigate("/auth/login");
+      navigate("/welcome");
     } catch (error) {
       toast.error("Помилка при виході");
     }

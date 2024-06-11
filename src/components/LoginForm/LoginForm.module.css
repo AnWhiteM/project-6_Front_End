@@ -49,3 +49,10 @@
   border: none;
   color: var(--white)
   }
+
+  .error{
+    height: 0px;
+  color: red;
+  font-size: 12px;
+  text-align: left;
+  }

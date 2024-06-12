@@ -1,0 +1,106 @@
+.createColumnModalCloseBtn {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    background-color: #000000;
+    border: none;
+    padding: 0;
+}
+
+.createColumnModalIcon {
+    fill: none;
+    cursor: pointer;
+    stroke: rgba(255, 255, 255, 1);
+}
+
+.createColumnModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 335px;
+    height: 221px;
+    background: #000000;
+    border: 1px solid #bedbb080;
+    border-radius: 20px;
+}
+
+.createColumnModalOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.419);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.createColumnModalContainer {
+    margin: 24px;
+}
+
+.createColumnModalForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.createColumnModalInput {
+    background: #1F1F1F;
+    border: 1px solid #BEDBB0;
+    width: 287px;
+    height: 49px;
+    top: 75px;
+    left: 24px;
+    padding: 14px;
+    gap: 0px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    outline: none;
+    opacity: 40%;
+    color: #fff;
+}
+
+.createColumnModalInput:hover,
+.createColumnModalInput:focus {
+    opacity: 100%;
+}
+
+.createColumnModalText {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    font-family: "Poppins", sans-serif;
+}
+
+.createColumnModalSubmit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #bedbb0;
+    color: rgba(22, 22, 22, 1);
+    border: none;
+    width: 287px;
+    height: 49px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.createColumnModalSpan {
+    width: 28px;
+    height: 28px;
+    background-color: #121212;
+    position: relative;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+}
+
+.createColumnModalAddIcon {
+    stroke: white;
+}

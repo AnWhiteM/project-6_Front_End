@@ -1,10 +1,20 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { logIn } from "../../redux/auth/operations";
 import { useDispatch, useSelector } from "react-redux";
 import css from "./LoginForm.module.css";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { selectError } from "../../redux/auth/selectror";
+import * as Yup from "yup";
+
+
+const ValidationSchema = Yup.object().shape({
+  email: Yup.string().email("Must be a valid email!").required("Required"),
+  password: Yup.string()
+    .min(8, "Too short")
+    .max(64, "Too long")
+    .required("Required"),
+});
 
 export default function LoginForm() {
   const dispatch = useDispatch();
@@ -45,6 +55,7 @@ export default function LoginForm() {
           password: "",
         }}
         onSubmit={handleSubmit}
+        validationSchema={ValidationSchema}
       >
         <Form className={css.form}>
           <label htmlFor="email"/>
@@ -55,6 +66,7 @@ export default function LoginForm() {
             className={css.input}
             required
           />
+          <ErrorMessage name="email" component="span" className={css.error} />
           <label htmlFor="password"/>
           <div>
             <Field
@@ -64,6 +76,7 @@ export default function LoginForm() {
               placeholder="Enter your password"
               required
             />
+            <ErrorMessage name="password" component="span" className={css.error} />
             <button
               type="button"
               className={css.eye}

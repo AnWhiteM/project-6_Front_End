@@ -16,9 +16,10 @@ export const register = createAsyncThunk(
   async (userInfo, thunkAPI) => {
     try {
       axios.defaults.headers.secretkey = "QWERTY";
-      const response = await axios.post("/auth/register", userInfo);
-      setAuthHeader(response.data.token);
-      return response.data;
+      await axios.post("/auth/register", userInfo);
+      const logResponse = await axios.post("/auth/login", userInfo);
+      setAuthHeader(logResponse.data.token);
+      return logResponse.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

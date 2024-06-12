@@ -1,6 +1,7 @@
 .icon {
   fill: none;
   stroke: rgba(190, 219, 176, 1);
+  cursor: pointer;
 }
 
 .container {

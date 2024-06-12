@@ -47,7 +47,7 @@ export default function LoginForm() {
         onSubmit={handleSubmit}
       >
         <Form className={css.form}>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email"/>
           <Field
             type="email"
             name="email"
@@ -55,7 +55,7 @@ export default function LoginForm() {
             className={css.input}
             required
           />
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password"/>
           <div>
             <Field
               type={showPassword ? "text" : "password"}

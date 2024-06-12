@@ -97,7 +97,7 @@
 
 @media screen and (min-width: 1440px) {
   .container {
-    max-width: 1440px;
+    min-width: 1440px;
     margin-right: 0;
   }
   .headerLayout {

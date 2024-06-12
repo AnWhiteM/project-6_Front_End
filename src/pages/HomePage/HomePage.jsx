@@ -1,11 +1,11 @@
 import css from "./HomePage.module.css";
-import SideBar from "../SideBar/SideBar";
-import Header from "../Header/Header";
-import { ScreensPage } from "../ScreensPage/ScreensPage";
-import { Toaster } from "react-hot-toast";
+import SideBar from "../../components/SideBar/SideBar";
+import Header from "../../components/Header/Header";
+
+import { ScreensPage } from "../../components/ScreensPage/ScreensPage";
 import { useState, useEffect } from "react";
 
-export const HomePage = () => {
+export default function HomePage() {
   const [sideBarOpen, setSideBarOpen] = useState(false);
   const [screenSize, setScreenSize] = useState({ width: window.innerWidth });
 
@@ -57,8 +57,7 @@ export const HomePage = () => {
             <ScreensPage className={css.screen} />
           </div>
         </div>
-        <Toaster position="top-right" />
       </div>
     </>
   );
-};
+}

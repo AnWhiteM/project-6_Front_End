@@ -23,7 +23,7 @@ export const EditColumn = ({ isOpen, isClose, title }) => {
         <div className={css.editColumnModalContainer}>
             <h1 className={css.editColumnModalText}>Edit column</h1>
             <Formik
-                initialValues={{ columnname: modalName }}
+                initialValues={{ columnname: title }}
                 validationSchema={columnModalValidation}
                 portalClassName="createColumnModalContainer"
                 // onSubmit={(values, actions) => {}}

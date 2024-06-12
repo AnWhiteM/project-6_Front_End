@@ -1,18 +1,18 @@
 import css from "./TaskColumnName.module.css";
 import svg from "../../img/icons.svg";
 import { useSelector} from "react"
-import { EditColumn } from "../../EditColumnModal/EditColumnModal.jsx"
+import { EditColumn } from "../EditColumnModal/EditColumnModal";
 
 export const TaskColumnName = () => {
   const [isOpen, setIsOpen] = useSelector(false);
   
   const openModal = () => {
     setIsOpen(true)
-    }
+  }
     
     const closeModal = () => {
       setIsOpen(false)
-      }
+    }
   
   return (
     <div className={css.taskColumn}>
@@ -30,7 +30,7 @@ export const TaskColumnName = () => {
         </button>
       </div>
       {isOpen &&
-        <EditCard isOpen={openModal} isClose={closeModal} title={"To Do"} />}
+        <EditColumn isOpen={openModal} isClose={closeModal} title={"To Do"} />}
     </div>
   );
 };

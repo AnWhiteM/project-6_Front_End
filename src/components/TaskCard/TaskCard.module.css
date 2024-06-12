@@ -111,9 +111,20 @@
     filter: drop-shadow(0 0 5px #bedbb0);
 }
 
+
 .editModalBtn {
     position: fixed;
     background: #121212;
     border: none;
     padding: 0;
+
+.icon {
+    cursor: pointer;
+}
+
+.icon:hover,
+.icon:focus {
+  filter: drop-shadow(0 0 5.5px #bedbb0);
+  stroke: #bedbb0;
+
 }

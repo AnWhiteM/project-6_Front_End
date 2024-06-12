@@ -15,7 +15,7 @@ export const Card = () => {
   }
 
     return (
-      <div className={css.card}>
+<div className={css.card}>
         <div className={css.border}></div>
         <h4 className={css.title}>The Watch Spot Design</h4>
         <p className={css.desc}>

@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import css from "./RegistrationForm.module.css";
 // import svg from "../../img/icons.svg";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
@@ -26,7 +27,8 @@ export const RegistrationForm = () => {
   const handleSubmit = (values, actions) => {
     console.log(values);
     dispatch(register(values));
-    navigate("/auth/login");
+    toast.success("Ти зареєструвався");
+    navigate("/home");
     actions.resetForm();
   };
   const [showPassword, setShowPassword] = useState(false);

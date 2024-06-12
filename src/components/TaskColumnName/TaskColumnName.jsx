@@ -10,8 +10,8 @@ export const TaskColumnName = () => {
     setIsOpen(true)
   }
     
-    const closeModal = () => {
-      setIsOpen(false)
+  const closeModal = () => {
+    setIsOpen(false)
   }
   
   return (

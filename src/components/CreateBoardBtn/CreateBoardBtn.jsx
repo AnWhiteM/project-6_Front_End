@@ -1,6 +1,5 @@
 import { useState } from "react";
 import CreateBoardModal from "../CreateBoardModal/CreateBoardModal";
-imp
 import svg from "../../img/icons.svg";
 import css from "./CreateBoardBtn.module.css";
 

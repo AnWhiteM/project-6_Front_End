@@ -1,4 +1,4 @@
-import { CreateColumn } from "../CreateColumnModal/CreateColumnModal";
+// import { CreateColumn } from "../CreateColumnModal/CreateColumnModal";
 import css from "./AddColumnBtn.module.css";
 import { useState } from "react";
 
@@ -16,9 +16,9 @@ export const AddColumnBtn = () => {
   return (
     <div>
       <button className={css.btn} onClick={openColumnCreateModal}>Add another column</button>
-      {isOpen && (
+      {/* {isOpen && (
         <CreateColumn isOpen={isOpen} isClose={closeColumnCreateModal} />
-      )}
+      )} */}
     </div>
   );
 };

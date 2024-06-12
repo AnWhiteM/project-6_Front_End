@@ -1,7 +1,7 @@
 import css from "./TaskColumnName.module.css";
 import svg from "../../img/icons.svg";
-import { useState } from "react"
-import { EditColumn } from "../EditColumnModal/EditColumnModal";
+import { useState} from "react"
+// import { EditColumn } from "../EditColumnModal/EditColumnModal";
 
 export const TaskColumnName = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,8 +29,8 @@ export const TaskColumnName = () => {
         </svg>
         </button>
       </div>
-      {isOpen &&
-        <EditColumn isOpen={openModal} isClose={closeModal} title={"To Do"} />}
+      {/* {isOpen &&
+        <EditColumn isOpen={openModal} isClose={closeModal} title={"To Do"} />} */}
     </div>
   );
 };

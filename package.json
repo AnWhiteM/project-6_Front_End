@@ -1,3 +1,4 @@
+
 {
   "name": "vite-react-template",
   "private": true,
@@ -38,3 +39,4 @@
     "vite": "^5.1.0"
   }
 }
+

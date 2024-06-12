@@ -1,10 +1,10 @@
 import css from "./TaskCard.module.css"
 import svg from "../../img/icons.svg";
-import { useSelector } from "react-redux";
-import { EditCard } from "../EditCardModal/EditCardModal";
+// import { EditCard } from "../EditCardModal/EditCardModal";
+import { useState } from "react";
 
 export const Card = () => {
-  const [isOpen, setIsOpen] = useSelector(false);
+  const [isOpen, setIsOpen] = useState(false);
   
   const openModal = () => {
     setIsOpen(true)
@@ -15,7 +15,7 @@ export const Card = () => {
   }
 
     return (
-      <div className={css.card}>
+<div className={css.card}>
         <div className={css.border}></div>
         <h4 className={css.title}>The Watch Spot Design</h4>
         <p className={css.desc}>
@@ -52,7 +52,9 @@ export const Card = () => {
             <svg className={css.icon} width="16" height="16">
                 <use href={svg + "#icon-arrow-circle"}></use>
             </svg>
-            <button className={css.editModalBtn} onClick={openModal()}>
+            <button className={css.editModalBtn} 
+            // onClick={openModal()}
+            >
               <svg className={css.icon} width="16" height="16">
                   <use href={svg + "#icon-pencil"}></use>
               </svg>
@@ -65,7 +67,7 @@ export const Card = () => {
           </div>
 
         </div>
-        <EditCard isOpen={isOpen} isClose={closeModal} />
+        {/* <EditCard isOpen={isOpen} isClose={closeModal} /> */}
       </div>
     );
 }

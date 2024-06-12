@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = "https://project-6-back-end.onrender.com";
+axios.defaults.baseURL = "https://project06back.onrender.com";
 
 const setAuthHeader = (token) => {
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -15,9 +15,11 @@ export const register = createAsyncThunk(
   "/auth/register",
   async (userInfo, thunkAPI) => {
     try {
-      const response = await axios.post("/auth/register", userInfo);
-      setAuthHeader(response.data.token);
-      return response.data;
+      axios.defaults.headers.secretkey = "QWERTY";
+      await axios.post("/auth/register", userInfo);
+      const logResponse = await axios.post("/auth/login", userInfo);
+      setAuthHeader(logResponse.data.token);
+      return logResponse.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -42,6 +44,7 @@ export const logIn = createAsyncThunk(
   "auth/login",
   async (userInfo, thunkAPI) => {
     try {
+      axios.defaults.headers.secretkey = "QWERTY";
       const response = await axios.post("/auth/login", userInfo);
       setAuthHeader(response.data.token);
       return response.data;
@@ -84,17 +87,17 @@ export const refreshUser = createAsyncThunk(
  * headers: Authorization: Bearer token
  */
 
-// export const getUserInfo = createAsyncThunk(
-//   "user/getUserInfo",
-//   async (_, thunkAPI) => {
-//     try {
-//       const response = await axios.get("/");
-//       return response.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
+export const getUserInfo = createAsyncThunk(
+  "user/getUserInfo",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get("/");
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 /*
  * Put @ /

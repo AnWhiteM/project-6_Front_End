@@ -12,7 +12,7 @@ export const TaskColumnName = () => {
     
     const closeModal = () => {
       setIsOpen(false)
-    }
+  }
   
   return (
     <div className={css.taskColumn}>

@@ -84,17 +84,17 @@ export const refreshUser = createAsyncThunk(
  * headers: Authorization: Bearer token
  */
 
-// export const getUserInfo = createAsyncThunk(
-//   "user/getUserInfo",
-//   async (_, thunkAPI) => {
-//     try {
-//       const response = await axios.get("/");
-//       return response.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
+export const getUserInfo = createAsyncThunk(
+  "user/getUserInfo",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get("/");
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 /*
  * Put @ /

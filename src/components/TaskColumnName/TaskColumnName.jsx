@@ -1,10 +1,10 @@
 import css from "./TaskColumnName.module.css";
 import svg from "../../img/icons.svg";
-import { useSelector} from "react"
+import { useState } from "react"
 import { EditColumn } from "../EditColumnModal/EditColumnModal";
 
 export const TaskColumnName = () => {
-  const [isOpen, setIsOpen] = useSelector(false);
+  const [isOpen, setIsOpen] = useState(false);
   
   const openModal = () => {
     setIsOpen(true)

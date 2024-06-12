@@ -1,10 +1,10 @@
 import css from "./TaskCard.module.css"
 import svg from "../../img/icons.svg";
-import { useSelector } from "react-redux";
 import { EditCard } from "../EditCardModal/EditCardModal";
+import { useState } from "react";
 
 export const Card = () => {
-  const [isOpen, setIsOpen] = useSelector(false);
+  const [isOpen, setIsOpen] = useState(false);
   
   const openModal = () => {
     setIsOpen(true)

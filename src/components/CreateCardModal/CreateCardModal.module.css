@@ -1,0 +1,185 @@
+.createCardModalRadioContainer {
+    display: flex;
+    gap: 10px;
+    width: 80px;
+}
+
+.createCardModalRadio1,
+.createCardModalRadio2,
+.createCardModalRadio3,
+.createCardModalRadio4 {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.createCardModalRadio1 + label::before,
+.createCardModalRadio2 + label::before,
+.createCardModalRadio3 + label::before,
+.createCardModalRadio4 + label::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #000000; 
+    transition: border-color 0.3s, background-color 0.3s;
+    cursor: pointer;
+}
+
+.createCardModalRadio1 + label::before {
+    background-color: #8FA1D0;
+}
+
+.createCardModalRadio2 + label::before {
+    background-color: #E09CB5;
+}
+
+.createCardModalRadio3 + label::before {
+    background-color: #BEDBB0;
+}
+
+.createCardModalRadio4 + label::before {
+    background-color: #FFFFFF4D;
+}
+
+.createCardModalRadio1:focus + label::before {
+    border: 1px solid #8FA1D0;
+}
+.createCardModalRadio2:focus + label::before {
+    border: 1px solid #E09CB5;
+}
+.createCardModalRadio3:focus + label::before {
+    border: 1px solid #BEDBB0;
+}
+.createCardModalRadio4:focus + label::before {
+    border: 1px solid #FFFFFF4D;
+}  
+ 
+.createCardModalCloseBtn {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    background-color: #000000;
+    border: none;
+    padding: 0;
+}
+
+.createCardModalIcon {
+    fill: none;
+    cursor: pointer;
+    stroke: rgba(255, 255, 255, 1);
+}
+
+.createCardModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 335px;
+    height: 522px;
+    background: #000000;
+    border: 1px solid #bedbb080;
+    border-radius: 20px;
+}
+
+.createCardModalOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.419);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.createCardModalContainer {
+    margin: 24px;
+}
+
+.createCardModalText {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+.createCardModalForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.createCardModalInput1 {
+    background: #1F1F1F;
+    border: 1px solid #BEDBB0;
+    width: 287px;
+    height: 49px;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    outline: none;
+    opacity: 40%;
+    color: #fff;
+}
+
+.createCardModalInput2 {
+    background: #1F1F1F;
+    border: 1px solid #BEDBB0;
+    width: 287px;
+    height: 154px;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    outline: none;
+    opacity: 40%;
+    color: #fff;
+    resize: none;
+    box-sizing: border-box;
+    vertical-align: top;
+    word-wrap: break-word;
+}
+
+.createCardModalInput1:hover,
+.createCardModalInput1:focus,
+.createCardModalInput2:hover,
+.createCardModalInput2:focus {
+    opacity: 100%;
+}
+
+.createCardModalRadio1 {
+    margin-right: 5px;
+    color: #8FA1D0;
+}
+
+.createCardModalSubmit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #bedbb0;
+    color: rgba(22, 22, 22, 1);
+    border: none;
+    width: 287px;
+    height: 49px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.createCardModalSpan {
+    width: 28px;
+    height: 28px;
+    background-color: #121212;
+    position: relative;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+}
+
+.createCardModalAddIcon {
+    stroke: white;
+}

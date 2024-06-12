@@ -1,11 +1,12 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { register } from "../../redux/auth/operations";
+import { logIn } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
 import css from "./RegistrationForm.module.css";
 // import svg from "../../img/icons.svg";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
 const ValidationSchema = Yup.object().shape({
@@ -22,20 +23,38 @@ const ValidationSchema = Yup.object().shape({
 
 export const RegistrationForm = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const handleSubmit = (values, actions) => {
-    console.log(values);
-    dispatch(register(values));
-    toast.success("Ти зареєструвався");
-    navigate("/auth/login");
-    actions.resetForm();
-  };
+  // const handleSubmit = (values, actions) => {
+  //   console.log(values);
+  //   dispatch(register(values));
+  //   dispatch(logIn(values));
+  //   toast.success("Ти зареєструвався");
+  //   // navigate("/auth/login");
+  //   actions.resetForm();
+  // };
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = (event) => {
     event.preventDefault();
     setShowPassword(!showPassword);
+  };
+  const handleSubmit = async (values, actions) => {
+    try {
+      await dispatch(register(values)).unwrap();
+
+      const loginValues = {
+        email: values.email,
+        password: values.password,
+      };
+      await dispatch(logIn(loginValues)).unwrap();
+
+      toast.success("Ти зареєструвався та увійшов у систему");
+    } catch (error) {
+      toast.error(`Помилка: ${error.message}`);
+    } finally {
+      actions.resetForm();
+    }
   };
 
   return (

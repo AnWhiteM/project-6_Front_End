@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = "https://project-6-back-end.onrender.com";
+axios.defaults.baseURL = "https://project06back.onrender.com";
 
 export const getBoards = createAsyncThunk(
   "boards/getAll",

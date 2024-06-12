@@ -32,19 +32,19 @@ export const EditCard = ({ isOpen, isClose }) => {
                         <label>Label color
                             <div className={css.editCardModalRadioContainer}>
                                 <div>
-                                    <Field type="radio" className={css.editCardModalRadio1} id="editCardModalRadio1" name="color" />
+                                    <Field type="radio" value="Low" className={css.editCardModalRadio1} id="editCardModalRadio1" name="color" />
                                     <label htmlFor="editCardModalRadio1" className="radio-label"></label>
                                 </div>
                                 <div>
-                                    <Field type="radio" className={css.editCardModalRadio2} id="editCardModalRadio2" name="color" />
+                                    <Field type="radio" value="Medium" className={css.editCardModalRadio2} id="editCardModalRadio2" name="color" />
                                     <label htmlFor="editCardModalRadio2" className="radio-label"></label>
                                 </div>
                                 <div>
-                                    <Field type="radio" className={css.editCardModalRadio3} id="editCardModalRadio3" name="color" />
+                                    <Field type="radio" value="High" className={css.editCardModalRadio3} id="editCardModalRadio3" name="color" />
                                     <label htmlFor="editCardModalRadio3" className="radio-label"></label>
                                 </div>
                                 <div>
-                                    <Field type="radio" className={css.editCardModalRadio4} id="editCardModalRadio4" name="color" />
+                                    <Field type="radio" value="Without priority" className={css.editCardModalRadio4} id="editCardModalRadio4" name="color" />
                                     <label htmlFor="editCardModalRadio4" className="radio-label"></label>
                                 </div>
                             </div>

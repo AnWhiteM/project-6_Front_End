@@ -28,7 +28,7 @@ export const RegistrationForm = () => {
     console.log(values);
     dispatch(register(values));
     toast.success("Ти зареєструвався");
-    navigate("/auth/login");
+    navigate("/home");
     actions.resetForm();
   };
   const [showPassword, setShowPassword] = useState(false);

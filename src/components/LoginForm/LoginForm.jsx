@@ -12,7 +12,7 @@ export default function LoginForm() {
   const [submittedWithError, setSubmittedWithError] = useState(false);
 
   const handleSubmit = async (values, actions) => {
-    setSubmittedWithError(false); // Скидаємо стан при новому сабміті
+    setSubmittedWithError(false);
     try {
       await dispatch(logIn(values)).unwrap();
       toast.success("Logged in successfully");

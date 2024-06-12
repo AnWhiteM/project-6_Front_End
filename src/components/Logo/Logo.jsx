@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import svg from "../../img/icons.svg";
 import css from "./Logo.module.css";

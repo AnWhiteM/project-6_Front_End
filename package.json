@@ -1,3 +1,4 @@
+
 {
   "name": "vite-react-template",
   "private": true,
@@ -5,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/project-6_Front_End",
+    "build": "vite build --base=/",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -38,3 +39,4 @@
     "vite": "^5.1.0"
   }
 }
+

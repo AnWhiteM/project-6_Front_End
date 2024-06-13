@@ -28,10 +28,20 @@ export default function UserEditModal({ onClose }) {
 
   const fileInputRef = useRef(null);
 
-  const handleSubmit = (values, actions) => {
-    // отправляем операцию aпдейтюзера и передаем ей обьект с данными имя мыло пароль
-    dispatch(updateUserInfo(values));
-    actions.resetForm();
+  const handleSubmit = async (values) => {
+    console.log(values);
+    try {
+      const sendInfo = {
+        avatarURL: values.avatarURL,
+        name: values.name,
+        email: values.email,
+        password: values.password,
+      };
+      await dispatch(updateUserInfo(sendInfo)).unwrap();
+      // отправляем операцию aпдейтюзера и передаем ей обьект с данными имя мыло пароль
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleMenuClick = (ev) => {
@@ -66,7 +76,12 @@ export default function UserEditModal({ onClose }) {
           </div>
           <p className={css.txt}>Edit Profile</p>
           <div className={css.avatarContainer}>
-            <span className={`${css.avatarBig} ${css.avatar}`} />
+            <span
+              className={`${css.avatarBig} ${css.avatar}`}
+              // style={{
+              //   backgroundImage: `url(${user.avatarURL})`,
+              // }}
+            />
 
             <button
               type="button"
@@ -87,6 +102,7 @@ export default function UserEditModal({ onClose }) {
           <div>
             <Formik
               initialValues={{
+                // avatarURL: user.avatarURL || null,
                 name: user.name || "",
                 email: user.email || "",
                 password: "",
@@ -95,6 +111,12 @@ export default function UserEditModal({ onClose }) {
               validationSchema={ValidationSchema}
             >
               <Form className={css.forma} autoComplete="off">
+                {/* <Field
+                  type="text"
+                  name="avatarURL"
+                  className={css.formInput}
+                  placeholder="avatar"
+                /> */}
                 <div className={css.formGroup}>
                   <label htmlFor="name" className={css.formLabel} />
                   <Field

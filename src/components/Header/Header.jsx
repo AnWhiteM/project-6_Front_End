@@ -62,7 +62,12 @@ export default function Header({ openSideBar, sideBarOpen }) {
               <div className={css.layout}>
                 <p className={css.text}>{user.name}</p>
                 <button className={css.button} onClick={() => openModal()}>
-                  <span className={`${css.avatarSmall} ${css.avatar}`} />
+                  <span
+                    className={`${css.avatarSmall} ${css.avatar}`}
+                    // style={{
+                    //   backgroundImage: `url(${user.avatarURL})`,
+                    // }}
+                  />
                 </button>
               </div>
               {isModalOpen && <UserEditModal onClose={closeModal} />}

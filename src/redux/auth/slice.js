@@ -88,8 +88,12 @@ const authSlice = createSlice({
         state.error = false;
       })
       .addCase(updateUserInfo.fulfilled, (state, action) => {
+        state.isLoggedIn = true;
         state.loading = false;
-        state.user = { ...state.user, ...action.payload }; // here we update userinfo
+        state.user.name = action.payload.name;
+        state.user.email = action.payload.email;
+        state.user.avatarURL = action.payload.avatarURL;
+        state.user.theme = action.payload.theme;
         state.error = false;
       })
       .addCase(updateUserInfo.rejected, (state, action) => {
@@ -103,6 +107,8 @@ const authSlice = createSlice({
         state.error = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
+        // action.payload.avatarURL =
+        //   "https://cdn.britannica.com/26/162626-050-3534626F/Koala.jpg";
         state.user = action.payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;

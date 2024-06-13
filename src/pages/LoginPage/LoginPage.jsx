@@ -17,11 +17,14 @@ export default function LoginPage() {
           <picture>
             <source
               srcSet={`
-               /img/1x-mob-man.png   54w,
-               /img/2x-mob-man.png 108w`}
-              sizes="(min-width: 1440px) 54px, (min-width: 1280px) 54px, (min-width: 768px) 54px, (min-width: 320px) 54px"
+               https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235452/p6ex38slxwvcjwcwnbxj.png  124w,
+               https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235452/ixq02fsx2ekcu2qu7nb0.png 248w`}
+              sizes="(min-width: 1440px) 124px, (min-width: 1280px) 124px, (min-width: 768px) 124px, (min-width: 320px) 124px"
             />
-            <img src="/img/1x-mob-man.png" alt="Kaktus" />
+            <img
+              src="https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235452/ixq02fsx2ekcu2qu7nb0.png"
+              alt="man after the laptop"
+            />
           </picture>
 
           <div className={css.title}>

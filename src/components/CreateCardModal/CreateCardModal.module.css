@@ -1,7 +1,8 @@
 .createCardModalRadioContainer {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     width: 80px;
+    margin-top: 5px;
 }
 
 .createCardModalRadio1,
@@ -147,6 +148,17 @@
     opacity: 100%;
 }
 
+.createCardModalLabel {
+    margin-bottom: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    color: #FFFFFF80;
+}
+
 .createCardModalRadio1 {
     margin-right: 5px;
     color: #8FA1D0;
@@ -183,3 +195,18 @@
 .createCardModalAddIcon {
     stroke: white;
 }
+
+@media screen and (min-width: 768px) {
+    .createCardModal {
+        width: 350px;
+    }
+
+    .createCardModalInput1,
+    .createCardModalInput2 {
+        width: 302px;
+    }
+    
+    .createCardModalSubmit {
+        width: 302px;
+    }
+  }

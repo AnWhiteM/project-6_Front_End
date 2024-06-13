@@ -29,7 +29,7 @@ export const CreateCard = ({ isOpen, isClose }) => {
                     <Form autoComplete="off" className={css.createCardModalForm}>
                         <Field type='text' name='cardtitle' className={css.createCardModalInput1} placeholder="Title" />
                         <Field as='textarea' name='carddescription' className={css.createCardModalInput2} placeholder="Description" />
-                        <label>Label color
+                        <label className={css.createCardModalLabel}>Label color
                             <div className={css.createCardModalRadioContainer}>
                                 <div>
                                     <Field type="radio" className={css.createCardModalRadio1} id="createCardModalRadio1" name="color" />

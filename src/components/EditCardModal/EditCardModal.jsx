@@ -29,23 +29,19 @@ export const EditCard = ({ isOpen, isClose }) => {
                     <Form autoComplete="off" className={css.editCardModalForm}>
                         <Field type='text' name='cardtitle' className={css.editCardModalInput1} placeholder="Title" />
                         <Field as='textarea' name='carddescription' className={css.editCardModalInput2} placeholder="Description" />
-                        <label>Label color
+                        <label className={css.editCardModalLabel}>Label color
                             <div className={css.editCardModalRadioContainer}>
-                                <div>
+                                <div className={css.editCardModalRadioContainerRadio}>
                                     <Field type="radio" value="Low" className={css.editCardModalRadio1} id="editCardModalRadio1" name="color" />
-                                    <label htmlFor="editCardModalRadio1" className="radio-label"></label>
                                 </div>
-                                <div>
+                                <div className={css.editCardModalRadioContainerRadio}>
                                     <Field type="radio" value="Medium" className={css.editCardModalRadio2} id="editCardModalRadio2" name="color" />
-                                    <label htmlFor="editCardModalRadio2" className="radio-label"></label>
                                 </div>
-                                <div>
+                                <div className={css.editCardModalRadioContainerRadio}>
                                     <Field type="radio" value="High" className={css.editCardModalRadio3} id="editCardModalRadio3" name="color" />
-                                    <label htmlFor="editCardModalRadio3" className="radio-label"></label>
                                 </div>
-                                <div>
+                                <div className={css.editCardModalRadioContainerRadio}>
                                     <Field type="radio" value="Without priority" className={css.editCardModalRadio4} id="editCardModalRadio4" name="color" />
-                                    <label htmlFor="editCardModalRadio4" className="radio-label"></label>
                                 </div>
                             </div>
                         </label>

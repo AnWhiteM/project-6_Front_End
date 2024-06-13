@@ -1,7 +1,7 @@
 import { useState } from "react";
 import EditBoardModal from "../EditBoardModal/EditBoardModal";
 import { useDispatch } from "react-redux";
-import { deleteBoard, getBoards } from "../../redux/boards/operations";
+import { deleteBoard } from "../../redux/boards/operations";
 import toast from "react-hot-toast";
 
 import svg from "../../img/icons.svg";
@@ -17,7 +17,6 @@ export default function Board({ board }) {
 
   const handleDelete = () => {
     dispatch(deleteBoard(_id));
-    dispatch(getBoards());
     boardDeleteNotify();
   };
 

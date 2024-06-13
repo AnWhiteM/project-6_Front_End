@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { selectUser } from "../../redux/auth/selectror";
+import { selectUser } from "../../redux/auth/selectors";
 import { Field, Form, Formik } from "formik";
 import { ErrorMessage } from "formik";
 import PasswordField from "../PasswordField/PasswordField";

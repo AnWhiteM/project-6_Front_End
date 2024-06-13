@@ -1,5 +1,5 @@
-export const selectLoading = (state) => state.board.loading;
+export const selectLoading = (state) => state.boards.loading;
 
-export const selectError = (state) => state.board.error;
+export const selectError = (state) => state.boards.error;
 
-export const selectContacts = (state) => state.board.items;
+export const selectBoards = (state) => state.boards.items;

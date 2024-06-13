@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getBoards, addBoard, updateBoard, deleteBoard } from "./operations";
 
 const boardSlice = createSlice({
-  name: "board",
+  name: "boards",
   initialState: {
     items: [],
     loading: false,

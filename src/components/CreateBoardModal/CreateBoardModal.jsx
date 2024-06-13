@@ -37,44 +37,32 @@ export default function CreateBoardModal({
 }) {
   const [selectedIcon, setSelectedIcon] = useState(icons[0]);
   const [selectedBg, setSelectedBg] = useState(bgData[0].id);
-
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
     const newBoard = {
-      // Значення які будемо передавати на редакс
+      title: values.title,
+      icon: values.icon,
+      background: values.background,
     };
     actions.resetForm();
     dispatch(addBoard(newBoard));
+    onClose();
   };
-
   const handleIconSelect = (icon, setFieldValue) => {
     setSelectedIcon(icon);
     setFieldValue("icon", icon);
   };
 
-  const handleBgSelect = (bg, setFieldValue) => {
-    setSelectedBg(bg);
-    setFieldValue("background", bg);
+  const handleBgSelect = (bgId, setFieldValue) => {
+    const selectedBackground = bgData.find((bg) => bg.id === bgId);
+    if (selectedBackground) {
+      const { id, mini, mini2x, ...bgs } = selectedBackground;
+      setSelectedBg(bgId);
+      setFieldValue("background", bgs);
+      console.log(bgs);
+    }
   };
-
-  const submitHandler = (values, actions) => {
-    console.log(values);
-
-    // Local storage - start
-    const storedData = JSON.parse(localStorage.getItem("boardData"));
-
-    const updatedData = Array.isArray(storedData)
-      ? [...storedData, values]
-      : [values];
-
-    localStorage.setItem("boardData", JSON.stringify(updatedData));
-    // Local storage - end
-
-    actions.resetForm();
-    onClose();
-  };
-
   return (
     <Modal
       overlayClassName={css.overlay}
@@ -97,7 +85,7 @@ export default function CreateBoardModal({
           background: selectedBg,
         }}
         validationSchema={titleValidationSchema}
-        onSubmit={submitHandler}
+        onSubmit={handleSubmit}
       >
         {({ setFieldValue }) => (
           <Form>

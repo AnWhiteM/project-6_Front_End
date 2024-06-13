@@ -91,7 +91,7 @@ export const getUserInfo = createAsyncThunk(
   "user/getUserInfo",
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get("/");
+      const response = await axios.get("/current");
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

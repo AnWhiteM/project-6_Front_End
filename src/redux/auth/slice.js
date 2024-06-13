@@ -4,7 +4,7 @@ import {
   logOut,
   register,
   updateUserInfo,
-  getUserInfo,
+  // getUserInfo,
   refreshUser,
 } from "./operations";
 
@@ -32,6 +32,7 @@ const authSlice = createSlice({
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
+        state.isLoggedIn = true;
       })
       .addCase(register.rejected, (state) => {
         state.loading = false;
@@ -66,30 +67,34 @@ const authSlice = createSlice({
         state.loading = false;
         state.error = true;
       })
-      .addCase(getUserInfo.pending, (state) => {
-        state.loading = true;
-        state.error = false;
-      })
-      .addCase(getUserInfo.fulfilled, (state, action) => {
-        state.loading = false;
-        // state.user = action.payload;
-        state.user.name = action.payload.name;
-        state.user.email = action.payload.email;
-        state.user.theme = action.payload.theme;
-        state.user.avatarURL = action.payload.avatarURL;
-        state.isLoggedIn = true;
-      })
-      .addCase(getUserInfo.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-      })
+      // .addCase(getUserInfo.pending, (state) => {
+      //   state.loading = true;
+      //   state.error = false;
+      // })
+      // .addCase(getUserInfo.fulfilled, (state, action) => {
+      //   state.loading = false;
+      //   // state.user = action.payload;
+      //   state.user.name = action.payload.name;
+      //   state.user.email = action.payload.email;
+      //   state.user.theme = action.payload.theme;
+      //   state.user.avatarURL = action.payload.avatarURL;
+      //   state.isLoggedIn = true;
+      // })
+      // .addCase(getUserInfo.rejected, (state, action) => {
+      //   state.loading = false;
+      //   state.error = action.payload;
+      // })
       .addCase(updateUserInfo.pending, (state) => {
         state.loading = true;
         state.error = false;
       })
       .addCase(updateUserInfo.fulfilled, (state, action) => {
+        state.isLoggedIn = true;
         state.loading = false;
-        state.user = { ...state.user, ...action.payload }; // here we update userinfo
+        state.user.name = action.payload.name;
+        state.user.email = action.payload.email;
+        state.user.avatarURL = action.payload.avatarURL;
+        state.user.theme = action.payload.theme;
         state.error = false;
       })
       .addCase(updateUserInfo.rejected, (state, action) => {
@@ -103,6 +108,8 @@ const authSlice = createSlice({
         state.error = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
+        // action.payload.avatarURL =
+        //   "https://cdn.britannica.com/26/162626-050-3534626F/Koala.jpg";
         state.user = action.payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;

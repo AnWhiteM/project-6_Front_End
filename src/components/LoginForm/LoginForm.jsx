@@ -4,9 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import css from "./LoginForm.module.css";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { selectError } from "../../redux/auth/selectror";
+import { selectError } from "../../redux/auth/selectors";
 import * as Yup from "yup";
-
 
 const ValidationSchema = Yup.object().shape({
   email: Yup.string().email("Must be a valid email!").required("Required"),
@@ -58,7 +57,7 @@ export default function LoginForm() {
         validationSchema={ValidationSchema}
       >
         <Form className={css.form}>
-          <label htmlFor="email"/>
+          <label htmlFor="email" />
           <Field
             type="email"
             name="email"
@@ -67,7 +66,7 @@ export default function LoginForm() {
             required
           />
           <ErrorMessage name="email" component="span" className={css.error} />
-          <label htmlFor="password"/>
+          <label htmlFor="password" />
           <div>
             <Field
               type={showPassword ? "text" : "password"}
@@ -76,7 +75,11 @@ export default function LoginForm() {
               placeholder="Enter your password"
               required
             />
-            <ErrorMessage name="password" component="span" className={css.error} />
+            <ErrorMessage
+              name="password"
+              component="span"
+              className={css.error}
+            />
             <button
               type="button"
               className={css.eye}

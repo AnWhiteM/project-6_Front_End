@@ -17,7 +17,10 @@ export const register = createAsyncThunk(
     try {
       axios.defaults.headers.secretkey = "QWERTY";
       await axios.post("/auth/register", userInfo);
-      const logResponse = await axios.post("/auth/login", userInfo);
+      const logResponse = await axios.post("/auth/login", {
+        email: userInfo.email,
+        password: userInfo.password,
+      });
       setAuthHeader(logResponse.data.token);
       return logResponse.data;
     } catch (error) {
@@ -73,17 +76,17 @@ export const refreshUser = createAsyncThunk(
  * headers: Authorization: Bearer token
  */
 
-export const getUserInfo = createAsyncThunk(
-  "user/getUserInfo",
-  async (_, thunkAPI) => {
-    try {
-      const response = await axios.get("/current");
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
+// export const getUserInfo = createAsyncThunk(
+//   "user/getUserInfo",
+//   async (_, thunkAPI) => {
+//     try {
+//       const response = await axios.get("/current");
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 /*
  * Put @ /
@@ -95,10 +98,20 @@ export const updateUserInfo = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       console.log(userData);
+      const reduxState = thunkAPI.getState();
+      const savedToken = reduxState.auth.token;
+      setAuthHeader(savedToken);
       const response = await axios.put("/current", userData);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
+  },
+  {
+    condition: (_, { getState }) => {
+      const reduxState = getState();
+      const savedToken = reduxState.auth.token;
+      return savedToken !== null;
+    },
   }
 );

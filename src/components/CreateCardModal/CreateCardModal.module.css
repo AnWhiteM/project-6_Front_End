@@ -51,25 +51,25 @@ input[type=radio]:checked {
 
 .createCardModalRadio1:checked {
     background: 
-      radial-gradient(farthest-side, #8FA1D0 100%,#121212) 
+      radial-gradient(farthest-side, #8FA1D0 100%,#0000) 
       50%/0 0 no-repeat content-box;
 }
 
 .createCardModalRadio2:checked {
     background: 
-      radial-gradient(farthest-side, #E09CB5 100%,#121212) 
+      radial-gradient(farthest-side, #E09CB5 100%,#0000) 
       50%/0 0 no-repeat content-box;
 }
 
 .createCardModalRadio3:checked {
     background: 
-      radial-gradient(farthest-side, #BEDBB0 100%,#121212) 
+      radial-gradient(farthest-side, #BEDBB0 100%,#0000) 
       50%/0 0 no-repeat content-box;
 }
 
 .createCardModalRadio4:checked {
     background: 
-      radial-gradient(farthest-side, #5B5B5B 100%,#121212) 
+      radial-gradient(farthest-side, #5B5B5B 100%,#0000) 
       50%/0 0 no-repeat content-box;
 }
   
@@ -80,7 +80,7 @@ input[type=radio]:checked {
         appearance: auto;
         background: none;
   }
-} 
+}
  
 .createCardModalCloseBtn {
     position: fixed;

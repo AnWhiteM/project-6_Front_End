@@ -14,6 +14,7 @@ export default function Board({ board }) {
 
   const boardDeleteNotify = () =>
     toast.error(`You deleted the board ${board.title}`);
+
   const handleDelete = () => {
     dispatch(deleteBoard(_id));
     dispatch(getBoards());
@@ -29,39 +30,35 @@ export default function Board({ board }) {
   };
 
   return (
-    <div>
-      <ul>
-        <li className={css.liItem}>
-          <div className={css.titleWrapper}>
-            <svg className={css.titleIcon} width="18px" height="18px">
-              <use href={`${svg}#${icon}`} />
-            </svg>
-            <h3 className={css.title}>{title}</h3>
-          </div>
-          <span className={css.btns}>
-            <button className={css.btn} type="button" onClick={openModal}>
-              <svg className={css.icon} width="16px" height="16px">
-                <use href={svg + "#icon-pencil"}></use>
-              </svg>
-            </button>
-            <button className={css.btn} type="button" onClick={handleDelete}>
-              <svg className={css.icon} width="16px" height="16px">
-                <use href={svg + "#icon-trash"}></use>
-              </svg>
-            </button>
-          </span>
-          {isModalOpen && (
-            <EditBoardModal
-              isOpen={isModalOpen}
-              onClose={closeModal}
-              title={title}
-              icon={icon}
-              boardId={_id}
-              background={background}
-            />
-          )}
-        </li>
-      </ul>
-    </div>
+    <>
+      <div className={css.titleWrapper}>
+        <svg className={css.titleIcon} width="18px" height="18px">
+          <use href={`${svg}#${icon}`} />
+        </svg>
+        <h3 className={css.title}>{title}</h3>
+      </div>
+      <span className={css.btns}>
+        <button className={css.btn} type="button" onClick={openModal}>
+          <svg className={css.icon} width="16px" height="16px">
+            <use href={svg + "#icon-pencil"}></use>
+          </svg>
+        </button>
+        <button className={css.btn} type="button" onClick={handleDelete}>
+          <svg className={css.icon} width="16px" height="16px">
+            <use href={svg + "#icon-trash"}></use>
+          </svg>
+        </button>
+      </span>
+      {isModalOpen && (
+        <EditBoardModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          title={title}
+          icon={icon}
+          boardId={_id}
+          background={background}
+        />
+      )}
+    </>
   );
 }

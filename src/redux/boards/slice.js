@@ -30,7 +30,7 @@ const boardSlice = createSlice({
       .addCase(deleteBoard.fulfilled, (state, action) => {
         state.loading = false;
         state.items = state.items.filter(
-          (board) => board.id !== action.payload.id
+          (board) => board._id !== action.meta.arg
         );
       })
       .addCase(deleteBoard.rejected, (state) => {
@@ -56,9 +56,11 @@ const boardSlice = createSlice({
       .addCase(updateBoard.fulfilled, (state, action) => {
         state.loading = false;
         const boardIndex = state.items.findIndex(
-          (item) => item.id === action.payload.id
+          (item) => item._id === action.payload._id
         );
-        state.items[boardIndex] = action.payload;
+        if (boardIndex !== -1) {
+          state.items[boardIndex] = action.payload;
+        }
       })
       .addCase(updateBoard.rejected, (state) => {
         state.loading = false;

@@ -26,20 +26,6 @@ export const register = createAsyncThunk(
   }
 );
 
-// export const logIn = createAsyncThunk(
-//   "auth/login",
-//   async (userInfo, thunkAPI) => {
-//     try {
-//       const response = await axios.post("/auth/login", userInfo);
-//       setAuthHeader(response.data.token);
-//       await thunkAPI.dispatch(getUserInfo());
-//       return response.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
-
 export const logIn = createAsyncThunk(
   "auth/login",
   async (userInfo, thunkAPI) => {
@@ -91,7 +77,7 @@ export const getUserInfo = createAsyncThunk(
   "user/getUserInfo",
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get("/");
+      const response = await axios.get("/current");
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -109,7 +95,7 @@ export const updateUserInfo = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       console.log(userData);
-      const response = await axios.put("/", userData);
+      const response = await axios.put("/current", userData);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

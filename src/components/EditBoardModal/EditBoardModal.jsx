@@ -7,6 +7,9 @@ import svg from "../../img/icons.svg";
 import bgData from "../../assets/bg.json";
 import css from "./EditBoardModal.module.css";
 import clsx from "clsx";
+import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { updateBoard } from "../../redux/boards/operations";
 
 const icons = [
   "icon-i-1-project",
@@ -34,7 +37,9 @@ export default function EditBoardModal({
   title,
   icon,
   background,
+  boardId,
 }) {
+  const dispatch = useDispatch();
   const [selectedIcon, setSelectedIcon] = useState(icon || icons[0]);
   const [selectedBg, setSelectedBg] = useState(background || bgData[0].id);
 
@@ -43,31 +48,29 @@ export default function EditBoardModal({
     setFieldValue("icon", icon);
   };
 
-  const handleBgSelect = (bg, setFieldValue) => {
-    setSelectedBg(bg);
-    setFieldValue("background", bg);
+  const handleBgSelect = (bgId, setFieldValue) => {
+    const selectedBackground = bgData.find((bg) => bg.id === bgId);
+    if (selectedBackground) {
+      const { id, mini, mini2x, ...bgs } = selectedBackground;
+      setSelectedBg(bgId);
+      setFieldValue("background", bgs);
+      console.log(bgs);
+    }
   };
 
-  const submitHandler = (values, actions) => {
-    // Local storage - start
-    const storedData = JSON.parse(localStorage.getItem("boardData"));
+  const contactEditNotify = () => toast.success("You edit board");
 
-    const updatedData = storedData.map((board) => {
-      if (board.title === title) {
-        return {
-          ...board,
-          title: values.title,
-          icon: selectedIcon,
-          background: selectedBg,
-        };
-      }
-      return board;
-    });
+  const submitHandler = (values) => {
+    dispatch(
+      updateBoard({
+        title: values.title,
+        icon: selectedIcon,
+        background: values.background,
+        id: boardId,
+      })
+    );
 
-    localStorage.setItem("boardData", JSON.stringify(updatedData));
-    // Local storage - end
-
-    actions.resetForm();
+    contactEditNotify();
     onClose();
   };
 

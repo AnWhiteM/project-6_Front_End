@@ -1,47 +1,22 @@
-import { useState, useEffect } from "react";
 import CreateBoardBtn from "../CreateBoardBtn/CreateBoardBtn";
 import Board from "../Board/Board";
 
 import css from "./BoardList.module.css";
-import bgData from "../../assets/bg.json";
+import { useSelector } from "react-redux";
+import { selectBoards } from "../../redux/boards/selectors.js";
 
 export default function BoardList() {
-  const [boards, setBoards] = useState([]);
-
-  useEffect(() => {
-    const storedBoards = JSON.parse(localStorage.getItem("boardData")) || [];
-    setBoards(storedBoards);
-  }, []);
-
-  const getBgById = (id) => {
-    const {
-      id: _,
-      mini,
-      mini2x,
-      ...bgs
-    } = bgData.find((item) => item.id === id) || {};
-    return bgs;
-  };
+  const boards = useSelector(selectBoards);
 
   return (
     <>
       <h3 className={css.title}>My boards</h3>
-
       <CreateBoardBtn />
-
-      <ul className={css.list}>
-        {boards.map((board, index) => {
-          const bg = getBgById(board.background);
-          return (
-            <Board
-              key={index}
-              title={board.title}
-              icon={board.icon}
-              background={bg}
-            />
-          );
-        })}
-      </ul>
+      <div className={css.list}>
+        {boards.map((board) => (
+          <Board key={board._id} board={board} />
+        ))}
+      </div>
     </>
   );
 }

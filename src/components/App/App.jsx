@@ -6,7 +6,7 @@ import { refreshUser, getUserInfo } from "../../redux/auth/operations";
 import {
   selectIsRefreshing,
   selectIsLoggedIn,
-} from "../../redux/auth/selectror";
+} from "../../redux/auth/selectors";
 
 import RestrictedRoute from "../RestrictedRoute/RestrictedRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -68,5 +68,4 @@ export const App = () => {
       )}
     </>
   );
-
 };

@@ -4,7 +4,7 @@ import ThemeModal from "../ThemeModal/ThemeModal";
 import svg from "../../img/icons.svg";
 import css from "../Header/Header.module.css";
 import { useSelector } from "react-redux";
-import { selectUser } from "../../redux/auth/selectror";
+import { selectUser } from "../../redux/auth/selectors";
 
 export default function Header({ openSideBar, sideBarOpen }) {
   const user = useSelector(selectUser);

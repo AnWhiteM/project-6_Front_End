@@ -5,7 +5,7 @@ const taskSlice = createSlice({
     name: "tasks",
     initialState: { items: [], loading: false, error: null },
 
-    extraReducers: (builder) =>
+    extraReducers: (builder) => 
         builder
         .addCase(fetchTasks.pending, (state) => {
             state.loading = true;
@@ -48,14 +48,14 @@ const taskSlice = createSlice({
         .addCase(deleteTask.pending, (state) => {
             state.loading = true;
         })
-        .addCase(updateTask.fulfilled, (state, action) => {
+        .addCase(deleteTask.fulfilled, (state, action) => {
             state.loading = false;
             state.error = null;
             state.items = state.items.filter(
                 (task) => task.id !== action.payload.id
             );
         })
-        .addCase(updateTask.rejected, (state, action) => {
+        .addCase(deleteTask.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload;
         })

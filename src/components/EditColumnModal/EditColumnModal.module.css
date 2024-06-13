@@ -89,22 +89,6 @@
     cursor: pointer;
 }
 
-.editColumnModalSubmitAddBtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 16px;
-    font-size: 14px;
-    font-weight: 500;
-    background-color: #bedbb0;
-    color: rgba(22, 22, 22, 1);
-    border: none;
-    width: 287px;
-    height: 49px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
   .editColumnModalSpan {
     width: 28px;
     height: 28px;
@@ -120,3 +104,17 @@
 .editColumnModalAddIcon {
     stroke: white;
 }
+
+@media screen and (min-width: 768px) {
+    .editColumnModal {
+        width: 350px;
+    }
+
+    .editColumnModalInput {
+        width: 302px;
+    }
+    
+    .editColumnModalSubmit {
+        width: 302px;
+    }
+  }

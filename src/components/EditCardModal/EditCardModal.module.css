@@ -1,10 +1,126 @@
 .editCardModalRadioContainer {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     width: 80px;
+    margin-top: 5px;
 }
 
-.editCardModalRadio1,
+.editCardModalRadioContainerRadio {
+    height: 14px;
+    width: 14px;
+    margin: 0;
+}
+
+/* input[type=radio] {
+    --s: 14px;     
+    --c: #009688; 
+    
+    height: var(--s);
+    aspect-ratio: 1;
+    border: calc(var(--s)/8) solid #939393;
+    padding: calc(var(--s)/8);
+    background: 
+       radial-gradient(farthest-side,var(--c) 94%,#0000) 
+       50%/0 0 no-repeat content-box;
+    border-radius: 50%;
+    outline-offset: calc(var(--s)/10);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    font-size: inherit;
+    transition: .3s;
+    margin: 0;
+  } */
+
+  input[type=radio] {
+    --s: 14px;     /* control the size */
+    --c: #009688; /* the active color */
+    
+    height: var(--s);
+    aspect-ratio: 1;
+    border: 2px solid #939393;
+    padding: 1px;
+    background: 
+       radial-gradient(farthest-side, var(--c) 100%,#0000) 
+       50%/0 0 no-repeat content-box;
+    border-radius: 50%;
+    outline-offset: 2px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    font-size: inherit;
+    transition: .3s;
+  }
+
+  input[type=radio]:checked {
+    border-color: var(--c);
+    background-size: 100% 100%;
+  }
+  
+  @media print {
+    input[type=radio] {
+      -webkit-appearance: auto;
+      -moz-appearance: auto;
+      appearance: auto;
+      background: none;
+    }
+  }
+
+/* .editCardModalRadio1 {
+    color: #8FA1D0;
+    border: 2px solid #8FA1D0;
+    background: 
+     radial-gradient(farthest-side,var(--c) 94%,#8FA1D0) 
+     50%/0 0 no-repeat content-box;
+}
+
+.editCardModalRadio2 {
+    color: #E09CB5;
+    border: 2px solid #E09CB5;
+    background: 
+     radial-gradient(farthest-side,var(--c) 94%,#E09CB5) 
+     50%/0 0 no-repeat content-box;
+}
+
+.editCardModalRadio3 {
+    color: #BEDBB0;
+    border: 2px solid #BEDBB0;
+    background: 
+     radial-gradient(farthest-side,var(--c) 94%,#BEDBB0) 
+     50%/0 0 no-repeat content-box;
+}
+
+.editCardModalRadio4 {
+    color: #FFFFFF4D;
+    border: 2px solid #FFFFFF4D;
+    background: 
+     radial-gradient(farthest-side,var(--c) 94%,#FFFFFF4D) 
+     50%/0 0 no-repeat content-box;
+}
+
+.editCardModalRadio1:checked {
+    border-color: #8FA1D0;
+    background-size: 100% 100%;
+}
+
+.editCardModalRadio2:checked {
+    border-color: #E09CB5;
+    background-size: 100% 100%;
+}
+
+.editCardModalRadio3:checked {
+    border-color: #BEDBB0;
+    background-size: 100% 100%;
+}
+
+.editCardModalRadio4:checked {
+    border-color: #FFFFFF4D;
+    background-size: 100% 100%;
+} */
+
+/* .editCardModalRadio1,
 .editCardModalRadio2,
 .editCardModalRadio3,
 .editCardModalRadio4 {
@@ -44,17 +160,21 @@
 }
 
 .editCardModalRadio1:focus + label::before {
-    border: 1px solid #8FA1D0;
+    border: 2px solid #8FA1D0;
+    padding: 2px;
 }
 .editCardModalRadio2:focus + label::before {
-    border: 1px solid #E09CB5;
+    border: 2px solid #E09CB5;
+    padding: 2px;
 }
 .editCardModalRadio3:focus + label::before {
-    border: 1px solid #BEDBB0;
+    border: 2px solid #BEDBB0;
+    padding: 2px;
 }
 .editCardModalRadio4:focus + label::before {
-    border: 1px solid #FFFFFF4D;
-}  
+    border: 2px solid #FFFFFF4D;
+    padding: 2px;
+} */
  
 .editCardModalCloseBtn {
     position: fixed;
@@ -147,9 +267,15 @@
     opacity: 100%;
 }
 
-.editCardModalRadio1 {
-    margin-right: 5px;
-    color: #8FA1D0;
+.editCardModalLabel {
+    margin-bottom: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    color: #FFFFFF80;
 }
 
 .editCardModalSubmit {

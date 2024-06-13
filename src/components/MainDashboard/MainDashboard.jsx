@@ -7,7 +7,7 @@ export const MainDashboard = () => {
   return (
     <div className={css.container}>
       {/* <DashboardMessage /> */}
-      {/* <AddColumnBtn/> */}
+      <AddColumnBtn/>
       <TaskColumn />
     </div>
   );

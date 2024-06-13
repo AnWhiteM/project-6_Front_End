@@ -1,17 +1,17 @@
 import css from "./AddAnotherCardBtn.module.css";
 import svg from "../../img/icons.svg";
 import { useState } from "react";
-// import { CreateCard } from "../CreateCardModal/CreateCardModal.jsx"
+import { CreateCard } from "../CreateCardModal/CreateCardModal.jsx"
 
 export const AddAnotherCardBtn = () => {
-    const [isOpen, setIsOpen] = useState(false)
+    const [createCardModal, setCreateCardModal] = useState(false)
     
     const openModal = () => {
-        setIsOpen(true)
+      setCreateCardModal(true)
     }
         
     const closeModal = () => {
-        setIsOpen(false)
+      setCreateCardModal(false)
     }
     
   return (
@@ -24,8 +24,8 @@ export const AddAnotherCardBtn = () => {
         </div>
         Add another card
       </button>
-    {/* {isOpen &&
-        <CreateCard isOpen={isOpen} isClose={closeModal} />} */}
+    {createCardModal &&
+        <CreateCard isOpen={createCardModal} isClose={closeModal} />}
     </div>
   );
 };

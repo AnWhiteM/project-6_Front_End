@@ -1,17 +1,17 @@
 import css from "./TaskCard.module.css"
 import svg from "../../img/icons.svg";
-// import { EditCard } from "../EditCardModal/EditCardModal";
+import { EditCard } from "../EditCardModal/EditCardModal";
 import { useState } from "react";
 
 export const Card = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [editCardModal, setEditCardModal] = useState(false);
   
   const openModal = () => {
-    setIsOpen(true)
+    setEditCardModal(true)
   }
     
   const closeModal = () => {
-    setIsOpen(false)
+    setEditCardModal(false)
   }
 
     return (
@@ -53,7 +53,7 @@ export const Card = () => {
                 <use href={svg + "#icon-arrow-circle"}></use>
             </svg>
             <button className={css.editModalBtn} 
-            // onClick={openModal()}
+            onClick={() => openModal()}
             >
               <svg className={css.icon} width="16" height="16">
                   <use href={svg + "#icon-pencil"}></use>
@@ -67,7 +67,8 @@ export const Card = () => {
           </div>
 
         </div>
-        {/* <EditCard isOpen={isOpen} isClose={closeModal} /> */}
+        {editCardModal &&
+        <EditCard isOpen={editCardModal} isClose={closeModal} />}
       </div>
     );
 }

@@ -24,10 +24,9 @@ export const RegistrationForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (values, actions) => {
-    console.log(values);
-    dispatch(register(values));
-    toast.success("Ти зареєструвався");
+  const handleSubmit = async (values, actions) => {
+    await dispatch(register(values)).unwrap();
+    toast.success("Registered successfully");
     navigate("/home");
     actions.resetForm();
   };

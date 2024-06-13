@@ -12,11 +12,13 @@ export default function BoardList() {
     <>
       <h3 className={css.title}>My boards</h3>
       <CreateBoardBtn />
-      <div className={css.list}>
+      <ul className={css.list}>
         {boards.map((board) => (
-          <Board key={board._id} board={board} />
+          <li className={css.liItem} key={board._id}>
+            <Board board={board} />
+          </li>
         ))}
-      </div>
+      </ul>
     </>
   );
 }

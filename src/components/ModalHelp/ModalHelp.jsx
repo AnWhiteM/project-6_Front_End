@@ -5,23 +5,32 @@ import * as Yup from "yup";
 import toast from "react-hot-toast";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useDispatch } from "react-redux";
+import { sendHelpMessage } from "../../redux/boards/operations";
 
 export default function ModalHelp({ isOpen, closeModal }) {
+  const dispatch = useDispatch();
+
   const ValidEditionSchema = Yup.object().shape({
     email: Yup.string()
       .min(1, "Too Short Email!")
       .max(35, "Too Long Email!")
       .required("Required"),
-    text: Yup.string()
+    comment: Yup.string()
       .min(1, "Too Short Coment!")
       .max(300, "Too Long Coment!")
       .required("Required"),
   });
-  const Notify = () => toast.success("ТІЛЬКИ БОГ ПОМОЖЕ =)");
+  const Notify = () => toast.success("You send message");
 
-  const handleSubmit = (values) => {
-    console.log(values.email);
-    console.log(values.text);
+  const handleSubmit = (values, actions) => {
+    const newMessage = {
+      email: values.email,
+      comment: values.comment,
+    };
+    console.log(newMessage);
+    actions.resetForm();
+    dispatch(sendHelpMessage(newMessage));
     Notify();
     closeModal();
   };
@@ -35,7 +44,7 @@ export default function ModalHelp({ isOpen, closeModal }) {
       shouldCloseOnOverlayClick={true}
     >
       <Formik
-        initialValues={{ email: "", text: "" }}
+        initialValues={{ email: "", comment: "" }}
         onSubmit={handleSubmit}
         validationSchema={ValidEditionSchema}
       >
@@ -63,13 +72,13 @@ export default function ModalHelp({ isOpen, closeModal }) {
           <Field
             className={css.inputText}
             type="text"
-            name="text"
+            name="comment"
             placeholder="Comment"
             rows="5"
             component="textarea"
           />
           <ErrorMessage
-            name="text"
+            name="comment"
             component="div"
             className={css.errorMessage}
           />

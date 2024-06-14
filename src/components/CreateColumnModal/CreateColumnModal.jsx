@@ -11,11 +11,10 @@ export const CreateColumn = ({ isOpen, isClose }) => {
         columnname: Yup.string().min(3, 'Too short!').max(20, 'Too long!').required('Required!')
     });
 
-
     return (
     <>
     <Modal isOpen={isOpen} onRequestClose={() => isClose()} className={css.createColumnModal} overlayClassName={css.createColumnModalOverlay}>
-    <button className={css.createColumnModalCloseBtn} type="button" onClick={() => isClose()}>
+    <button className={css.createColumnModalCloseBtn} type="button" onClick={isClose}>
         <svg className={css.createColumnModalIcon} width="18px" height="18px">
           <use href={svg + "#x-close"}></use>
         </svg>
@@ -30,7 +29,7 @@ export const CreateColumn = ({ isOpen, isClose }) => {
                 >
                     <Form autoComplete="off" className={css.createColumnModalForm}>
                         <Field type='text' name='columnname' className={css.createColumnModalInput} placeholder="Title" />
-                        <button type="submit" className={css.createColumnModalSubmit} onClick={() => isClose()}>
+                        <button type="submit" className={css.createColumnModalSubmit} onClick={isClose}>
                             <span className={css.createColumnModalSpan}>
                                 <svg className={css.createColumnModalAddIcon} width="14px" height="14px">
                                     <use href={svg + "#icon-plus"}></use>

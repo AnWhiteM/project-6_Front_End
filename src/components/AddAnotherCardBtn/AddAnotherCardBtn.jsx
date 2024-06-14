@@ -24,8 +24,8 @@ export const AddAnotherCardBtn = () => {
         </div>
         Add another card
       </button>
-    {createCardModal &&
-        <CreateCard isOpen={createCardModal} isClose={closeModal} />}
+    {createCardModal && (
+        <CreateCard isOpen={createCardModal} isClose={closeModal} />)}
     </div>
   );
 };

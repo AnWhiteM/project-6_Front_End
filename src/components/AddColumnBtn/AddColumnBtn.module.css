@@ -1,14 +1,13 @@
-.btn { 
-  padding: 14px 78px;
-  background-color: #121212;
-  border-radius: 8px;
-  border: none;
+.openModalBtn {
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 335px;
   gap: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #121212;
+  min-width: 334px;
   height: 56px;
 }
 
@@ -27,6 +26,7 @@
   font-size: 14px;
   letter-spacing: -0.02em;
   color: #fff;
+  width: 141px;
 }
 
 .icon {

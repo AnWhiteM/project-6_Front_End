@@ -15,7 +15,7 @@ export const EditColumn = ({ isOpen, isClose, title }) => {
     return (
     <>
     <Modal isOpen={isOpen} onRequestClose={() => isClose()} className={css.editColumnModal} overlayClassName={css.editColumnModalOverlay}>
-    <button className={css.editColumnModalCloseBtn} type="button" onClick={isClose}>
+    <button className={css.editColumnModalCloseBtn} type="button" onClick={() => isClose()}>
         <svg className={css.editColumnModalIcon} width="18px" height="18px">
           <use href={svg + "#x-close"}></use>
         </svg>
@@ -26,11 +26,13 @@ export const EditColumn = ({ isOpen, isClose, title }) => {
                 initialValues={{ columnname: title }}
                 validationSchema={columnModalValidation}
                 portalClassName="createColumnModalContainer"
-                // onSubmit={(values, actions) => {}}
+                onSubmit={(values, actions) => {
+                    isClose()
+                }}
                 >
                     <Form autoComplete="off" className={css.editColumnModalForm}>
                         <Field type='text' name='columnname' className={css.editColumnModalInput} placeholder="Title" />
-                        <button type="submit" className={css.editColumnModalSubmit} onClick={() => isClose()}>
+                        <button type="submit" className={css.editColumnModalSubmit}>
                             <span className={css.editColumnModalSpan}>
                                 <svg className={css.editColumnModalAddIcon} width="14px" height="14px">
                                     <use href={svg + "#icon-plus"}></use>

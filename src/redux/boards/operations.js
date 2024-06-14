@@ -19,7 +19,6 @@ export const addBoard = createAsyncThunk(
   "boards/addBoard",
   async (newBoard, thunkAPI) => {
     try {
-      console.log("newBoard:", newBoard);
       const response = await axios.post(`/home`, newBoard);
       return response.data;
     } catch (error) {
@@ -51,6 +50,20 @@ export const deleteBoard = createAsyncThunk(
     try {
       const response = await axios.delete(`/home/${boardId}`);
       await thunkAPI.dispatch(getBoards());
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const sendHelpMessage = createAsyncThunk(
+  "boards/sendHelpMessage",
+  async (helpMessage, thunkAPI) => {
+    try {
+      console.log(helpMessage);
+      const response = await axios.post(`/current/help`, helpMessage);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

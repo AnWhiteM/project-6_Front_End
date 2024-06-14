@@ -1,9 +1,9 @@
-import css from "./TaskCard.module.css"
+import css from "./Task.module.css"
 import svg from "../../img/icons.svg";
 import { EditCard } from "../EditCardModal/EditCardModal";
 import { useState } from "react";
 
-export const Card = () => {
+export const Task = ({task}) => {
   const [editCardModal, setEditCardModal] = useState(false);
   
   const openModal = () => {
@@ -15,14 +15,11 @@ export const Card = () => {
   }
 
     return (
-<div className={css.card}>
+      <div className={css.card}>
         <div className={css.border}></div>
-        <h4 className={css.title}>The Watch Spot Design</h4>
+        <h4 className={css.title}>{task.title}</h4>
         <p className={css.desc}>
-          Create a visually stunning and eye-catching watch dial design that
-          embodies our brand's essence of sleek aesthetics and modern elegance.
-          Your design should be unique, innovative, and reflective of the latest
-          trends in watch design.
+          {task.description}
         </p>
         <hr className={css.decor}></hr>
 
@@ -33,13 +30,13 @@ export const Card = () => {
                 <p className={css.p}>Priority</p>
                 <div className={css.container}>
                     <div className={css.kolo}></div>
-                    <p className={css.info}>Low</p>
+                    <p className={css.info}>{task.priority}</p>
                 </div>
                 </div>
 
                 <div className={css.column}>
                 <p className={css.p}>Deadline</p>
-                <p className={css.info}>12/05/2023</p>
+                <p className={css.info}>{task.deadline}</p>
                 </div>
             </div>
 
@@ -63,9 +60,8 @@ export const Card = () => {
                 <use href={svg + "#icon-trash"}></use>
             </svg>
             </div>
-            
-          </div>
 
+          </div>
         </div>
         {editCardModal &&
         <EditCard isOpen={editCardModal} isClose={closeModal} />}

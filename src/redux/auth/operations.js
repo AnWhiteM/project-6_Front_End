@@ -72,24 +72,6 @@ export const refreshUser = createAsyncThunk(
 );
 
 /*
- * GET @ /
- * headers: Authorization: Bearer token
- */
-
-// export const getUserInfo = createAsyncThunk(
-//   "user/getUserInfo",
-//   async (_, thunkAPI) => {
-//     try {
-//       const response = await axios.get("/current");
-//       return response.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
-
-/*
- * Put @ /
  * headers: Authorization: Bearer token
  * body: {name, email, password }
  */

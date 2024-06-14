@@ -38,7 +38,7 @@ export const EditColumn = ({ isOpen, isClose, title }) => {
                                     <use href={svg + "#icon-plus"}></use>
                                 </svg>
                             </span>
-                        Add</button>
+                        Edit</button>
                     </Form>
             </Formik>
         </div>

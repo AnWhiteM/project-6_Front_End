@@ -36,28 +36,22 @@ export default function ModalHelp({ isOpen, closeModal }) {
   };
   return (
     <Modal
-      isOpen={isOpen}
-      contentLabel="Help Modal"
-      portalClassName={css.portal}
       overlayClassName={css.overlay}
       className={css.modal}
-      shouldCloseOnOverlayClick={true}
+      isOpen={isOpen}
+      onRequestClose={closeModal}
+      contentLabel="Help Modal"
     >
+      <h2 className={css.title}>Need help</h2>
+      <svg className={css.icon} onClick={closeModal} width="18px" height="18px">
+        <use className={css.icon} href={svg + "#x-close"}></use>
+      </svg>
       <Formik
         initialValues={{ email: "", comment: "" }}
         onSubmit={handleSubmit}
         validationSchema={ValidEditionSchema}
       >
         <Form autoComplete="off">
-          <p className={css.title}>Need help</p>
-          <svg
-            className={css.icon}
-            onClick={closeModal}
-            width="18px"
-            height="18px"
-          >
-            <use className={css.icon} href={svg + "#x-close"}></use>
-          </svg>
           <Field
             className={css.input}
             type="email"

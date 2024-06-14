@@ -15,7 +15,7 @@ export const CreateColumn = ({ isOpen, isClose }) => {
     return (
     <>
     <Modal isOpen={isOpen} onRequestClose={() => isClose()} className={css.createColumnModal} overlayClassName={css.createColumnModalOverlay}>
-    <button className={css.createColumnModalCloseBtn} type="button" onClick={isClose}>
+    <button className={css.createColumnModalCloseBtn} type="button" onClick={() => isClose()}>
         <svg className={css.createColumnModalIcon} width="18px" height="18px">
           <use href={svg + "#x-close"}></use>
         </svg>

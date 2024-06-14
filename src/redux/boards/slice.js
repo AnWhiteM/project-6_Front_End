@@ -1,5 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getBoards, addBoard, updateBoard, deleteBoard } from "./operations";
+import {
+  getBoards,
+  addBoard,
+  updateBoard,
+  deleteBoard,
+  sendHelpMessage,
+} from "./operations";
 
 const boardSlice = createSlice({
   name: "boards",
@@ -65,12 +71,18 @@ const boardSlice = createSlice({
       .addCase(updateBoard.rejected, (state) => {
         state.loading = false;
         state.error = true;
+      })
+      .addCase(sendHelpMessage.pending, (state) => {
+        state.error = false;
+        state.loading = true;
+      })
+      .addCase(sendHelpMessage.fulfilled, (state) => {
+        state.loading = false;
+      })
+      .addCase(sendHelpMessage.rejected, (state) => {
+        state.loading = false;
+        state.error = true;
       }),
-  //   .addCase(logOut.fulfilled, (state) => {
-  //     state.items = [];
-  //     state.error = null;
-  //     state.loading = false;
-  //   }),
 });
 
 export const boardsReducer = boardSlice.reducer;

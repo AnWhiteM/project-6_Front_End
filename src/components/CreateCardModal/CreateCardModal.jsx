@@ -31,21 +31,17 @@ export const CreateCard = ({ isOpen, isClose }) => {
                         <Field as='textarea' name='carddescription' className={css.createCardModalInput2} placeholder="Description" />
                         <label className={css.createCardModalLabel}>Label color
                             <div className={css.createCardModalRadioContainer}>
-                                <div>
-                                    <Field type="radio" className={css.createCardModalRadio1} id="createCardModalRadio1" name="color" />
-                                    <label htmlFor="createCardModalRadio1" className="radio-label"></label>
+                                <div className={css.createCardModalRadioContainerRadio}>
+                                    <Field type="radio" value="Low" className={css.createCardModalRadio1} id="createCardModalRadio1" name="color" />
                                 </div>
-                                <div>
-                                    <Field type="radio" className={css.createCardModalRadio2} id="createCardModalRadio2" name="color" />
-                                    <label htmlFor="createCardModalRadio2" className="radio-label"></label>
+                                <div className={css.createCardModalRadioContainerRadio}>
+                                    <Field type="radio" value="Medium" className={css.createCardModalRadio2} id="createCardModalRadio2" name="color" />
                                 </div>
-                                <div>
-                                    <Field type="radio" className={css.createCardModalRadio3} id="createCardModalRadio3" name="color" />
-                                    <label htmlFor="createCardModalRadio3" className="radio-label"></label>
+                                <div className={css.createCardModalRadioContainerRadio}>
+                                    <Field type="radio" value="High" className={css.createCardModalRadio3} id="createCardModalRadio3" name="color" />
                                 </div>
-                                <div>
-                                    <Field type="radio" className={css.createCardModalRadio4} id="createCardModalRadio4" name="color" />
-                                    <label htmlFor="createCardModalRadio4" className="radio-label"></label>
+                                <div className={css.createCardModalRadioContainerRadio}>
+                                    <Field type="radio" value="Without priority" className={css.createCardModalRadio4} id="createCardModalRadio4" name="color" />
                                 </div>
                             </div>
                         </label>

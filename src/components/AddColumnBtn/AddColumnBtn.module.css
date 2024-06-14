@@ -1,11 +1,33 @@
-.btn {
-    padding: 14px 89px;
-    border-radius: 8px;
-    border: none;
-    background-color: #121212;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 14px;
-    letter-spacing: -0.02em;
-    color: #fff;
-  }
+.btn { 
+  padding: 14px 78px;
+  background-color: #121212;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 335px;
+  gap: 8px;
+}
+
+.iconBox {
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.icon {
+  stroke: #121212;
+}

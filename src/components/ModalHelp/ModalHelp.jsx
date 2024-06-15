@@ -12,16 +12,16 @@ export default function ModalHelp({ isOpen, closeModal }) {
   const dispatch = useDispatch();
 
   const ValidEditionSchema = Yup.object().shape({
-    email: Yup.string()
-      .min(1, "Too Short Email!")
-      .max(35, "Too Long Email!")
-      .required("Required"),
+    email: Yup.string().email("Must be a valid email!").required("Required"),
     comment: Yup.string()
-      .min(1, "Too Short Coment!")
-      .max(300, "Too Long Coment!")
+      .min(4, "Too Short Comment!")
+      .max(300, "Too Long Comment!")
       .required("Required"),
   });
-  const Notify = () => toast.success("You send message");
+  const Notify = () =>
+    toast.success(
+      "Thanks for contacting us! We've received your message and will get back to you soon."
+    );
 
   const handleSubmit = (values, actions) => {
     const newMessage = {

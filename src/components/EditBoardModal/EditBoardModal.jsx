@@ -153,7 +153,7 @@ export default function EditBoardModal({
                           type="radio"
                           name="background"
                           value={bg.id}
-                          checked={selectedBg === bg.id}
+                          checked={selectedBg === background}
                           onChange={() => handleBgSelect(bg.id, setFieldValue)}
                         />
                         <img

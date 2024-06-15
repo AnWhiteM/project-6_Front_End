@@ -7,7 +7,7 @@ export const TaskColumn = () => {
     return (
       <div>
         <TaskColumnName />
-        {/* <Task /> */}
+        <Task />
         <TaskList/>
         <AddAnotherCardBtn />
       </div>

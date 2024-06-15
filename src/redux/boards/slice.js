@@ -11,10 +11,15 @@ const boardSlice = createSlice({
   name: "boards",
   initialState: {
     items: [],
+    currentBoardId: null,
     loading: false,
     error: null,
   },
-
+  reducers: {
+    setCurrentBoardId(state, action) {
+      state.currentBoardId = action.payload;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(getBoards.pending, (state) => {
@@ -85,4 +90,5 @@ const boardSlice = createSlice({
       }),
 });
 
+export const { setCurrentBoardId } = boardSlice.actions;
 export const boardsReducer = boardSlice.reducer;

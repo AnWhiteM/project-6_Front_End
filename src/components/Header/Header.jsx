@@ -67,6 +67,11 @@ export default function Header({ openSideBar, sideBarOpen }) {
                     // style={{
                     //   backgroundImage: `url(${user.avatarURL})`,
                     // }}
+                    style={
+                      user.avatarURL
+                        ? { backgroundImage: `url(${user.avatarURL})` }
+                        : {}
+                    }
                   />
                 </button>
               </div>

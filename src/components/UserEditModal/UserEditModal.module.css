@@ -65,7 +65,7 @@
 
 .plusBtn {
   border: none;
-  background-color: #bedbb0;
+  background-color: var(--green);
   border-radius: 4px;
   width: 24px;
   height: 24px;
@@ -153,7 +153,7 @@
   display: block;
   cursor: pointer;
   border-radius: 5px;
-  background-image: url(/src/img/deftAvBlack.png);
+  background-image: url(https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235453/pojpj365oqqbots9321l.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

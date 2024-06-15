@@ -4,7 +4,6 @@ import {
   logOut,
   register,
   updateUserInfo,
-  // getUserInfo,
   refreshUser,
 } from "./operations";
 
@@ -22,6 +21,11 @@ const authSlice = createSlice({
     isRefreshing: false,
     loading: false,
     error: false,
+  },
+  reducers: {
+    updAvatarURL(state, action) {
+      state.user.avatarURL = action.payload;
+    },
   },
   extraReducers: (builder) =>
     builder
@@ -67,23 +71,6 @@ const authSlice = createSlice({
         state.loading = false;
         state.error = true;
       })
-      // .addCase(getUserInfo.pending, (state) => {
-      //   state.loading = true;
-      //   state.error = false;
-      // })
-      // .addCase(getUserInfo.fulfilled, (state, action) => {
-      //   state.loading = false;
-      //   // state.user = action.payload;
-      //   state.user.name = action.payload.name;
-      //   state.user.email = action.payload.email;
-      //   state.user.theme = action.payload.theme;
-      //   state.user.avatarURL = action.payload.avatarURL;
-      //   state.isLoggedIn = true;
-      // })
-      // .addCase(getUserInfo.rejected, (state, action) => {
-      //   state.loading = false;
-      //   state.error = action.payload;
-      // })
       .addCase(updateUserInfo.pending, (state) => {
         state.loading = true;
         state.error = false;
@@ -108,9 +95,10 @@ const authSlice = createSlice({
         state.error = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-        // action.payload.avatarURL =
-        //   "https://cdn.britannica.com/26/162626-050-3534626F/Koala.jpg";
-        state.user = action.payload;
+        state.user.name = action.payload.name;
+        state.user.email = action.payload.email;
+        state.user.avatarURL = action.payload.avatarURL;
+        state.user.theme = action.payload.theme;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
@@ -121,3 +109,4 @@ const authSlice = createSlice({
       }),
 });
 export const authReducer = authSlice.reducer;
+export const { updAvatarURL } = authSlice.actions;

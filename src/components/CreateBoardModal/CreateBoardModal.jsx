@@ -65,7 +65,7 @@ export default function CreateBoardModal({
     if (selectedBackground) {
       const { id, mini, mini2x, ...bgs } = selectedBackground;
       setSelectedBg(selectedBackground);
-      setFieldValue("background", bgs);
+      setFieldValue("background", selectedBackground);
       console.log(bgs);
     }
   };
@@ -93,7 +93,6 @@ export default function CreateBoardModal({
         }}
         validationSchema={titleValidationSchema}
         onSubmit={handleSubmit}
-        enableReinitialize
       >
         {({ setFieldValue, values }) => (
           <Form>

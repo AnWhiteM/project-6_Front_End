@@ -12,7 +12,9 @@ import {
 import { boardsReducer } from "./boards/slice";
 import { authReducer } from "./auth/slice";
 import { columnReducer } from "./columns/slice";
+import { tasksReducer } from "./tasks/slice";
 import storage from "redux-persist/lib/storage";
+import { filtersReducer } from "./filter/slice";
 
 const authPersistConfig = {
   key: "authSlice",
@@ -27,6 +29,8 @@ export const store = configureStore({
     boards: boardsReducer,
     auth: persistedAuthReducer,
     column: columnReducer,
+    tasks: tasksReducer,
+    filter: filtersReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

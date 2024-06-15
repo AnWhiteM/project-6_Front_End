@@ -104,3 +104,17 @@
 .createColumnModalAddIcon {
     stroke: white;
 }
+
+@media screen and (min-width: 768px) {
+    .createColumnModal {
+        width: 350px;
+    }
+
+    .createColumnModalInput {
+        width: 302px;
+    }
+    
+    .createColumnModalSubmit {
+        width: 302px;
+    }
+  }

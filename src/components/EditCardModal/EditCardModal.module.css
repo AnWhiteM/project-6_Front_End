@@ -1,60 +1,86 @@
 .editCardModalRadioContainer {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     width: 80px;
+    margin-top: 5px;
 }
 
-.editCardModalRadio1,
-.editCardModalRadio2,
-.editCardModalRadio3,
-.editCardModalRadio4 {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.editCardModalRadio1 + label::before,
-.editCardModalRadio2 + label::before,
-.editCardModalRadio3 + label::before,
-.editCardModalRadio4 + label::before {
-    content: '';
-    display: inline-block;
-    width: 14px;
+.editCardModalRadioContainerRadio {
+    display: flex;
     height: 14px;
+    width: 14px;
+}
+
+input[type=radio] {
+    height: 14px;
+    aspect-ratio: 1;
+    padding: 1px;
     border-radius: 50%;
-    background-color: #000000; 
-    transition: border-color 0.3s, background-color 0.3s;
+    outline-offset: 2px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     cursor: pointer;
+    font-size: inherit;
+    margin: 0;
 }
 
-.editCardModalRadio1 + label::before {
-    background-color: #8FA1D0;
+.editCardModalRadio1 {
+    border: 2px solid #8FA1D0;
+    background: #8FA1D0;
 }
 
-.editCardModalRadio2 + label::before {
-    background-color: #E09CB5;
+.editCardModalRadio2 {
+    border: 2px solid #E09CB5;
+    background: #E09CB5;
 }
 
-.editCardModalRadio3 + label::before {
-    background-color: #BEDBB0;
+.editCardModalRadio3 {
+    border: 2px solid #BEDBB0;
+    background: #BEDBB0;
 }
 
-.editCardModalRadio4 + label::before {
-    background-color: #FFFFFF4D;
+.editCardModalRadio4 {
+    border: 2px solid #5B5B5B;
+    background: #5B5B5B;
 }
 
-.editCardModalRadio1:focus + label::before {
-    border: 1px solid #8FA1D0;
+input[type=radio]:checked {
+    background-size: 100% 100%;
 }
-.editCardModalRadio2:focus + label::before {
-    border: 1px solid #E09CB5;
+
+.editCardModalRadio1:checked {
+    background: 
+      radial-gradient(farthest-side, #8FA1D0 100%,#0000) 
+      50%/0 0 no-repeat content-box;
 }
-.editCardModalRadio3:focus + label::before {
-    border: 1px solid #BEDBB0;
+
+.editCardModalRadio2:checked {
+    background: 
+      radial-gradient(farthest-side, #E09CB5 100%,#0000) 
+      50%/0 0 no-repeat content-box;
 }
-.editCardModalRadio4:focus + label::before {
-    border: 1px solid #FFFFFF4D;
-}  
+
+.editCardModalRadio3:checked {
+    background: 
+      radial-gradient(farthest-side, #BEDBB0 100%,#0000) 
+      50%/0 0 no-repeat content-box;
+}
+
+.editCardModalRadio4:checked {
+    background: 
+      radial-gradient(farthest-side, #5B5B5B 100%,#0000) 
+      50%/0 0 no-repeat content-box;
+}
+  
+@media print {
+    input[type=radio] {
+        -webkit-appearance: auto;
+        -moz-appearance: auto;
+        appearance: auto;
+        background: none;
+  }
+}
  
 .editCardModalCloseBtn {
     position: fixed;
@@ -147,9 +173,15 @@
     opacity: 100%;
 }
 
-.editCardModalRadio1 {
-    margin-right: 5px;
-    color: #8FA1D0;
+.editCardModalLabel {
+    margin-bottom: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    color: #FFFFFF80;
 }
 
 .editCardModalSubmit {
@@ -182,4 +214,19 @@
 
 .editCardModalAddIcon {
     stroke: white;
+}
+
+@media screen and (min-width: 768px) {
+    .editCardModal {
+        width: 350px;
+    }
+
+    .editCardModalInput1,
+    .editCardModalInput2 {
+        width: 302px;
+    }
+    
+    .editCardModalSubmit {
+        width: 302px;
+    }
 }

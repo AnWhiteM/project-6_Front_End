@@ -7,8 +7,10 @@ export const MainDashboard = () => {
   return (
     <div className={css.container}>
       {/* <DashboardMessage /> */}
-      {/* <AddColumnBtn/> */}
-      <TaskColumn />
+      <div className={css.dashContainer}>
+        <TaskColumn />
+        <AddColumnBtn/>
+      </div>
     </div>
   );
 };

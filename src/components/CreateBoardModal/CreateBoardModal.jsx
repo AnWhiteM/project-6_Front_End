@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "react-modal";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -36,8 +36,13 @@ export default function CreateBoardModal({
   initialTitle = "",
 }) {
   const [selectedIcon, setSelectedIcon] = useState(icons[0]);
-  const [selectedBg, setSelectedBg] = useState(bgData[0].id);
+  const [selectedBg, setSelectedBg] = useState(bgData[0]);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const { id, mini, mini2x, ...bgs } = selectedBg;
+    console.log(bgs);
+  }, [selectedBg]);
 
   const handleSubmit = (values, actions) => {
     const newBoard = {
@@ -49,6 +54,7 @@ export default function CreateBoardModal({
     dispatch(addBoard(newBoard));
     onClose();
   };
+
   const handleIconSelect = (icon, setFieldValue) => {
     setSelectedIcon(icon);
     setFieldValue("icon", icon);
@@ -58,11 +64,12 @@ export default function CreateBoardModal({
     const selectedBackground = bgData.find((bg) => bg.id === bgId);
     if (selectedBackground) {
       const { id, mini, mini2x, ...bgs } = selectedBackground;
-      setSelectedBg(bgId);
+      setSelectedBg(selectedBackground);
       setFieldValue("background", bgs);
       console.log(bgs);
     }
   };
+
   return (
     <Modal
       overlayClassName={css.overlay}
@@ -86,8 +93,9 @@ export default function CreateBoardModal({
         }}
         validationSchema={titleValidationSchema}
         onSubmit={handleSubmit}
+        enableReinitialize
       >
-        {({ setFieldValue }) => (
+        {({ setFieldValue, values }) => (
           <Form>
             <div>
               <label htmlFor="title"></label>
@@ -115,7 +123,7 @@ export default function CreateBoardModal({
                           type="radio"
                           name="icon"
                           value={icon}
-                          checked={selectedIcon === icon}
+                          checked={values.icon === icon}
                           onChange={() => handleIconSelect(icon, setFieldValue)}
                         />
                         <svg
@@ -137,13 +145,17 @@ export default function CreateBoardModal({
                 <ul className={css.bgList}>
                   {bgData.map((bg) => (
                     <li key={bg.id}>
-                      <label className={css.backgroundLabel}>
+                      <label
+                        className={clsx(css.backgroundLabel, {
+                          [css.selectedBg]: selectedBg.id === bg.id,
+                        })}
+                      >
                         <Field
                           className={clsx(css.radioInput, css.visuallyHidden)}
                           type="radio"
                           name="background"
                           value={bg.id}
-                          checked={selectedBg === bg.id}
+                          checked={values.background.id === bg.id}
                           onChange={() => handleBgSelect(bg.id, setFieldValue)}
                         />
                         <img

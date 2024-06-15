@@ -1,60 +1,86 @@
 .createCardModalRadioContainer {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     width: 80px;
+    margin-top: 5px;
 }
 
-.createCardModalRadio1,
-.createCardModalRadio2,
-.createCardModalRadio3,
-.createCardModalRadio4 {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.createCardModalRadio1 + label::before,
-.createCardModalRadio2 + label::before,
-.createCardModalRadio3 + label::before,
-.createCardModalRadio4 + label::before {
-    content: '';
-    display: inline-block;
-    width: 14px;
+.createCardModalRadioContainerRadio {
+    display: flex;
     height: 14px;
+    width: 14px;
+}
+
+input[type=radio] {
+    height: 14px;
+    aspect-ratio: 1;
+    padding: 1px;
     border-radius: 50%;
-    background-color: #000000; 
-    transition: border-color 0.3s, background-color 0.3s;
+    outline-offset: 2px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     cursor: pointer;
+    font-size: inherit;
+    margin: 0;
 }
 
-.createCardModalRadio1 + label::before {
-    background-color: #8FA1D0;
+.createCardModalRadio1 {
+    border: 2px solid #8FA1D0;
+    background: #8FA1D0;
 }
 
-.createCardModalRadio2 + label::before {
-    background-color: #E09CB5;
+.createCardModalRadio2 {
+    border: 2px solid #E09CB5;
+    background: #E09CB5;
 }
 
-.createCardModalRadio3 + label::before {
-    background-color: #BEDBB0;
+.createCardModalRadio3 {
+    border: 2px solid #BEDBB0;
+    background: #BEDBB0;
 }
 
-.createCardModalRadio4 + label::before {
-    background-color: #FFFFFF4D;
+.createCardModalRadio4 {
+    border: 2px solid #5B5B5B;
+    background: #5B5B5B;
 }
 
-.createCardModalRadio1:focus + label::before {
-    border: 1px solid #8FA1D0;
+input[type=radio]:checked {
+    background-size: 100% 100%;
 }
-.createCardModalRadio2:focus + label::before {
-    border: 1px solid #E09CB5;
+
+.createCardModalRadio1:checked {
+    background: 
+      radial-gradient(farthest-side, #8FA1D0 100%,#0000) 
+      50%/0 0 no-repeat content-box;
 }
-.createCardModalRadio3:focus + label::before {
-    border: 1px solid #BEDBB0;
+
+.createCardModalRadio2:checked {
+    background: 
+      radial-gradient(farthest-side, #E09CB5 100%,#0000) 
+      50%/0 0 no-repeat content-box;
 }
-.createCardModalRadio4:focus + label::before {
-    border: 1px solid #FFFFFF4D;
-}  
+
+.createCardModalRadio3:checked {
+    background: 
+      radial-gradient(farthest-side, #BEDBB0 100%,#0000) 
+      50%/0 0 no-repeat content-box;
+}
+
+.createCardModalRadio4:checked {
+    background: 
+      radial-gradient(farthest-side, #5B5B5B 100%,#0000) 
+      50%/0 0 no-repeat content-box;
+}
+  
+@media print {
+    input[type=radio] {
+        -webkit-appearance: auto;
+        -moz-appearance: auto;
+        appearance: auto;
+        background: none;
+  }
+}
  
 .createCardModalCloseBtn {
     position: fixed;
@@ -147,9 +173,15 @@
     opacity: 100%;
 }
 
-.createCardModalRadio1 {
-    margin-right: 5px;
-    color: #8FA1D0;
+.createCardModalLabel {
+    margin-bottom: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    color: #FFFFFF80;
 }
 
 .createCardModalSubmit {
@@ -182,4 +214,19 @@
 
 .createCardModalAddIcon {
     stroke: white;
+}
+
+@media screen and (min-width: 768px) {
+    .createCardModal {
+        width: 350px;
+    }
+
+    .createCardModalInput1,
+    .createCardModalInput2 {
+        width: 302px;
+    }
+    
+    .createCardModalSubmit {
+        width: 302px;
+    }
 }

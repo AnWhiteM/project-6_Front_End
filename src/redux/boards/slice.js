@@ -1,5 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getBoards, addBoard, updateBoard, deleteBoard } from "./operations";
+import {
+  getBoards,
+  addBoard,
+  updateBoard,
+  deleteBoard,
+  sendHelpMessage,
+} from "./operations";
 
 const boardSlice = createSlice({
   name: "boards",
@@ -30,7 +36,7 @@ const boardSlice = createSlice({
       .addCase(deleteBoard.fulfilled, (state, action) => {
         state.loading = false;
         state.items = state.items.filter(
-          (board) => board.id !== action.payload.id
+          (board) => board._id !== action.meta.arg
         );
       })
       .addCase(deleteBoard.rejected, (state) => {
@@ -56,19 +62,27 @@ const boardSlice = createSlice({
       .addCase(updateBoard.fulfilled, (state, action) => {
         state.loading = false;
         const boardIndex = state.items.findIndex(
-          (item) => item.id === action.payload.id
+          (item) => item._id === action.payload._id
         );
-        state.items[boardIndex] = action.payload;
+        if (boardIndex !== -1) {
+          state.items[boardIndex] = action.payload;
+        }
       })
       .addCase(updateBoard.rejected, (state) => {
         state.loading = false;
         state.error = true;
+      })
+      .addCase(sendHelpMessage.pending, (state) => {
+        state.error = false;
+        state.loading = true;
+      })
+      .addCase(sendHelpMessage.fulfilled, (state) => {
+        state.loading = false;
+      })
+      .addCase(sendHelpMessage.rejected, (state) => {
+        state.loading = false;
+        state.error = true;
       }),
-  //   .addCase(logOut.fulfilled, (state) => {
-  //     state.items = [];
-  //     state.error = null;
-  //     state.loading = false;
-  //   }),
 });
 
 export const boardsReducer = boardSlice.reducer;

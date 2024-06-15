@@ -2,6 +2,7 @@
   position: absolute;
   top: 14px;
   right: 14px;
+  background: none;
 }
 .overlay {
   position: fixed;
@@ -10,6 +11,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 13;
 }
 .modal {
   position: fixed;

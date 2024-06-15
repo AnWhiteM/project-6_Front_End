@@ -10,9 +10,6 @@
   margin-top: 0;
 }
 .liItem {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 4px;
 }
 

@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 
 import svg from "../../img/icons.svg";
 import css from "./Board.module.css";
+import clsx from "clsx";
 
 export default function Board({ board }) {
   const { _id, title, icon, background } = board;
@@ -29,25 +30,27 @@ export default function Board({ board }) {
   };
 
   return (
-    <>
-      <div className={css.titleWrapper}>
-        <svg className={css.titleIcon} width="18px" height="18px">
-          <use href={`${svg}#${icon}`} />
-        </svg>
-        <h3 className={css.title}>{title}</h3>
-      </div>
-      <span className={css.btns}>
-        <button className={css.btn} type="button" onClick={openModal}>
-          <svg className={css.icon} width="16px" height="16px">
-            <use href={svg + "#icon-pencil"}></use>
+    <div className={css.linkWrapper}>
+      <NavLink to={`/home/${_id}`} className={linkClass} onClick={handleClick}>
+        <div className={css.titleWrapper}>
+          <svg className={css.titleIcon} width="18px" height="18px">
+            <use href={`${svg}#${icon}`} />
           </svg>
-        </button>
-        <button className={css.btn} type="button" onClick={handleDelete}>
-          <svg className={css.icon} width="16px" height="16px">
-            <use href={svg + "#icon-trash"}></use>
-          </svg>
-        </button>
-      </span>
+          <h3 className={css.title}>{title}</h3>
+        </div>
+        <div className={css.btns}>
+          <button className={css.btn} type="button" onClick={openModal}>
+            <svg className={css.icon} width="16px" height="16px">
+              <use href={svg + "#icon-pencil"}></use>
+            </svg>
+          </button>
+          <button className={css.btn} type="button" onClick={handleDelete}>
+            <svg className={css.icon} width="16px" height="16px">
+              <use href={svg + "#icon-trash"}></use>
+            </svg>
+          </button>
+        </div>
+      </NavLink>
       {isModalOpen && (
         <EditBoardModal
           isOpen={isModalOpen}
@@ -58,6 +61,6 @@ export default function Board({ board }) {
           background={background}
         />
       )}
-    </>
+    </div>
   );
 }

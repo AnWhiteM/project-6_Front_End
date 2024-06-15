@@ -1,15 +1,19 @@
 import { AddAnotherCardBtn } from "../AddAnotherCardBtn/AddAnotherCardBtn";
-import { Task } from "../Task/Task";
 import { TaskColumnName } from "../TaskColumnName/TaskColumnName";
 import { TaskList } from "../TaskList/TaskList";
+import css from "./TaskColumn.module.css"
 
-export const TaskColumn = () => {
+export const TaskColumn = ({columns}) => {
     return (
-      <div>
-        <TaskColumnName />
-        <Task />
-        <TaskList/>
-        <AddAnotherCardBtn />
-      </div>
+      <ul className={css.ul}>
+        {columns.map((column) => (
+          <li className={css.li} key={column._id}>
+          <TaskColumnName column={column} />
+          <TaskList column={column} />
+          <AddAnotherCardBtn column={column} />
+        </li>
+        )
+        )}
+      </ul> 
     );
   };

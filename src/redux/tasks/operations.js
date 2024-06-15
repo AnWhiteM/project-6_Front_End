@@ -3,18 +3,18 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 axios.defaults.baseURL = "https://project06back.onrender.com";
 
-export const fetchTasks = createAsyncThunk("/tasks/getAll", async ({deskId, columnId}, thunkAPI) => {
+export const fetchTasks = createAsyncThunk("/tasks/getAll", async (column, thunkAPI) => {
     try {
-        const response = await axios.get(`/home/${deskId}/columns/${columnId}/tasks`);
+        const response = await axios.get(`/home/${column.owner}/columns/${column._id}/tasks`);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e.message);
     }
 });
 
-export const addTask = createAsyncThunk("/tasks/addTask", async ({deskId, columnId}, thunkAPI) => {
+export const addTask = createAsyncThunk("/tasks/addTask", async (data, thunkAPI) => {
     try {
-        const response = await axios.post(`/home/${deskId}/columns/${columnId}/tasks`);
+        const response = await axios.post(`/home/${data.column.owner}/columns/${data.column._id}/tasks`, data.newTask);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e.message);

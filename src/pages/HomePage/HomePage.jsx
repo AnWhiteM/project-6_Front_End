@@ -1,9 +1,8 @@
 import css from "./HomePage.module.css";
 import SideBar from "../../components/SideBar/SideBar";
 import Header from "../../components/Header/Header";
-
-import { ScreensPage } from "../../components/ScreensPage/ScreensPage";
 import { useState, useEffect } from "react";
+import { ScreensPage } from "../../components/ScreensPage/ScreensPage";
 
 export default function HomePage() {
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -33,7 +32,6 @@ export default function HomePage() {
   }, []);
 
   return (
-    <>
       <div className={css.container}>
         {screenSize.width >= 1440 && (
           <div className={css.sideB}>
@@ -54,10 +52,9 @@ export default function HomePage() {
             <Header openSideBar={openSideBar} sideBarOpen={sideBarOpen} />
           </div>
           <div>
-            <ScreensPage className={css.screen} />
+          <ScreensPage className={css.screen}/>
           </div>
         </div>
       </div>
-    </>
   );
 }

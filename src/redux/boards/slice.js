@@ -5,21 +5,22 @@ import {
   updateBoard,
   deleteBoard,
   sendHelpMessage,
+  currentBoard,
 } from "./operations";
 
 const boardSlice = createSlice({
   name: "boards",
   initialState: {
     items: [],
-    currentBoardId: null,
+    currentBoard: null,
     loading: false,
     error: null,
   },
-  reducers: {
-    setCurrentBoardId(state, action) {
-      state.currentBoardId = action.payload;
-    },
-  },
+  // reducers: {
+  //   setCurrentBoardId(state, action) {
+  //     state.currentBoardId = action.payload;
+  //   },
+  // },
   extraReducers: (builder) =>
     builder
       .addCase(getBoards.pending, (state) => {
@@ -55,6 +56,7 @@ const boardSlice = createSlice({
       .addCase(addBoard.fulfilled, (state, action) => {
         state.loading = false;
         state.items.push(action.payload);
+        state.currentBoard = action.payload;
       })
       .addCase(addBoard.rejected, (state) => {
         state.loading = false;
@@ -87,7 +89,19 @@ const boardSlice = createSlice({
       .addCase(sendHelpMessage.rejected, (state) => {
         state.loading = false;
         state.error = true;
-      }),
+      })
+      .addCase(currentBoard.pending, (state) => {
+        state.error = false;
+        state.loading = true;
+      })
+      .addCase(currentBoard.fulfilled, (state, action) => {
+        state.loading = false;
+        state.currentBoard = action.payload;
+      })
+      .addCase(currentBoard.rejected, (state) => {
+        state.loading = false;
+        state.error = true;
+      })
 });
 
 export const { setCurrentBoardId } = boardSlice.actions;

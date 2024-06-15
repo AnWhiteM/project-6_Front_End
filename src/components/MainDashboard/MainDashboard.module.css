@@ -1,10 +1,5 @@
 .container {
     background-color: #1F1F1F;
-    min-height: 85vh;
-}
-
-.dashContainer {
-    background-color: #1F1F1F;
     display: flex;
     min-height: 85vh;
 }

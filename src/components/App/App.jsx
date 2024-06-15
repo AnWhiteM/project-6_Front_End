@@ -7,6 +7,7 @@ import { selectIsRefreshing } from "../../redux/auth/selectors";
 
 import RestrictedRoute from "../RestrictedRoute/RestrictedRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import { MainDashboard } from "../MainDashboard/MainDashboard";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const LoginPage = lazy(() => import("../../pages/LoginPage/LoginPage"));
@@ -51,7 +52,9 @@ export const App = () => {
                   redirectTo="/auth/login"
                 />
               }
-            />
+            >
+              <Route path="/home/:deskId" element={<MainDashboard/>} />
+            </Route>
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
           <Toaster position="top-right" />

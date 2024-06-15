@@ -1,11 +1,11 @@
-.createCardModalRadioContainer {
+.createCardModalRadioList {
     display: flex;
     gap: 8px;
     width: 80px;
     margin-top: 5px;
 }
 
-.createCardModalRadioContainerRadio {
+.ContainerRadio {
     display: flex;
     height: 14px;
     width: 14px;

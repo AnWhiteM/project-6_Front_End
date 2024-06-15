@@ -3,13 +3,34 @@ import css from "./CreateColumnModal.module.css";
 import * as Yup from 'yup';
 import { Form, Formik, Field } from "formik";
 import svg from "../../img/icons.svg";
+import { useDispatch } from "react-redux";
+import { addColumn } from "../../redux/columns/operations";
 
 Modal.setAppElement('#root');
 
-export const CreateColumn = ({ isOpen, isClose }) => {
+export const CreateColumn = ({ isOpen, isClose, board }) => {
+const dispatch = useDispatch();
+
+const handleSubmit = (values, actions) => {
+    const newColumn = {
+        title: values.title
+    }
+
+    console.log(newColumn, board);
+
+    const data = {
+        newColumn, board
+    }
+
+    actions.resetForm();
+    dispatch(addColumn(data));
+    isClose();
+}
+
     const columnModalValidation = Yup.object().shape({
-        columnname: Yup.string().min(3, 'Too short!').max(20, 'Too long!').required('Required!')
+        title: Yup.string().min(3, 'Too short!').max(20, 'Too long!').required('Required!')
     });
+
 
     return (
     <>
@@ -22,14 +43,14 @@ export const CreateColumn = ({ isOpen, isClose }) => {
         <div className={css.createColumnModalContainer}>
             <h1 className={css.createColumnModalText}>Add column</h1>
             <Formik
-                initialValues={{ columnname: ''}}
+                initialValues={{ title: ''}}
                 validationSchema={columnModalValidation}
                 portalClassName="createColumnModalContainer"
-                // onSubmit={(values, actions) => {}}
+                onSubmit={handleSubmit}
                 >
                     <Form autoComplete="off" className={css.createColumnModalForm}>
-                        <Field type='text' name='columnname' className={css.createColumnModalInput} placeholder="Title" />
-                        <button type="submit" className={css.createColumnModalSubmit} onClick={isClose}>
+                        <Field type='text' name='title' className={css.createColumnModalInput} placeholder="Title" />
+                        <button type="submit" className={css.createColumnModalSubmit} >
                             <span className={css.createColumnModalSpan}>
                                 <svg className={css.createColumnModalAddIcon} width="14px" height="14px">
                                     <use href={svg + "#icon-plus"}></use>
@@ -41,5 +62,5 @@ export const CreateColumn = ({ isOpen, isClose }) => {
         </div>
     </Modal>
     </>
-)
+) 
 }

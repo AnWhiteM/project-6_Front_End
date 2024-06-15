@@ -40,32 +40,28 @@ export default function EditBoardModal({
   boardId,
 }) {
   const dispatch = useDispatch();
+
   const [selectedIcon, setSelectedIcon] = useState(icon || icons[0]);
-  const [selectedBg, setSelectedBg] = useState(background || bgData[0].id);
+  const [selectedBg, setSelectedBg] = useState(bgData[background.id - 1]);
 
   const handleIconSelect = (icon, setFieldValue) => {
     setSelectedIcon(icon);
     setFieldValue("icon", icon);
   };
 
-  const handleBgSelect = (bgId, setFieldValue) => {
-    const selectedBackground = bgData.find((bg) => bg.id === bgId);
-    if (selectedBackground) {
-      const { id, mini, mini2x, ...bgs } = selectedBackground;
-      setSelectedBg(bgId);
-      setFieldValue("background", bgs);
-      console.log(bgs);
-    }
+  const handleBgSelect = (bg, setFieldValue) => {
+    setSelectedBg(bg);
+    setFieldValue("background", bg);
   };
 
-  const contactEditNotify = () => toast.success("You edit board");
+  const contactEditNotify = () => toast.success("You edited the board");
 
   const submitHandler = (values) => {
     dispatch(
       updateBoard({
         title: values.title,
         icon: selectedIcon,
-        background: values.background,
+        background: selectedBg,
         id: boardId,
       })
     );
@@ -92,7 +88,7 @@ export default function EditBoardModal({
         initialValues={{
           title: title,
           icon: icon,
-          background: background,
+          background: background || bgData[0],
         }}
         validationSchema={titleValidationSchema}
         onSubmit={submitHandler}
@@ -153,8 +149,8 @@ export default function EditBoardModal({
                           type="radio"
                           name="background"
                           value={bg.id}
-                          checked={selectedBg === background}
-                          onChange={() => handleBgSelect(bg.id, setFieldValue)}
+                          checked={selectedBg.id === bg.id}
+                          onChange={() => handleBgSelect(bg, setFieldValue)}
                         />
                         <img
                           className={css.userBg}

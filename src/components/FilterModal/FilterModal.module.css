@@ -1,0 +1,211 @@
+.filterModal {
+    position: fixed;
+    top: 200px;
+    right: -128px;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 234px;
+    background: #151515;
+    border: 1px solid #BEDBB080;
+    border-radius: 8px;
+}
+
+@media screen and (max-width: 556px) {
+    .filterModal {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        top: -40px;
+        right: -45%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .filterModal {
+        top: 220px;
+        right: -118px;
+    }
+}
+
+.filterModalOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.419);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filterModalCloseBtn {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    background-color: #151515;
+    border: none;
+    padding: 0;
+}
+
+.filterModalIcon {
+    fill: none;
+    cursor: pointer;
+    stroke: rgba(255, 255, 255, 1);
+}
+
+.filterModalContainer {
+    margin: 24px;
+}
+
+.filterModalText {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 14px;
+}
+
+.filterBorder {
+    border-bottom: 1px solid #FFFFFF1A;
+    margin-bottom: 14px;
+}
+
+.line {
+    stroke: #FFFFFF1A;
+    stroke-width: 2;
+}
+
+.filterModalText2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+    text-align: left;
+}
+
+.filterLabel {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filterShowAllBtn {
+    cursor: pointer;
+    background-color: #151515;
+    border: none;
+    color: #FFFFFF80;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    text-decoration: underline;
+}
+
+.filterModalRadioContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.filterModalRadioContainerRadio {
+    display: inline-flex;
+    align-items: center;
+    height: 18px;
+    max-width: 110px;
+    gap: 8px;
+}
+
+input[type=radio] {
+    height: 14px;
+    aspect-ratio: 1;
+    padding: 1px;
+    border-radius: 50%;
+    outline-offset: 2px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    font-size: inherit;
+    margin: 0;
+}
+
+.filterModalRadio1 {
+    border: 2px solid #8FA1D0;
+    background: #8FA1D0;
+}
+
+.filterModalRadio2 {
+    border: 2px solid #E09CB5;
+    background: #E09CB5;
+}
+
+.filterModalRadio3 {
+    border: 2px solid #BEDBB0;
+    background: #BEDBB0;
+}
+
+.filterModalRadio4 {
+    border: 2px solid #5B5B5B;
+    background: #5B5B5B;
+}
+
+input[type=radio]:checked {
+    background-size: 100% 100%;
+}
+
+.filterModalRadio1:checked {
+    background: 
+      radial-gradient(farthest-side, #8FA1D0 100%,#0000) 
+      50%/0 0 no-repeat content-box;
+}
+
+.filterModalRadio2:checked {
+    background: 
+      radial-gradient(farthest-side, #E09CB5 100%,#0000) 
+      50%/0 0 no-repeat content-box;
+}
+
+.filterModalRadio3:checked {
+    background: 
+      radial-gradient(farthest-side, #BEDBB0 100%,#0000) 
+      50%/0 0 no-repeat content-box;
+}
+
+.filterModalRadio4:checked {
+    background: 
+      radial-gradient(farthest-side, #5B5B5B 100%,#0000) 
+      50%/0 0 no-repeat content-box;
+}
+  
+@media print {
+    input[type=radio] {
+        -webkit-appearance: auto;
+        -moz-appearance: auto;
+        appearance: auto;
+        background: none;
+  }
+}
+
+.filterModalMailLabel {
+    max-width: 110px;
+}
+
+.filterModalRadioText {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    cursor: pointer;
+    color: #FFFFFF80;
+}
+
+.filterModalRadio1:checked ~ .filterModalRadioText,
+.filterModalRadio2:checked ~ .filterModalRadioText,
+.filterModalRadio3:checked ~ .filterModalRadioText,
+.filterModalRadio4:checked ~ .filterModalRadioText {
+  color: #FFFFFF;
+}

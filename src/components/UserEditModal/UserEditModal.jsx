@@ -6,6 +6,8 @@ import { Field, Form, Formik } from "formik";
 import { ErrorMessage } from "formik";
 import PasswordField from "../PasswordField/PasswordField";
 import { updateUserInfo } from "../../redux/auth/operations";
+import { updAvatarURL } from "../../redux/auth/slice";
+import axios from "axios";
 import * as Yup from "yup";
 import css from "../UserEditModal/UserEditModal.module.css";
 import svg from "../../img/icons.svg";
@@ -26,23 +28,8 @@ export default function UserEditModal({ onClose }) {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
+  // ссылка к скрытому тнпуту тип файл
   const fileInputRef = useRef(null);
-
-  const handleSubmit = async (values) => {
-    console.log(values);
-    try {
-      const sendInfo = {
-        avatarURL: values.avatarURL,
-        name: values.name,
-        email: values.email,
-        password: values.password,
-      };
-      await dispatch(updateUserInfo(sendInfo)).unwrap();
-      // отправляем операцию aпдейтюзера и передаем ей обьект с данными имя мыло пароль
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const handleMenuClick = (ev) => {
     ev.stopPropagation();
@@ -52,11 +39,44 @@ export default function UserEditModal({ onClose }) {
     fileInputRef.current.click();
   };
 
-  const handleFileChange = (event) => {
+  const handleFileChange = async (event) => {
     const file = event.target.files[0];
     if (file) {
-      console.log("Selected file:", file.name);
-      // добавить логику для загрузки файла на сервер или обновления аватара
+      try {
+        //создаем новый объект FormData для отправки файла на сервер
+        const formData = new FormData();
+        //добавляем выбранный файл в объект FormData
+        formData.append("avatar", file);
+        const response = await axios.put(
+          "https://project06back.onrender.com/current/avatar",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        const url = response.data.avatarURL;
+        if (url) {
+          // Установ новый URL аватара в стейт пользователя
+          dispatch(updAvatarURL(url));
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
+  const handleSubmit = async (values) => {
+    try {
+      const sendInfo = {
+        name: values.name,
+        email: values.email,
+        password: values.password,
+      };
+      await dispatch(updateUserInfo(sendInfo)).unwrap();
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -78,9 +98,11 @@ export default function UserEditModal({ onClose }) {
           <div className={css.avatarContainer}>
             <span
               className={`${css.avatarBig} ${css.avatar}`}
-              // style={{
-              //   backgroundImage: `url(${user.avatarURL})`,
-              // }}
+              style={
+                user.avatarURL
+                  ? { backgroundImage: `url(${user.avatarURL})` }
+                  : {}
+              }
             />
 
             <button
@@ -102,7 +124,7 @@ export default function UserEditModal({ onClose }) {
           <div>
             <Formik
               initialValues={{
-                // avatarURL: user.avatarURL || null,
+                avatarURL: user.avatarURL || "",
                 name: user.name || "",
                 email: user.email || "",
                 password: "",
@@ -111,12 +133,6 @@ export default function UserEditModal({ onClose }) {
               validationSchema={ValidationSchema}
             >
               <Form className={css.forma} autoComplete="off">
-                {/* <Field
-                  type="text"
-                  name="avatarURL"
-                  className={css.formInput}
-                  placeholder="avatar"
-                /> */}
                 <div className={css.formGroup}>
                   <label htmlFor="name" className={css.formLabel} />
                   <Field

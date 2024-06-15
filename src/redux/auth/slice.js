@@ -5,7 +5,6 @@ import {
   register,
   updateUserInfo,
   refreshUser,
-  // updAvatarURL,
 } from "./operations";
 
 const authSlice = createSlice({
@@ -23,11 +22,11 @@ const authSlice = createSlice({
     loading: false,
     error: false,
   },
-  // reducers: {
-  //   updAvatarURL(state, action) {
-  //     state.user.avatarURL = action.payload;
-  //   },
-  // },
+  reducers: {
+    updAvatarURL(state, action) {
+      state.user.avatarURL = action.payload;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(register.pending, (state) => {
@@ -96,9 +95,6 @@ const authSlice = createSlice({
         state.error = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-        // action.payload.avatarURL =
-        //   "https://cdn.britannica.com/26/162626-050-3534626F/Koala.jpg";
-        // state.user = action.payload;
         state.user.name = action.payload.name;
         state.user.email = action.payload.email;
         state.user.avatarURL = action.payload.avatarURL;
@@ -113,3 +109,4 @@ const authSlice = createSlice({
       }),
 });
 export const authReducer = authSlice.reducer;
+export const { updAvatarURL } = authSlice.actions;

@@ -1,3 +1,4 @@
+// import { createAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
@@ -97,7 +98,5 @@ export const updateUserInfo = createAsyncThunk(
     },
   }
 );
-
-// import { createAction } from "@reduxjs/toolkit";
 
 // export const updAvatarURL = createAction("updateAva");

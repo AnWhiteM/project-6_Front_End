@@ -64,9 +64,9 @@ export default function Header({ openSideBar, sideBarOpen }) {
                 <button className={css.button} onClick={() => openModal()}>
                   <span
                     className={`${css.avatarSmall} ${css.avatar}`}
-                    // style={{
-                    //   backgroundImage: `url(${user.avatarURL})`,
-                    // }}
+                    style={{
+                      backgroundImage: `url(${user.avatarURL})`,
+                    }}
                   />
                 </button>
               </div>

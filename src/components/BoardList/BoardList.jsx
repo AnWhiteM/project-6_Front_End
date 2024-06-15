@@ -3,14 +3,19 @@ import Board from "../Board/Board";
 import css from "./BoardList.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { selectBoards } from "../../redux/boards/selectors.js";
-import { setCurrentBoardId } from "../../redux/boards/slice";
+import {currentBoard} from "../../redux/boards/operations.js";
+import {useNavigate} from "react-router-dom";
 
 export default function BoardList() {
   const boards = useSelector(selectBoards);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleBoardClick = (boardId) => {
-    dispatch(setCurrentBoardId(boardId));
+  const handleBoardClick = async (boardId) => {
+    // dispatch(setCurrentBoardId(boardId));
+
+    await dispatch(currentBoard(boardId)).unwrap();
+    navigate(`/home/${boardId}`);
   };
 
   return (

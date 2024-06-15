@@ -27,6 +27,18 @@ export const addBoard = createAsyncThunk(
   }
 );
 
+export const currentBoard = createAsyncThunk(
+  "boards/currentBoard", 
+  async (deskId, thunkAPI) => {
+    try {
+      const response = await axios.get(`/home/${deskId}`)
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message)
+    }
+  }
+)
+
 export const updateBoard = createAsyncThunk(
   "boards/updateBoard",
   async (update, thunkAPI) => {

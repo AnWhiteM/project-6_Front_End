@@ -3,7 +3,7 @@ import svg from "../../img/icons.svg";
 import { useState} from "react"
 import { EditColumn } from "../EditColumnModal/EditColumnModal";
 
-export const TaskColumnName = () => {
+export const TaskColumnName = ({column}) => {
   const [taskColumnModal, setTaskColumnModal] = useState(false);
   
   const openModal = () => {
@@ -16,7 +16,7 @@ export const TaskColumnName = () => {
   
   return (
     <div className={css.taskColumn}>
-      <span className={css.columnName}>To Do</span>
+      <span className={css.columnName}>{column.title}</span>
       <div className={css.icons}>
         <button className={css.iconButton} onClick={openModal}>
         <svg className={css.icon} width="16px" height="16px">

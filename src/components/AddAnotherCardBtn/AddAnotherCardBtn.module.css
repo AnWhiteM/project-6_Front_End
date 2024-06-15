@@ -8,7 +8,7 @@
     cursor: pointer;
     font-size: 14px;
     color: #161616;
-    min-width: 335px;
+    width: 335px;
   }
 
   .btn:hover,

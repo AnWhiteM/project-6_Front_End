@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBoards } from "../../redux/boards/operations";
-import { selectBoards, selectLoading, selectError } from "../../redux/boards/selectors";
+import { selectBoards, selectLoading, selectError, selectCurrentBoardId } from "../../redux/boards/selectors";
 import { HeaderDashboard } from "../HeaderDashboard/HeaderDashboard";
 import { MainDashboard } from "../MainDashboard/MainDashboard";
 import { DashboardMessage } from "../DashboardMessage/DashboardMessage";
@@ -12,6 +12,8 @@ export const ScreensPage = () => {
     const boards = useSelector(selectBoards);
     const loading = useSelector(selectLoading);
     const error = useSelector(selectError);
+    const currentBoardId = useSelector(selectCurrentBoardId);
+    const currentBoard = boards.find(board => board._id === currentBoardId);
 
     useEffect(() => {
         dispatch(getBoards());
@@ -22,8 +24,8 @@ export const ScreensPage = () => {
 
     return (
         <div className={css.container}>
-            <HeaderDashboard boardName={boards.length ? boards[0].title : ""} />
-            {boards.length ? <MainDashboard board={boards[0]} /> : <DashboardMessage />}
+            <HeaderDashboard boardName={currentBoard ? currentBoard.title : ""} />
+            {currentBoard ? <MainDashboard board={currentBoard} /> : <DashboardMessage />}
         </div>
     );
 };

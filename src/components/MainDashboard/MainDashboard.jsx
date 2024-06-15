@@ -3,6 +3,7 @@ import { TaskColumn } from "../TaskColumn/TaskColumn";
 import css from "./MainDashboard.module.css";
 
 export const MainDashboard = ({ board }) => {
+
     return (
         <div className={css.container}>
             <div className={css.dashContainer}>

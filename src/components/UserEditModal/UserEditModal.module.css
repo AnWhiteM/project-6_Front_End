@@ -65,7 +65,7 @@
 
 .plusBtn {
   border: none;
-  background-color: #bedbb0;
+  background-color: var(--green);
   border-radius: 4px;
   width: 24px;
   height: 24px;

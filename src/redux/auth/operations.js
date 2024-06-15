@@ -72,15 +72,10 @@ export const refreshUser = createAsyncThunk(
   }
 );
 
-/*
- * headers: Authorization: Bearer token
- * body: {name, email, password }
- */
 export const updateUserInfo = createAsyncThunk(
   "user/updateUserInfo",
   async (userData, thunkAPI) => {
     try {
-      console.log(userData);
       const reduxState = thunkAPI.getState();
       const savedToken = reduxState.auth.token;
       setAuthHeader(savedToken);
@@ -98,5 +93,3 @@ export const updateUserInfo = createAsyncThunk(
     },
   }
 );
-
-// export const updAvatarURL = createAction("updateAva");

@@ -98,9 +98,11 @@ export default function UserEditModal({ onClose }) {
           <div className={css.avatarContainer}>
             <span
               className={`${css.avatarBig} ${css.avatar}`}
-              style={{
-                backgroundImage: `url(${user.avatarURL})`,
-              }}
+              style={
+                user.avatarURL
+                  ? { backgroundImage: `url(${user.avatarURL})` }
+                  : {}
+              }
             />
 
             <button

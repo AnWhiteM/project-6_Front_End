@@ -3,7 +3,7 @@ import css from "./AddColumnBtn.module.css";
 import svg from "../../img/icons.svg";
 import { useState } from "react";
 
-export const AddColumnBtn = () => {
+export const AddColumnBtn = ({board}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -25,7 +25,7 @@ export const AddColumnBtn = () => {
       <p className={css.text}>Add another column</p>
       </button>
       {isOpen && (
-        <CreateColumn isOpen={isOpen} isClose={closeModal} />
+        <CreateColumn isOpen={isOpen} board={board} isClose={closeModal} />
       )}
     </>
   );

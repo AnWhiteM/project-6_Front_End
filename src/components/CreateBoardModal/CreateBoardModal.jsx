@@ -9,6 +9,7 @@ import css from "../EditBoardModal/EditBoardModal.module.css";
 import svg from "../../img/icons.svg";
 import bgData from "../../assets/bg.json";
 import clsx from "clsx";
+import { useNavigate } from "react-router-dom";
 
 const icons = [
   "icon-i-1-project",
@@ -38,21 +39,23 @@ export default function CreateBoardModal({
   const [selectedIcon, setSelectedIcon] = useState(icons[0]);
   const [selectedBg, setSelectedBg] = useState(bgData[0]);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const { id, mini, mini2x, ...bgs } = selectedBg;
     console.log(bgs);
   }, [selectedBg]);
 
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = async (values, actions) => {
     const newBoard = {
       title: values.title,
       icon: values.icon,
       background: values.background,
     };
     actions.resetForm();
-    dispatch(addBoard(newBoard));
+    const board = await dispatch(addBoard(newBoard));
     onClose();
+    navigate(`/home/${board.payload._id}`);
   };
 
   const handleIconSelect = (icon, setFieldValue) => {

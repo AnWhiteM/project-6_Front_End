@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { register } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
 import css from "./RegistrationForm.module.css";
-// import svg from "../../img/icons.svg";
+import svg from "../../img/icons.svg";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -48,54 +48,69 @@ export const RegistrationForm = () => {
         onSubmit={handleSubmit}
         validationSchema={ValidationSchema}
       >
+         {({ errors, touched }) => (
         <Form className={css.form}>
+          <div className={css.formContainer}>
           <label htmlFor="name" />
+          <div className={css.errorContainer}>
+          <ErrorMessage name="name" component="span" className={css.error} />
+          </div>
+          
           <Field
             type="name"
             name="name"
             placeholder="Enter your name"
-            className={css.input}
+            className={`${css.input} ${
+              errors.name && touched.name ? css.inputError : ""
+            }`}
           />
-          <ErrorMessage name="name" component="span" className={css.error} />
-
+          </div>
+          
+          <div className={css.formContainer}>
           <label htmlFor="email" />
+          <div className={css.errorContainer}>
+          <ErrorMessage name="email" component="span" className={css.error} />
+          </div>
           <Field
             type="email"
             name="email"
             placeholder="Enter your email"
-            className={css.input}
+            className={`${css.input} ${
+              errors.email && touched.email ? css.inputError : ""
+            }`}
           />
-          <ErrorMessage name="email" component="span" className={css.error} />
+          </div>
+          
+          <div className={css.formContainer}>
           <label htmlFor="password" />
+          <div className={css.errorContainer}>
+          <ErrorMessage name="password" component="span" className={css.error} />
+          </div>
           <div>
             <Field
               type={showPassword ? "text" : "password"}
               name="password"
-              className={css.input}
+              className={`${css.input} ${
+                errors.password && touched.password ? css.inputError : ""
+              }`}
               placeholder="Create a password"
             />
-            <ErrorMessage
-              name="password"
-              component="span"
-              className={css.error}
-            />
+            </div>
             <button
               type="button "
               className={css.eye}
               onClick={togglePasswordVisibility}
             >
-              {/* <svg width="18" height="18" stroke="currentColor">
-                        <use
-                          href={`${svg}${showPassword ? "#eye-slash-icon" : "#eye-icon"}`}
-                        ></use>
-                      </svg> */}
+             <svg width="18" height="18" stroke="currentColor">
+                  <use href={`${svg}${showPassword ? "#eye-slash-icon" : "#eye-icon"}`}></use>
+                </svg>
             </button>
           </div>
 
           <button type="submit" className={css.button}>
             Register Now
           </button>
-        </Form>
+        </Form>)}
       </Formik>
     </div>
   );

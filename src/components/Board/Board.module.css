@@ -13,10 +13,26 @@
   display: flex;
   gap: 4px;
   align-items: center;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-li div .titleIcon {
-  stroke: #ffff;
+.titleWrapper + .link,
+.linkWrapper:hover .titleWrapper,
+.linkWrapper:focus .titleWrapper {
+  color: rgba(255, 255, 255);
+}
+
+.titleIcon {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.5);
+  transition: fill 0.3s;
+}
+
+.link.activeLink .titleIcon,
+.linkWrapper:hover .titleIcon,
+.linkWrapper:focus .titleIcon {
+  fill: none;
+  stroke: #ffffff;
 }
 
 .title {
@@ -24,10 +40,60 @@ li div .titleIcon {
   font-weight: 500;
 }
 
-.btns {
-}
-
 .btn {
   background: transparent;
   border: none;
+}
+
+.link {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 22px 14px;
+  text-decoration: inherit;
+  position: relative;
+}
+
+.activeLink {
+  color: inherit;
+}
+
+.activeLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  border-radius: 4px 0px 0px 4px;
+  background-color: #bedbb0;
+}
+
+.linkWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: -14px;
+  margin-right: -14px;
+}
+
+.linkWrapper .activeLink,
+.linkWrapper:hover,
+.linkWrapper:focus {
+  background-color: #1f1f1f;
+}
+
+@media screen and (min-width: 768px) {
+  .titleWrapper {
+    gap: 8px;
+  }
+
+  .linkWrapper {
+    margin-left: -24px;
+    margin-right: -24px;
+  }
+
+  .link {
+    padding: 22px 24px;
+  }
 }

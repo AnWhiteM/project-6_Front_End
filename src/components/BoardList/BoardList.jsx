@@ -17,19 +17,19 @@ export default function BoardList() {
     <>
       <h3 className={css.title}>My boards</h3>
       <CreateBoardBtn />
-      <ul className={css.list}>
-        {boards.map((board) => (
-          <li
-            className={css.liItem}
-            key={board._id}
-            onClick={() => handleBoardClick(board._id)}
-          >
-            <Board board={board} />
-          </li>
-        ))}
-      </ul>
+      <nav>
+        <ul className={css.list}>
+          {boards.map((board) => (
+            <li
+              className={css.liItem}
+              key={board._id}
+              onClick={() => handleBoardClick(board._id)}
+            >
+              <Board board={board} />
+            </li>
+          ))}
+        </ul>
+      </nav>
     </>
   );
 }
-
-

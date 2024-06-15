@@ -9,6 +9,7 @@ import { updateUserInfo } from "../../redux/auth/operations";
 import { updAvatarURL } from "../../redux/auth/slice";
 import axios from "axios";
 import * as Yup from "yup";
+import toast from "react-hot-toast";
 import css from "../UserEditModal/UserEditModal.module.css";
 import svg from "../../img/icons.svg";
 
@@ -23,6 +24,8 @@ const ValidationSchema = Yup.object().shape({
     .max(64, "Too long")
     .required("Required"),
 });
+
+const Notify = () => toast.success("Form sent successfully!");
 
 export default function UserEditModal({ onClose }) {
   const user = useSelector(selectUser);
@@ -78,6 +81,9 @@ export default function UserEditModal({ onClose }) {
     } catch (error) {
       console.log(error);
     }
+
+    Notify();
+    onClose();
   };
 
   return (

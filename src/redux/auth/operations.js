@@ -83,7 +83,7 @@ export const updateUserInfo = createAsyncThunk(
       const reduxState = thunkAPI.getState();
       const savedToken = reduxState.auth.token;
       setAuthHeader(savedToken);
-      const response = await axios.put("/current", userData);
+      const response = await axios.patch("/current/update", userData);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -97,3 +97,7 @@ export const updateUserInfo = createAsyncThunk(
     },
   }
 );
+
+// import { createAction } from "@reduxjs/toolkit";
+
+// export const updAvatarURL = createAction("updateAva");

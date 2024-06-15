@@ -1,7 +1,19 @@
+.formContainer{
+  position: relative;
+}
+.errorContainer {
+  position: absolute;
+  top: -14px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .form{
     display: flex;
     flex-direction: column;
-    gap:8px;
+    gap:20px;
 }
 .input{
     width: 287px;
@@ -26,6 +38,9 @@
 .input:hover, .input:focus{
     border: 1px solid #bedbb0;
 }
+.inputError {
+  border: 1px solid red;
+}
 .button{
     margin-top: 24px;
     width: 100%;
@@ -45,14 +60,19 @@
 }
 
 .eye {
-    background-color: transparent;
+  background-color: transparent;
   border: none;
   color: var(--white);
-  }
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  right: 18px;
+}
 
-  .error{
+  .error {
     height: 0px;
-  color: red;
-  font-size: 12px;
-  text-align: left;
+    color: red;
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 5px;
   }

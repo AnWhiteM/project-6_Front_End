@@ -1,16 +1,17 @@
 import { AddColumnBtn } from "../AddColumnBtn/AddColumnBtn";
-import { DashboardMessage } from "../DashboardMessage/DashboardMessage";
 import { TaskColumn } from "../TaskColumn/TaskColumn";
 import css from "./MainDashboard.module.css";
 
-export const MainDashboard = () => {
-  return (
-    <div className={css.container}>
-      {/* <DashboardMessage /> */}
-      <div className={css.dashContainer}>
-        <TaskColumn />
-        <AddColumnBtn/>
-      </div>
-    </div>
-  );
+export const MainDashboard = ({ board }) => {
+    return (
+        <div className={css.container}>
+            <div className={css.dashContainer}>
+                {board.columns && board.columns.map(column => (
+                    <TaskColumn key={column.id} column={column} />
+                ))}
+                <AddColumnBtn />
+            </div>
+        </div>
+    );
 };
+

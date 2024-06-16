@@ -1,5 +1,5 @@
 .icon {
-  stroke: #121212;
+  stroke: var(--plus-btn);
 }
 
 .container {
@@ -9,8 +9,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .text {
@@ -21,7 +21,7 @@
 }
 .button {
   padding: 8px 10px;
-  background-color: rgba(190, 219, 176, 1);
+  background-color: var(--btn-color);
   border-radius: 6px;
   border: none;
   display: flex;
@@ -32,7 +32,7 @@
 
 .button:hover,
 .button:focus {
-  background: #9dc888;
+  background: var(--btn-hover);
 }
 
 @media screen and (min-width: 768px) {

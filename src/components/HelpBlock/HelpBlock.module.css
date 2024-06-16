@@ -3,7 +3,7 @@
 }
 
 .container {
-  background-color: #1f1f1f;
+  background-color: var(--hb-cont);
   display: flex;
   flex-direction: column;
   padding: 14px;
@@ -12,7 +12,7 @@
 }
 
 .colorLogo {
-  color: rgba(190, 219, 176, 1);
+  color: var(--hb-link);
   text-decoration: none;
 }
 
@@ -30,7 +30,7 @@
 }
 .icon {
   fill: none;
-  stroke: rgba(255, 255, 255, 1);
+  stroke: var(--hb-icon);
   margin-right: 8px;
 }
 .textHelp {

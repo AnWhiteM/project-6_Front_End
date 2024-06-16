@@ -5,8 +5,8 @@
   width: 225px;
   height: 100%;
   padding: 14px;
-  background-color: rgba(18, 18, 18, 1);
-  color: rgba(255, 255, 255, 1);
+  background-color: var(--body-bg);
+  color: var(--text-color);
 }
 
 .bottomSection {

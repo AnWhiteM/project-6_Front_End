@@ -1,7 +1,7 @@
 .iconWrapper {
   width: 28px;
   height: 28px;
-  background-color: #121212;
+  background-color: var(--plus-btn);
   position: relative;
   border-radius: 6px;
   display: flex;
@@ -24,11 +24,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #151515;
+  background-color: var(--modal-bg);
   border-radius: 8px;
   padding: 20px;
   width: 335px;
-  border: 1px solid rgba(190, 219, 176, 0.5);
+  border: 1px solid var(--modal-border);
 }
 
 .btnClose {
@@ -38,14 +38,20 @@
   position: absolute;
   top: 14px;
   right: 14px;
+  
 }
 
+.iconClose{
+  cursor: pointer;
+  stroke: var(--modal-text);
+}
 .title {
   margin-bottom: 24px;
   font-family: Poppins, sans-serif;
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.02em;
+  color: var(--modal-text);
 }
 
 .input {
@@ -53,11 +59,11 @@
   border-radius: 8px;
   width: 287px;
   height: 49px;
-  background-color: #121212;
-  color: inherit;
-  border: 1px solid #bedbb0;
+  background-color: var(--modal-input);
+  color: var(--modal-text);
+  border: 1px solid var(--modal-border);
   outline: none;
-  opacity: 0.4;
+  opacity: 0.7;
 }
 
 .input:hover,
@@ -77,13 +83,15 @@
 }
 
 .iconPlus {
-  stroke: white;
+  stroke: var(--modal-plus);
 }
 
 .listName {
   margin-top: 24px;
   margin-bottom: 14px;
   font-size: 14px;
+  color: var(--modal-text);
+  
 }
 
 .iconList,
@@ -104,12 +112,12 @@
 
 .userIcon {
   cursor: pointer;
-  stroke: rgba(255, 255, 255, 0.5);
+  stroke: var(--icons);
   fill: transparent;
 }
 
 .radioInput:checked + .userIcon {
-  stroke: rgba(255, 255, 255, 1);
+  stroke: var(--icons-hover);
 }
 
 .userBg {
@@ -117,7 +125,7 @@
 }
 
 .radioInput:checked + .userBg {
-  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 5px 2px var(--icons);
 }
 
 .visuallyHidden {
@@ -140,8 +148,8 @@
   padding: 8px 16px;
   font-size: 14px;
   font-weight: 500;
-  background-color: #bedbb0;
-  color: rgba(22, 22, 22, 1);
+  background-color: var(--btn-color);
+  color: var(--text-color);
   border: none;
   width: 287px;
   height: 49px;
@@ -151,7 +159,7 @@
 
 .confirmBtn:hover,
 .confirmBtn:focus {
-  background-color: #9dc888;
+  background-color: var(--btn-hover);
 }
 
 @media screen and (min-width: 768px) {

@@ -7,7 +7,7 @@ export const getBoards = createAsyncThunk(
   "boards/getAll",
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get("/home");
+      const response = await axios.get("/desks");
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -19,7 +19,7 @@ export const addBoard = createAsyncThunk(
   "boards/addBoard",
   async (newBoard, thunkAPI) => {
     try {
-      const response = await axios.post(`/home`, newBoard);
+      const response = await axios.post(`/desks`, newBoard);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -28,22 +28,22 @@ export const addBoard = createAsyncThunk(
 );
 
 export const currentBoard = createAsyncThunk(
-  "boards/currentBoard", 
+  "boards/currentBoard",
   async (deskId, thunkAPI) => {
     try {
-      const response = await axios.get(`/home/${deskId}`)
+      const response = await axios.get(`/desks/${deskId}`);
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message)
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
-)
+);
 
 export const updateBoard = createAsyncThunk(
   "boards/updateBoard",
   async (update, thunkAPI) => {
     try {
-      const response = await axios.put(`/home/${update.id}`, {
+      const response = await axios.put(`/desks/${update.id}`, {
         title: update.title,
         icon: update.icon,
         background: update.background,
@@ -60,7 +60,7 @@ export const deleteBoard = createAsyncThunk(
   "boards/deleteBoard",
   async (boardId, thunkAPI) => {
     try {
-      const response = await axios.delete(`/home/${boardId}`);
+      const response = await axios.delete(`/desks/${boardId}`);
       await thunkAPI.dispatch(getBoards());
       return response.data;
     } catch (error) {

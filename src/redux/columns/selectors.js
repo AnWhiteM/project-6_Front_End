@@ -4,4 +4,4 @@ export const selectError = (state) => state.column.error;
 
 export const selectColumns = (state) => state.column.items;
 
-export const selectCurrentColumn = (state) => state.column.currentItem;
+export const selectCurrentColumn = (state) => state.column.currentColumn;

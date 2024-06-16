@@ -17,8 +17,15 @@ export const MainDashboard = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading boards</p>;
 
+  const backgroundStyle = currentBoard?.background?.desc
+    ? {
+        backgroundImage: `url(${currentBoard.background.desc})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }
+    : { backgroundColor: "#1F1F1F" };
   return (
-    <div className={css.container}>
+    <div className={css.container} style={backgroundStyle}>
       <TaskColumn board={currentBoard} />
       <AddColumnBtn board={currentBoard} />
     </div>

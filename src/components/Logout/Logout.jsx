@@ -12,10 +12,12 @@ export default function Logout() {
   const handleLogout = async () => {
     try {
       await dispatch(logOut()).unwrap();
-      toast.success("Ти вийшов)");
+      toast.success("See you later", {
+        duration: 4000,
+      });
       navigate("/welcome");
     } catch (error) {
-      toast.error("Помилка при виході");
+      toast.error("Ops, something went wrong. Try Again!");
     }
   };
 

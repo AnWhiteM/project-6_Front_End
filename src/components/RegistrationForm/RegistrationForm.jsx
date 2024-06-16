@@ -25,10 +25,19 @@ export const RegistrationForm = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (values, actions) => {
-    await dispatch(register(values)).unwrap();
-    toast.success("Registered successfully");
-    navigate("/home");
-    actions.resetForm();
+    try {
+      await dispatch(register(values)).unwrap();
+      toast.success("Registered successfully", {
+        duration: 4000,
+      });
+      toast.success(`Welcome, ${values.name}`, {
+        duration: 6000,
+      });
+      navigate("/home");
+      actions.resetForm();
+    } catch (error) {
+      toast.error(`Failed to register with ${values.email}`);
+    }
   };
   const [showPassword, setShowPassword] = useState(false);
 
@@ -48,69 +57,86 @@ export const RegistrationForm = () => {
         onSubmit={handleSubmit}
         validationSchema={ValidationSchema}
       >
-         {({ errors, touched }) => (
-        <Form className={css.form}>
-          <div className={css.formContainer}>
-          <label htmlFor="name" />
-          <div className={css.errorContainer}>
-          <ErrorMessage name="name" component="span" className={css.error} />
-          </div>
-          
-          <Field
-            type="name"
-            name="name"
-            placeholder="Enter your name"
-            className={`${css.input} ${
-              errors.name && touched.name ? css.inputError : ""
-            }`}
-          />
-          </div>
-          
-          <div className={css.formContainer}>
-          <label htmlFor="email" />
-          <div className={css.errorContainer}>
-          <ErrorMessage name="email" component="span" className={css.error} />
-          </div>
-          <Field
-            type="email"
-            name="email"
-            placeholder="Enter your email"
-            className={`${css.input} ${
-              errors.email && touched.email ? css.inputError : ""
-            }`}
-          />
-          </div>
-          
-          <div className={css.formContainer}>
-          <label htmlFor="password" />
-          <div className={css.errorContainer}>
-          <ErrorMessage name="password" component="span" className={css.error} />
-          </div>
-          <div>
-            <Field
-              type={showPassword ? "text" : "password"}
-              name="password"
-              className={`${css.input} ${
-                errors.password && touched.password ? css.inputError : ""
-              }`}
-              placeholder="Create a password"
-            />
-            </div>
-            <button
-              type="button "
-              className={css.eye}
-              onClick={togglePasswordVisibility}
-            >
-             <svg width="18" height="18" stroke="currentColor">
-                  <use href={`${svg}${showPassword ? "#eye-slash-icon" : "#eye-icon"}`}></use>
-                </svg>
-            </button>
-          </div>
+        {({ errors, touched }) => (
+          <Form className={css.form}>
+            <div className={css.formContainer}>
+              <label htmlFor="name" />
+              <div className={css.errorContainer}>
+                <ErrorMessage
+                  name="name"
+                  component="span"
+                  className={css.error}
+                />
+              </div>
 
-          <button type="submit" className={css.button}>
-            Register Now
-          </button>
-        </Form>)}
+              <Field
+                type="name"
+                name="name"
+                placeholder="Enter your name"
+                className={`${css.input} ${
+                  errors.name && touched.name ? css.inputError : ""
+                }`}
+              />
+            </div>
+
+            <div className={css.formContainer}>
+              <label htmlFor="email" />
+              <div className={css.errorContainer}>
+                <ErrorMessage
+                  name="email"
+                  component="span"
+                  className={css.error}
+                />
+              </div>
+              <Field
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                className={`${css.input} ${
+                  errors.email && touched.email ? css.inputError : ""
+                }`}
+              />
+            </div>
+
+            <div className={css.formContainer}>
+              <label htmlFor="password" />
+              <div className={css.errorContainer}>
+                <ErrorMessage
+                  name="password"
+                  component="span"
+                  className={css.error}
+                />
+              </div>
+              <div>
+                <Field
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  className={`${css.input} ${
+                    errors.password && touched.password ? css.inputError : ""
+                  }`}
+                  placeholder="Create a password"
+                />
+              </div>
+              <button
+                type="button "
+                className={css.eye}
+                onClick={togglePasswordVisibility}
+              >
+                <svg width="18" height="18" stroke="currentColor">
+                  <use
+                    href={`${svg}${
+                      showPassword ? "#eye-slash-icon" : "#eye-icon"
+                    }`}
+                  ></use>
+                </svg>
+              </button>
+            </div>
+
+            <button type="submit" className={css.button}>
+              Register Now
+            </button>
+          </Form>
+        )}
       </Formik>
     </div>
   );

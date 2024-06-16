@@ -57,7 +57,7 @@ export const App = () => {
             </Route>
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
-          <Toaster position="top-right" />
+          <Toaster position="top-center" />
         </Suspense>
       )}
     </>

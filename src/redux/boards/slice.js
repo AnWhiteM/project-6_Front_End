@@ -44,6 +44,7 @@ const boardSlice = createSlice({
         state.items = state.items.filter(
           (board) => board._id !== action.meta.arg
         );
+        state.currentBoard = null;
       })
       .addCase(deleteBoard.rejected, (state) => {
         state.loading = false;
@@ -73,6 +74,7 @@ const boardSlice = createSlice({
         );
         if (boardIndex !== -1) {
           state.items[boardIndex] = action.payload;
+          state.currentBoard = action.payload;
         }
       })
       .addCase(updateBoard.rejected, (state) => {
@@ -101,7 +103,7 @@ const boardSlice = createSlice({
       .addCase(currentBoard.rejected, (state) => {
         state.loading = false;
         state.error = true;
-      })
+      }),
 });
 
 export const { setCurrentBoardId } = boardSlice.actions;

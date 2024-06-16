@@ -3,8 +3,8 @@ import Board from "../Board/Board";
 import css from "./BoardList.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { selectBoards } from "../../redux/boards/selectors.js";
-import {currentBoard} from "../../redux/boards/operations.js";
-import {useNavigate} from "react-router-dom";
+import { currentBoard } from "../../redux/boards/operations.js";
+import { useNavigate } from "react-router-dom";
 
 export default function BoardList() {
   const boards = useSelector(selectBoards);
@@ -30,7 +30,7 @@ export default function BoardList() {
               key={board._id}
               onClick={() => handleBoardClick(board._id)}
             >
-              <Board board={board} />
+              <Board board={board} allBoards={boards} />
             </li>
           ))}
         </ul>

@@ -1,11 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addColumn, deleteColumn, getColumns, getColumn, updateColumn } from "./operations";
+import {
+  addColumn,
+  deleteColumn,
+  getColumns,
+  getColumn,
+  updateColumn,
+} from "./operations";
 
 const columnSlice = createSlice({
   name: "column",
   initialState: {
     items: [],
-    currentItem: null,
+    currentColumn: null,
     loading: false,
     error: null,
   },
@@ -29,7 +35,7 @@ const columnSlice = createSlice({
       })
       .addCase(getColumn.fulfilled, (state, action) => {
         state.loading = false;
-        state.currentItem = action.payload;
+        state.currentColumn = action.payload;
       })
       .addCase(getColumn.rejected, (state, action) => {
         state.loading = false;
@@ -42,6 +48,7 @@ const columnSlice = createSlice({
       .addCase(addColumn.fulfilled, (state, action) => {
         state.loading = false;
         state.items.push(action.payload);
+        state.currentColumn = action.payload;
       })
       .addCase(addColumn.rejected, (state, action) => {
         state.loading = false;
@@ -53,9 +60,13 @@ const columnSlice = createSlice({
       })
       .addCase(updateColumn.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = state.items.map(column =>
-          column.id === action.payload.id ? action.payload : column
+        const columnIndex = state.items.findIndex(
+          (item) => item._id === action.payload._id
         );
+        if (columnIndex !== -1) {
+          state.items[columnIndex] = action.payload;
+          state.currentColumn = action.payload;
+        }
       })
       .addCase(updateColumn.rejected, (state, action) => {
         state.loading = false;
@@ -70,6 +81,7 @@ const columnSlice = createSlice({
         state.items = state.items.filter(
           (column) => column.id !== action.payload.id
         );
+        state.currentColumn = null;
       })
       .addCase(deleteColumn.rejected, (state, action) => {
         state.loading = false;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import EditBoardModal from "../EditBoardModal/EditBoardModal";
 import { useDispatch } from "react-redux";
 import { deleteBoard } from "../../redux/boards/operations";
@@ -9,19 +9,30 @@ import toast from "react-hot-toast";
 import svg from "../../img/icons.svg";
 import css from "./Board.module.css";
 import clsx from "clsx";
+import { deleteColumn, getColumns } from "../../redux/columns/operations";
 
-export default function Board({ board }) {
+export default function Board({ board, allBoards }) {
   const { _id, title, icon, background } = board;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const boardDeleteNotify = () =>
     toast.error(`You deleted the board ${board.title}`);
 
-  const handleDelete = (e) => {
+  const handleDelete = async (e) => {
     e.stopPropagation();
+    const columns = await dispatch(getColumns(_id));
+    if (columns.payload.length > 0) {
+      columns.payload.forEach((column) => {
+        dispatch(deleteColumn(column));
+      });
+    }
     dispatch(deleteBoard(_id));
     boardDeleteNotify();
+    if (allBoards.length === 0) {
+      navigate("/home");
+    }
   };
 
   const openModal = (e) => {

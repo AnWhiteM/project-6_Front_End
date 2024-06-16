@@ -110,13 +110,6 @@
     filter: drop-shadow(0 0 5px #bedbb0);
 }
 
-
-.editModalBtn {
-    background: #121212;
-    border: none;
-    padding: 0;
-}
-
 .icon {
     cursor: pointer;
 }
@@ -126,4 +119,10 @@
   filter: drop-shadow(0 0 5.5px #bedbb0);
   stroke: #bedbb0;
 
+}
+
+.wrapIcon {
+    background-color: transparent;
+    border: none;
+    padding: 0;
 }

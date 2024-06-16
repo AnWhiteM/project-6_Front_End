@@ -3,18 +3,18 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 axios.defaults.baseURL = "https://project06back.onrender.com";
 
-export const fetchTasks = createAsyncThunk("/tasks/getAll", async ({deskId, columnId}, thunkAPI) => {
+export const fetchTasks = createAsyncThunk("/tasks/getAll", async (column, thunkAPI) => {
     try {
-        const response = await axios.get(`/tasks/${deskId}/${columnId}`);
+        const response = await axios.get(`/tasks/${column.owner}/${column._id}`);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e.message);
     }
 });
 
-export const addTask = createAsyncThunk("/tasks/addTask", async ({deskId, columnId}, thunkAPI) => {
+export const addTask = createAsyncThunk("/tasks/addTask", async (data, thunkAPI) => {
     try {
-        const response = await axios.post(`/tasks/${deskId}/${columnId}`);
+        const response = await axios.post(`/tasks/${data.column.owner}/${data.column._id}`);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e.message);
@@ -39,7 +39,7 @@ export const updateTask = createAsyncThunk("/tasks/updateTask", async ({deskId, 
     }
 })  
 
-export const updateOwner = createAsyncThunk("/tasks/updateUser", async ({deskId, columnId, taskId}, thunkAPI) => {
+export const updateOwner = createAsyncThunk("/tasks/updateColumn", async ({deskId, columnId, taskId}, thunkAPI) => {
     try {
         const response = await axios.patch(`/tasks/${deskId}/${columnId}/${taskId}`);
         return response.data

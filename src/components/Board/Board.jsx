@@ -60,19 +60,19 @@ export default function Board({ board, allBoards }) {
           </svg>
           <h3 className={css.title}>{title}</h3>
         </div>
-        <div className={css.btns}>
-          <button className={css.btn} type="button" onClick={openModal}>
-            <svg className={css.icon} width="16px" height="16px">
-              <use href={svg + "#icon-pencil"}></use>
-            </svg>
-          </button>
-          <button className={css.btn} type="button" onClick={handleDelete}>
-            <svg className={css.icon} width="16px" height="16px">
-              <use href={svg + "#icon-trash"}></use>
-            </svg>
-          </button>
-        </div>
       </NavLink>
+      <div className={css.btns}>
+        <button className={css.btn} type="button" onClick={openModal}>
+          <svg className={css.icon} width="16px" height="16px">
+            <use href={svg + "#icon-pencil"}></use>
+          </svg>
+        </button>
+        <button className={css.btn} type="button" onClick={handleDelete}>
+          <svg className={css.icon} width="16px" height="16px">
+            <use href={svg + "#icon-trash"}></use>
+          </svg>
+        </button>
+      </div>
       {isModalOpen && (
         <EditBoardModal
           isOpen={isModalOpen}

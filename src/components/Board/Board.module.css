@@ -29,10 +29,12 @@
 }
 
 .link.activeLink .titleIcon,
+.link.activeLink .title,
 .linkWrapper:hover .titleIcon,
 .linkWrapper:focus .titleIcon {
   fill: none;
   stroke: #ffffff;
+  color: rgba(255, 255, 255);
 }
 
 .title {
@@ -75,6 +77,13 @@
   align-items: center;
   margin-left: -14px;
   margin-right: -14px;
+  position: relative;
+}
+
+.btns {
+  position: absolute;
+  top: 23px;
+  right: 18px;
 }
 
 .linkWrapper .activeLink,
@@ -95,5 +104,9 @@
 
   .link {
     padding: 22px 24px;
+  }
+
+  .btns {
+    right: 24px;
   }
 }

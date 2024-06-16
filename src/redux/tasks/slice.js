@@ -1,9 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addTask, fetchTasks, updateTask, deleteTask } from "./operations";
+import { addTask, fetchTasks, updateTask, deleteTask, currentTask, updateOwner } from "./operations";
 
 const taskSlice = createSlice({
     name: "tasks",
-    initialState: { items: [], loading: false, error: null },
+    initialState: { 
+        items: [], 
+        loading: false, 
+        error: null,
+        currentTask: null,
+    },
 
     extraReducers: (builder) => 
         builder
@@ -31,6 +36,20 @@ const taskSlice = createSlice({
             state.loading = false;
             state.error = action.payload;
         })
+        .addCase(currentTask.pending, (state) => {
+            state.loading = true;
+        })
+        .addCase(currentTask.fulfilled, (state, action) => {
+            state.loading = false;
+            state.error = null;
+            state.items = state.items.map(task => 
+                task._id === action.payload._id ? action.payload : task
+            );
+        })
+        .addCase(currentTask.rejected, (state, action) => {
+            state.loading = false;
+            state.error = action.payload;
+        })
         .addCase(updateTask.pending, (state) => {
             state.loading = true;
         })
@@ -38,10 +57,24 @@ const taskSlice = createSlice({
             state.loading = false;
             state.error = null;
             state.items = state.items.map(task => 
-                task.id === action.payload.id ? action.payload : task
+                task._id === action.payload._id ? action.payload : task
             );
         })
         .addCase(updateTask.rejected, (state, action) => {
+            state.loading = false;
+            state.error = action.payload;
+        })
+        .addCase(updateOwner.pending, (state) => {
+            state.loading = true;
+        })
+        .addCase(updateOwner.fulfilled, (state, action) => {
+            state.loading = false;
+            state.error = null;
+            state.items = state.items.map(task => 
+                task._id === action.payload._id ? action.payload : task
+            );
+        })
+        .addCase(updateOwner.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload;
         })
@@ -52,7 +85,7 @@ const taskSlice = createSlice({
             state.loading = false;
             state.error = null;
             state.items = state.items.filter(
-                (task) => task.id !== action.payload.id
+                (task) => task._id !== action.payload._id
             );
         })
         .addCase(deleteTask.rejected, (state, action) => {

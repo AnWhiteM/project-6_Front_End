@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import css from "../ThemeModal/ThemeModal.module.css";
 
 export default function ThemeModal({ closeMenuModal }) {
-  const [theme, setTheme] = useState("Dark");
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'dark';
+  });
+
+  useEffect(() => {
+    document.body.className = `${theme}-theme`;
+    localStorage.setItem('theme', theme); 
+  }, [theme]);
 
   const handleThemeChange = (selectedTheme) => {
     setTheme(selectedTheme);
@@ -18,40 +25,36 @@ export default function ThemeModal({ closeMenuModal }) {
     ev.stopPropagation();
   };
 
-  {
-    return (
-      <>
-        <div className={css.backdrop} onClick={() => closeMenuModal()}>
-          <div className={css.themeModal} onClick={(e) => handleMenuClick(e)}>
-            <ul className={css.list}>
-              <li>
-                <button
-                  className={getBtnClassName("Light")}
-                  onClick={() => handleThemeChange("Light")}
-                >
-                  Light
-                </button>
-              </li>
-              <li>
-                <button
-                  className={getBtnClassName("Dark")}
-                  onClick={() => handleThemeChange("Dark")}
-                >
-                  Dark
-                </button>
-              </li>
-              <li>
-                <button
-                  className={getBtnClassName("Violet")}
-                  onClick={() => handleThemeChange("Violet")}
-                >
-                  Violet
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </>
-    );
-  }
+  return (
+    <div className={css.backdrop} onClick={() => closeMenuModal()}>
+      <div className={css.themeModal} onClick={handleMenuClick}>
+        <ul className={css.list}>
+          <li>
+            <button
+              className={getBtnClassName("light")}
+              onClick={() => handleThemeChange('light')}
+            >
+              Light
+            </button>
+          </li>
+          <li>
+            <button
+              className={getBtnClassName("dark")}
+              onClick={() => handleThemeChange('dark')}
+            >
+              Dark
+            </button>
+          </li>
+          <li>
+            <button
+              className={getBtnClassName("violet")}
+              onClick={() => handleThemeChange('violet')}
+            >
+              Violet
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
 }

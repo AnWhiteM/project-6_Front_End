@@ -13,10 +13,10 @@
 }
 
 .cont {
-  background-color: #161616;
+  background-color: var(--modal-bg);
   max-width: 335px;
   max-height: 440px;
-  border: 1px solid #bedbb0;
+  border: 1px solid var(--modal-border);
   border-radius: 8px;
   box-shadow: 0 4px 16px hsla(0, 0%, 7%, 0.1);
   padding: 24px;
@@ -34,9 +34,12 @@
   width: 18px;
   height: 18px;
 }
+.icon{
+  stroke:var(--modal-text);
+}
 
 .txt {
-  color: var(--white);
+  color: var(--modal-text);
   font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
@@ -65,7 +68,7 @@
 
 .plusBtn {
   border: none;
-  background-color: var(--green);
+  background-color: var(--add-img);
   border-radius: 4px;
   width: 24px;
   height: 24px;
@@ -79,9 +82,9 @@
   width: 100%;
   height: 49px;
   border-radius: 8px;
-  border: 1px solid rgba(190, 219, 176, 0.5);
+  border: 1px solid var(--modal-border);
   background-color: inherit;
-  color: var(--white);
+  color: var(--modal-text);
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -91,7 +94,7 @@
 }
 
 .formInput:focus {
-  border: 2px solid #bedbb0;
+  border: 2px solid var(--modal-border);
 }
 
 .formGroup {
@@ -118,13 +121,13 @@
 .btn {
   font-family: inherit;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   font-style: normal;
   align-items: center;
-  background-color: #bedbb0;
+  background-color: var(--header-btn);
   border: none;
   border-radius: 8px;
-  color: black;
+  color: var(--plus-btn);
   cursor: pointer;
   gap: 8px;
   line-height: 21px;

@@ -60,8 +60,8 @@ export default function Header({ openSideBar, sideBarOpen }) {
               </div>
               {showModal && <ThemeModal closeMenuModal={closeMenuModal} />}
               <div className={css.layout}>
-                <p className={css.text}>{user.name}</p>
                 <button className={css.button} onClick={() => openModal()}>
+                <p className={css.text}>{user.name}</p>
                   <span
                     className={`${css.avatarSmall} ${css.avatar}`}
                     // style={{

@@ -1,30 +1,31 @@
 .icon {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  stroke: var(--sb-icons);
 }
 
 .icon:hover,
 .icon:focus {
-  filter: drop-shadow(0 0 5.5px #bedbb0);
-  stroke: #bedbb0;
+  filter: drop-shadow(0 0 5.5px var(--sb-shadows-hover));
+  stroke: var(--sb-shadows-hover);
 }
 
 .titleWrapper {
   display: flex;
   gap: 4px;
   align-items: center;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--sb-icons);
 }
 
 .titleWrapper + .link,
 .linkWrapper:hover .titleWrapper,
 .linkWrapper:focus .titleWrapper {
-  color: rgba(255, 255, 255);
+  color: var(--sb-icons-hover);
 }
 
 .titleIcon {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.5);
+  stroke: var(--sb-icons);
   transition: fill 0.3s;
 }
 
@@ -33,8 +34,8 @@
 .linkWrapper:hover .titleIcon,
 .linkWrapper:focus .titleIcon {
   fill: none;
-  stroke: #ffffff;
-  color: rgba(255, 255, 255);
+  stroke: var(--sb-icons-hover);
+  color: var(--text-color);
 }
 
 .title {
@@ -68,7 +69,7 @@
   width: 4px;
   height: 100%;
   border-radius: 4px 0px 0px 4px;
-  background-color: #bedbb0;
+  background-color: var(--border-active);
 }
 
 .linkWrapper {
@@ -89,7 +90,7 @@
 .linkWrapper .activeLink,
 .linkWrapper:hover,
 .linkWrapper:focus {
-  background-color: #1f1f1f;
+  background-color: var(--board-active);
 }
 
 @media screen and (min-width: 768px) {

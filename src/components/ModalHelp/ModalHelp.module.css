@@ -1,8 +1,10 @@
 .icon {
   position: absolute;
+  stroke: var(--modal-text);
   top: 14px;
   right: 14px;
   background: none;
+  cursor: pointer;
 }
 .overlay {
   position: fixed;
@@ -18,11 +20,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #121212;
+  background-color: var(--modal-bg);
   border-radius: 8px;
   padding: 20px;
   width: 335px;
-  border: 1px solid rgba(255, 255, 255, 1);
+  border: 1px solid var(--modal-border);
 }
 .form {
   width: 100%;
@@ -39,6 +41,7 @@
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.02em;
+  color: var(--modal-text);
 }
 
 .container {
@@ -57,9 +60,9 @@
   border-radius: 8px;
   width: 287px;
   height: 49px;
-  background-color: #121212;
-  color: inherit;
-  border: 1px solid #bedbb0;
+  background-color: var(--modal-input);
+  color: var(--modal-text);
+  border: 1px solid var(--modal-border);
   outline: none;
   opacity: 0.4;
 }
@@ -94,8 +97,8 @@
 }
 .button {
   padding: 8px 16px;
-  background-color: rgba(190, 219, 176, 1);
-  color: rgba(22, 22, 22, 1);
+  background-color: var(--btn-color);
+  color: var(--plus-btn);
   border: none;
   width: 287px;
   border-radius: 8px;

@@ -1,6 +1,6 @@
 .title {
   margin-bottom: 8px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--line);
   font-size: 12px;
   letter-spacing: -0.015em;
   font-weight: 400;

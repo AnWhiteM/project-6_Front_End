@@ -1,6 +1,6 @@
 .icon {
   fill: none;
-  stroke: rgba(190, 219, 176, 1);
+  stroke: var(--hb-icon);
   cursor: pointer;
 }
 
@@ -17,5 +17,5 @@
 
 .container:hover .icon,
 .container:focus .icon {
-  stroke: #9dc888;
+  stroke: var(--btn-hover);
 }

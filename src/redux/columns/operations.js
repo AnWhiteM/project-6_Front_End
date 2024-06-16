@@ -8,7 +8,6 @@ export const getColumns = createAsyncThunk(
   async (deskId, thunkAPI) => {
     try {
       const response = await axios.get(
-        // `/home/${deskId}/columns`);
         `/columns/${deskId}`
       )
       return response.data;
@@ -23,7 +22,6 @@ export const getColumn = createAsyncThunk(
   async (column, thunkAPI) => {
     try {
       const response = await axios.get(
-        // `/home/${column.owner}/columns/${column._id}`
         `/columns/${column.owner}/${column._id}`
       );
       return response.data;
@@ -38,8 +36,6 @@ export const addColumn = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const response = await axios.post(
-        // `/home/${data.board._id}/columns`,
-        // data.newColumn
         `/columns/${data.board._id}`,
         data.newColumn
       );
@@ -56,8 +52,6 @@ export const updateColumn = createAsyncThunk(
     try {
       console.log(data);
       const response = await axios.put(
-        // `/home/${data.column.owner}/columns/${data.column._id}`,
-        // { title: data.title }
         `/columns/${data.column.owner}/${data.column._id}`,
         { title: data.title }
       );
@@ -73,7 +67,6 @@ export const deleteColumn = createAsyncThunk(
   async (column, thunkAPI) => {
     try {
       const response = await axios.delete(
-        // `/home/${column.owner}/columns/${column._id}`
         `/columns/${column.owner}/${column._id}`
       );
       return response.data;

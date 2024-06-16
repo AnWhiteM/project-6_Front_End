@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 
 import css from "./SideBar.module.css";
 
-export default function SideBar() {
+export default function SideBar({ closeSideBar }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function SideBar() {
     <div className={css.container}>
       <div>
         <Logo />
-        <BoardList />
+        <BoardList closeSideBar={closeSideBar} />
       </div>
       <div className={css.bottomSection}>
         <HelpBlock />

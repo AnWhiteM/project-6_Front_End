@@ -32,29 +32,29 @@ export default function HomePage() {
   }, []);
 
   return (
-      <div className={css.container}>
-        {screenSize.width >= 1440 && (
-          <div className={css.sideB}>
-            <SideBar />
-          </div>
-        )}
+    <div className={css.container}>
+      {screenSize.width >= 1440 && (
+        <div className={css.sideB}>
+          <SideBar />
+        </div>
+      )}
 
-        <div className={css.mainCont}>
-          {screenSize.width < 1440 && sideBarOpen && (
-            <>
-              <div className={css.overlay} onClick={closeSideBar}></div>
-              <div className={css.sideBfixed}>
-                <SideBar />
-              </div>
-            </>
-          )}
-          <div>
-            <Header openSideBar={openSideBar} sideBarOpen={sideBarOpen} />
-          </div>
-          <div>
-          <ScreensPage className={css.screen}/>
-          </div>
+      <div className={css.mainCont}>
+        {screenSize.width < 1440 && sideBarOpen && (
+          <>
+            <div className={css.overlay} onClick={closeSideBar}></div>
+            <div className={css.sideBfixed}>
+              <SideBar closeSideBar={closeSideBar} />
+            </div>
+          </>
+        )}
+        <div>
+          <Header openSideBar={openSideBar} sideBarOpen={sideBarOpen} />
+        </div>
+        <div>
+          <ScreensPage className={css.screen} />
         </div>
       </div>
+    </div>
   );
 }

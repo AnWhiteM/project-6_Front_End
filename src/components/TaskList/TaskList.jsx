@@ -16,7 +16,7 @@ export const TaskList = ({ column }) => {
   return (
     <ul>
       {tasks.map((task) => (
-        <li key={task.id}>
+        <li key={task._id}>
           <Task task={task} />
         </li>
       ))}

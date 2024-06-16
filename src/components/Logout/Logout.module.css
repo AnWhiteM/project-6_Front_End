@@ -12,6 +12,7 @@
   align-items: center;
   margin-bottom: 24px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .container:hover .icon,

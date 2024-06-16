@@ -12,7 +12,12 @@ export default function ModalHelp({ isOpen, closeModal }) {
   const dispatch = useDispatch();
 
   const ValidEditionSchema = Yup.object().shape({
-    email: Yup.string().email("Must be a valid email!").required("Required"),
+    email: Yup.string()
+      .email("Must be a valid email!")
+      .matches(/\.com$|\.ua$/, "Email must end with .com or .ua")
+      .min(1, "Too Short Email!")
+      .max(35, "Too Long Email!")
+      .required("Required"),
     comment: Yup.string()
       .min(4, "Too Short Comment!")
       .max(300, "Too Long Comment!")

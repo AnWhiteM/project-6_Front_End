@@ -74,7 +74,7 @@ export const sendHelpMessage = createAsyncThunk(
   async (helpMessage, thunkAPI) => {
     try {
       console.log(helpMessage);
-      const response = await axios.post(`/current/help`, helpMessage);
+      const response = await axios.post(`/users/help`, helpMessage);
 
       return response.data;
     } catch (error) {

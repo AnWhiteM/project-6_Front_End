@@ -51,7 +51,7 @@ export default function UserEditModal({ onClose }) {
         //добавляем выбранный файл в объект FormData
         formData.append("avatar", file);
         const response = await axios.put(
-          "https://project06back.onrender.com/current/avatar",
+          "https://project06back.onrender.com/users/avatar",
           formData,
           {
             headers: {

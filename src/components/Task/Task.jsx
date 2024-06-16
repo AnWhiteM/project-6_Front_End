@@ -16,7 +16,7 @@ export const Task = ({task}) => {
 
     return (
       <div className={css.card}>
-        <div className={css.border}></div>
+        <div className={css.border} style={{ background: task.labelColor }}></div>
         <h4 className={css.title}>{task.title}</h4>
         <p className={css.desc}>
           {task.description}
@@ -29,7 +29,7 @@ export const Task = ({task}) => {
 
                 <p className={css.p}>Priority</p>
                 <div className={css.container}>
-                    <div className={css.kolo}></div>
+                    <div className={css.kolo} style={{ backgroundColor: task.labelColor }}></div>
                     <p className={css.info}>{task.priority}</p>
                 </div>
                 </div>

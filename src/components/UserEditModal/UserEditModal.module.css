@@ -156,7 +156,7 @@
   display: block;
   cursor: pointer;
   border-radius: 5px;
-  background-image: url(https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235453/pojpj365oqqbots9321l.png);
+  background-image: var(--header-avatar);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

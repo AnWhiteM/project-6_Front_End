@@ -5,8 +5,9 @@
     transform: translate(-50%, -50%);
     width: 300px;
     height: 234px;
-    background: #151515;
-    border: 1px solid #BEDBB080;
+    background: var(--modal-bg);
+    color: var(--modal-text);
+    border: 1px solid var(--modal-border);
     border-radius: 8px;
 }
 
@@ -40,7 +41,7 @@
     position: fixed;
     top: 14px;
     right: 14px;
-    background-color: #151515;
+    background-color: transparent;
     border: none;
     padding: 0;
 }
@@ -48,7 +49,7 @@
 .filterModalIcon {
     fill: none;
     cursor: pointer;
-    stroke: rgba(255, 255, 255, 1);
+    stroke: var(--modal-text);
 }
 
 .filterModalContainer {
@@ -66,7 +67,7 @@
 }
 
 .filterBorder {
-    border-bottom: 1px solid #FFFFFF1A;
+    border-bottom: 1px solid var(--filter-line);
     margin-bottom: 14px;
 }
 
@@ -91,9 +92,9 @@
 
 .filterShowAllBtn {
     cursor: pointer;
-    background-color: #151515;
+    background-color: transparent;
     border: none;
-    color: #FFFFFF80;
+    color: var(--filter-sa);
     font-family: 'Poppins', sans-serif;
     font-size: 12px;
     font-weight: 400;
@@ -200,12 +201,13 @@ input[type=radio]:focus {
     letter-spacing: -0.02em;
     text-align: left;
     cursor: pointer;
-    color: #FFFFFF80;
+    color: var(--modal-text);
 }
 
-.filterModalRadio1:focus ~ .filterModalRadioText,
-.filterModalRadio2:focus ~ .filterModalRadioText,
-.filterModalRadio3:focus ~ .filterModalRadioText,
-.filterModalRadio4:focus ~ .filterModalRadioText {
-  color: #FFFFFF;
+
+.filterModalRadio1:checked ~ .filterModalRadioText,
+.filterModalRadio2:checked ~ .filterModalRadioText,
+.filterModalRadio3:checked ~ .filterModalRadioText,
+.filterModalRadio4:checked ~ .filterModalRadioText {
+  color: var(--modal-text);
 }

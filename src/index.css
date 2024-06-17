@@ -57,6 +57,9 @@
   --btn-active:var(--green);
   --add-img:var(--green);
   --header-btn:var(--green);
+  --header-avatar: url(https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718470207/p8idpbdlblbi3p16ubzp.jpg);
+  --filter-line:rgba(22, 22, 22, 0.1);
+  --filter-sa:rgba(22, 22, 22, 0.5);
 
 }
 
@@ -88,6 +91,7 @@
   --hb-cont:rgba(236, 237, 253, 0.4);
   --hb-link:var(--violet);
   --hb-icon: var(--white);
+  
 
   /* Header */
   --header-bg:#FFFFFF;
@@ -97,6 +101,9 @@
   --btn-active:var(--violet);
   --add-img:#ECEDFD;
   --header-btn:var(--violet);
+  --header-avatar: url(https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718616860/user_uw4dwo.png);
+  --filter-line:rgba(22, 22, 22, 0.1);
+  --filter-sa:rgba(22, 22, 22, 0.5);
 }
 
 .dark-theme {
@@ -136,6 +143,9 @@
   --btn-active:var(--green);
   --add-img:var(--green);
   --header-btn:var(--green);
+  --header-avatar: url(https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235453/pojpj365oqqbots9321l.png);
+  --filter-line:rgba(255, 255, 255, 0.1);
+  --filter-sa:rgba(255, 255, 255, 0.5);
 }
 
 html {
@@ -199,6 +209,7 @@ li {
 
 /* Phone screen */
 .container {
+
   min-width: 320px;
   max-width: 375px;
 

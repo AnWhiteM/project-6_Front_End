@@ -1,1 +1,1 @@
-export const selecFilter = (state) => state.filters.name
+export const selecFilter = (state) => state.filter.priority

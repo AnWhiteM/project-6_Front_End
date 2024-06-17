@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const filtersSlice = createSlice({
-    name: "filters",
+    name: "filter",
     initialState: {
-        priority: ""
+        priority: "All"
     }, 
     reducers: {
-        changeFilter(state, action) {
+        setFilterPriority(state, action) {
             state.priority = action.payload;
         }
     }
 })
 
-export const { changeFilter } = filtersSlice.actions;
+export const { setFilterPriority } = filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;

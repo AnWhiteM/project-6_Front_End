@@ -2,7 +2,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = import.meta.env.VITE_BASE_SERVER_URL;
+axios.defaults.baseURL = "https://project06back.onrender.com";
 
 const setAuthHeader = (token) => {
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -16,8 +16,7 @@ export const register = createAsyncThunk(
   "/auth/register",
   async (userInfo, thunkAPI) => {
     try {
-      axios.defaults.headers.secretkey =
-        import.meta.VITE_BASE_SERVER_SECRET_KEY;
+      axios.defaults.headers.secretkey = "5Qg}ao.V-SeDO/a";
       await axios.post("/auth/register", userInfo);
       const logResponse = await axios.post("/auth/login", {
         email: userInfo.email,
@@ -35,8 +34,7 @@ export const logIn = createAsyncThunk(
   "auth/login",
   async (userInfo, thunkAPI) => {
     try {
-      axios.defaults.headers.secretkey =
-        import.meta.VITE_BASE_SERVER_SECRET_KEY;
+      axios.defaults.headers.secretkey = "5Qg}ao.V-SeDO/a";
       const response = await axios.post("/auth/login", userInfo);
       setAuthHeader(response.data.token);
       return response.data;

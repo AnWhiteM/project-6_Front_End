@@ -84,9 +84,8 @@ export default function UserEditModal({ onClose }) {
             );
           } else {
             toast.success("Profile updated successfully");
+            onClose();
           }
-
-          onClose();
         });
     } catch (error) {
       let statusCode = error.slice(-3);

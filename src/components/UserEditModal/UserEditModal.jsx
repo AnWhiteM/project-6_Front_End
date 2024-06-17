@@ -25,8 +25,6 @@ const ValidationSchema = Yup.object().shape({
     .required("Required"),
 });
 
-const Notify = () => toast.success("Form sent successfully!");
-
 export default function UserEditModal({ onClose }) {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -77,13 +75,17 @@ export default function UserEditModal({ onClose }) {
         email: values.email,
         password: values.password,
       };
-      await dispatch(updateUserInfo(sendInfo)).unwrap();
+      await dispatch(updateUserInfo(sendInfo))
+        .unwrap()
+        .then((data) => {
+          // console.log(data);
+          toast.success("Profile updated successfully");
+          onClose();
+        });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
+      toast.error("The password is invalid.Please try again");
     }
-
-    Notify();
-    onClose();
   };
 
   return (
@@ -95,7 +97,12 @@ export default function UserEditModal({ onClose }) {
         >
           <div className={css.wrap}>
             <button className={css.closeBtn} onClick={() => onClose()}>
-              <svg width="18" height="18" stroke="currentColor" className={css.icon}>
+              <svg
+                width="18"
+                height="18"
+                stroke="currentColor"
+                className={css.icon}
+              >
                 <use href={svg + "#icon-x-close"}></use>
               </svg>
             </button>

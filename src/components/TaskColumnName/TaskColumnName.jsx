@@ -5,6 +5,7 @@ import { EditColumn } from "../EditColumnModal/EditColumnModal";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { deleteColumn } from "../../redux/columns/operations";
+import { deleteTask, fetchTasks } from "../../redux/tasks/operations";
 
 export const TaskColumnName = ({ column }) => {
   const [taskColumnModal, setTaskColumnModal] = useState(false);
@@ -21,7 +22,21 @@ export const TaskColumnName = ({ column }) => {
   const columnDeleteNotify = () =>
     toast.error(`You deleted the column ${column.title}`);
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
+    const tasks = await dispatch(fetchTasks(column));
+
+    if (tasks.payload.length > 0) {
+      tasks.payload.forEach((task) => {
+        dispatch(
+          deleteTask({
+            deskId: column.owner,
+            columnId: column._id,
+            taskId: task._id,
+          })
+        );
+      });
+    }
+
     dispatch(deleteColumn(column));
     columnDeleteNotify();
   };

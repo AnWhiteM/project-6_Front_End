@@ -18,7 +18,11 @@ const PasswordField = () => {
         className={css.formInput}
         placeholder="Password"
       />
-      <button className={css.eye} onClick={togglePasswordVisibility}>
+      <button
+        className={css.eye}
+        type="button"
+        onClick={togglePasswordVisibility}
+      >
         <svg width="18" height="18" stroke="currentColor">
           <use
             href={`${svg}${showPassword ? "#eye-slash-icon" : "#eye-icon"}`}

@@ -95,7 +95,12 @@ export default function UserEditModal({ onClose }) {
         >
           <div className={css.wrap}>
             <button className={css.closeBtn} onClick={() => onClose()}>
-              <svg width="18" height="18" stroke="currentColor" className={css.icon}>
+              <svg
+                width="18"
+                height="18"
+                stroke="currentColor"
+                className={css.icon}
+              >
                 <use href={svg + "#icon-x-close"}></use>
               </svg>
             </button>

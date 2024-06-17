@@ -151,9 +151,9 @@ export const CreateCard = ({ isOpen, isClose, column }) => {
                 <DatePicker
                   value={selectedDate}
                   onChange={changeDate}
-                  format='dddd, MMMM DD'
+                  format={dayjs(selectedDate).format('DD/MM/YYYY') === dayjs().format('DD/MM/YYYY') ? 'Today, MMMM DD' : 'dddd, MMMM DD'}
                   className={css.createCardModalDate}
-                  // minDate={dayjs()}
+                  minDate={dayjs()}
                 />
               </LocalizationProvider>
               </div>

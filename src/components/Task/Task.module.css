@@ -124,3 +124,35 @@
     border: none;
     padding: 0;
 }
+
+.tooltip {
+    position: absolute;
+    z-index: 5000;
+    min-width: 135px;
+    border-radius: 8px;
+    background-color: #1F1F1F;
+    padding: 18px 18px 10px 18px;
+    font-size: 14px;
+    right: 0;
+    transform: translateY(13px);
+  }
+  
+  .tooltipItem {
+   display: flex;
+   justify-content: space-between;
+   padding-bottom: 8px;
+   color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .iconTool{
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.5);
+  }
+
+  .tooltipItem:hover{
+    color: #bedbb0;
+  }
+  
+  .iconTool:hover{
+    stroke: #bedbb0;
+  }

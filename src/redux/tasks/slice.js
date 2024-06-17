@@ -81,12 +81,20 @@ const taskSlice = createSlice({
       .addCase(updateOwner.pending, (state) => {
         state.loading = true;
       })
-      .addCase(updateOwner.fulfilled, (state, action) => {
+      .addCase(updateOwner.fulfilled, (state, action) => { 
         state.loading = false;
         state.error = null;
-        state.items = state.items.map((task) =>
-          task._id === action.payload._id ? action.payload : task
+        const taskIndex = state.items.findIndex(
+          (item) => item._id === action.payload._id
         );
+        if (taskIndex !== -1) {
+          state.items[taskIndex] = action.payload;
+          if (state.currentTask === action.payload) {
+            state.currentTask = null;
+          } else {
+            state.currentTask = action.payload;
+          }
+        }
       })
       .addCase(updateOwner.rejected, (state, action) => {
         state.loading = false;

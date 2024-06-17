@@ -74,7 +74,7 @@ export const CreateColumn = ({ isOpen, isClose, board }) => {
               <button type="submit" className={css.createColumnModalSubmit}>
                 <span className={css.createColumnModalSpan}>
                   <svg
-                    className={css.createColumnModalAddIcon}
+                    className={css.createColumnModalAddIconPlus}
                     width="14px"
                     height="14px"
                   >

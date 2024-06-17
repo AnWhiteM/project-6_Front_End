@@ -6,7 +6,7 @@
   gap: 8px;
   border: none;
   border-radius: 8px;
-  background: #121212;
+  background: var(--add-column-bg);
   width: 334px;
   height: 56px;
 }
@@ -14,7 +14,7 @@
 .iconBox {
   width: 28px;
   height: 28px;
-  background: #fff;
+  background: var(--icon-box);
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -25,10 +25,10 @@
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--modal-text);
   width: 141px;
 }
 
 .icon {
-  stroke: #121212;
+  stroke: var(--add-plus);
 }

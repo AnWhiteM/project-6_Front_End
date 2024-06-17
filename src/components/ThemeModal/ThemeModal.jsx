@@ -1,18 +1,38 @@
 import { useState, useEffect } from "react";
+import axios from 'axios';
 import css from "../ThemeModal/ThemeModal.module.css";
 
-export default function ThemeModal({ closeMenuModal }) {
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || 'dark';
-  });
+export default function ThemeModal({ closeMenuModal}) {
+  const getInitialTheme = () => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme ? savedTheme : 'dark';
+  };
+
+  const [theme, setTheme] = useState(getInitialTheme);
 
   useEffect(() => {
+  
     document.body.className = `${theme}-theme`;
-    localStorage.setItem('theme', theme); 
+    sendThemeToServer(theme);
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   const handleThemeChange = (selectedTheme) => {
     setTheme(selectedTheme);
+  };
+
+  const sendThemeToServer = async (theme) => {
+    try {
+      const response = await axios.put('/users/theme', { theme });
+
+      if (response.status !== 200) {
+        throw new Error('Network response was not ok');
+      }
+
+      console.log('Theme updated successfully:', response.data);
+    } catch (error) {
+      console.error('Error updating theme:', error);
+    }
   };
 
   const getBtnClassName = (selectedColor) => {

@@ -220,6 +220,14 @@ input[type="radio"]:checked {
   stroke: white;
 }
 
+.createCardModalDateContainer {
+    background-color: white;
+}
+
+.createCardModalDate {
+    border: none;
+}
+
 @media screen and (min-width: 768px) {
   .createCardModal {
     width: 350px;

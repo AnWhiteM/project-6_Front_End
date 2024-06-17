@@ -5,11 +5,26 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import svg from "../../img/icons.svg";
 import { useDispatch } from "react-redux";
 import { addTask } from "../../redux/tasks/operations";
+import { DatePicker } from "@mui/x-date-pickers";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { useState } from "react";
 
 Modal.setAppElement("#root");
 
 export const CreateCard = ({ isOpen, isClose, column }) => {
+  const [selectedDate, setSelectedDate] = useState(null);
   const dispatch = useDispatch();
+
+  const changeDate = (valueDate) => {
+    const date = new Date(valueDate);
+
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+
+    setSelectedDate(`${day}/${month}/${year}`)
+  }
 
   const radioBtns = [
     {
@@ -42,9 +57,10 @@ export const CreateCard = ({ isOpen, isClose, column }) => {
     const newTask = {
       title: values.title,
       description: values.description,
-      deadline: "2024-06-14T23:59:59.000+00:00",
+      deadline: selectedDate,
       priority: values.priority,
     };
+    console.log(selectedDate)
     actions.resetForm();
     dispatch(
       addTask({
@@ -59,6 +75,7 @@ export const CreateCard = ({ isOpen, isClose, column }) => {
     title: "",
     description: "",
     priority: "Without",
+    deadline: '',
   };
 
   const columnModalValidation = Yup.object().shape({
@@ -96,7 +113,6 @@ export const CreateCard = ({ isOpen, isClose, column }) => {
           validationSchema={columnModalValidation}
           onSubmit={handleSubmit}
         >
-          {({ values, setFieldValue }) => (
             <Form autoComplete="off" className={css.createCardModalForm}>
               <Field
                 type="text"
@@ -136,6 +152,16 @@ export const CreateCard = ({ isOpen, isClose, column }) => {
                   ))}
                 </ul>
               </label>
+              <div className={css.createCardModalDateContainer}>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DatePicker
+                  onChange={changeDate}
+                  format='dddd, MMMM DD'
+                  className={css.createCardModalDate}
+                  // selectedSections={'weekDay' | 'month' | 'day'}
+                />
+              </LocalizationProvider>
+              </div>
               <button type="submit" className={css.createCardModalSubmit}>
                 <span className={css.createCardModalSpan}>
                   <svg
@@ -149,7 +175,6 @@ export const CreateCard = ({ isOpen, isClose, column }) => {
                 Add
               </button>
             </Form>
-          )}
         </Formik>
       </div>
     </Modal>

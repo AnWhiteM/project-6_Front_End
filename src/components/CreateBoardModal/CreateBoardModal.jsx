@@ -69,7 +69,6 @@ export default function CreateBoardModal({
       const { id, mini, mini2x, ...bgs } = selectedBackground;
       setSelectedBg(selectedBackground);
       setFieldValue("background", selectedBackground);
-      console.log(bgs);
     }
   };
 

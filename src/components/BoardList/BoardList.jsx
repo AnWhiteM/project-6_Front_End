@@ -5,8 +5,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectBoards } from "../../redux/boards/selectors.js";
 import { currentBoard } from "../../redux/boards/operations.js";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function BoardList({ closeSideBar }) {
+  const [screenSize, setScreenSize] = useState({ width: window.innerWidth });
   const boards = useSelector(selectBoards);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -15,7 +17,9 @@ export default function BoardList({ closeSideBar }) {
     await dispatch(currentBoard(boardId)).unwrap();
     navigate(`/home/${boardId}`);
 
-    closeSideBar();
+    if (screenSize.width < 1440) {
+      closeSideBar();
+    }
   };
 
   return (

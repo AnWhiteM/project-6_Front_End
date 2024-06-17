@@ -9,6 +9,7 @@ import svg from "../../img/icons.svg";
 import css from "./Board.module.css";
 import clsx from "clsx";
 import { deleteColumn, getColumns } from "../../redux/columns/operations";
+import { fetchTasks, deleteTask } from "../../redux/tasks/operations";
 
 export default function Board({ board, allBoards }) {
   const { _id, title, icon, background } = board;
@@ -23,9 +24,23 @@ export default function Board({ board, allBoards }) {
     e.stopPropagation();
     const columns = await dispatch(getColumns(_id));
     if (columns.payload.length > 0) {
-      columns.payload.forEach((column) => {
+      for (const column of columns.payload) {
+        const tasks = await dispatch(fetchTasks(column));
+
+        if (tasks.payload.length > 0) {
+          for (const task of tasks.payload) {
+            dispatch(
+              deleteTask({
+                deskId: column.owner,
+                columnId: column._id,
+                taskId: task._id,
+              })
+            );
+          }
+        }
+
         dispatch(deleteColumn(column));
-      });
+      }
     }
     dispatch(deleteBoard(_id));
     boardDeleteNotify();

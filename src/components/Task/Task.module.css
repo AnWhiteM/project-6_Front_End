@@ -1,16 +1,17 @@
 .card {
   max-width: 335px;
-  background-color: #121212;
+  background-color: var(--modal-bg);
   padding: 18px 18px 14px 21px;
   border-radius: 8px;
   position: relative;
+  margin-bottom: 14px;
 }
 
 .title {
   font-weight: 600;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--modal-text);
   margin: 0;
   margin-bottom: 8px;
 }
@@ -26,7 +27,7 @@
   font-size: 12px;
   margin: 0;
   margin-bottom: 19px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--task-text);
 }
 
 .decor {
@@ -55,7 +56,7 @@
   font-weight: 400;
   font-size: 8px;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--task-text);
   margin: 0;
   margin-bottom: 4px;
   padding-top: 2px;
@@ -71,7 +72,7 @@
   font-weight: 400;
   font-size: 10px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--modal-text);
   margin: 0;
 }
 
@@ -87,7 +88,7 @@
 
 .icon {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.5);
+  stroke: var(--board-icons);
 }
 
 .icons {
@@ -103,8 +104,8 @@
 
 .bell {
   fill: none;
-  stroke: #bedbb0;
-  filter: drop-shadow(0 0 5px #bedbb0);
+  stroke: var(--sb-shadows-hover);
+  filter: drop-shadow(0 0 5px var(--sb-shadows-hover));
 }
 
 .icon {
@@ -113,8 +114,8 @@
 
 .icon:hover,
 .icon:focus {
-  filter: drop-shadow(0 0 5.5px #bedbb0);
-  stroke: #bedbb0;
+  filter: drop-shadow(0 0 5.5px var(--sb-shadows-hover));
+  stroke: var(--sb-shadows-hover);
 }
 
 .wrapIcon {

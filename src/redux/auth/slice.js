@@ -78,10 +78,13 @@ const authSlice = createSlice({
       .addCase(updateUserInfo.fulfilled, (state, action) => {
         state.isLoggedIn = true;
         state.loading = false;
-        state.user.name = action.payload.name;
-        state.user.email = action.payload.email;
-        state.user.avatarURL = action.payload.avatarURL;
-        state.user.theme = action.payload.theme;
+        if (action.payload !== "") {
+          state.user.name = action.payload.name;
+          state.user.email = action.payload.email;
+          state.user.avatarURL = action.payload.avatarURL;
+          state.user.theme = action.payload.theme;
+        }
+
         state.error = false;
       })
       .addCase(updateUserInfo.rejected, (state, action) => {

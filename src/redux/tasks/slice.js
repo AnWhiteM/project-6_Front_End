@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addTask, fetchTasks, updateTask, deleteTask, currentTask, updateOwner } from "./operations";
+import { addTask, fetchTasks, updateTask, deleteTask, updateOwner, getTask } from "./operations";
 
 const taskSlice = createSlice({
     name: "tasks",
@@ -31,22 +31,21 @@ const taskSlice = createSlice({
             state.loading = false;
             state.error = null;
             state.items.push(action.payload);
+            state.currentTask = action.payload;
         })
         .addCase(addTask.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload;
         })
-        .addCase(currentTask.pending, (state) => {
+        .addCase(getTask.pending, (state) => {
             state.loading = true;
         })
-        .addCase(currentTask.fulfilled, (state, action) => {
+        .addCase(getTask.fulfilled, (state, action) => {
             state.loading = false;
             state.error = null;
-            state.items = state.items.map(task => 
-                task._id === action.payload._id ? action.payload : task
-            );
+            state.currentTask = action.payload;
         })
-        .addCase(currentTask.rejected, (state, action) => {
+        .addCase(getTask.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload;
         })
@@ -87,6 +86,7 @@ const taskSlice = createSlice({
             state.items = state.items.filter(
                 (task) => task._id !== action.payload._id
             );
+            state.currentTask = null
         })
         .addCase(deleteTask.rejected, (state, action) => {
             state.loading = false;

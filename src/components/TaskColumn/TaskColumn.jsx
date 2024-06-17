@@ -15,6 +15,7 @@ export const TaskColumn = ({ board }) => {
 
   const columns = useSelector(selectColumns);
   const currentColumn = useSelector(selectCurrentColumn);
+
   useEffect(() => {
     dispatch(getColumns(board._id));
   }, [board, dispatch, currentColumn]);
@@ -31,7 +32,7 @@ export const TaskColumn = ({ board }) => {
       {columns.map((column) => (
         <li className={css.li} key={column._id}>
           <TaskColumnName column={column} />
-          <TaskList column={column} />
+          <TaskList column={column} board={board} currentColumn={currentColumn} />
           <AddAnotherCardBtn column={column} />
         </li>
       ))}

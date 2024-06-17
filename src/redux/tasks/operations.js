@@ -14,43 +14,43 @@ export const fetchTasks = createAsyncThunk("/tasks/getAll", async (column, thunk
 
 export const addTask = createAsyncThunk("/tasks/addTask", async (data, thunkAPI) => {
     try {
-        const response = await axios.post(`/tasks/${data.column.owner}/${data.column._id}`);
+        const response = await axios.post(`/tasks/${data.column.owner}/${data.column._id}`, data.newTask);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e.message);
     }
 });
 
-export const currentTask = createAsyncThunk("/tasks/currentTask", async ({deskId, columnId, taskId}, thunkAPI) => {
+export const getTask = createAsyncThunk("/tasks/getTask", async (data, thunkAPI) => {
     try {
-        const response = await axios.get(`/tasks/${deskId}/${columnId}/${taskId}`);
+        const response = await axios.get(`/tasks/${data.deskId}/${data.columnId}/${data.taskId}`);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e.message);
     }
 })
 
-export const updateTask = createAsyncThunk("/tasks/updateTask", async ({deskId, columnId, taskId}, thunkAPI)=> {
+export const updateTask = createAsyncThunk("/tasks/updateTask", async (data, thunkAPI)=> {
     try {
-        const response = await axios.put(`/tasks/${deskId}/${columnId}/${taskId}`);
+        const response = await axios.put(`/tasks/${data.deskId}/${data.columnId}/${data.taskId}`);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e.message);
     }
 })  
 
-export const updateOwner = createAsyncThunk("/tasks/updateColumn", async ({deskId, columnId, taskId}, thunkAPI) => {
+export const updateOwner = createAsyncThunk("/tasks/updateColumn", async (data, thunkAPI) => {
     try {
-        const response = await axios.patch(`/tasks/${deskId}/${columnId}/${taskId}`);
+        const response = await axios.patch(`/tasks/${data.deskId}/${data.columnId}/${data.taskId}`);
         return response.data
     } catch (e) {
         return thunkAPI.rejectWithValue(e.message);
     }
 })
 
-export const deleteTask = createAsyncThunk("/tasks/deleteTask", async ({deskId, columnId, taskId}, thunkAPI) => {
+export const deleteTask = createAsyncThunk("/tasks/deleteTask", async (data, thunkAPI) => {
     try {
-        const response = await axios.delete(`/tasks/${deskId}/${columnId}/${taskId}`);
+        const response = await axios.delete(`/tasks/${data.deskId}/${data.columnId}/${data.taskId}`);
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue(e.message);

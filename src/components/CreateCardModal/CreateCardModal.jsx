@@ -55,7 +55,6 @@ export const CreateCard = ({ isOpen, isClose, column }) => {
       deadline: selectedDate,
       priority: values.priority,
     };
-    console.log(selectedDate)
     actions.resetForm();
     dispatch(
       addTask({
@@ -154,6 +153,7 @@ export const CreateCard = ({ isOpen, isClose, column }) => {
                   onChange={changeDate}
                   format='dddd, MMMM DD'
                   className={css.createCardModalDate}
+                  // minDate={dayjs()}
                 />
               </LocalizationProvider>
               </div>

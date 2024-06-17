@@ -1,5 +1,6 @@
-.ul {
-    display: flex;
-    gap: 10px;
-    margin: 0;
+.columnWrapper {
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  overflow-y: hidden;
 }

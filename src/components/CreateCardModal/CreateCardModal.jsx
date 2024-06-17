@@ -9,21 +9,16 @@ import { DatePicker } from "@mui/x-date-pickers";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { useState } from "react";
+import dayjs from "dayjs";
 
 Modal.setAppElement("#root");
 
 export const CreateCard = ({ isOpen, isClose, column }) => {
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(dayjs());
   const dispatch = useDispatch();
 
   const changeDate = (valueDate) => {
-    const date = new Date(valueDate);
-
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
-
-    setSelectedDate(`${day}/${month}/${year}`)
+    setSelectedDate(valueDate)
   }
 
   const radioBtns = [
@@ -155,10 +150,10 @@ export const CreateCard = ({ isOpen, isClose, column }) => {
               <div className={css.createCardModalDateContainer}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
+                  value={selectedDate}
                   onChange={changeDate}
                   format='dddd, MMMM DD'
                   className={css.createCardModalDate}
-                  // selectedSections={'weekDay' | 'month' | 'day'}
                 />
               </LocalizationProvider>
               </div>

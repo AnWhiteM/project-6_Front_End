@@ -39,12 +39,10 @@ export const CreateCard = ({ isOpen, isClose, column }) => {
   ];
 
   const handleSubmit = (values, actions) => {
-    const selectedRadio = radioBtns.find(radio => radio.priority === values.priority);
 
     const newTask = {
       title: values.title,
       description: values.description,
-      labelColor: selectedRadio.labelColor,
       deadline: "2024-06-14T23:59:59.000+00:00",
       priority: values.priority,
     };

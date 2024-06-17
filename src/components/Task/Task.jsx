@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import {useDispatch} from "react-redux";
 import { deleteTask } from "../../redux/tasks/operations";
 
-export const Task = ({task}) => {
+export const Task = ({task, column}) => {
   const [editCardModal, setEditCardModal] = useState(false);
   const dispatch = useDispatch();
   
@@ -17,19 +17,45 @@ export const Task = ({task}) => {
   const closeModal = () => {
     setEditCardModal(false)
   }
+  
+  function assignColor(priority) {
+    let result;
+
+    switch (priority) {
+        case 'Low':
+            result = '#8FA1D0';
+            break;
+        case 'Medium':
+            result = '#E09CB5';
+            break;
+        case 'High':
+            result = '#BEDBB0';
+            break;
+        default:
+            result = '#5B5B5B';
+            break;
+    }
+    return result;
+  }
+
+  const labelColor = assignColor(task.priority);
 
   const taskDeleteNotify = () => {
     toast.error(`You deleted the task ${task.title}`);
   }
 
   const handleDelete = async () => {
-    await dispatch(deleteTask(task));
+    dispatch(deleteTask({
+      deskId: column.owner,
+      columnId: column._id,
+      taskId: task._id
+    }));
     taskDeleteNotify();
   }
 
     return (
       <div className={css.card}>
-        <div className={css.border} style={{ background: task.labelColor }}></div>
+        <div className={css.border} style={{ background: labelColor }}></div>
         <h4 className={css.title}>{task.title}</h4>
         <p className={css.desc}>
           {task.description}
@@ -42,7 +68,7 @@ export const Task = ({task}) => {
 
                 <p className={css.p}>Priority</p>
                 <div className={css.container}>
-                    <div className={css.kolo} style={{ backgroundColor: task.labelColor }}></div>
+                    <div className={css.kolo} style={{ backgroundColor: labelColor }}></div>
                     <p className={css.info}>{task.priority}</p>
                 </div>
                 </div>

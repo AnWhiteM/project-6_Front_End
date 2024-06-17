@@ -44,11 +44,9 @@
     bottom: 0;
     width: 5px;
     border-radius: 10px 0 0 10px;
-    /* background: aqua; */
 }
 
 .kolo {
-    /* background-color: aqua; */
     height: 10px;
     width: 10px;
     border-radius: 50%;

@@ -2,7 +2,7 @@
   position: fixed;
   top: 14px;
   right: 14px;
-  background-color: #000000;
+  background-color: transparent;
   border: none;
   padding: 0;
 }
@@ -10,7 +10,7 @@
 .createColumnModalIcon {
   fill: none;
   cursor: pointer;
-  stroke: rgba(255, 255, 255, 1);
+  stroke: var(--modal-text);
 }
 
 .createColumnModal {
@@ -20,8 +20,9 @@
   transform: translate(-50%, -50%);
   width: 335px;
   height: 221px;
-  background: #000000;
-  border: 1px solid #bedbb080;
+  background: var(--modal-bg);
+  color: var(--modal-text);
+  border: 1px solid var(--modal-border);
   border-radius: 20px;
 }
 
@@ -44,8 +45,8 @@
 }
 
 .createColumnModalInput {
-  background: #1f1f1f;
-  border: 1px solid #bedbb0;
+  background: var(--modal-input);
+  border: 1px solid var(--modal-border);
   width: 287px;
   height: 49px;
   top: 75px;
@@ -56,7 +57,7 @@
   margin-bottom: 24px;
   outline: none;
   opacity: 40%;
-  color: #fff;
+  color: var(--modal-text);
 }
 
 .createColumnModalInput:hover,
@@ -88,8 +89,8 @@
   padding: 8px 16px;
   font-size: 14px;
   font-weight: 500;
-  background-color: #bedbb0;
-  color: rgba(22, 22, 22, 1);
+  background-color: var(--btn-color);
+  color: var(--text-color);
   border: none;
   width: 287px;
   height: 49px;
@@ -100,13 +101,17 @@
 .createColumnModalSpan {
   width: 28px;
   height: 28px;
-  background-color: #121212;
+  background-color: var(--plus-btn);
   position: relative;
   border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 8px;
+}
+.createColumnModalAddIconPlus{
+  fill: none;
+  stroke: var(--modal-plus);
 }
 
 .createColumnModalAddIcon {

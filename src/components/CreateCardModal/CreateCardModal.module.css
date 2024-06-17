@@ -90,7 +90,8 @@ input[type="radio"]:checked {
   position: fixed;
   top: 14px;
   right: 14px;
-  background-color: #000000;
+  background-color: transparent;
+  color: var(--modal-text);
   border: none;
   padding: 0;
 }
@@ -98,7 +99,7 @@ input[type="radio"]:checked {
 .createCardModalIcon {
   fill: none;
   cursor: pointer;
-  stroke: rgba(255, 255, 255, 1);
+  stroke: var(--modal-text);
 }
 
 .createCardModal {
@@ -108,8 +109,9 @@ input[type="radio"]:checked {
   transform: translate(-50%, -50%);
   width: 335px;
   height: 522px;
-  background: #000000;
-  border: 1px solid #bedbb080;
+  background: var(--modal-bg);
+  border: 1px solid var(--modal-border);
+  color: var(--modal-text);
   border-radius: 20px;
 }
 
@@ -141,8 +143,8 @@ input[type="radio"]:checked {
 }
 
 .createCardModalInput1 {
-  background: #1f1f1f;
-  border: 1px solid #bedbb0;
+  background: var(--modal-bg);
+  border: 1px solid var(--modal-border);
   width: 287px;
   height: 49px;
   padding: 14px;
@@ -150,12 +152,12 @@ input[type="radio"]:checked {
   margin-bottom: 24px;
   outline: none;
   opacity: 40%;
-  color: #fff;
+  color: var(--modal-text);
 }
 
 .createCardModalInput2 {
-  background: #1f1f1f;
-  border: 1px solid #bedbb0;
+  background: var(--modal-bg);
+  border: 1px solid var(--modal-border);
   width: 287px;
   height: 154px;
   padding: 14px;
@@ -163,7 +165,7 @@ input[type="radio"]:checked {
   margin-bottom: 24px;
   outline: none;
   opacity: 40%;
-  color: #fff;
+  color: var(--modal-text);
   resize: none;
   box-sizing: border-box;
   vertical-align: top;
@@ -185,7 +187,7 @@ input[type="radio"]:checked {
   line-height: 18px;
   letter-spacing: -0.02em;
   text-align: left;
-  color: #ffffff80;
+  color: var(--filter-sa);
 }
 
 .createCardModalSubmit {
@@ -195,8 +197,8 @@ input[type="radio"]:checked {
   padding: 8px 16px;
   font-size: 14px;
   font-weight: 500;
-  background-color: #bedbb0;
-  color: rgba(22, 22, 22, 1);
+  background-color: var(--btn-color);
+  color: var(--text-color);
   border: none;
   width: 287px;
   height: 49px;
@@ -207,7 +209,7 @@ input[type="radio"]:checked {
 .createCardModalSpan {
   width: 28px;
   height: 28px;
-  background-color: #121212;
+  background-color: var(--plus-btn);
   position: relative;
   border-radius: 6px;
   display: flex;
@@ -217,7 +219,7 @@ input[type="radio"]:checked {
 }
 
 .createCardModalAddIcon {
-  stroke: white;
+  stroke: var(--modal-plus);
 }
 
 .createCardModalDateContainer {

@@ -50,15 +50,14 @@ export const MainDashboard = () => {
   };
 
   return (
-      <div
-        className={css.container}
-        style={{ backgroundImage: getBackgroundImage() }}
-      >
-        <div className={css.wrapper}>
+    <div
+      className={css.container}
+      style={{ backgroundImage: getBackgroundImage() }}
+    >
+      <div className={css.wrapper}>
         <TaskColumn board={currentBoard} />
         <AddColumnBtn board={currentBoard} />
-        </div>
-       
       </div>
+    </div>
   );
 };

@@ -43,11 +43,13 @@ export const TaskColumn = ({ board }) => {
   }, [dispatch, currentTask, currentColumn]);
 
   return (
-    <ul className={css.ul}>
+    <ul className={css.columnWrapper}>
       {columns.map((column) => (
-        <li className={css.li} key={column._id}>
+        <li key={column._id}>
           <TaskColumnName column={column} />
-          <TaskList tasks={column.tasks} />
+          <div>
+            <TaskList tasks={column.tasks} />
+          </div>
           <AddAnotherCardBtn column={column} />
         </li>
       ))}

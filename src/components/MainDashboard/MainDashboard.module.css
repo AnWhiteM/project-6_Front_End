@@ -1,76 +1,81 @@
 .container {
-    min-height: 85vh;
-    background-size: cover;
-    background-position: center;
-  }
-  
+  min-height: 85vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url("/path/to/default-mobile-image.jpg");
+}
+
+@media only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
   .container {
     background-image: linear-gradient(
         rgba(46, 47, 66, 0.7),
         rgba(46, 47, 66, 0.7)
       ),
-      url('/path/to/default-mobile-image.jpg');
+      url("/path/to/default-mobile-image-2x.jpg");
   }
-  
-  @media only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-    .container {
-      background-image: linear-gradient(
-          rgba(46, 47, 66, 0.7),
-          rgba(46, 47, 66, 0.7)
-        ),
-        url('/path/to/default-mobile-image-2x.jpg');
-    }
-  }
-  
-  @media (min-width: 768px) {
-    .container {
-      background-image: linear-gradient(
-          rgba(46, 47, 66, 0.7),
-          rgba(46, 47, 66, 0.7)
-        ),
-        url('/path/to/default-tablet-image.jpg');
-    }
-  }
-  
-  @media (min-width: 768px) and (min-resolution: 192dpi), (min-width: 768px) and (min-resolution: 2dppx) {
-    .container {
-      background-image: linear-gradient(
-          rgba(46, 47, 66, 0.7),
-          rgba(46, 47, 66, 0.7)
-        ),
-        url('/path/to/default-tablet-image-2x.jpg');
-    }
-  }
-  
-  @media (min-width: 1440px) {
-    .container {
-      background-image: linear-gradient(
-          rgba(46, 47, 66, 0.7),
-          rgba(46, 47, 66, 0.7)
-        ),
-        url('/path/to/default-desktop-image.jpg');
-    }
-  }
-  
-  @media (min-width: 1440px) and (min-resolution: 192dpi), (min-width: 1440px) and (min-resolution: 2dppx) {
-    .container {
-      background-image: linear-gradient(
-          rgba(46, 47, 66, 0.7),
-          rgba(46, 47, 66, 0.7)
-        ),
-        url('/path/to/default-desktop-image-2x.jpg');
-    }
-  }
+}
 
-  .wrapper{
-    padding: 16px 20px;
-    display: flex;
-    gap: 10px;
+@media (min-width: 768px) {
+  .container {
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url("/path/to/default-tablet-image.jpg");
   }
+}
 
-  @media screen and (min-width: 768px) {
-    .wrapper {
-      padding-left: 16px 32px;
-     
-    }
+@media (min-width: 768px) and (min-resolution: 192dpi),
+  (min-width: 768px) and (min-resolution: 2dppx) {
+  .container {
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url("/path/to/default-tablet-image-2x.jpg");
   }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url("/path/to/default-desktop-image.jpg");
+  }
+}
+
+@media (min-width: 1440px) and (min-resolution: 192dpi),
+  (min-width: 1440px) and (min-resolution: 2dppx) {
+  .container {
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url("/path/to/default-desktop-image-2x.jpg");
+  }
+}
+
+.wrapper {
+  padding: 16px 20px;
+  display: flex;
+  gap: 10px;
+  max-width: calc(100% - 4px);
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    padding: 16px 32px;
+  }
+}

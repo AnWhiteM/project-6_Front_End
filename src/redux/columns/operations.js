@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = "https://project06back.onrender.com";
+axios.defaults.baseURL = import.meta.env.VITE_BASE_SERVER_URL;
 
 export const getColumns = createAsyncThunk(
   "columns/getAll",

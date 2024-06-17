@@ -11,7 +11,6 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentTask } from "../../redux/tasks/selectors";
 import { getTask } from "../../redux/tasks/operations.js";
-import { selecFilter } from "../../redux/filter/selectors.js";
 
 export const TaskColumn = ({ board }) => {
   const dispatch = useDispatch();
@@ -19,8 +18,6 @@ export const TaskColumn = ({ board }) => {
   const columns = useSelector(selectColumns);
   const currentColumn = useSelector(selectCurrentColumn);
   const currentTask = useSelector(selectCurrentTask);
-
-  const filterPriority = useSelector(selecFilter);
 
   useEffect(() => {
     dispatch(getColumns(board._id));
@@ -45,19 +42,14 @@ export const TaskColumn = ({ board }) => {
     }
   }, [dispatch, currentTask, currentColumn]);
 
-  const filterByPriority = (tasks) => {
-    if (filterPriority === "All") {
-      return tasks;
-    }
-    return tasks.filter((task) => task.priority === filterPriority);
-  }
-
   return (
-    <ul className={css.ul}>
+    <ul className={css.columnWrapper}>
       {columns.map((column) => (
-        <li className={css.li} key={column._id}>
+        <li key={column._id}>
           <TaskColumnName column={column} />
-          <TaskList tasks={filterByPriority(column.tasks)} />
+          <div>
+            <TaskList tasks={column.tasks} />
+          </div>
           <AddAnotherCardBtn column={column} />
         </li>
       ))}

@@ -152,29 +152,29 @@ input[type=radio] {
     background: #5B5B5B;
 }
 
-input[type=radio]:checked {
+input[type=radio]:focus {
     background-size: 100% 100%;
 }
 
-.filterModalRadio1:checked {
+.filterModalRadio1:focus {
     background: 
       radial-gradient(farthest-side, #8FA1D0 100%,#0000) 
       50%/0 0 no-repeat content-box;
 }
 
-.filterModalRadio2:checked {
+.filterModalRadio2:focus {
     background: 
       radial-gradient(farthest-side, #E09CB5 100%,#0000) 
       50%/0 0 no-repeat content-box;
 }
 
-.filterModalRadio3:checked {
+.filterModalRadio3:focus {
     background: 
       radial-gradient(farthest-side, #BEDBB0 100%,#0000) 
       50%/0 0 no-repeat content-box;
 }
 
-.filterModalRadio4:checked {
+.filterModalRadio4:focus {
     background: 
       radial-gradient(farthest-side, #5B5B5B 100%,#0000) 
       50%/0 0 no-repeat content-box;
@@ -203,6 +203,7 @@ input[type=radio]:checked {
     cursor: pointer;
     color: var(--modal-text);
 }
+
 
 .filterModalRadio1:checked ~ .filterModalRadioText,
 .filterModalRadio2:checked ~ .filterModalRadioText,

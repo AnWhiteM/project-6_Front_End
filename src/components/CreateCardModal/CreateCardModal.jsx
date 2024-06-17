@@ -1,7 +1,7 @@
 import Modal from "react-modal";
 import css from "./CreateCardModal.module.css";
 import * as Yup from "yup";
-import { Form, Formik, Field } from "formik";
+import { Form, Formik, Field, ErrorMessage } from "formik";
 import svg from "../../img/icons.svg";
 import { useDispatch } from "react-redux";
 import { addTask } from "../../redux/tasks/operations";
@@ -39,7 +39,6 @@ export const CreateCard = ({ isOpen, isClose, column }) => {
   ];
 
   const handleSubmit = (values, actions) => {
-
     const newTask = {
       title: values.title,
       description: values.description,
@@ -105,11 +104,21 @@ export const CreateCard = ({ isOpen, isClose, column }) => {
                 className={css.createCardModalInput1}
                 placeholder="Title"
               />
+              <ErrorMessage
+                className={css.error}
+                component="span"
+                name="title"
+              />
               <Field
                 as="textarea"
                 name="description"
                 className={css.createCardModalInput2}
                 placeholder="Description"
+              />
+              <ErrorMessage
+                className={css.error}
+                component="span"
+                name="description"
               />
               <label className={css.createCardModalLabel}>
                 Label color

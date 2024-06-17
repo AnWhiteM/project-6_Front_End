@@ -7,9 +7,7 @@ export const getColumns = createAsyncThunk(
   "columns/getAll",
   async (deskId, thunkAPI) => {
     try {
-      const response = await axios.get(
-        `/columns/${deskId}`
-      )
+      const response = await axios.get(`/columns/${deskId}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -50,7 +48,6 @@ export const updateColumn = createAsyncThunk(
   "columns/updateColumn",
   async (data, thunkAPI) => {
     try {
-      console.log(data);
       const response = await axios.put(
         `/columns/${data.column.owner}/${data.column._id}`,
         { title: data.title }

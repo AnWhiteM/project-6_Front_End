@@ -18,7 +18,7 @@ export const EditColumn = ({ isOpen, isClose, column }) => {
       .required("Required!"),
   });
 
-  const contactEditNotify = () => toast.success("You edited the column");
+  const columnEditNotify = () => toast.success("You edited the column");
 
   const handleSubmit = (values) => {
     dispatch(
@@ -27,7 +27,7 @@ export const EditColumn = ({ isOpen, isClose, column }) => {
         column,
       })
     );
-    contactEditNotify();
+    columnEditNotify();
     isClose();
   };
 

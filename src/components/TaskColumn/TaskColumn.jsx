@@ -9,30 +9,45 @@ import {
   selectCurrentColumn,
 } from "../../redux/columns/selectors";
 import { useDispatch, useSelector } from "react-redux";
+import { selectCurrentTask } from "../../redux/tasks/selectors";
+import { getTask } from "../../redux/tasks/operations.js";
 
 export const TaskColumn = ({ board }) => {
   const dispatch = useDispatch();
 
   const columns = useSelector(selectColumns);
   const currentColumn = useSelector(selectCurrentColumn);
+  const currentTask = useSelector(selectCurrentTask);
 
   useEffect(() => {
     dispatch(getColumns(board._id));
-  }, [board, dispatch, currentColumn]);
+  }, [board, dispatch, currentColumn, currentTask]);
 
   useEffect(() => {
-    if (columns.length > 0 && currentColumn === null) {
-      const firstColumn = columns[0];
-      dispatch(getColumn(firstColumn));
+    if (columns.length > 0 && !currentColumn) {
+      const columnWithTasks = columns.find((column) => column.tasks.length > 0);
+      dispatch(getColumn(columnWithTasks));
     }
-  }, [columns, dispatch, currentColumn]);
+  }, [columns, dispatch, currentColumn, currentTask]);
+
+  useEffect(() => {
+    if (currentColumn && currentColumn.tasks.length > 0 && !currentTask) {
+      dispatch(
+        getTask({
+          deskId: currentColumn.owner,
+          columnId: currentColumn._id,
+          taskId: currentColumn.tasks[0]._id,
+        })
+      );
+    }
+  }, [dispatch, currentTask, currentColumn]);
 
   return (
     <ul className={css.ul}>
       {columns.map((column) => (
         <li className={css.li} key={column._id}>
           <TaskColumnName column={column} />
-          <TaskList column={column} board={board} currentColumn={currentColumn} />
+          <TaskList tasks={column.tasks} />
           <AddAnotherCardBtn column={column} />
         </li>
       ))}

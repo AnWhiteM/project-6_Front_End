@@ -16,7 +16,7 @@ export const register = createAsyncThunk(
   "/auth/register",
   async (userInfo, thunkAPI) => {
     try {
-      axios.defaults.headers.secretkey = "5Qg}ao.V-SeDO/a";
+      axios.defaults.headers.secretkey = "QWERTY";
       await axios.post("/auth/register", userInfo);
       const logResponse = await axios.post("/auth/login", {
         email: userInfo.email,
@@ -34,7 +34,7 @@ export const logIn = createAsyncThunk(
   "auth/login",
   async (userInfo, thunkAPI) => {
     try {
-      axios.defaults.headers.secretkey = "5Qg}ao.V-SeDO/a";
+      axios.defaults.headers.secretkey = "QWERTY";
       const response = await axios.post("/auth/login", userInfo);
       setAuthHeader(response.data.token);
       return response.data;

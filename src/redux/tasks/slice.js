@@ -16,7 +16,6 @@ const taskSlice = createSlice({
     error: null,
     currentTask: null,
   },
-
   extraReducers: (builder) =>
     builder
       .addCase(fetchTasks.pending, (state) => {

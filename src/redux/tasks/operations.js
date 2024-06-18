@@ -64,8 +64,10 @@ export const updateOwner = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const response = await axios.patch(
-        `/tasks/${data.deskId}/${data.columnId}/${data.taskId}`
+        `/tasks/${data.deskId}/${data.columnId}/${data.taskId}`,
+        { owner: data.newColumnId }
       );
+      console.log(data.columnId);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

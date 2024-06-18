@@ -21,7 +21,7 @@ export default function HelpBlock() {
             srcSet={`
                https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235453/rknxidxdzvbuiradrwyc.png   54w,
                https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235454/stsa8f4qaylxaggszjey.png 108w`}
-            sizes="(min-width: 1440px) 54px, (min-width: 1280px) 54px, (min-width: 768px) 54px, (min-width: 320px) 54px"
+            sizes="(min-width: 1440px) 54px, (min-width: 1280px) 54px, (min-width: 768px) 54px, (min-width: 280px) 54px"
           />
           <img
             className={css.img}

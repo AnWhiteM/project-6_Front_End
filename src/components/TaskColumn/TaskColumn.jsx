@@ -16,7 +16,6 @@ import {selectFilter} from "../../redux/filter/selectors"
 
 export const TaskColumn = ({ board }) => {
   const dispatch = useDispatch();
-
   const columns = useSelector(selectColumns);
   const currentColumn = useSelector(selectCurrentColumn);
   const currentTask = useSelector(selectCurrentTask);
@@ -45,12 +44,15 @@ export const TaskColumn = ({ board }) => {
     }
   }, [dispatch, currentTask, currentColumn]);
 
+  const savedPriority = localStorage.getItem('filter', filterPriority);
+
   const filterByPriority = (tasks) => {
-    if (filterPriority === "All") {
+    if (savedPriority === "All") {
       return tasks;
     }
-    return tasks.filter((task) => task.priority === filterPriority);
+    return tasks.filter((task) => task.priority === savedPriority);
   }
+
 
   return (
     <ul className={css.columnWrapper}>

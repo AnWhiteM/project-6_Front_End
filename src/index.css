@@ -19,166 +19,160 @@
   --animation: 350ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
 .light-theme {
   --body-bg: var(--white);
   --text-color: #121212;
   --background-color: #f4f4f4;
-  --btn-color: #BEDBB0;
-  --btn-hover:#9dc888;
-  --line: rgba(22,22,22,0.5);
+  --btn-color: #bedbb0;
+  --btn-hover: #9dc888;
+  --line: rgba(22, 22, 22, 0.5);
   --icons: rgba(22, 22, 22, 0.5);
   --icons-hover: rgba(22, 22, 22, 1);
 
-
-
   /* modals */
-  --modal-bg:#fff;
-  --modal-input:var(--white);
-  --modal-text:var(--black);
-  --modal-plus:var(--white);
-  --plus-btn:var(--black);
-  --modal-border:var(--green);
+  --modal-bg: #fff;
+  --modal-input: var(--white);
+  --modal-text: var(--black);
+  --modal-plus: var(--white);
+  --plus-btn: var(--black);
+  --modal-border: var(--green);
 
   /* Sidebar */
-  --board-active:#F6F6F7;
-  --border-active:var(--green);
-  --sb-icons:rgba(22, 22, 22, 0.5);
-  --sb-icons-hover:rgba(22, 22, 22, 1);
+  --board-active: #f6f6f7;
+  --border-active: var(--green);
+  --sb-icons: rgba(22, 22, 22, 0.5);
+  --sb-icons-hover: rgba(22, 22, 22, 1);
   --sb-shadows-hover: #7fb664;
-  --hb-cont:#F6F6F7;
-  --hb-link:var(--green);
-  --hb-icon:#161616;
+  --hb-cont: #f6f6f7;
+  --hb-link: var(--green);
+  --hb-icon: #161616;
 
   /* Header */
-  --header-bg:#ececec;
-  --burger:var(--black);
-  --header-tx:rgba(22, 22, 22, 0.8);
-  --btn-inactive:var(--black);
-  --btn-active:var(--green);
-  --add-img:var(--green);
-  --header-btn:var(--green);
+  --header-bg: #ececec;
+  --burger: var(--black);
+  --header-tx: rgba(22, 22, 22, 0.8);
+  --btn-inactive: var(--black);
+  --btn-active: var(--green);
+  --add-img: var(--green);
+  --header-btn: var(--green);
   --header-avatar: url(https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718470207/p8idpbdlblbi3p16ubzp.jpg);
-  --filter-line:rgba(22, 22, 22, 0.1);
-  --filter-sa:rgba(22, 22, 22, 0.5);
+  --filter-line: rgba(22, 22, 22, 0.1);
+  --filter-sa: rgba(22, 22, 22, 0.5);
 
   /* Board */
-  --board-bg:#FCFCFC;
-  --add-column-bg:var(--white);
-  --icon-box:var(--black);
-  --add-plus:var(--white);
-  --board-icons:rgba(22, 22, 22, 0.5);
-  --add-card-btn:var(--green);
-  --b-text:var(--black);
-  --b-plus:var(--white);
-  --task-text:rgba(22, 22, 22, 0.7);
+  --board-bg: #fcfcfc;
+  --add-column-bg: var(--white);
+  --icon-box: var(--black);
+  --add-plus: var(--white);
+  --board-icons: rgba(22, 22, 22, 0.5);
+  --add-card-btn: var(--green);
+  --b-text: var(--black);
+  --b-plus: var(--white);
+  --task-text: rgba(22, 22, 22, 0.7);
 }
 
 .violet-theme {
   --body-bg: var(--violet);
   --text-color: var(--white);
   --background-color: var(--violet);
-  --btn-color: #B8BCFD;
-  --btn-hover:#9da2fa;
+  --btn-color: #b8bcfd;
+  --btn-hover: #9da2fa;
   --line: rgba(255, 255, 255, 0.5);
   --icons: rgba(22, 22, 22, 0.5);
   --icons-hover: rgba(22, 22, 22, 1);
 
-
   /* modals */
-  --modal-bg:var(--white);
-  --modal-input:var(--white);
-  --modal-text:var(--black);
-  --modal-plus:var(--black);
-  --plus-btn:var(--white);
-  --modal-border:var(--violet);
+  --modal-bg: var(--white);
+  --modal-input: var(--white);
+  --modal-text: var(--black);
+  --modal-plus: var(--black);
+  --plus-btn: var(--white);
+  --modal-border: var(--violet);
 
   /* Sidebar */
-  --board-active:rgba(255, 255, 255, 0.3);
-  --border-active:var(--white);
-  --sb-icons:rgba(255, 255, 255, 0.5);
-  --sb-icons-hover:rgba(255, 255, 255, 1);
+  --board-active: rgba(255, 255, 255, 0.3);
+  --border-active: var(--white);
+  --sb-icons: rgba(255, 255, 255, 0.5);
+  --sb-icons-hover: rgba(255, 255, 255, 1);
   --sb-shadows-hover: var(--violet);
-  --hb-cont:rgba(236, 237, 253, 0.4);
-  --hb-link:var(--violet);
+  --hb-cont: rgba(236, 237, 253, 0.4);
+  --hb-link: var(--violet);
   --hb-icon: var(--white);
-  
 
   /* Header */
-  --header-bg:#FFFFFF;
-  --burger:var(--black);
-  --header-tx:rgba(22, 22, 22, 0.8);
-  --btn-inactive:var(--black);
-  --btn-active:var(--violet);
-  --add-img:#ECEDFD;
-  --header-btn:var(--violet);
+  --header-bg: #ffffff;
+  --burger: var(--black);
+  --header-tx: rgba(22, 22, 22, 0.8);
+  --btn-inactive: var(--black);
+  --btn-active: var(--violet);
+  --add-img: #ecedfd;
+  --header-btn: var(--violet);
   --header-avatar: url(https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718616860/user_uw4dwo.png);
-  --filter-line:rgba(22, 22, 22, 0.1);
-  --filter-sa:rgba(22, 22, 22, 0.5);
+  --filter-line: rgba(22, 22, 22, 0.1);
+  --filter-sa: rgba(22, 22, 22, 0.5);
 
   /* Board */
-  --board-bg:#ECEDFD;
-  --add-column-bg:var(--white);
-  --icon-box:var(--violet);
-  --add-plus:var(--white);
-  --board-icons:rgba(22, 22, 22, 0.5);
-  --add-card-btn:var(--violet);
-  --b-text:var(--white);
-  --b-plus:var(--black);
-  --task-text:rgba(22, 22, 22, 0.7);
+  --board-bg: #ecedfd;
+  --add-column-bg: var(--white);
+  --icon-box: var(--violet);
+  --add-plus: var(--white);
+  --board-icons: rgba(22, 22, 22, 0.5);
+  --add-card-btn: var(--violet);
+  --b-text: var(--white);
+  --b-plus: var(--black);
+  --task-text: rgba(22, 22, 22, 0.7);
 }
 
 .dark-theme {
   --body-bg: var(--black);
   --text-color: var(--white);
   --background-color: #333333;
-  --btn-color: #BEDBB0;
-  --btn-hover:#9dc888;
+  --btn-color: #bedbb0;
+  --btn-hover: #9dc888;
   --line: rgba(255, 255, 255, 0.5);
   --icons: rgba(255, 255, 255, 0.5);
   --icons-hover: rgba(255, 255, 255, 1);
 
-
   /* modals */
-  --modal-bg:#121212;
-  --modal-input:var(--black);
-  --modal-text:var(--white);
-  --modal-plus:var(--white);
-  --plus-btn:var(--black);
-  --modal-border:var(--green);
+  --modal-bg: #121212;
+  --modal-input: var(--black);
+  --modal-text: var(--white);
+  --modal-plus: var(--white);
+  --plus-btn: var(--black);
+  --modal-border: var(--green);
 
   /* Sidebar */
-  --board-active:#1f1f1f;
-  --border-active:var(--green);
-  --sb-icons:rgba(255, 255, 255, 0.5);
-  --sb-icons-hover:rgba(255, 255, 255, 1);
-  --sb-shadows-hover:var(--green);
-  --hb-cont:#1F1F1F;
-  --hb-link:var(--green);
+  --board-active: #1f1f1f;
+  --border-active: var(--green);
+  --sb-icons: rgba(255, 255, 255, 0.5);
+  --sb-icons-hover: rgba(255, 255, 255, 1);
+  --sb-shadows-hover: var(--green);
+  --hb-cont: #1f1f1f;
+  --hb-link: var(--green);
   --hb-icon: var(--white);
 
   /* Header */
-  --header-bg:#161616;
-  --burger:var(--white);
-  --header-tx:rgba(255, 255, 255, 0.8);
-  --btn-inactive:var(--white);
-  --btn-active:var(--green);
-  --add-img:var(--green);
-  --header-btn:var(--green);
+  --header-bg: #161616;
+  --burger: var(--white);
+  --header-tx: rgba(255, 255, 255, 0.8);
+  --btn-inactive: var(--white);
+  --btn-active: var(--green);
+  --add-img: var(--green);
+  --header-btn: var(--green);
   --header-avatar: url(https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235453/pojpj365oqqbots9321l.png);
-  --filter-line:rgba(255, 255, 255, 0.1);
-  --filter-sa:rgba(255, 255, 255, 0.5);
+  --filter-line: rgba(255, 255, 255, 0.1);
+  --filter-sa: rgba(255, 255, 255, 0.5);
 
   /* Board */
-  --board-bg:#121212;
-  --add-column-bg:var(--black);
-  --icon-box:var(--white);
-  --add-plus:var(--black);
-  --board-icons:rgba(255, 255, 255, 0.5);
-  --add-card-btn:var(--green);
-  --b-text:var(--black);
-  --b-plus:var(--white);
-  --task-text:rgba(255, 255, 255, 0.5);
+  --board-bg: #121212;
+  --add-column-bg: var(--black);
+  --icon-box: var(--white);
+  --add-plus: var(--black);
+  --board-icons: rgba(255, 255, 255, 0.5);
+  --add-card-btn: var(--green);
+  --b-text: var(--black);
+  --b-plus: var(--white);
+  --task-text: rgba(255, 255, 255, 0.5);
 }
 
 html {
@@ -214,13 +208,11 @@ html {
   src: url("/fonts/poppins-v21-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-
-
-
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--body-bg);
   color: var(--text-color);
+  overflow: hidden;
 }
 
 .link {
@@ -242,7 +234,6 @@ li {
 
 /* Phone screen */
 .container {
-
   min-width: 320px;
   max-width: 375px;
 
@@ -287,4 +278,3 @@ h3,
 p {
   margin: 0;
 }
-

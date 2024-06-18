@@ -56,7 +56,6 @@ export const MainDashboard = () => {
     >
       <div className={css.wrapper}>
         <TaskColumn board={currentBoard} />
-        <AddColumnBtn board={currentBoard} />
       </div>
     </div>
   );

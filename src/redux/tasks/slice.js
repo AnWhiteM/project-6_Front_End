@@ -61,18 +61,13 @@ const taskSlice = createSlice({
       .addCase(updateTask.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        const taskIndex = state.items.findIndex(
-          (item) => item._id === action.payload._id
-        );
-        if (taskIndex !== -1) {
-          state.items[taskIndex] = action.payload;
-          if (state.currentTask === action.payload) {
+          if (state.currentTask._id === action.payload._id) {
             state.currentTask = null;
           } else {
             state.currentTask = action.payload;
           }
         }
-      })
+      )
       .addCase(updateTask.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
@@ -83,18 +78,13 @@ const taskSlice = createSlice({
       .addCase(updateOwner.fulfilled, (state, action) => { 
         state.loading = false;
         state.error = null;
-        const taskIndex = state.items.findIndex(
-          (item) => item._id === action.payload._id
-        );
-        if (taskIndex !== -1) {
-          state.items[taskIndex] = action.payload;
-          if (state.currentTask === action.payload) {
+          if (state.currentTask._id === action.payload._id) {
             state.currentTask = null;
           } else {
             state.currentTask = action.payload;
           }
         }
-      })
+      )
       .addCase(updateOwner.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;

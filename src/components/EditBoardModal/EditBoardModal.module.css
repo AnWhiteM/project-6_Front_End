@@ -26,7 +26,7 @@
   transform: translate(-50%, -50%);
   background-color: var(--modal-bg);
   border-radius: 8px;
-  padding: 20px;
+  padding: 24px;
   width: 335px;
   border: 1px solid var(--modal-border);
 }
@@ -38,10 +38,9 @@
   position: absolute;
   top: 14px;
   right: 14px;
-  
 }
 
-.iconClose{
+.iconClose {
   cursor: pointer;
   stroke: var(--modal-text);
 }
@@ -57,7 +56,8 @@
 .input {
   padding: 14px 18px;
   border-radius: 8px;
-  width: 287px;
+  /* width: 287px; */
+  width: 100%;
   height: 49px;
   background-color: var(--modal-input);
   color: var(--modal-text);
@@ -91,7 +91,6 @@
   margin-bottom: 14px;
   font-size: 14px;
   color: var(--modal-text);
-  
 }
 
 .iconList,
@@ -151,7 +150,8 @@
   background-color: var(--btn-color);
   color: var(--text-color);
   border: none;
-  width: 287px;
+  /* width: 287px; */
+  width: 100%;
   height: 49px;
   border-radius: 8px;
   cursor: pointer;

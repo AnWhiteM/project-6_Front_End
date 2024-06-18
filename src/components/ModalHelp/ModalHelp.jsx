@@ -57,30 +57,36 @@ export default function ModalHelp({ isOpen, closeModal }) {
         validationSchema={ValidEditionSchema}
       >
         <Form autoComplete="off">
-          <Field
-            className={css.input}
-            type="email"
-            name="email"
-            placeholder="Email address "
-          />
-          <ErrorMessage
-            name="email"
-            component="div"
-            className={css.errorMessage}
-          />
-          <Field
-            className={css.inputText}
-            type="text"
-            name="comment"
-            placeholder="Comment"
-            rows="5"
-            component="textarea"
-          />
-          <ErrorMessage
-            name="comment"
-            component="div"
-            className={css.errorMessage}
-          />
+          <div className={css.formGroup}>
+            <Field
+              className={css.input}
+              type="email"
+              name="email"
+              placeholder="Email address "
+            />
+            <ErrorMessage
+              name="email"
+              component="div"
+              className={css.errorMessage}
+            />
+          </div>
+
+          <div className={css.formGroup}>
+            <Field
+              className={css.inputText}
+              type="text"
+              name="comment"
+              placeholder="Comment"
+              rows="5"
+              component="textarea"
+            />
+            <ErrorMessage
+              name="comment"
+              component="div"
+              className={css.errorMessage2}
+            />
+          </div>
+
           <button className={css.button} type="submit">
             Send
           </button>

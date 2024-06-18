@@ -10,13 +10,16 @@
   width: 225px;
 }
 
+.sideB,
 .sideBfixed {
+  z-index: 9999;
+}
+.sideBfixed {
+  width: 225px;
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
-  width: 225px;
-  z-index: 12;
 }
 
 .mainCont {
@@ -42,5 +45,9 @@
   .sideB,
   .sideBfixed {
     width: 260px;
+  }
+
+  .mainCont {
+    max-width: calc(100% - 260px);
   }
 }

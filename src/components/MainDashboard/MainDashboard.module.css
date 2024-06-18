@@ -1,13 +1,8 @@
 .container {
-  min-height: 95vh;
+  min-height: 85vh;
   background-size: cover;
   background-position: center;
 }
-
-/* 
-  min-height: 85vh;
-  background-size: cover;
-  background-position: center; */
 
 .container {
   background-image: linear-gradient(
@@ -74,7 +69,7 @@
   padding: 16px 20px;
   display: flex;
   gap: 10px;
-  max-width: calc(100% - 5px);
+  max-width: calc(100% - 4px);
   overflow-y: hidden;
   overflow-x: auto;
 }
@@ -100,7 +95,4 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .wrapper {
-    max-width: calc(100% - 260px);
-  }
 }

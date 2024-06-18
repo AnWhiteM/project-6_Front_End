@@ -125,6 +125,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteTask, updateOwner } from "../../redux/tasks/operations";
 import { useParams } from "react-router-dom";
 import { selectColumns } from "../../redux/columns/selectors";
+import dayjs from "dayjs";
+
 
 export const Task = ({ task }) => {
   const [editCardModal, setEditCardModal] = useState(false);
@@ -202,16 +204,18 @@ export const Task = ({ task }) => {
 
           <div className={css.column}>
             <p className={css.p}>Deadline</p>
-            <p className={css.info}>{task.deadline}</p>
+            <p className={css.info}>{dayjs(task.deadline).format('DD/MM/YYYY')}</p>
           </div>
         </div>
-
+        
         <div className={css.icons}>
-          <button className={css.wrapIcon}>
-            <svg className={css.bell} width="16" height="16">
-              <use href={svg + "#icon-bell"}></use>
+        {dayjs().format('DD/MM/YYYY') === dayjs(task.deadline).format('DD/MM/YYYY') ? 
+        <button className={css.wrapIcon}>
+          <svg className={css.bell} width="16" height="16">
+            <use href={svg + "#icon-bell"}></use>
             </svg>
           </button>
+         : null }
 
           <div className={css.btns}>
             <button className={css.wrapIcon} onClick={() => setShowTooltip(!showTooltip)}>

@@ -31,7 +31,7 @@
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--btn-inactive);
 }
 
 .filterBtn {
@@ -45,12 +45,12 @@
 
 .icon {
   fill: none;
-  stroke: #ffffff;
+  stroke: var(--btn-inactive);
 }
 
 .text {
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--btn-inactive);
 }

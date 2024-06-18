@@ -78,13 +78,24 @@ export default function UserEditModal({ onClose }) {
       await dispatch(updateUserInfo(sendInfo))
         .unwrap()
         .then((data) => {
-          // console.log(data);
-          toast.success("Profile updated successfully");
-          onClose();
+          if (data === "") {
+            toast.error(
+              "You have not updated any details.Please review and update "
+            );
+          } else {
+            toast.success("Profile updated successfully");
+            onClose();
+          }
         });
     } catch (error) {
-      // console.log(error);
-      toast.error("The password is invalid.Please try again");
+      let statusCode = error.slice(-3);
+      let nmb = parseInt(statusCode);
+
+      if (nmb === 403) {
+        toast.error("The password is invalid.Please try again");
+      } else {
+        toast.error("The error occured.Please try again");
+      }
     }
   };
 

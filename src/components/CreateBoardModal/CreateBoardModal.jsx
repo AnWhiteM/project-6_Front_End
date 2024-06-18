@@ -258,9 +258,18 @@ export default function CreateBoardModal({
   };
 
   const handleBgSelect = (bgId, setFieldValue) => {
+
     const selectedBackground = bgData.find((bg) => bg.id === bgId) || {};
     setSelectedBg(selectedBackground);
     setFieldValue("background", selectedBackground);
+
+//     const selectedBackground = bgData.find((bg) => bg.id === bgId);
+//     if (selectedBackground) {
+//       const { id, mini, mini2x, ...bgs } = selectedBackground;
+//       setSelectedBg(selectedBackground);
+//       setFieldValue("background", selectedBackground);
+//     }
+
   };
 
   return (

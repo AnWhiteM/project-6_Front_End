@@ -1,26 +1,27 @@
 .btn{
-    display: flex;
-    align-items: center;
-    background-color: #BEDBB0; 
-    border: none;
-    border-radius: 8px;
-    padding: 14px 78px;
-    cursor: pointer;
-    font-size: 14px;
-    color: #161616;
-    width: 335px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 8px;
+  background: var(--add-card-btn);
+  color: var(--b-text);
+  width: 334px;
+  height: 56px;
   }
 
   .btn:hover,
   .btn:focus {
-    background-color: #9DC888; 
+    background-color: var(); 
   }
 
 .iconBox{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:#161616; 
+    background-color:var(--b-text); 
     border-radius: 6px;
     width: 28px;
     height: 28px;
@@ -29,5 +30,5 @@
   }
 
 .icon{
-    stroke: #fff;
+    stroke: var(--b-plus);
   }

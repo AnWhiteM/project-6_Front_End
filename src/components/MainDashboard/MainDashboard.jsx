@@ -167,7 +167,11 @@ export const MainDashboard = () => {
   return (
     <div
       className={css.container}
+
       style={getBackgroundStyle()}
+
+//       style={{ backgroundImage: getBackgroundImage() }}
+
     >
       <div className={css.wrapper}>
         <TaskColumn board={currentBoard} />

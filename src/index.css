@@ -69,6 +69,10 @@
   --b-text: var(--black);
   --b-plus: var(--white);
   --task-text: rgba(22, 22, 22, 0.7);
+
+  /* Scroll */
+  --scroll-track-bg: #e8e8e8;
+  --scroll-thumb-bg: rgba(22, 22, 22, 0.1);
 }
 
 .violet-theme {
@@ -121,6 +125,10 @@
   --b-text: var(--white);
   --b-plus: var(--black);
   --task-text: rgba(22, 22, 22, 0.7);
+
+  /* Scroll */
+  --scroll-track-bg: #fff;
+  --scroll-thumb-bg: #b8bcfd;
 }
 
 .dark-theme {
@@ -173,6 +181,10 @@
   --b-text: var(--black);
   --b-plus: var(--white);
   --task-text: rgba(255, 255, 255, 0.5);
+
+  /* Scroll */
+  --scroll-track-bg: rgba(255, 255, 255, 0.08);
+  --scroll-thumb-bg: #121212;
 }
 
 html {

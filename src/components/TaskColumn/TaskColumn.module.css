@@ -3,4 +3,20 @@
   gap: 18px;
   margin: 0;
   overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.columnWrapper::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.columnWrapper::-webkit-scrollbar-track {
+  background: #e0e0e0;
+}
+
+.columnWrapper::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+  border: 3px solid #e0e0e0;
 }

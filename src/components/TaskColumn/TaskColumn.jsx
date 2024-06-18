@@ -3,7 +3,7 @@ import { TaskColumnName } from "../TaskColumnName/TaskColumnName";
 import { TaskList } from "../TaskList/TaskList";
 import css from "./TaskColumn.module.css";
 import { getColumn, getColumns } from "../../redux/columns/operations";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   selectColumns,
   selectCurrentColumn,
@@ -16,7 +16,6 @@ import {selectFilter} from "../../redux/filter/selectors"
 
 export const TaskColumn = ({ board }) => {
   const dispatch = useDispatch();
-
   const columns = useSelector(selectColumns);
   const currentColumn = useSelector(selectCurrentColumn);
   const currentTask = useSelector(selectCurrentTask);

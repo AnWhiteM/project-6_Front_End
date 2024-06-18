@@ -29,9 +29,9 @@ export default function ThemeModal({ closeMenuModal}) {
         throw new Error('Network response was not ok');
       }
 
-      console.log('Theme updated successfully:', response.data);
+      
     } catch (error) {
-      console.error('Error updating theme:', error);
+      // console.error('Error updating theme:', error);
     }
   };
 

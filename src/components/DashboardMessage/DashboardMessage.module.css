@@ -1,5 +1,5 @@
 .link {
-    color: #bedbb0;
+    color: var(--hb-link);
     text-decoration: none;
     cursor: pointer;
 }
@@ -13,7 +13,7 @@
 
 
 .text {
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--task-text);
     font-weight: 400;
     font-size: 14px;
     line-height: 129%;
@@ -27,5 +27,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #1f1f1f;
+    background-color: var(--board-bg);
 }

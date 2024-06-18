@@ -20,7 +20,7 @@
 }
 
 .mainCont {
-  width: 100%;
+  max-width: calc(100% - 225px);
   position: relative;
 }
 
@@ -38,6 +38,11 @@
   z-index: 11;
 }
 
+@media screen and (min-width: 768px) {
+  .mainCont {
+    max-width: calc(100% - 260px);
+  }
+}
 @media screen and (min-width: 1440px) {
   .sideB,
   .sideBfixed {

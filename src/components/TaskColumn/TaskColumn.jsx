@@ -11,6 +11,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentTask } from "../../redux/tasks/selectors";
 import { getTask } from "../../redux/tasks/operations.js";
+import { AddColumnBtn } from "../AddColumnBtn/AddColumnBtn.jsx";
 
 export const TaskColumn = ({ board }) => {
   const dispatch = useDispatch();
@@ -53,6 +54,9 @@ export const TaskColumn = ({ board }) => {
           <AddAnotherCardBtn column={column} />
         </li>
       ))}
+      <li>
+        <AddColumnBtn board={board} />
+      </li>
     </ul>
   );
 };

@@ -19,7 +19,7 @@ export const MainDashboard = () => {
   const { background } = currentBoard || {};
 
   const getBackgroundStyle = () => {
-    if (!('mob' in background) && !('desc' in background) && !('tab' in background)) {
+    if (!('mob' in background)) {
       return { backgroundColor: "#1F1F1F" };
     }
 

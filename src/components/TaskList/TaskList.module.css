@@ -13,17 +13,13 @@
 }
 
 .taskList::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--scroll-track-bg);
   border-radius: 12px;
 }
 
 .taskList::-webkit-scrollbar-thumb {
-  background-color: #121212;
+  background-color: var(--scroll-thumb-bg);
   border-radius: 12px;
-}
-
-.taskList::-webkit-scrollbar-thumb:hover {
-  background-color: #121212;
 }
 
 .taskItem:not(:last-child) {
@@ -40,6 +36,6 @@
 
 @media screen and (min-width: 1440px) {
   .taskList {
-    max-height: calc(100vh - 292px);
+    max-height: calc(100vh - 300px);
   }
 }

@@ -4,6 +4,7 @@
   margin: 0;
   overflow-y: hidden;
   overflow-x: auto;
+  margin-bottom: 24px;
 }
 
 .columnWrapper::-webkit-scrollbar {
@@ -12,11 +13,35 @@
 }
 
 .columnWrapper::-webkit-scrollbar-track {
-  background: #e0e0e0;
+  background: var(--scroll-track-bg);
+  border-radius: 12px;
 }
 
 .columnWrapper::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 10px;
-  border: 3px solid #e0e0e0;
+  background-color: var(--scroll-thumb-bg);
+  border-radius: 12px;
+}
+
+.columnItem {
+  margin-bottom: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .columnItem {
+    margin-bottom: 52px;
+  }
+
+  .columnWrapper {
+    margin-bottom: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .columnItem {
+    margin-bottom: 16px;
+  }
+
+  .columnWrapper {
+    margin-bottom: 8px;
+  }
 }

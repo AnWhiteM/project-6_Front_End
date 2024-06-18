@@ -46,7 +46,7 @@ export const TaskColumn = ({ board }) => {
   return (
     <ul className={css.columnWrapper}>
       {columns.map((column) => (
-        <li key={column._id}>
+        <li key={column._id} className={css.columnItem}>
           <TaskColumnName column={column} />
           <div>
             <TaskList tasks={column.tasks} />

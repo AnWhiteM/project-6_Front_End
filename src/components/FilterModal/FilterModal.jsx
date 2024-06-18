@@ -4,15 +4,24 @@ import svg from "../../img/icons.svg";
 import { Formik, Form, Field } from "formik";
 import { useDispatch } from "react-redux";
 import { setFilterPriority } from "../../redux/filter/slice";
+import { useEffect, useState } from "react";
 
 Modal.setAppElement('#root');
 
 export const FilterModal = ({ isOpen, isClose }) => {
 const dispatch = useDispatch();
+const [value, setValue] = useState(() => {
+    const savedPriority = localStorage.getItem('filter');
+    return savedPriority;
+  });
 
-const handleFilterChange = (event) => {
-    dispatch(setFilterPriority(event.target.value))
-}
+  useEffect(() => {
+    dispatch(setFilterPriority(value));
+  }, [dispatch, value]);
+
+  const handleFilterChange = (event) => {
+    setValue(event.target.value);
+  };
 
     return (
         <>

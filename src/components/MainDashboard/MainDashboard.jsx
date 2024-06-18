@@ -51,7 +51,7 @@
 //         <TaskColumn board={currentBoard} />
 //         <AddColumnBtn board={currentBoard} />
 //         </div>
-       
+
 //       </div>
 //   );
 // };
@@ -134,26 +134,33 @@ export const MainDashboard = () => {
   if (error) return <p>Error loading boards</p>;
 
   const { background } = currentBoard || {};
-  console.log(background);
+  // console.log(background);
 
   // const isEmptyObject = (obj) => {
   //   return Object.keys(obj).length === 0 && obj.constructor === Object;
   // };
 
   const getBackgroundStyle = () => {
-    if (!('mob' in background)) {
+    if (!("mob" in background)) {
       return { backgroundColor: "#1F1F1F" };
     }
 
     const { desc, mob, tab, desc2x, mob2x, tab2x } = background;
 
-    const linearGradient = 'linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7))';
+    const linearGradient =
+      "linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7))";
 
-    if (window.matchMedia("(min-width: 1440px) and (min-resolution: 192dpi)").matches) {
+    if (
+      window.matchMedia("(min-width: 1440px) and (min-resolution: 192dpi)")
+        .matches
+    ) {
       return { backgroundImage: `${linearGradient}, url(${desc2x})` };
     } else if (window.matchMedia("(min-width: 1440px)").matches) {
       return { backgroundImage: `${linearGradient}, url(${desc})` };
-    } else if (window.matchMedia("(min-width: 768px) and (min-resolution: 192dpi)").matches) {
+    } else if (
+      window.matchMedia("(min-width: 768px) and (min-resolution: 192dpi)")
+        .matches
+    ) {
       return { backgroundImage: `${linearGradient}, url(${tab2x})` };
     } else if (window.matchMedia("(min-width: 768px)").matches) {
       return { backgroundImage: `${linearGradient}, url(${tab})` };
@@ -167,11 +174,9 @@ export const MainDashboard = () => {
   return (
     <div
       className={css.container}
-
       style={getBackgroundStyle()}
 
-//       style={{ backgroundImage: getBackgroundImage() }}
-
+      //       style={{ backgroundImage: getBackgroundImage() }}
     >
       <div className={css.wrapper}>
         <TaskColumn board={currentBoard} />

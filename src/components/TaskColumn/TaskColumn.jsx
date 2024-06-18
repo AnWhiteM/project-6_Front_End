@@ -3,7 +3,7 @@ import { TaskColumnName } from "../TaskColumnName/TaskColumnName";
 import { TaskList } from "../TaskList/TaskList";
 import css from "./TaskColumn.module.css";
 import { getColumn, getColumns } from "../../redux/columns/operations";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
   selectColumns,
   selectCurrentColumn,

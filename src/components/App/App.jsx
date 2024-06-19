@@ -9,6 +9,8 @@ import RestrictedRoute from "../RestrictedRoute/RestrictedRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import { MainDashboard } from "../MainDashboard/MainDashboard";
 
+import { setTheme } from "../../redux/theme/slice";
+
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const LoginPage = lazy(() => import("../../pages/LoginPage/LoginPage"));
 const Login = lazy(() => import("../../pages/Login/Login"));
@@ -18,10 +20,24 @@ const NotFoundPage = lazy(() => import("../../pages/NotFoundPage"));
 export const App = () => {
   const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme.theme);
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      dispatch(setTheme(savedTheme));
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (theme) {
+      document.body.className = `${theme}-theme`;
+    }
+  }, [theme]);
 
   return (
     <>
@@ -53,7 +69,7 @@ export const App = () => {
                 />
               }
             >
-              <Route path="/home/:deskId" element={<MainDashboard/>} />
+              <Route path="/home/:deskId" element={<MainDashboard />} />
             </Route>
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

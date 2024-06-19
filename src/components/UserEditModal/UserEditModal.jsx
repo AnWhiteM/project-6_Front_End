@@ -122,6 +122,11 @@ export default function UserEditModal({ onClose }) {
           </div>
           <p className={css.txt}>Edit Profile</p>
           <div className={css.avatarContainer}>
+            <button
+            
+            type="button"
+            className={css.avatarBtn}
+            onClick={() => handleButtonClick()}>
             <span
               className={`${css.avatarBig} ${css.avatar}`}
               style={
@@ -130,6 +135,7 @@ export default function UserEditModal({ onClose }) {
                   : {}
               }
             />
+            </button>
 
             <button
               type="button"

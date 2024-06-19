@@ -22,7 +22,7 @@ export const MainDashboard = () => {
 
   const getBackgroundStyle = () => {
     if (!("mob" in background)) {
-      return { backgroundColor: "var(--board-bg)" };
+      return { backgroundColor: "var(--st-bg)" };
     }
 
     const { desc, mob, tab, desc2x, mob2x, tab2x } = background;

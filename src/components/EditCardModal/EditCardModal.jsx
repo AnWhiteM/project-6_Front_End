@@ -171,5 +171,7 @@ export const EditCard = ({ isOpen, isClose, task }) => {
       </Modal> 
     </> 
   ); 
+
 };
+
 

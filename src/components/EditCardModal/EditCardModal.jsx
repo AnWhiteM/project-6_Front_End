@@ -155,7 +155,7 @@ export const EditCard = ({ isOpen, isClose, task }) => {
                     css.calendarContainer
                   )}
                   dateFormat="EEEE, MMMM dd"
-                  selected={selectedDate}
+                  selected={task.deadline}
                   onChange={(date) => setSelectedDate(date)}
                   required
                   minDate={new Date()}

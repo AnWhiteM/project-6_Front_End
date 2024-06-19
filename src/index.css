@@ -80,7 +80,7 @@
   --scroll-thumb-bg: rgba(22, 22, 22, 0.1);
 
   --pop-up-bg:#FCFCFC;
-  --pop-up-tx:rgba(225, 225, 225, 0.5);
+  --pop-up-tx:rgba(22,22,22,1);
   --pop-up-tx-hover:var(--green);
 }
 
@@ -145,7 +145,7 @@
   --scroll-thumb-bg: #b8bcfd;
 
   --pop-up-bg:#FCFCFC;
-  --pop-up-tx:rgba(225, 225, 225, 0.5);
+  --pop-up-tx:rgba(22,22,22,1);
   --pop-up-tx-hover:var(--violet);
 }
 
@@ -210,7 +210,7 @@
   --scroll-thumb-bg: #121212;
 
   --pop-up-bg:#1F1F1F;
-  --pop-up-tx:rgba(22, 22, 22, 1);
+  --pop-up-tx: rgba(255, 255, 255, 0.5);
   --pop-up-tx-hover:var(--green);
 }
 

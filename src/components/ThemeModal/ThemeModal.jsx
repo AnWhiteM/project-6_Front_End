@@ -87,6 +87,8 @@ export default function ThemeModal({ closeMenuModal }) {
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme.theme);
 
+  console.log("theme:" ,theme);
+
   useEffect(() => {
     if (theme) {
       document.body.className = `${theme}-theme`;

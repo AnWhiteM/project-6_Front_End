@@ -132,6 +132,7 @@ export const Task = ({ task }) => {
       </div>
       {showTooltip && (
         <div className={css.tooltip}>
+
           {columns
             .filter((column) => column._id !== task.owner)
             .map((column) => (
@@ -146,6 +147,7 @@ export const Task = ({ task }) => {
                 </svg>
               </div>
             ))}
+
         </div>
       )}
       {editCardModal && (

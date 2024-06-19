@@ -1,15 +1,32 @@
-.logo {
+.container {
   display: flex;
   gap: 8px;
   margin-bottom: 70px;
   align-items: center;
+}
+
+.logo {
+  background: var(--logo-icon-box);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  fill: var(--logo-icon);
+}
+
+.text {
   font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.04em;
 }
 
 @media screen and (min-width: 768px) {
-  .logo {
+  .container {
     margin-bottom: 60px;
   }
 }

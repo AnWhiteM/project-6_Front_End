@@ -9,6 +9,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import clsx from "clsx";
+import "./react-date-picker.css";
 
 Modal.setAppElement("#root");
 
@@ -146,7 +147,6 @@ export const CreateCard = ({ isOpen, isClose, column }) => {
                   css.calendarModal,
                   css.calendarContainer
                 )}
-                popperClassName={clsx(css.popper, css.datePopper)}
                 dateFormat="EEEE, MMMM dd"
                 selected={selectedDate}
                 onChange={(date) => setSelectedDate(date)}

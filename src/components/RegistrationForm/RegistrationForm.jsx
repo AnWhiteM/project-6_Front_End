@@ -10,7 +10,7 @@ import * as Yup from "yup";
 
 const ValidationSchema = Yup.object().shape({
   name: Yup.string()
-    .min(4, "Too Short!")
+    .min(2, "Too Short!")
     .max(64, "Too Long!")
     .required("Required"),
   email: Yup.string().email("Must be a valid email!").required("Required"),

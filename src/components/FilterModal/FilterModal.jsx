@@ -24,6 +24,7 @@ const [value, setValue] = useState(() => {
     if (value === null) {
         localStorage.setItem('filter', "All");
     }
+    console.log(value)
   }, [value])
 
   const handleFilterChange = (event) => {
@@ -48,8 +49,9 @@ const [value, setValue] = useState(() => {
                         <h1 className={css.filterModalText}>Filters</h1>
                     </div>
                     <Formik
+                     initialValues={{ priority: value }}
                     >
-                        {() => (
+                        {({setFieldValue}) => (
                             <Form>
                                 <div className={css.filterLabel}>
                                     <p className={css.filterModalText2}>Label color</p>
@@ -58,28 +60,33 @@ const [value, setValue] = useState(() => {
                                         value="All"
                                         className={css.filterShowAllBtn} 
                                         name="priority"
-                                        onClick={handleFilterChange}
+                                        onClick={() => {
+                                            setFieldValue('priority', 'All');
+                                            setValue('All');
+                                          }}
                                     >
                                         Show all
                                     </button>
                                 </div>
-                                <div className={css.filterModalRadioContainer}>
-                                    <label className={css.filterModalRadioContainerRadio}>
-                                        <Field type="radio" value="Without" className={css.filterModalRadio4} id="editCardModalRadio4" name="priority" onChange={handleFilterChange} />
-                                        <span className={css.filterModalRadioText}>Without priority</span>
-                                    </label>
-                                    <label className={css.filterModalRadioContainerRadio}>
-                                        <Field type="radio" value="Low" className={css.filterModalRadio1} id="editCardModalRadio1" name="priority" onChange={handleFilterChange} />
-                                        <span className={css.filterModalRadioText}>Low</span>
-                                    </label>
-                                    <label className={css.filterModalRadioContainerRadio}>
-                                        <Field type="radio" value="Medium" className={css.filterModalRadio2} id="editCardModalRadio2" name="priority" onChange={handleFilterChange} />
-                                        <span className={css.filterModalRadioText}>Medium</span>
-                                    </label>
-                                    <label className={css.filterModalRadioContainerRadio}>
-                                        <Field type="radio" value="High" className={css.filterModalRadio3} id="editCardModalRadio3" name="priority" onChange={handleFilterChange} />
-                                        <span className={css.filterModalRadioText}>High</span>
-                                    </label>
+                                <div >
+                                    <div className={css.filterModalRadioContainer}>
+                                        <label className={css.containerRadio} onChange={handleFilterChange}>
+                                            <Field type="radio" value="Without" className={css.filterModalRadio4} id="editCardModalRadio4" name="priority" />
+                                            <span className={css.filterModalRadioText}>Without priority</span>
+                                        </label>
+                                        <label className={css.containerRadio} onChange={handleFilterChange}>
+                                            <Field type="radio" value="Low" className={css.filterModalRadio1} id="editCardModalRadio1" name="priority"  />
+                                            <span className={css.filterModalRadioText}>Low</span>
+                                        </label>
+                                        <label className={css.containerRadio} onChange={handleFilterChange}>
+                                            <Field type="radio" value="Medium" className={css.filterModalRadio2} id="editCardModalRadio2" name="priority" />
+                                            <span className={css.filterModalRadioText}>Medium</span>
+                                        </label>
+                                        <label className={css.containerRadio} onChange={handleFilterChange}>
+                                            <Field type="radio" value="High" className={css.filterModalRadio3} id="editCardModalRadio3" name="priority"  />
+                                            <span className={css.filterModalRadioText}>High</span>
+                                        </label>
+                                    </div>
                                 </div>
                             </Form>
                         )}

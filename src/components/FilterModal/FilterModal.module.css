@@ -110,15 +110,22 @@
     margin-top: 14px;
 }
 
+.containerRadio {
+    display: flex;
+    color: var(--filter-sa);
+    gap: 8px;
+}
+
 .filterModalRadioContainerRadio {
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     height: 18px;
     max-width: 110px;
     gap: 8px;
 }
 
-input[type=radio] {
+.containerRadio input[type="radio"] {
     height: 14px;
     aspect-ratio: 1;
     padding: 1px;
@@ -152,7 +159,7 @@ input[type=radio] {
     background: #5B5B5B;
 }
 
-input[type=radio]:checked {
+input[type="radio"]:checked {
     background-size: 100% 100%;
 }
 
@@ -181,7 +188,7 @@ input[type=radio]:checked {
 }
   
 @media print {
-    input[type=radio] {
+    input[type="radio"] {
         -webkit-appearance: auto;
         -moz-appearance: auto;
         appearance: auto;
@@ -201,7 +208,7 @@ input[type=radio]:checked {
     letter-spacing: -0.02em;
     text-align: left;
     cursor: pointer;
-    color: var(--modal-text);
+    color: var(--filter-sa);
 }
 
 

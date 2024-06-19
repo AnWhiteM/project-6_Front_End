@@ -3,6 +3,7 @@
   gap: 8px;
   width: 80px;
   margin-top: 5px;
+  margin-bottom: 0;
 }
 
 .ContainerRadio {
@@ -223,11 +224,36 @@ input[type="radio"]:checked {
 }
 
 .createCardModalDateContainer {
-    background-color: white;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
 }
 
-.createCardModalDate {
-    border: none;
+.deadlineText {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  color: #FFFFFF80;
+}
+
+.calendar {
+  width: 233px;
+  height: 254px;
+}
+
+.customTypography {
+  font-family: 'Poppins', sans-serif !important;
+  color: #FFFFFF;
+}
+
+.chevron {
+  fill: #FFFFFF !important;
+}
+
+.chevronIconDown {
+  stroke: #BEDBB0 !important;
 }
 
 @media screen and (min-width: 768px) {

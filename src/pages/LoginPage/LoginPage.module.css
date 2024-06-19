@@ -10,18 +10,85 @@
 }
 
 .img {
-    width: 162px; 
-    margin-bottom: 20px;
+    width: 142px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .img{
+      width: 162px;
+    }
   }
 .title {
     display: flex;
     align-items: center;
+    margin-top: 30px;
     margin-bottom: 10px;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     gap: 14px;
-    font-size: 25px;
+    font-size: 20px;
   }
+
+  @media screen and (min-width: 768px) {
+    .title{
+        font-size: 23px;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .title{
+
+        font-size: 25px;
+    }
+  }
+  
+
+  .logoBox{
+    background-color: #121212;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+
+  }
+
+  @media screen and (min-width: 768px) {
+    .logoBox{
+      width: 64px;
+      height: 64px;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .logoBox{
+      width: 64px;
+      height: 64px;
+        
+    }
+  }
+  .logoLight{
+    fill: #fff;
+    width: 22px;
+    height: 22px;
+
+  }
+  @media screen and (min-width: 768px) {
+    .logoLight{
+      width: 32px;
+    height: 32px;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .logoLight{
+      width: 32px;
+    height: 32px;
+        
+    }
+  }
+  
 .titlename{
     color: var(--black);
     font-family: "Poppins", sans-serif;
@@ -30,7 +97,7 @@
     color: var(--black);
     font-family: "Poppins", sans-serif;
     font-weight: 500;
-    font-size: 22px;
+    font-size: 14px;
     max-width: 45vh;
     text-align: center;
     padding-bottom: 48px;
@@ -38,12 +105,14 @@
   @media screen and (min-width: 768px) {
     .quote{
         max-width: 65vh;
+        font-size: 18px;
     }
   }
 
   @media screen and (min-width: 1280px) {
     .quote{
         max-width: 80vh;
+        font-size: 22px;
     }
   }
 

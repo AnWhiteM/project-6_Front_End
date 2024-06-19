@@ -14,23 +14,35 @@ export default function LoginPage() {
     <div className={css.box}>
       {!(isRegistering || isLoggingIn) && (
         <>
-          <picture>
+
+        <img 
+        className={css.img}
+        srcSet="https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235452/p6ex38slxwvcjwcwnbxj.png 1x, https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235452/ixq02fsx2ekcu2qu7nb0.png 2x" 
+        src="https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235452/ixq02fsx2ekcu2qu7nb0.png"
+        alt="man after the laptop" 
+        
+        
+        
+        />
+          {/* <picture className={css.img}>
             <source
               srcSet={`
                https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235452/p6ex38slxwvcjwcwnbxj.png  124w,
                https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235452/ixq02fsx2ekcu2qu7nb0.png 248w`}
-              sizes="(min-width: 1440px) 124px, (min-width: 1280px) 124px, (min-width: 768px) 124px, (min-width: 320px) 124px"
+              sizes="(min-width: 1440px) 162px, (min-width: 1280px) 162px, (min-width: 768px) 162px, (min-width: 320px) 124px"
             />
             <img
               src="https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235452/ixq02fsx2ekcu2qu7nb0.png"
               alt="man after the laptop"
             />
-          </picture>
+          </picture> */}
 
           <div className={css.title}>
-            <svg width="48" height="48">
+            <div className={css.logoBox}>
+            <svg className={css.logoLight}>
               <use href={svg + "#icon-logo"}></use>
             </svg>
+            </div>
             <h1 className={css.titlename}>Task Pro</h1>
           </div>
           <p className={css.quote}>

@@ -113,7 +113,7 @@ input[type="radio"]:checked {
   background: var(--modal-bg);
   border: 1px solid var(--modal-border);
   color: var(--modal-text);
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .createCardModalOverlay {

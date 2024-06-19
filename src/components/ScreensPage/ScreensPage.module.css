@@ -1,6 +1,6 @@
 .container {
   padding-top: 14px;
-  background-color: var(--board-bg);
+  background-color: var(--st-bg);
 }
 
 @media screen and (min-width: 768px) {

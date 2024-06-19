@@ -38,6 +38,8 @@
   --modal-border: var(--green);
 
   /* Sidebar */
+  --logo-icon-box: #1F1F1F;
+  --logo-icon: var(--white);
   --board-active: #f6f6f7;
   --border-active: var(--green);
   --sb-icons: rgba(22, 22, 22, 0.5);
@@ -70,9 +72,16 @@
   --b-plus: var(--white);
   --task-text: rgba(22, 22, 22, 0.7);
 
+
+  --st-bg:#F6F6F7;
+
   /* Scroll */
   --scroll-track-bg: #e8e8e8;
   --scroll-thumb-bg: rgba(22, 22, 22, 0.1);
+
+  --pop-up-bg:#FCFCFC;
+  --pop-up-tx:rgba(225, 225, 225, 0.5);
+  --pop-up-tx-hover:var(--green);
 }
 
 .violet-theme {
@@ -94,6 +103,8 @@
   --modal-border: var(--violet);
 
   /* Sidebar */
+  --logo-icon-box: #ECEDFD;
+  --logo-icon: var(--violet);
   --board-active: rgba(255, 255, 255, 0.3);
   --border-active: var(--white);
   --sb-icons: rgba(255, 255, 255, 0.5);
@@ -126,9 +137,16 @@
   --b-plus: var(--black);
   --task-text: rgba(22, 22, 22, 0.7);
 
+
+  --st-bg:#ECEDFD;
+
   /* Scroll */
   --scroll-track-bg: #fff;
   --scroll-thumb-bg: #b8bcfd;
+
+  --pop-up-bg:#FCFCFC;
+  --pop-up-tx:rgba(225, 225, 225, 0.5);
+  --pop-up-tx-hover:var(--violet);
 }
 
 .dark-theme {
@@ -150,6 +168,8 @@
   --modal-border: var(--green);
 
   /* Sidebar */
+  --logo-icon-box: #1F1F1F;
+  --logo-icon: var(--white);
   --board-active: #1f1f1f;
   --border-active: var(--green);
   --sb-icons: rgba(255, 255, 255, 0.5);
@@ -182,9 +202,16 @@
   --b-plus: var(--white);
   --task-text: rgba(255, 255, 255, 0.5);
 
+
+  --st-bg:#1F1F1F;
+
   /* Scroll */
   --scroll-track-bg: rgba(255, 255, 255, 0.08);
   --scroll-thumb-bg: #121212;
+
+  --pop-up-bg:#1F1F1F;
+  --pop-up-tx:rgba(22, 22, 22, 1);
+  --pop-up-tx-hover:var(--green);
 }
 
 html {

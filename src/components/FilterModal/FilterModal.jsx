@@ -19,6 +19,10 @@ const [value, setValue] = useState(() => {
     dispatch(setFilterPriority(value));
   }, [dispatch, value]);
 
+  useEffect(() => {
+    localStorage.setItem('filter', value);
+  }, [value])
+
   const handleFilterChange = (event) => {
     setValue(event.target.value);
   };

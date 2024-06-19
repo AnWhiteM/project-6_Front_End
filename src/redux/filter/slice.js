@@ -8,7 +8,6 @@ export const filtersSlice = createSlice({
     reducers: {
         setFilterPriority(state, action) {
             state.priority = action.payload;
-            localStorage.setItem('filter', action.payload);
         }
     }
 })

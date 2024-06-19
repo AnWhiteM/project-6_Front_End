@@ -77,6 +77,39 @@ input[type="radio"]:checked {
   margin-bottom: 20px;
 }
 
+.createCardModalDateContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.deadlineText {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  color: #FFFFFF80;
+}
+
+.calendar {
+  width: 233px;
+  height: 254px;
+}
+
+.customTypography {
+  font-family: 'Poppins', sans-serif !important;
+  color: #FFFFFF;
+}
+
+.chevron {
+  fill: #FFFFFF !important;
+}
+
+.chevronIconDown {
+  stroke: #BEDBB0 !important;
+}
+
 @media print {
   input[type="radio"] {
     -webkit-appearance: auto;

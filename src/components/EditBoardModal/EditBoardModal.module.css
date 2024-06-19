@@ -1,3 +1,28 @@
+.inputError {
+  border: 1px solid red;
+}
+
+.formContainer{
+  position: relative;
+}
+
+.errorContainer {
+  position: absolute;
+  top: -14px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.error {
+  height: 0px;
+  color: red;
+  font-size: 12px;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
 .iconWrapper {
   width: 28px;
   height: 28px;
@@ -76,11 +101,6 @@
   letter-spacing: -0.02em;
 }
 
-.error {
-  margin-top: 8px;
-  color: orange;
-  font-size: 8px;
-}
 
 .iconPlus {
   stroke: var(--modal-plus);

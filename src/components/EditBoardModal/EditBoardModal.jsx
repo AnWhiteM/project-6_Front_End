@@ -93,20 +93,25 @@ export default function EditBoardModal({
         validationSchema={titleValidationSchema}
         onSubmit={submitHandler}
       >
-        {({ setFieldValue }) => (
-          <Form>
-            <div>
+        {({ setFieldValue, errors, touched }) => (
+          <Form className={css.form}>
+            <div className={css.formContainer}>
               <label htmlFor="title"></label>
+              <div className={css.errorContainer}>
+                <ErrorMessage
+                  name="title"
+                  component="span"
+                  className={css.error}
+                />
+              </div>
               <Field
-                className={css.input}
+                id="title"
+                className={`${css.input} ${
+                  errors.name && touched.name ? css.inputError : ""
+                }`}
                 name="title"
                 placeholder="Title"
                 required
-              />
-              <ErrorMessage
-                className={css.error}
-                component="span"
-                name="title"
               />
             </div>
             <div>

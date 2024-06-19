@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteTask, updateOwner } from "../../redux/tasks/operations";
 import { useParams } from "react-router-dom";
 import { selectColumns } from "../../redux/columns/selectors";
-
+import moment from "moment";
 
 export const Task = ({ task }) => {
   const [editCardModal, setEditCardModal] = useState(false);
@@ -62,7 +62,14 @@ export const Task = ({ task }) => {
   };
 
   const handleMoveTask = (targetColumnId, taskOwner) => {
-    dispatch(updateOwner({ deskId, columnId: taskOwner, taskId: task._id, newColumnId: targetColumnId }));
+    dispatch(
+      updateOwner({
+        deskId,
+        columnId: taskOwner,
+        taskId: task._id,
+        newColumnId: targetColumnId,
+      })
+    );
     setShowTooltip(false);
   };
 
@@ -78,26 +85,34 @@ export const Task = ({ task }) => {
           <div className={css.column}>
             <p className={css.p}>Priority</p>
             <div className={css.container}>
-              <div className={css.kolo} style={{ backgroundColor: labelColor }}></div>
+              <div
+                className={css.kolo}
+                style={{ backgroundColor: labelColor }}
+              ></div>
               <p className={css.info}>{task.priority}</p>
             </div>
           </div>
 
           <div className={css.column}>
             <p className={css.p}>Deadline</p>
-            <p className={css.info}>{task.deadline}</p>
+            <p className={css.info}>
+              {moment(task.deadline).format("DD/MM/YYYY")}
+            </p>
           </div>
         </div>
-        
+
         <div className={css.icons}>
-        <button className={css.wrapIcon}>
-          <svg className={css.bell} width="16" height="16">
-            <use href={svg + "#icon-bell"}></use>
+          <button className={css.wrapIcon}>
+            <svg className={css.bell} width="16" height="16">
+              <use href={svg + "#icon-bell"}></use>
             </svg>
           </button>
 
           <div className={css.btns}>
-            <button className={css.wrapIcon} onClick={() => setShowTooltip(!showTooltip)}>
+            <button
+              className={css.wrapIcon}
+              onClick={() => setShowTooltip(!showTooltip)}
+            >
               <svg className={css.icon} width="16" height="16">
                 <use href={svg + "#icon-arrow-circle"}></use>
               </svg>
@@ -117,14 +132,20 @@ export const Task = ({ task }) => {
       </div>
       {showTooltip && (
         <div className={css.tooltip}>
-          {columns.filter(column => column._id !== task.owner).map(column => (
-              <div key={column._id} onClick={() => handleMoveTask(column._id, task.owner)} className={css.tooltipItem}>
-              {column.title}
-              <svg className={css.iconTool} width="16" height="16">
-                <use href={svg + "#icon-arrow-circle"}></use>
-              </svg>
-            </div>
-          ))}
+          {columns
+            .filter((column) => column._id !== task.owner)
+            .map((column) => (
+              <div
+                key={column._id}
+                onClick={() => handleMoveTask(column._id, task.owner)}
+                className={css.tooltipItem}
+              >
+                {column.title}
+                <svg className={css.iconTool} width="16" height="16">
+                  <use href={svg + "#icon-arrow-circle"}></use>
+                </svg>
+              </div>
+            ))}
         </div>
       )}
       {editCardModal && (
@@ -132,4 +153,4 @@ export const Task = ({ task }) => {
       )}
     </div>
   );
-}
+};

@@ -76,6 +76,12 @@
   top: 60px;
   cursor: pointer;
 }
+.avatarBtn{
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
 
 .formInput {
   padding: 14px 18px;

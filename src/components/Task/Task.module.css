@@ -129,7 +129,8 @@
     z-index: 5000;
     min-width: 135px;
     border-radius: 8px;
-    background-color: #1F1F1F;
+    border: 1px solid var(--modal-border);
+    background-color: var(--pop-up-bg);
     padding: 18px 18px 10px 18px;
     font-size: 14px;
     right: 0;
@@ -140,19 +141,19 @@
    display: flex;
    justify-content: space-between;
    padding-bottom: 8px;
-   color: rgba(255, 255, 255, 0.5);
+   color: var(--pop-up-tx);
   }
   
   .iconTool{
     fill: none;
-    stroke: rgba(255, 255, 255, 0.5);
+    stroke: var(--pop-up-tx);
   }
 
   .tooltipItem:hover{
-    color: #bedbb0;
+    color: var(--pop-up-tx-hover);
   }
   
   .iconTool:hover{
-    stroke: #bedbb0;
+    stroke: var(--pop-up-tx-hover);
   }
 

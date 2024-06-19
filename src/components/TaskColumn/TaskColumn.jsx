@@ -45,14 +45,15 @@ export const TaskColumn = ({ board }) => {
   }, [dispatch, currentTask, currentColumn]);
 
   const savedPriority = localStorage.getItem('filter', filterPriority);
-
+  
   const filterByPriority = (tasks) => {
     if (savedPriority === "All") {
       return tasks;
-    }
+    } else if (savedPriority === null) {
+      return tasks;
+    } 
     return tasks.filter((task) => task.priority === savedPriority);
   }
-
 
   return (
     <ul className={css.columnWrapper}>

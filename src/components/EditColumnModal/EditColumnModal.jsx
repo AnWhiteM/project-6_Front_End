@@ -53,7 +53,6 @@ export const EditColumn = ({ isOpen, isClose, column }) => {
           <Formik
             initialValues={{ columnname: column.title }}
             validationSchema={columnModalValidation}
-            portalClassName="createColumnModalContainer"
             onSubmit={handleSubmit}
           >
             <Form autoComplete="off" className={css.editColumnModalForm}>

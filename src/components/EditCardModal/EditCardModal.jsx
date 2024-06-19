@@ -16,7 +16,7 @@ import "./react-date-picker.css";
 Modal.setAppElement("#root");
 
 export const EditCard = ({ isOpen, isClose, task }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(task.deadline);
 
   const dispatch = useDispatch();
   const { deskId } = useParams();
@@ -155,7 +155,7 @@ export const EditCard = ({ isOpen, isClose, task }) => {
                     css.calendarContainer
                   )}
                   dateFormat="EEEE, MMMM dd"
-                  selected={task.deadline}
+                  selected={selectedDate}
                   onChange={(date) => setSelectedDate(date)}
                   required
                   minDate={new Date()}

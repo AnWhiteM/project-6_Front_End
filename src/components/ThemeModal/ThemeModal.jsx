@@ -77,7 +77,7 @@
 //   );
 // }
 
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sendThemeToServer } from "../../redux/theme/operation";
 import { setTheme } from "../../redux/theme/slice";
@@ -87,14 +87,19 @@ export default function ThemeModal({ closeMenuModal }) {
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme.theme);
 
-  console.log("theme:" ,theme);
+  // useEffect(() => {
+  //   const savedTheme = localStorage.getItem("theme");
+  //   if (savedTheme) {
+  //     dispatch(setTheme(savedTheme));
+  //   }
+  // }, [dispatch]);
 
-  useEffect(() => {
-    if (theme) {
-      document.body.className = `${theme}-theme`;
-      localStorage.setItem("theme", theme); // Збереження теми в локальному сховищі
-    }
-  }, [theme]);
+  // useEffect(() => {
+  //   if (theme) {
+  //     document.body.className = `${theme}-theme`;
+  //     localStorage.setItem("theme", theme); // Збереження теми в локальному сховищі
+  //   }
+  // }, [theme]);
 
   const handleThemeChange = (selectedTheme) => {
     dispatch(setTheme(selectedTheme));

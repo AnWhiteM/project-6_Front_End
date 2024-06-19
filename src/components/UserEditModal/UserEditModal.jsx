@@ -77,11 +77,6 @@ export default function UserEditModal({ onClose }) {
         sendInfo.password = values.password;
       }
 
-      // const sendInfo = {
-      //   name: values.name,
-      //   email: values.email,
-      //   password: values.password,
-      // };
       await dispatch(updateUserInfo(sendInfo))
         .unwrap()
         .then((data) => {
@@ -99,7 +94,7 @@ export default function UserEditModal({ onClose }) {
       let nmb = parseInt(statusCode);
 
       if (nmb === 409) {
-        toast.error("Email already in use. Please use a different email. ");
+        toast.error("Email already in use. Please use a different email.");
       } else {
         toast.error("The error occured.Please try again");
       }

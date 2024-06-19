@@ -231,7 +231,7 @@ input[type="radio"]:checked {
   font-size: 14px;
   font-weight: 500;
   background-color: var(--btn-color);
-  color: var(--text-color);
+  color: var(--b-text);
   border: none;
   width: 287px;
   height: 49px;

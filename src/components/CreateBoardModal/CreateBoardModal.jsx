@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { addBoard } from "../../redux/boards/operations";
 
-import css from "../EditBoardModal/EditBoardModal.module.css";
+import css from "./CreateBoardModal.module.css";
 import svg from "../../img/icons.svg";
 import bgData from "../../assets/bg.json";
 import clsx from "clsx";
@@ -28,7 +28,7 @@ const titleValidationSchema = Yup.object().shape({
   title: Yup.string()
     .min(1, "Too short!")
     .max(20, "Too long!")
-    .required("Required field"),
+    .required("Required"),
 });
 
 export default function CreateBoardModal({
@@ -37,7 +37,7 @@ export default function CreateBoardModal({
   initialTitle = "",
 }) {
   const [selectedIcon, setSelectedIcon] = useState(icons[0]);
-  const [selectedBg, setSelectedBg] = useState({});
+  const [selectedBg, setSelectedBg] = useState(bgData[0]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -92,20 +92,26 @@ export default function CreateBoardModal({
         validationSchema={titleValidationSchema}
         onSubmit={handleSubmit}
       >
-        {({ setFieldValue, values }) => (
-          <Form>
-            <div>
-              <label htmlFor="title"></label>
+        {({ setFieldValue, values, errors, touched }) => (
+          <Form className={css.form}>
+            <div className={css.formContainer}>
+              <label htmlFor="title" />
+              <div className={css.errorContainer}>
+                <ErrorMessage
+                  name="title"
+                  component="span"
+                  className={css.error}
+                />
+              </div>
+
               <Field
-                className={css.input}
+                type="title"
                 name="title"
                 placeholder="Title"
+                className={`${css.input} ${
+                  errors.name && touched.name ? css.inputError : ""
+                }`}
                 required
-              />
-              <ErrorMessage
-                className={css.error}
-                component="span"
-                name="title"
               />
             </div>
             <div>

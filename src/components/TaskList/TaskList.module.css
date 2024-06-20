@@ -1,15 +1,19 @@
 .taskList {
   overflow-x: hidden;
   overflow-y: auto;
+  flex: 1;
   max-height: calc(100vh - 348px);
   padding-right: 4px;
   width: 347px;
   margin-bottom: 14px;
+  height: 100vh
+  
 }
 
 .taskList::-webkit-scrollbar {
   width: 8px;
   height: 20px;
+  
 }
 
 .taskList::-webkit-scrollbar-track {

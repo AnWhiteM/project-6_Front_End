@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Modal from "react-modal";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { addBoard } from "../../redux/boards/operations";
 
-import css from "./CreateBoardModal.module.css";
+import css from "../EditBoardModal/EditBoardModal.module.css";
+
 import svg from "../../img/icons.svg";
 import bgData from "../../assets/bg.json";
 import clsx from "clsx";
@@ -40,10 +41,6 @@ export default function CreateBoardModal({
   const [selectedBg, setSelectedBg] = useState(bgData[0]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    console.log(selectedBg);
-  }, [selectedBg]);
 
   const handleSubmit = async (values, actions) => {
     const newBoard = {
@@ -93,9 +90,8 @@ export default function CreateBoardModal({
         onSubmit={handleSubmit}
       >
         {({ setFieldValue, values, errors, touched }) => (
-          <Form className={css.form}>
-            <div className={css.formContainer}>
-              <label htmlFor="title" />
+          <Form>
+            <div className={css.formGroup}>
               <div className={css.errorContainer}>
                 <ErrorMessage
                   name="title"
@@ -103,15 +99,13 @@ export default function CreateBoardModal({
                   className={css.error}
                 />
               </div>
-
               <Field
-                type="title"
+                className={`${css.input} ${
+                  errors.title && touched.title ? css.inputError : ""
+                }`}
+                type="input"
                 name="title"
                 placeholder="Title"
-                className={`${css.input} ${
-                  errors.name && touched.name ? css.inputError : ""
-                }`}
-                required
               />
             </div>
             <div>

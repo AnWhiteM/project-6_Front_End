@@ -111,6 +111,7 @@
 .inputError,
 .textAreaError {
   border: 1px solid red;
+  opacity: 100%;
 }
 
 .button {

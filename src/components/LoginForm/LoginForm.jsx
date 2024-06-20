@@ -64,7 +64,6 @@ export default function LoginForm() {
         {({ errors, touched }) => (
           <Form className={css.form}>
             <div className={css.formContainer}>
-              <label htmlFor="email" />
               <div className={css.errorContainer}>
                 <ErrorMessage
                   name="email"
@@ -83,7 +82,6 @@ export default function LoginForm() {
             </div>
 
             <div className={css.formContainer}>
-              <label htmlFor="password" />
               <div className={css.errorContainer}>
                 <ErrorMessage
                   name="password"
@@ -96,6 +94,7 @@ export default function LoginForm() {
                 <Field
                   type={showPassword ? "text" : "password"}
                   name="password"
+                  id="password"
                   className={`${css.input} ${
                     errors.password && touched.password ? css.inputError : ""
                   }`}

@@ -85,6 +85,7 @@ input[type="radio"]:checked {
   width: 100%;
   height: 20px;
   font-size: 14px;
+  letter-spacing: -0.02em;
   border: none;
   color: var(--calendar-input);
   position: relative;
@@ -199,7 +200,6 @@ input[type="radio"]:checked {
   gap: 4px;
 }
 
-
 .editCardModalInput1 {
   background: var(--modal-bg);
   border: 1px solid var(--modal-border);
@@ -245,6 +245,7 @@ input[type="radio"]:checked {
 
 .inputError {
   border: 1px solid red;
+  opacity: 100%;
 }
 
 .editCardModalInput1:hover,
@@ -281,8 +282,9 @@ input[type="radio"]:checked {
   cursor: pointer;
 }
 
-.editCardModalSubmit:hover, .editCardModalSubmit:focus{
-  background-color:var(--btn-hover);
+.editCardModalSubmit:hover,
+.editCardModalSubmit:focus {
+  background-color: var(--btn-hover);
 }
 
 .editCardModalSpan {

@@ -104,97 +104,96 @@ export const CreateCard = ({ isOpen, isClose, column }) => {
           onSubmit={handleSubmit}
         >
           {({ errors, touched }) => (
-          <Form autoComplete="off" className={css.createCardModalForm}>
-          <label htmlFor="title" />
-          <div className={css.errorContainer1}>
+            <Form autoComplete="off" className={css.createCardModalForm}>
+              <div className={css.errorContainer1}>
                 <ErrorMessage
                   name="title"
                   component="span"
                   className={css.error}
                 />
               </div>
-            <Field
-              type="text"
-              name="title"
-              className={`${css.createCardModalInput1} ${
-                errors.title && touched.title ? css.inputError : ""
-              }`}
-              placeholder="Title"
-            />
-           
-           
-            <label htmlFor="description" />
-            <div className={css.errorContainer2}>
+              <Field
+                type="text"
+                name="title"
+                className={`${css.createCardModalInput1} ${
+                  errors.title && touched.title ? css.inputError : ""
+                }`}
+                placeholder="Title"
+              />
+
+              <div className={css.errorContainer2}>
                 <ErrorMessage
                   name="description"
                   component="span"
                   className={css.error}
                 />
               </div>
-            <Field
-              as="textarea"
-              name="description"
-              className={`${css.createCardModalInput2} ${
-                errors.description && touched.description ? css.inputError : ""
-              }`}
-              placeholder="Description"
-            />
-            
-            <label className={css.createCardModalLabel}>
-              Label color
-              <ul className={css.createCardModalRadioList}>
-                {radioBtns.map((radioBtn, index) => (
-                  <li key={index} className={css.ContainerRadio}>
-                    <Field
-                      type="radio"
-                      name="priority"
-                      value={radioBtn.priority}
-                      className={radioBtn.class}
-                      id={radioBtn.id}
-                    />
-                  </li>
-                ))}
-              </ul>
-            </label>
-            <div className={css.createCardModalDateContainer}>
-              <p className={css.deadlineText}>Deadline</p>
-              <DatePicker
-                wrapperClassName={css.wrapper}
-                className={clsx(css.calendar, css.input)}
-                calendarClassName={clsx(
-                  css.calendarModal,
-                  css.calendarContainer
-                )}
-                dateFormat="EEEE, MMMM dd"
-                selected={selectedDate}
-                onChange={(date) => setSelectedDate(date)}
-                required
-                minDate={new Date()}
-                showIcon
-                icon={
-                  <svg
-                    className={clsx(css.dateIcon, css.calendarIcon, css.Icon)}
-                    width="20"
-                    height="20"
-                  >
-                    <use href={svg + "#chevron-down-icon"}></use>
-                  </svg>
-                }
+              <Field
+                as="textarea"
+                name="description"
+                className={`${css.createCardModalInput2} ${
+                  errors.description && touched.description
+                    ? css.inputError
+                    : ""
+                }`}
+                placeholder="Description"
               />
-            </div>
-            <button type="submit" className={css.createCardModalSubmit}>
-              <span className={css.createCardModalSpan}>
-                <svg
-                  className={css.createCardModalAddIcon}
-                  width="14px"
-                  height="14px"
-                >
-                  <use href={svg + "#icon-plus"}></use>
-                </svg>
-              </span>
-              Add
-            </button>
-          </Form>
+
+              <label className={css.createCardModalLabel}>
+                Label color
+                <ul className={css.createCardModalRadioList}>
+                  {radioBtns.map((radioBtn, index) => (
+                    <li key={index} className={css.ContainerRadio}>
+                      <Field
+                        type="radio"
+                        name="priority"
+                        value={radioBtn.priority}
+                        className={radioBtn.class}
+                        id={radioBtn.id}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </label>
+              <div className={css.createCardModalDateContainer}>
+                <p className={css.deadlineText}>Deadline</p>
+                <DatePicker
+                  wrapperClassName={css.wrapper}
+                  className={clsx(css.calendar, css.input)}
+                  calendarClassName={clsx(
+                    css.calendarModal,
+                    css.calendarContainer
+                  )}
+                  dateFormat="EEEE, MMMM dd"
+                  selected={selectedDate}
+                  onChange={(date) => setSelectedDate(date)}
+                  required
+                  minDate={new Date()}
+                  showIcon
+                  icon={
+                    <svg
+                      className={clsx(css.dateIcon, css.calendarIcon, css.Icon)}
+                      width="20"
+                      height="20"
+                    >
+                      <use href={svg + "#chevron-down-icon"}></use>
+                    </svg>
+                  }
+                />
+              </div>
+              <button type="submit" className={css.createCardModalSubmit}>
+                <span className={css.createCardModalSpan}>
+                  <svg
+                    className={css.createCardModalAddIcon}
+                    width="14px"
+                    height="14px"
+                  >
+                    <use href={svg + "#icon-plus"}></use>
+                  </svg>
+                </span>
+                Add
+              </button>
+            </Form>
           )}
         </Formik>
       </div>

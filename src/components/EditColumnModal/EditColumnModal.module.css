@@ -73,6 +73,7 @@
 
 .inputError {
   border: 1px solid red;
+  opacity: 100%;
 }
 
 .editColumnModalInput:hover,
@@ -106,7 +107,8 @@
   cursor: pointer;
 }
 
-.editColumnModalSubmit:hover, .editColumnModalSubmit:focus{
+.editColumnModalSubmit:hover,
+.editColumnModalSubmit:focus {
   background-color: var(--btn-hover);
 }
 

@@ -64,9 +64,6 @@ export default function Header({ openSideBar, sideBarOpen }) {
                 <p className={css.text}>{user.name}</p>
                   <span
                     className={`${css.avatarSmall} ${css.avatar}`}
-                    // style={{
-                    //   backgroundImage: `url(${user.avatarURL})`,
-                    // }}
                     style={
                       user.avatarURL
                         ? { backgroundImage: `url(${user.avatarURL})` }

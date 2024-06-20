@@ -1,4 +1,4 @@
-.formContainer{
+.formContainer {
   position: relative;
 }
 .errorContainer {
@@ -10,40 +10,43 @@
   gap: 4px;
 }
 
-.form{
-    display: flex;
-    flex-direction: column;
-    gap:20px;
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.input{
-    width: 287px;
-    height: 49px;
-    color: var(--white);
-    background-color: #1F1F1F;
-    width: 100%;
+.input {
+  width: 287px;
+  height: 49px;
+  color: var(--white);
+  background-color: #1f1f1f;
+  width: 100%;
   padding: 10px;
   border: 1px solid #bedbb07a;
   border-radius: 5px;
   outline: none;
   box-shadow: none;
-    
+
   transition: border var(--animation);
 }
 @media screen and (min-width: 768px) {
-    .input {
-        width: 344px;
-    }
+  .input {
+    width: 344px;
   }
+}
 
-.input:hover, .input:focus{
-    border: 1px solid #bedbb0;
+.input:hover,
+.input:focus {
+  border: 1px solid #bedbb0;
 }
 .inputError {
   border: 1px solid red;
+  opacity: 100%;
 }
-.button{
-    margin-top: 24px;
-    width: 100%;
+
+.button {
+  margin-top: 24px;
+  width: 100%;
   padding: 10px;
   background-color: #bedbb0;
   color: #333;
@@ -55,8 +58,9 @@
   font-weight: 500;
   transition: background-color var(--animation);
 }
-.button:hover, .button:focus{
-    background-color: #dbffc9;
+.button:hover,
+.button:focus {
+  background-color: #dbffc9;
 }
 
 .eye {
@@ -69,10 +73,10 @@
   right: 18px;
 }
 
-  .error {
-    height: 0px;
-    color: red;
-    font-size: 12px;
-    text-align: left;
-    margin-bottom: 5px;
-  }
+.error {
+  height: 0px;
+  color: red;
+  font-size: 12px;
+  text-align: left;
+  margin-bottom: 5px;
+}

@@ -24,7 +24,6 @@ const [value, setValue] = useState(() => {
     if (value === null) {
         localStorage.setItem('filter', "All");
     }
-    console.log(value)
   }, [value])
 
   const handleFilterChange = (event) => {

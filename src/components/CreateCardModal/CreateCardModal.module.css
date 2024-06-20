@@ -272,19 +272,6 @@ input[type="radio"]:checked {
   color: #ffffff80;
 }
 
-.customTypography {
-  font-family: "Poppins", sans-serif !important;
-  color: #ffffff;
-}
-
-.chevron {
-  fill: #ffffff !important;
-}
-
-.chevronIconDown {
-  stroke: #bedbb0 !important;
-}
-
 @media screen and (min-width: 768px) {
   .createCardModal {
     width: 350px;

@@ -55,7 +55,6 @@ export const CreateColumn = ({ isOpen, isClose, board }) => {
           <Formik
             initialValues={{ title: "" }}
             validationSchema={columnModalValidation}
-            portalClassName="createColumnModalContainer"
             onSubmit={handleSubmit}
           >
             <Form autoComplete="off" className={css.createColumnModalForm}>

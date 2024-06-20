@@ -126,24 +126,6 @@ input[type="radio"]:checked {
   color: #ffffff80;
 }
 
-.calendar {
-  width: 233px;
-  height: 254px;
-}
-
-.customTypography {
-  font-family: "Poppins", sans-serif !important;
-  color: #ffffff;
-}
-
-.chevron {
-  fill: #ffffff !important;
-}
-
-.chevronIconDown {
-  stroke: #bedbb0 !important;
-}
-
 @media print {
   input[type="radio"] {
     -webkit-appearance: auto;

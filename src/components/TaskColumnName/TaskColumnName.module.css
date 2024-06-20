@@ -6,7 +6,7 @@
     border-radius: 8px;
     padding: 20px 18px;
     color: var(--modal-text);
-    max-width: 335px;
+    max-width: 320px;
     margin-bottom: 14px;
 }
 
@@ -41,3 +41,9 @@
     filter: drop-shadow(0 0 5.5px var(--sb-shadows-hover));
     stroke: var(--sb-shadows-hover);
 }
+
+@media screen and (min-width: 768px) {
+    .taskColumn {
+      max-width: 335px;
+    }
+  }

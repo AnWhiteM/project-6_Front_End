@@ -8,7 +8,7 @@
   border-radius: 8px;
   background: var(--add-card-btn);
   color: var(--b-text);
-  width: 334px;
+  width: 320px;
   height: 56px;
   }
 
@@ -32,3 +32,9 @@
 .icon{
     stroke: var(--b-plus);
   }
+  @media screen and (min-width: 768px) {
+    .btn {
+      width: 335px;
+    }
+  }
+  

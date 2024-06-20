@@ -23,7 +23,7 @@ export default function UserEditModal({ onClose }) {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
-  // ссылка к скрытому тнпуту тип файл
+  
   const fileInputRef = useRef(null);
 
   const handleMenuClick = (ev) => {
@@ -38,9 +38,7 @@ export default function UserEditModal({ onClose }) {
     const file = event.target.files[0];
     if (file) {
       try {
-        //создаем новый объект FormData для отправки файла на сервер
         const formData = new FormData();
-        //добавляем выбранный файл в объект FormData
         formData.append("avatar", file);
         const response = await axios.put(
           "https://project06back.onrender.com/users/avatar",
@@ -53,7 +51,6 @@ export default function UserEditModal({ onClose }) {
         );
         const url = response.data.avatarURL;
         if (url) {
-          // Установ новый URL аватара в стейт пользователя
           dispatch(updAvatarURL(url));
         }
       } catch (error) {

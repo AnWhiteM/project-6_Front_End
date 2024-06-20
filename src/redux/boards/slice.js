@@ -16,11 +16,6 @@ const boardSlice = createSlice({
     loading: false,
     error: null,
   },
-  // reducers: {
-  //   setCurrentBoardId(state, action) {
-  //     state.currentBoardId = action.payload;
-  //   },
-  // },
   extraReducers: (builder) =>
     builder
       .addCase(getBoards.pending, (state) => {

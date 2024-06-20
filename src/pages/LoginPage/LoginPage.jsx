@@ -2,8 +2,6 @@ import svg from "../../img/icons.svg";
 import { NavLink } from "react-router-dom";
 import css from "./LoginPage.module.css";
 import { useLocation } from "react-router-dom";
-// import Register from "../Register/Register";
-// import Login from "../Login/Login";
 
 export default function LoginPage() {
   const location = useLocation();
@@ -24,18 +22,6 @@ export default function LoginPage() {
         
         
         />
-          {/* <picture className={css.img}>
-            <source
-              srcSet={`
-               https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235452/p6ex38slxwvcjwcwnbxj.png  124w,
-               https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235452/ixq02fsx2ekcu2qu7nb0.png 248w`}
-              sizes="(min-width: 1440px) 162px, (min-width: 1280px) 162px, (min-width: 768px) 162px, (min-width: 320px) 124px"
-            />
-            <img
-              src="https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235452/ixq02fsx2ekcu2qu7nb0.png"
-              alt="man after the laptop"
-            />
-          </picture> */}
 
           <div className={css.title}>
             <div className={css.logoBox}>
@@ -57,10 +43,6 @@ export default function LoginPage() {
           </NavLink>
         </>
       )}
-      {/* <Routes>
-        <Route path="/auth/register" element={<Register />} />
-        <Route path="/auth/login" element={<Login />} />
-      </Routes> */}
     </div>
   );
 }

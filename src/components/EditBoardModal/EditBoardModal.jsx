@@ -28,7 +28,7 @@ const titleValidationSchema = Yup.object().shape({
   title: Yup.string()
     .min(1, "Too short!")
     .max(20, "Too long!")
-    .required("Required field"),
+    .required("Required"),
 });
 
 export default function EditBoardModal({
@@ -89,6 +89,7 @@ export default function EditBoardModal({
             <use href={svg + "#x-close"}></use>
           </svg>
         </button>
+
         <Formik
           initialValues={{
             title: title,
@@ -98,20 +99,23 @@ export default function EditBoardModal({
           validationSchema={titleValidationSchema}
           onSubmit={submitHandler}
         >
-          {({ setFieldValue }) => (
+          {({ setFieldValue, errors, touched }) => (
             <Form>
-              <div>
-                <label htmlFor="title"></label>
+              <div className={css.formGroup}>
+                <div className={css.errorContainer}>
+                  <ErrorMessage
+                    name="title"
+                    component="span"
+                    className={css.error}
+                  />
+                </div>
                 <Field
-                  className={css.input}
+                  className={`${css.input} ${
+                    errors.title && touched.title ? css.inputError : ""
+                  }`}
+                  type="input"
                   name="title"
                   placeholder="Title"
-                  required
-                />
-                <ErrorMessage
-                  className={css.error}
-                  component="span"
-                  name="title"
                 />
               </div>
               <div>

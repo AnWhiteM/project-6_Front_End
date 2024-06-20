@@ -186,7 +186,6 @@ input[type="radio"]:checked {
   gap: 4px;
 }
 
-
 .createCardModalInput1 {
   background: var(--modal-bg);
   border: 1px solid var(--modal-border);
@@ -231,6 +230,7 @@ input[type="radio"]:checked {
 
 .inputError {
   border: 1px solid red;
+  opacity: 100%;
 }
 
 .createCardModalInput1:hover,
@@ -267,8 +267,9 @@ input[type="radio"]:checked {
   cursor: pointer;
 }
 
-.createCardModalSubmit:hover, .createCardModalSubmit:focus{
-  background-color:var(--btn-hover);
+.createCardModalSubmit:hover,
+.createCardModalSubmit:focus {
+  background-color: var(--btn-hover);
 }
 
 .createCardModalSpan {

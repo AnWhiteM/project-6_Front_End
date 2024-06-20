@@ -58,6 +58,22 @@
   outline: none;
   opacity: 40%;
   color: var(--modal-text);
+
+  transition: border var(--animation);
+}
+
+.errorContainer {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.inputError {
+  border: 1px solid red;
+  opacity: 100%;
 }
 
 .editColumnModalInput:hover,
@@ -72,6 +88,7 @@
   letter-spacing: -0.02em;
   text-align: left;
   font-family: "Poppins", sans-serif;
+  margin-bottom: 24px;
 }
 
 .editColumnModalSubmit {
@@ -88,6 +105,11 @@
   height: 49px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.editColumnModalSubmit:hover,
+.editColumnModalSubmit:focus {
+  background-color: var(--btn-hover);
 }
 
 .editColumnModalSpan {
@@ -111,7 +133,7 @@
   color: red;
   font-size: 12px;
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 @media screen and (min-width: 768px) {

@@ -25,6 +25,7 @@
   --background-color: #f4f4f4;
   --btn-color: #bedbb0;
   --btn-hover: #9dc888;
+  --btn-hover2:#f0fde9;
   --line: rgba(22, 22, 22, 0.5);
   --icons: rgba(22, 22, 22, 0.5);
   --icons-hover: rgba(22, 22, 22, 1);
@@ -57,6 +58,7 @@
   --btn-active: var(--green);
   --add-img: var(--green);
   --header-btn: var(--green);
+  --header-btn-hover:#9dc888;
   --header-avatar: url(https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718470207/p8idpbdlblbi3p16ubzp.jpg);
   --filter-line: rgba(22, 22, 22, 0.1);
   --filter-sa: rgba(22, 22, 22, 0.5);
@@ -79,9 +81,18 @@
   --scroll-track-bg: #e8e8e8;
   --scroll-thumb-bg: rgba(22, 22, 22, 0.1);
 
+
+  /* Tool tip */
   --pop-up-bg:#FCFCFC;
   --pop-up-tx:rgba(22,22,22,1);
   --pop-up-tx-hover:var(--green);
+
+  /* Calendar */
+ --calendar-input:var(--green);
+ --calendar-bg:var(--white);
+ --calendar-day: rgba(22,22,22,0.2);
+ --calendar-hover-box:var(--green);
+ --calendar-hover-text:var(--black);
 }
 
 .violet-theme {
@@ -90,6 +101,7 @@
   --background-color: var(--violet);
   --btn-color: #b8bcfd;
   --btn-hover: #9da2fa;
+  --btn-hover2:#e4e5ff;
   --line: rgba(255, 255, 255, 0.5);
   --icons: rgba(22, 22, 22, 0.5);
   --icons-hover: rgba(22, 22, 22, 1);
@@ -122,6 +134,7 @@
   --btn-active: var(--violet);
   --add-img: #ecedfd;
   --header-btn: var(--violet);
+  --header-btn-hover:#6f73ca;
   --header-avatar: url(https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718616860/user_uw4dwo.png);
   --filter-line: rgba(22, 22, 22, 0.1);
   --filter-sa: rgba(22, 22, 22, 0.5);
@@ -144,9 +157,19 @@
   --scroll-track-bg: #fff;
   --scroll-thumb-bg: #b8bcfd;
 
+
+  /* Tool tip */
   --pop-up-bg:#FCFCFC;
   --pop-up-tx:rgba(22,22,22,1);
   --pop-up-tx-hover:var(--violet);
+
+
+  /* Calendar */
+ --calendar-input:var(--violet);
+ --calendar-bg:var(--white);
+ --calendar-day: rgba(22,22,22,0.2);
+ --calendar-hover-box:var(--violet);
+ --calendar-hover-text:var(--white);
 }
 
 .dark-theme {
@@ -155,6 +178,7 @@
   --background-color: #333333;
   --btn-color: #bedbb0;
   --btn-hover: #9dc888;
+  --btn-hover2:#2c2c2c;
   --line: rgba(255, 255, 255, 0.5);
   --icons: rgba(255, 255, 255, 0.5);
   --icons-hover: rgba(255, 255, 255, 1);
@@ -187,6 +211,7 @@
   --btn-active: var(--green);
   --add-img: var(--green);
   --header-btn: var(--green);
+  --header-btn-hover:#9dc888;
   --header-avatar: url(https://res.cloudinary.com/dqwyuuuzd/image/upload/v1718235453/pojpj365oqqbots9321l.png);
   --filter-line: rgba(255, 255, 255, 0.1);
   --filter-sa: rgba(255, 255, 255, 0.5);
@@ -209,9 +234,21 @@
   --scroll-track-bg: rgba(255, 255, 255, 0.08);
   --scroll-thumb-bg: #121212;
 
+  /* Tool tip */
   --pop-up-bg:#1F1F1F;
   --pop-up-tx: rgba(255, 255, 255, 0.5);
   --pop-up-tx-hover:var(--green);
+
+ /* Calendar */
+ --calendar-input:var(--green);
+ --calendar-bg:#1F1f1f;
+ --calendar-day: rgba(255, 255, 255, 0.2);
+ --calendar-hover-box:var(--green);
+ --calendar-hover-text:var(--black);
+
+
+ 
+
 }
 
 html {

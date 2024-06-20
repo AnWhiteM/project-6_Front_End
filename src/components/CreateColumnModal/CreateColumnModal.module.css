@@ -23,7 +23,7 @@
   background: var(--modal-bg);
   color: var(--modal-text);
   border: 1px solid var(--modal-border);
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .createColumnModalOverlay {
@@ -58,6 +58,8 @@
   outline: none;
   opacity: 40%;
   color: var(--modal-text);
+
+  transition: border var(--animation);
 }
 
 .createColumnModalInput:hover,
@@ -70,8 +72,10 @@
   font-weight: 500;
   line-height: 27px;
   letter-spacing: -0.02em;
+  margin-bottom: 25px;
   text-align: left;
   font-family: "Poppins", sans-serif;
+  margin-bottom: 24px;
 }
 
 .error {
@@ -79,7 +83,18 @@
   color: red;
   font-size: 12px;
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
+}
+.inputError {
+  border: 1px solid red;
+}
+.errorContainer{
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .createColumnModalSubmit {
@@ -96,6 +111,9 @@
   height: 49px;
   border-radius: 8px;
   cursor: pointer;
+}
+.createColumnModalSubmit:hover, .createColumnModalSubmit:focus{
+  background-color: var(--btn-hover);
 }
 
 .createColumnModalSpan {

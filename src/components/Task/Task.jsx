@@ -7,22 +7,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteTask, updateOwner } from "../../redux/tasks/operations";
 import { useParams } from "react-router-dom";
 import { selectColumns } from "../../redux/columns/selectors";
+import { DeleteCard } from "../DeleteTaskCardModal/DeleteCard";
 import moment from "moment";
 
 export const Task = ({ task }) => {
   const [editCardModal, setEditCardModal] = useState(false);
+  const [deleteCardModal, setdeleteCardModal] = useState(false)
   const [showTooltip, setShowTooltip] = useState(false);
   const dispatch = useDispatch();
   const { deskId } = useParams();
   const columns = useSelector(selectColumns);
 
-  const openModal = () => {
-    setEditCardModal(true);
-  };
-
-  const closeModal = () => {
+  const closeEditModal = () => {
     setEditCardModal(false);
   };
+
+  const closeDeleteModal = () => {
+    setdeleteCardModal(false)
+  }
 
   function assignColor(priority) {
     let result;
@@ -100,13 +102,16 @@ export const Task = ({ task }) => {
             </p>
           </div>
         </div>
-
+         
         <div className={css.icons}>
+        {moment(new Date()).format("DD/MM/YYYY") === moment(task.deadline).format("DD/MM/YYYY") &&
           <button className={css.wrapIcon}>
             <svg className={css.bell} width="16" height="16">
               <use href={svg + "#icon-bell"}></use>
             </svg>
           </button>
+        }
+          
 
           <div className={css.btns}>
             <button
@@ -117,12 +122,12 @@ export const Task = ({ task }) => {
                 <use href={svg + "#icon-arrow-circle"}></use>
               </svg>
             </button>
-            <button className={css.wrapIcon} onClick={() => openModal()}>
+            <button className={css.wrapIcon} onClick={() => setEditCardModal(true)}>
               <svg className={css.icon} width="16" height="16">
                 <use href={svg + "#icon-pencil"}></use>
               </svg>
             </button>
-            <button className={css.wrapIcon} onClick={handleDelete}>
+            <button className={css.wrapIcon} onClick={() => setdeleteCardModal(true)}>
               <svg className={css.icon} width="16" height="16">
                 <use href={svg + "#icon-trash"}></use>
               </svg>
@@ -151,7 +156,10 @@ export const Task = ({ task }) => {
         </div>
       )}
       {editCardModal && (
-        <EditCard isOpen={editCardModal} isClose={closeModal} task={task} />
+        <EditCard isOpen={editCardModal} isClose={closeEditModal} task={task} />
+      )}
+      {deleteCardModal && (
+        <DeleteCard isOpen={deleteCardModal} isClose={closeDeleteModal} deleteTask={handleDelete} name={task.title} />
       )}
     </div>
   );

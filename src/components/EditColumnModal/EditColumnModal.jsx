@@ -53,20 +53,25 @@ export const EditColumn = ({ isOpen, isClose, column }) => {
           <Formik
             initialValues={{ columnname: column.title }}
             validationSchema={columnModalValidation}
-            portalClassName="createColumnModalContainer"
             onSubmit={handleSubmit}
           >
+            {({ errors, touched }) => (
             <Form autoComplete="off" className={css.editColumnModalForm}>
-              <Field
-                type="text"
-                name="columnname"
-                className={css.editColumnModalInput}
-                placeholder="Title"
-              />{" "}
-              <ErrorMessage
+              <div className={css.errorContainer}>
+            <ErrorMessage
                 className={css.error}
                 component="span"
                 name="columnname"
+              />
+              </div>
+              <Field
+                type="text"
+                name="columnname"
+                className={`${css.editColumnModalInput} ${
+                  errors.columnname && touched.columnname ? css.inputError : ""
+                }`}
+                placeholder="Title"
+                required
               />
               <button type="submit" className={css.editColumnModalSubmit}>
                 <span className={css.editColumnModalSpan}>
@@ -81,6 +86,7 @@ export const EditColumn = ({ isOpen, isClose, column }) => {
                 Edit
               </button>
             </Form>
+            )}
           </Formik>
         </div>
       </Modal>

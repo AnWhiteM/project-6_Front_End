@@ -23,7 +23,6 @@ export default function UserEditModal({ onClose }) {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
-  // ссылка к скрытому тнпуту тип файл
   const fileInputRef = useRef(null);
 
   const handleMenuClick = (ev) => {
@@ -38,9 +37,7 @@ export default function UserEditModal({ onClose }) {
     const file = event.target.files[0];
     if (file) {
       try {
-        //создаем новый объект FormData для отправки файла на сервер
         const formData = new FormData();
-        //добавляем выбранный файл в объект FormData
         formData.append("avatar", file);
         const response = await axios.put(
           "https://project06back.onrender.com/users/avatar",
@@ -53,11 +50,10 @@ export default function UserEditModal({ onClose }) {
         );
         const url = response.data.avatarURL;
         if (url) {
-          // Установ новый URL аватара в стейт пользователя
           dispatch(updAvatarURL(url));
         }
       } catch (error) {
-        console.log(error);
+        console.info(error);
       }
     }
   };
@@ -123,18 +119,18 @@ export default function UserEditModal({ onClose }) {
           <p className={css.txt}>Edit Profile</p>
           <div className={css.avatarContainer}>
             <button
-            
-            type="button"
-            className={css.avatarBtn}
-            onClick={() => handleButtonClick()}>
-            <span
-              className={`${css.avatarBig} ${css.avatar}`}
-              style={
-                user.avatarURL
-                  ? { backgroundImage: `url(${user.avatarURL})` }
-                  : {}
-              }
-            />
+              type="button"
+              className={css.avatarBtn}
+              onClick={() => handleButtonClick()}
+            >
+              <span
+                className={`${css.avatarBig} ${css.avatar}`}
+                style={
+                  user.avatarURL
+                    ? { backgroundImage: `url(${user.avatarURL})` }
+                    : {}
+                }
+              />
             </button>
 
             <button
@@ -164,50 +160,61 @@ export default function UserEditModal({ onClose }) {
               onSubmit={handleSubmit}
               validationSchema={ValidationSchema}
             >
-              <Form className={css.forma} autoComplete="off">
-                <div className={css.formGroup}>
-                  <label htmlFor="name" className={css.formLabel} />
-                  <Field
-                    type="text"
-                    name="name"
-                    className={css.formInput}
-                    placeholder="Name"
-                  />
-                  <ErrorMessage
-                    name="name"
-                    component="span"
-                    className={css.error}
-                  />
-                </div>
-                <div className={css.formGroup}>
-                  <label htmlFor="email" className={css.formLabel} />
-                  <Field
-                    type="text"
-                    name="email"
-                    className={css.formInput}
-                    placeholder="Email"
-                  />
-                  <ErrorMessage
-                    name="email"
-                    component="span"
-                    className={css.error}
-                  />
-                </div>
-                <div className={css.formGroup}>
-                  <label htmlFor="password" className={css.formLabel} />
+              {({ errors, touched }) => (
+                <Form className={css.forma} autoComplete="off">
+                  <div className={css.formGroup}>
+                    <div className={css.errorContainer}>
+                      <ErrorMessage
+                        name="name"
+                        component="span"
+                        className={css.error}
+                      />
+                    </div>
 
-                  <PasswordField />
-                  <ErrorMessage
-                    name="password"
-                    component="span"
-                    className={css.error}
-                  />
-                </div>
+                    <Field
+                      type="text"
+                      name="name"
+                      className={`${css.formInput} ${
+                        errors.name && touched.name ? css.inputError : ""
+                      }`}
+                      placeholder="Name"
+                    />
+                  </div>
+                  <div className={css.formGroup}>
+                    <div className={css.errorContainer}>
+                      <ErrorMessage
+                        name="email"
+                        component="span"
+                        className={css.error}
+                      />
+                    </div>
 
-                <button type="submit" className={css.btn}>
-                  Send
-                </button>
-              </Form>
+                    <Field
+                      type="text"
+                      name="email"
+                      className={`${css.formInput} ${
+                        errors.email && touched.email ? css.inputError : ""
+                      }`}
+                      placeholder="Email"
+                      s
+                    />
+                  </div>
+                  <div className={css.formGroup}>
+                    <div className={css.errorContainer}>
+                      <ErrorMessage
+                        name="password"
+                        component="span"
+                        className={css.error}
+                      />
+                    </div>
+                    <PasswordField />
+                  </div>
+
+                  <button type="submit" className={css.btn}>
+                    Send
+                  </button>
+                </Form>
+              )}
             </Formik>
           </div>
         </div>

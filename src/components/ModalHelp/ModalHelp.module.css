@@ -1,11 +1,3 @@
-.icon {
-  position: absolute;
-  stroke: var(--modal-text);
-  top: 14px;
-  right: 14px;
-  background: none;
-  cursor: pointer;
-}
 .overlay {
   position: fixed;
   inset: 0;
@@ -13,8 +5,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 13;
+  z-index: 99;
 }
+
 .modal {
   position: fixed;
   top: 50%;
@@ -25,7 +18,18 @@
   padding: 24px;
   width: 335px;
   border: 1px solid var(--modal-border);
+  z-index: 999;
 }
+
+.icon {
+  position: absolute;
+  stroke: var(--modal-text);
+  top: 14px;
+  right: 14px;
+  background: none;
+  cursor: pointer;
+}
+
 .form {
   width: 100%;
   padding: 24px;
@@ -44,91 +48,87 @@
   color: var(--modal-text);
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
+.formGroup {
+  position: relative;
 }
 
-.input {
-  margin-bottom: 14px;
-}
 .input,
-.inputText {
+.textArea {
   padding: 14px 18px;
   border-radius: 8px;
-  /* width: 287px; */
   width: 100%;
   height: 49px;
   background-color: var(--modal-input);
   color: var(--modal-text);
   border: 1px solid var(--modal-border);
-  outline: none;
-  opacity: 0.4;
-}
-
-.input:hover,
-.input:focus,
-.inputText:hover,
-.inputText:focus {
-  opacity: 1;
-}
-
-.input::placeholder {
   font-size: 14px;
   letter-spacing: -0.02em;
+  font-weight: 400;
+  box-shadow: none;
+  outline: none;
+  
+  transition: border var(--animation);
 }
 
-.inputText {
-  /* margin-bottom: 24px; */
-  /* width: 287px; */
+.input {
+  margin-bottom: 18px;
+}
+
+.textArea {
+  margin-bottom: 24px;
   height: 120px;
   resize: none;
 }
 
-.inputText::placeholder {
+.input:hover,
+.input:focus,
+.textArea:hover,
+.textArea:focus {
+  opacity: 1;
+}
+
+.input::placeholder,
+.textArea::placeholder {
   text-align: start;
 }
 
-/* .errorMessage {
-  color: red;
-  font-size: 8px;
-  margin-top: 8px;
-} */
-
-.formGroup {
-  position: relative;
+.errorContainer {
+  position: absolute;
+  top: -14px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.errorMessage {
+.error {
+  height: 0px;
   color: red;
   font-size: 12px;
   text-align: left;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-.errorMessage2 {
-  composes: errorMessage;
+  margin-bottom: 5px;
   bottom: initial;
 }
+
+.inputError,
+.textAreaError {
+  border: 1px solid red;
+  opacity: 100%;
+}
+
 .button {
   padding: 8px 16px;
   background-color: var(--btn-color);
   color: var(--plus-btn);
   border: none;
-  /* width: 287px; */
   width: 100%;
   border-radius: 8px;
   cursor: pointer;
-  margin-top: 24px;
 }
 
 .button:hover,
 .button:focus {
-  background-color: #9dc888;
+  background-color: var(--btn-hover);
 }
 
 @media screen and (min-width: 768px) {

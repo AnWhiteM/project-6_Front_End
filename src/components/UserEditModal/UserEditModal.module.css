@@ -34,8 +34,8 @@
   width: 18px;
   height: 18px;
 }
-.icon{
-  stroke:var(--modal-text);
+.icon {
+  stroke: var(--modal-text);
 }
 
 .txt {
@@ -54,7 +54,6 @@
   align-items: center;
   text-align: center;
   border-radius: 8px;
-  /* margin-top: 24px; */
   margin-top: 14px;
 }
 
@@ -66,6 +65,11 @@
   padding: 0;
 }
 
+.avatarBig {
+  width: 68px;
+  height: 68px;
+}
+
 .plusBtn {
   border: none;
   background-color: var(--add-img);
@@ -75,8 +79,14 @@
   position: absolute;
   top: 60px;
   cursor: pointer;
+  transition: background-color var(--animation);
 }
-.avatarBtn{
+
+.plusBtn:hover {
+  background-color: var(--header-btn-hover);
+}
+
+.avatarBtn {
   border: none;
   background: none;
   margin: 0;
@@ -97,10 +107,12 @@
   outline: none;
   box-shadow: none;
   position: relative;
+
+  transition: border var(--animation);
 }
 
 .formInput:focus {
-  border: 2px solid var(--modal-border);
+  border: 1px solid var(--modal-border);
 }
 
 .formGroup {
@@ -112,9 +124,20 @@
   color: red;
   font-size: 12px;
   text-align: left;
+  margin-bottom: 5px;
+}
+.errorContainer {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: -14px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.inputError {
+  border: 1px solid red;
+  opacity: 100%;
 }
 
 .forma {
@@ -141,6 +164,11 @@
   padding-top: 10px;
   width: 100%;
   margin-top: 10px;
+  transition: background-color var(--animation);
+}
+.btn:hover,
+.btn:focus {
+  background-color: var(--header-btn-hover);
 }
 
 .eye {
@@ -151,11 +179,6 @@
   top: 50%;
   transform: translateY(-50%);
   right: 18px;
-}
-
-.avatarBig {
-  width: 68px;
-  height: 68px;
 }
 
 .avatar {

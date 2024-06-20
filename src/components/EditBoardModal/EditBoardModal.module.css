@@ -17,7 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 13;
+  z-index: 99;
 }
 .modal {
   position: fixed;
@@ -29,6 +29,7 @@
   padding: 24px;
   width: 335px;
   border: 1px solid var(--modal-border);
+  z-index: 999;
 }
 
 .btnClose {

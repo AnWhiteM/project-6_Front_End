@@ -46,7 +46,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 13;
+
+  z-index: 99;
 }
 .modal {
   position: fixed;

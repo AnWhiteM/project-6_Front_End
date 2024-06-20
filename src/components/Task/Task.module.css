@@ -133,7 +133,8 @@
     background-color: var(--pop-up-bg);
     padding: 18px 18px 10px 18px;
     font-size: 14px;
-    right: 0;
+    top: 230px;
+    right: -15px;
     transform: translateX(-60px) translateY(-115px);
   }
   

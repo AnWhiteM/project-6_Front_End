@@ -103,25 +103,43 @@ export const CreateCard = ({ isOpen, isClose, column }) => {
           validationSchema={columnModalValidation}
           onSubmit={handleSubmit}
         >
+          {({ errors, touched }) => (
           <Form autoComplete="off" className={css.createCardModalForm}>
+          <label htmlFor="title" />
+          <div className={css.errorContainer1}>
+                <ErrorMessage
+                  name="title"
+                  component="span"
+                  className={css.error}
+                />
+              </div>
             <Field
               type="text"
               name="title"
-              className={css.createCardModalInput1}
+              className={`${css.createCardModalInput1} ${
+                errors.title && touched.title ? css.inputError : ""
+              }`}
               placeholder="Title"
             />
-            <ErrorMessage className={css.error} component="span" name="title" />
+           
+           
+            <label htmlFor="description" />
+            <div className={css.errorContainer2}>
+                <ErrorMessage
+                  name="description"
+                  component="span"
+                  className={css.error}
+                />
+              </div>
             <Field
               as="textarea"
               name="description"
-              className={css.createCardModalInput2}
+              className={`${css.createCardModalInput2} ${
+                errors.description && touched.description ? css.inputError : ""
+              }`}
               placeholder="Description"
             />
-            <ErrorMessage
-              className={css.error}
-              component="span"
-              name="description"
-            />
+            
             <label className={css.createCardModalLabel}>
               Label color
               <ul className={css.createCardModalRadioList}>
@@ -177,6 +195,7 @@ export const CreateCard = ({ isOpen, isClose, column }) => {
               Add
             </button>
           </Form>
+          )}
         </Formik>
       </div>
     </Modal>

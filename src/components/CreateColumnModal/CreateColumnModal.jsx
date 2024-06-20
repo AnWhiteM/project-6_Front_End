@@ -57,18 +57,23 @@ export const CreateColumn = ({ isOpen, isClose, board }) => {
             validationSchema={columnModalValidation}
             onSubmit={handleSubmit}
           >
+            {({ errors, touched }) => (
             <Form autoComplete="off" className={css.createColumnModalForm}>
-              <Field
-                type="text"
-                name="title"
-                className={css.createColumnModalInput}
-                placeholder="Title"
-                required
-              />
-              <ErrorMessage
+              <div className={css.errorContainer}>
+            <ErrorMessage
                 className={css.error}
                 component="span"
                 name="title"
+              />
+              </div>
+              <Field
+                type="text"
+                name="title"
+                className={`${css.createColumnModalInput} ${
+                  errors.title && touched.title ? css.inputError : ""
+                }`}
+                placeholder="Title"
+                required
               />
               <button type="submit" className={css.createColumnModalSubmit}>
                 <span className={css.createColumnModalSpan}>
@@ -83,6 +88,7 @@ export const CreateColumn = ({ isOpen, isClose, board }) => {
                 Add
               </button>
             </Form>
+            )}
           </Formik>
         </div>
       </Modal>

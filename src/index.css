@@ -79,9 +79,18 @@
   --scroll-track-bg: #e8e8e8;
   --scroll-thumb-bg: rgba(22, 22, 22, 0.1);
 
+
+  /* Tool tip */
   --pop-up-bg:#FCFCFC;
   --pop-up-tx:rgba(22,22,22,1);
   --pop-up-tx-hover:var(--green);
+
+  /* Calendar */
+ --calendar-input:var(--green);
+ --calendar-bg:var(--white);
+ --calendar-day: rgba(22,22,22,0.2);
+ --calendar-hover-box:var(--green);
+ --calendar-hover-text:var(--black);
 }
 
 .violet-theme {
@@ -144,9 +153,19 @@
   --scroll-track-bg: #fff;
   --scroll-thumb-bg: #b8bcfd;
 
+
+  /* Tool tip */
   --pop-up-bg:#FCFCFC;
   --pop-up-tx:rgba(22,22,22,1);
   --pop-up-tx-hover:var(--violet);
+
+
+  /* Calendar */
+ --calendar-input:var(--violet);
+ --calendar-bg:var(--white);
+ --calendar-day: rgba(22,22,22,0.2);
+ --calendar-hover-box:var(--violet);
+ --calendar-hover-text:var(--white);
 }
 
 .dark-theme {
@@ -209,9 +228,18 @@
   --scroll-track-bg: rgba(255, 255, 255, 0.08);
   --scroll-thumb-bg: #121212;
 
+  /* Tool tip */
   --pop-up-bg:#1F1F1F;
   --pop-up-tx: rgba(255, 255, 255, 0.5);
   --pop-up-tx-hover:var(--green);
+
+ /* Calendar */
+ --calendar-input:var(--green);
+ --calendar-bg:#1F1f1f;
+ --calendar-day: rgba(255, 255, 255, 0.2);
+ --calendar-hover-box:var(--green);
+ --calendar-hover-text:var(--black);
+
 }
 
 html {

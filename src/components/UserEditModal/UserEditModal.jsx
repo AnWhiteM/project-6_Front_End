@@ -164,50 +164,65 @@ export default function UserEditModal({ onClose }) {
               onSubmit={handleSubmit}
               validationSchema={ValidationSchema}
             >
+              {({ errors, touched }) => (
               <Form className={css.forma} autoComplete="off">
                 <div className={css.formGroup}>
                   <label htmlFor="name" className={css.formLabel} />
-                  <Field
-                    type="text"
-                    name="name"
-                    className={css.formInput}
-                    placeholder="Name"
-                  />
+                  <div className={css.errorContainer}>
                   <ErrorMessage
                     name="name"
                     component="span"
                     className={css.error}
                   />
+                  </div>
+          
+                  <Field
+                    type="text"
+                    name="name"
+                    className={`${css.formInput} ${
+                      errors.name && touched.name ? css.inputError : ""
+                    }`}
+                    placeholder="Name"
+                  />
+                  
                 </div>
                 <div className={css.formGroup}>
                   <label htmlFor="email" className={css.formLabel} />
-                  <Field
-                    type="text"
-                    name="email"
-                    className={css.formInput}
-                    placeholder="Email"
-                  />
+                  <div className={css.errorContainer}>
                   <ErrorMessage
                     name="email"
                     component="span"
                     className={css.error}
                   />
+                  </div>
+          
+                  <Field
+                    type="text"
+                    name="email"
+                    className={`${css.formInput} ${
+                      errors.email && touched.email ? css.inputError : ""
+                    }`}
+                    placeholder="Email"s
+                  />
+                  
                 </div>
                 <div className={css.formGroup}>
                   <label htmlFor="password" className={css.formLabel} />
-
-                  <PasswordField />
+                  <div className={css.errorContainer}>
                   <ErrorMessage
                     name="password"
                     component="span"
                     className={css.error}
                   />
+                  </div>
+                  <PasswordField />
                 </div>
 
                 <button type="submit" className={css.btn}>
                   Send
                 </button>
               </Form>
+              )}
             </Formik>
           </div>
         </div>

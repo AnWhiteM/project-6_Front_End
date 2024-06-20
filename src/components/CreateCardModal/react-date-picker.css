@@ -1,5 +1,8 @@
 .react-datepicker__month-container {
   padding: 18px;
+  background-color: var(--calendar-bg);
+  border-radius: 12px;
+  border: 1px solid var(--modal-border);
 }
 
 .react-datepicker__header {
@@ -14,9 +17,8 @@ h2.react-datepicker__current-month {
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.02em;
-  border-bottom: 1px solid;
-  border-color: #ffffff;
-  color: #ffffff;
+  border-bottom: 1px solid var(--calendar-day);
+  color: var(--modal-text);
 }
 
 .react-datepicker__navigation {
@@ -26,8 +28,9 @@ h2.react-datepicker__current-month {
 .react-datepicker__day-name {
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: var(--filter-sa);
 }
+
 
 .react-datepicker__day {
   gap: 11px;
@@ -40,21 +43,21 @@ h2.react-datepicker__current-month {
   height: 23px;
   line-height: 1.28;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: var(--btn-inactive);
 }
 
 .react-datepicker__day:hover,
 .react-datepicker__day--selected {
   border-radius: 50%;
-  background-color: #bedbb0;
-  color: #000000;
+  background-color: var(--calendar-hover-box);
+  color: var(--calendar-hover-text);
 }
 
 .react-datepicker__day--disabled {
-  color: #000000;
+  color: var(--btn-inactive);
 }
 .react-datepicker__day--disabled:hover {
-  background-color: #000000;
+  background-color: var(--btn-color);
 }
 
 .react-datepicker__day--keyboard-selected,
@@ -72,5 +75,5 @@ h2.react-datepicker__current-month {
 }
 
 .react-datepicker__day--outside-month {
-  visibility: hidden;
+  color: var(--calendar-day);
 }

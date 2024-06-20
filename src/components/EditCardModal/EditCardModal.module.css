@@ -74,7 +74,7 @@ input[type="radio"]:checked {
   color: red;
   font-size: 12px;
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .wrapper {
@@ -86,17 +86,17 @@ input[type="radio"]:checked {
   height: 20px;
   font-size: 14px;
   border: none;
-  color: #bedbb0;
+  color: var(--calendar-input);
   position: relative;
   background-color: transparent;
   padding-left: 0px;
   outline: none;
   margin-top: 4px;
+  cursor: pointer;
 }
-
 .dateIcon.calendarIcon.Icon {
   position: absolute;
-  stroke: #bedbb0;
+  stroke: var(--calendar-input);
   width: 20px;
   height: 20px;
   padding: 0px;
@@ -105,8 +105,7 @@ input[type="radio"]:checked {
 }
 
 .calendarModal.calendarContainer {
-  color: #ffffff;
-  background-color: #000000;
+  background-color: transparent;
   border: none;
   font-family: inherit;
 }
@@ -191,6 +190,16 @@ input[type="radio"]:checked {
   flex-direction: column;
 }
 
+.errorContainer1 {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+
 .editCardModalInput1 {
   background: var(--modal-bg);
   border: 1px solid var(--modal-border);
@@ -202,6 +211,17 @@ input[type="radio"]:checked {
   outline: none;
   opacity: 40%;
   color: var(--modal-text);
+
+  transition: border var(--animation);
+}
+
+.errorContainer2 {
+  position: absolute;
+  top: 135px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .editCardModalInput2 {
@@ -219,6 +239,12 @@ input[type="radio"]:checked {
   box-sizing: border-box;
   vertical-align: top;
   word-wrap: break-word;
+
+  transition: border var(--animation);
+}
+
+.inputError {
+  border: 1px solid red;
 }
 
 .editCardModalInput1:hover,

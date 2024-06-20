@@ -80,29 +80,42 @@ export const EditCard = ({ isOpen, isClose, task }) => {
             validationSchema={taskModalValidation}
             onSubmit={handleSubmit}
           >
+            {({ errors, touched }) => (
             <Form autoComplete="off" className={css.editCardModalForm}>
+              <label htmlFor="cardtitle" />
+              <div className={css.errorContainer1}>
+                <ErrorMessage
+                  name="cardtitle"
+                  component="span"
+                  className={css.error}
+                />
+              </div>
               <Field
                 type="text"
                 name="cardtitle"
-                className={css.editCardModalInput1}
+                className={`${css.editCardModalInput1} ${
+                  errors.cardtitle && touched.cardtitle ? css.inputError : ""
+                }`}
                 placeholder="Title"
               />
-              <ErrorMessage
-                className={css.error}
-                component="span"
-                name="cardtitle"
-              />
+              
+              <label htmlFor="carddescription" />
+              <div className={css.errorContainer2}>
+                <ErrorMessage
+                  name="carddescription"
+                  component="span"
+                  className={css.error}
+                />
+              </div>
               <Field
                 as="textarea"
                 name="carddescription"
-                className={css.editCardModalInput2}
+                className={`${css.editCardModalInput2} ${
+                  errors.carddescription && touched.carddescription ? css.inputError : ""
+                }`}
                 placeholder="Description"
               />
-              <ErrorMessage
-                className={css.error}
-                component="span"
-                name="carddescription"
-              />
+              
               <label className={css.editCardModalLabel}>
                 Label color
                 <div className={css.editCardModalRadioContainer}>
@@ -185,6 +198,7 @@ export const EditCard = ({ isOpen, isClose, task }) => {
                 Edit
               </button>
             </Form>
+            )}
           </Formik>
         </div>
       </Modal>

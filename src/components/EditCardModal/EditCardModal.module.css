@@ -281,6 +281,10 @@ input[type="radio"]:checked {
   cursor: pointer;
 }
 
+.editCardModalSubmit:hover, .editCardModalSubmit:focus{
+  background-color:var(--btn-hover);
+}
+
 .editCardModalSpan {
   width: 28px;
   height: 28px;

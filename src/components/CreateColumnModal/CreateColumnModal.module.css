@@ -112,6 +112,9 @@
   border-radius: 8px;
   cursor: pointer;
 }
+.createColumnModalSubmit:hover, .createColumnModalSubmit:focus{
+  background-color: var(--btn-hover);
+}
 
 .createColumnModalSpan {
   width: 28px;

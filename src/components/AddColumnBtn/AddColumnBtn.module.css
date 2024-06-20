@@ -9,6 +9,11 @@
   background: var(--add-column-bg);
   width: 334px;
   height: 56px;
+  
+}
+
+.openModalBtn:hover, .openModalBtn:focus{
+  background-color: var(--btn-hover2);
 }
 
 .iconBox {

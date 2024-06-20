@@ -66,6 +66,11 @@
   padding: 0;
 }
 
+.avatarBig {
+  width: 68px;
+  height: 68px;
+}
+
 .plusBtn {
   border: none;
   background-color: var(--add-img);
@@ -75,13 +80,25 @@
   position: absolute;
   top: 60px;
   cursor: pointer;
+  transition: background-color var(--animation);
 }
+
+.plusBtn:hover{
+  background-color: var(--header-btn-hover);
+}
+
+
+
 .avatarBtn{
   border: none;
   background: none;
   margin: 0;
   padding: 0;
 }
+
+
+
+
 
 .formInput {
   padding: 14px 18px;
@@ -152,6 +169,10 @@
   padding-top: 10px;
   width: 100%;
   margin-top: 10px;
+  transition: background-color var(--animation);
+}
+.btn:hover, .btn:focus{
+  background-color: var(--header-btn-hover);
 }
 
 .eye {
@@ -164,10 +185,6 @@
   right: 18px;
 }
 
-.avatarBig {
-  width: 68px;
-  height: 68px;
-}
 
 .avatar {
   display: block;

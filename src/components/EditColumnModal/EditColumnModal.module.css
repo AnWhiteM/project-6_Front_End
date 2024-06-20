@@ -106,6 +106,10 @@
   cursor: pointer;
 }
 
+.editColumnModalSubmit:hover, .editColumnModalSubmit:focus{
+  background-color: var(--btn-hover);
+}
+
 .editColumnModalSpan {
   width: 28px;
   height: 28px;
